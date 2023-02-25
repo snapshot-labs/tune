@@ -13,12 +13,13 @@
     --gray-medium: 179 179 179; // border and background color
     --gray-dark: 74 74 74; // border and background color
 
+    // message colors
     --success-color: 40 199 111;
     --danger-color: 255 73 113;
     --warning-color: 254 183 40;
     --info-color: 91 143 249;
 
-    --default-border-radius: 6px;
-    --button-border-radius: 6px;
+    --default-border-radius: 6px; // default radius
+    --button-border-radius: 6px; // button radius
   }
 }
