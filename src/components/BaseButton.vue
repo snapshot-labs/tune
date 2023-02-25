@@ -18,7 +18,7 @@ const props = withDefaults(
 
 const buttonClasses = computed(() => {
   if (props.primary) return 'border-none bg-primary text-light';
-  return 'border border-gray-dark text-dark';
+  return 'border border-gray-dark text-dark bg-transparent';
 });
 </script>
 
