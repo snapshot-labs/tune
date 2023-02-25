@@ -11,13 +11,22 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
+  "prettier": "@snapshot-labs/prettier-config",
+  "eslintConfig": {
+    "extends": [
+      "@snapshot-labs/vue"
+    ]
+  },
   "dependencies": {
     "vue": "^3.2.45"
   },
   "devDependencies": {
     "@histoire/plugin-vue": "^0.15.8",
+    "@snapshot-labs/eslint-config-vue": "^0.1.0-beta.7",
+    "@snapshot-labs/prettier-config": "^0.1.0-beta.7",
     "@vitejs/plugin-vue": "^4.0.0",
     "histoire": "^0.15.8",
+    "prettier": "^2.8.4",
     "sass": "^1.58.3",
     "tailwindcss": "^3.2.7",
     "typescript": "^4.9.3",
