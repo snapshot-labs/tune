@@ -1,6 +1,6 @@
 # Snapshot components
 
-```
+```js
 // install
 yarn add @snapshot/tune
 ```
