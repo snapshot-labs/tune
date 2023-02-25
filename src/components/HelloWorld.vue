@@ -28,4 +28,6 @@ const count = ref(0);
     in your IDE for a better DX
   </p>
   <p class="p-5 text-primary">Click on the Vite and Vue logos to learn more</p>
+
+  <BaseButton> test </BaseButton>
 </template>
