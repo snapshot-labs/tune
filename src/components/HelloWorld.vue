@@ -27,7 +27,7 @@ const count = ref(0);
     <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
     in your IDE for a better DX
   </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+  <p class="read-the-docs p-5">Click on the Vite and Vue logos to learn more</p>
 </template>
 
 <style scoped>
