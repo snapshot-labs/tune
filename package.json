@@ -4,6 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "story:dev": "histoire dev",
+    "story:build": "histoire build",
+    "story:preview": "histoire preview",
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
@@ -12,7 +15,9 @@
     "vue": "^3.2.45"
   },
   "devDependencies": {
+    "@histoire/plugin-vue": "^0.15.8",
     "@vitejs/plugin-vue": "^4.0.0",
+    "histoire": "^0.15.8",
     "sass": "^1.58.3",
     "tailwindcss": "^3.2.7",
     "typescript": "^4.9.3",
