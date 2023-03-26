@@ -1,3 +1,5 @@
-import BaseButton from './components/BaseButton.vue';
+import TuneButton from "./components/TuneButton.vue";
+import TuneLoadingSpinner from "./components/TuneLoadingSpinner.vue";
+import "./style.scss";
 
-export default { BaseButton };
+export { TuneButton, TuneLoadingSpinner };

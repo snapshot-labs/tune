@@ -1,23 +1,25 @@
 <script setup lang="ts">
+import TuneLoadingSpinner from "./TuneLoadingSpinner.vue";
+
 const props = withDefaults(
   defineProps<{
-    type?: 'button' | 'submit' | 'reset';
+    type?: "button" | "submit" | "reset";
     primary?: boolean;
     loading?: boolean;
     disabled?: boolean;
   }>(),
   {
+    type: "button",
     primary: false,
     loading: false,
-    type: 'button',
-    disabled: false
+    disabled: false,
   }
 );
 </script>
 
 <template>
   <button :type="type" class="button" :disabled="disabled || loading">
-    <LoadingSpinner v-if="loading" />
+    <TuneLoadingSpinner v-if="loading" />
     <slot v-else />
   </button>
 </template>
