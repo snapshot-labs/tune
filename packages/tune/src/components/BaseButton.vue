@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-
 const props = withDefaults(
   defineProps<{
     type?: 'button' | 'submit' | 'reset';
@@ -15,25 +13,15 @@ const props = withDefaults(
     disabled: false
   }
 );
-
-const buttonClasses = computed(() => {
-  if (props.primary) return 'border-none bg-primary text-light';
-  return 'border border-gray-dark text-dark bg-transparent';
-});
 </script>
 
 <template>
-  <button
-    :type="type"
-    :class="['rounded-button border border-gray-dark text-dark', buttonClasses]"
-    :disabled="disabled || loading"
-  >
+  <button :type="type" class="button" :disabled="disabled || loading">
     <LoadingSpinner v-if="loading" />
     <slot v-else />
   </button>
 </template>
 
-<!-- 
 <style scoped lang="scss">
 .button {
   border: 1px solid var(--border-color);
@@ -71,4 +59,4 @@ const buttonClasses = computed(() => {
     cursor: not-allowed;
   }
 }
-</style> -->
+</style>

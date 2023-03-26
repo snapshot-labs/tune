@@ -8,6 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+dist
 
 # ignore demo-app node_modules directory
 packages/demo-app/node_modules/
