@@ -1,6 +1,6 @@
 # Tune Component Library
 
-Tune is a component library designed for creating beautiful web3 governance apps.
+Tune is a Vue 3 component library designed for creating beautiful web3 governance apps.
 
 ## Installation
 
