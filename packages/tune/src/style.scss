@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   color-scheme: dark;
   --primary-color: #384aff;
@@ -9,4 +13,66 @@
   --header-bg: #1c1b20;
   --block-bg: transparent;
   --shadow-color: #fff1;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+%input-shared {
+  font-size: 16px;
+  padding: 6px 12px;
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: full;
+
+  &:focus {
+    border-color: var(--text-color);
+    outline: 0;
+  }
+}
+
+input,
+textarea,
+select,
+.tune-input {
+  @extend %input-shared;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--text-color);
+  outline: 0;
+}
+
+button {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  font-size: 16px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: var(--border-color);
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    background-color: var(--text-color);
+  }
+}
+
+a {
+  color: var(--link-color);
+
+  &:hover {
+    cursor: pointer;
+  }
 }
