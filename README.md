@@ -18,6 +18,7 @@ Tune uses Histoire for developing and previewing component stories in isolation.
 
 ```bash
 cd packages/tune
+yarn
 yarn story:dev
 ```
 
