@@ -23,7 +23,7 @@ body {
 }
 
 button {
-  @apply cursor-pointer rounded border border-skin-border bg-transparent px-3 py-1 text-sm text-skin-text hover:border-skin-text disabled:cursor-not-allowed disabled:border-skin-border disabled:bg-skin-border;
+  @apply cursor-pointer rounded-full border border-skin-border bg-transparent px-3 py-2 text-sm text-skin-text hover:border-skin-text disabled:cursor-not-allowed disabled:border-skin-border disabled:bg-skin-border;
 }
 
 a {
