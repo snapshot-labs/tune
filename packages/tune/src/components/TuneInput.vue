@@ -21,7 +21,7 @@ const props = withDefaults(
     maxLength?: number;
     readonly?: boolean;
     disable?: boolean;
-    definition: any;
+    element?: any;
   }>(),
   {
     label: "",
@@ -36,13 +36,13 @@ const props = withDefaults(
     maxLength: undefined,
     readonly: false,
     disable: false,
-    definition: {},
+    element: {},
   }
 );
 
 defineEmits(["update:modelValue"]);
 
-const inputRef = ref<HTMLDivElement | undefined>(undefined);
+const inputRef = ref();
 
 const showErrorMessage = ref(false);
 
@@ -63,8 +63,8 @@ onMounted(() => {
 
 <template>
   <div>
-    <TuneLabelInput v-if="label || definition?.label" :hint="hint">
-      {{ label ?? definition.label }}
+    <TuneLabelInput v-if="label || element?.label" :hint="hint">
+      {{ label || element.label }}
     </TuneLabelInput>
     <div class="flex">
       <div :class="['group relative z-10 flex', { 'w-full': block }]">
@@ -85,8 +85,7 @@ onMounted(() => {
             { 'cursor-not-allowed placeholder:!opacity-30': disable },
             { 'w-full': block },
           ]"
-          :maxlength="maxLength ?? definition?.maxLength"
-          :placeholder="placeholder ?? definition?.examples?.[0] ?? ''"
+          :placeholder="placeholder || element?.placeholder || ''"
           :readonly="readonly"
           :disabled="disable"
           @blur="error ? (showErrorMessage = true) : null"
