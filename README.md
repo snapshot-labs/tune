@@ -17,6 +17,7 @@ yarn add @snapshot-labs/tune
 Tune uses Histoire for developing and previewing component stories in isolation. To run Histoire for component stories, execute the following command:
 
 ```bash
+cd packages/tune
 yarn story:dev
 ```
 
