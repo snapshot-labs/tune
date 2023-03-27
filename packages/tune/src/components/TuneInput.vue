@@ -106,7 +106,7 @@ onMounted(() => {
             v-if="error && showErrorMessage"
             class="text-red"
           />
-          <TuneLoadingSpinner v-else-if="loading" class="pb-[3px]" />
+          <TuneLoadingSpinner v-else-if="loading" />
         </div>
         <div
           v-else-if="$slots.after"
