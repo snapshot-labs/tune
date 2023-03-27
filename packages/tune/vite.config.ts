@@ -1,3 +1,4 @@
+/// <reference types="histoire" />
 import { resolve } from "path";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
@@ -14,9 +15,9 @@ export default defineConfig({
     Components({
       resolvers: [
         IconsResolver({
-          customCollections: ["s"],
+          customCollections: ["tune"],
           alias: {
-            hi: "heroicons",
+            hero: "heroicons",
           },
         }),
       ],
@@ -24,7 +25,7 @@ export default defineConfig({
     Icons({
       compiler: "vue3",
       customCollections: {
-        ti: FileSystemIconLoader("./src/assets/icons", (svg) =>
+        tune: FileSystemIconLoader("./src/assets/icons", (svg) =>
           svg.replace(/^<svg /, '<svg fill="currentColor" ')
         ),
       },

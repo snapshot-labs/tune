@@ -1,26 +1,32 @@
 {
   "name": "tune",
   "description": "Web3 governance components for Vue 3",
-  "version": "0.0.28",
+  "version": "0.0.33",
   "type": "module",
   "main": "dist/tune.umd.js",
   "module": "dist/tune.es.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "vue-tsc --noEmit && vite build",
+    "story:dev": "histoire dev",
+    "story:build": "histoire build",
+    "story:preview": "histoire preview",
     "dev": "vue-tsc --noEmit && vite dev"
   },
   "dependencies": {
     "sass": "^1.60.0",
-    "vue": "^3.2.47"
+    "vue": "^3.2.47",
+    "vue-tippy": "^6.0.0"
   },
   "devDependencies": {
+    "@histoire/plugin-vue": "^0.15.8",
     "@iconify-json/heroicons": "^1.1.10",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@types/node": "^18.15.10",
     "@vitejs/plugin-vue": "^4.1.0",
     "autoprefixer": "^10.4.14",
+    "histoire": "^0.15.9",
     "postcss": "^8.4.21",
     "prettier": "^2.8.7",
     "prettier-plugin-tailwindcss": "^0.2.5",

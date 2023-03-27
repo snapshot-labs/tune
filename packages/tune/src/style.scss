@@ -3,76 +3,116 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
   --primary-color: #384aff;
-  --bg-color: #211f24;
-  --text-color: #8b949e;
-  --link-color: #ffffff;
-  --heading-color: #ffffff;
-  --border-color: #2d2d2d;
-  --header-bg: #1c1b20;
+  --bg-color: white;
+  --text-color: #57606a;
+  --link-color: #444444;
+  --heading-color: #111111;
+  --border-color: #e0e0e0;
+  --header-bg: white;
   --block-bg: transparent;
-  --shadow-color: #fff1;
+  --shadow-color: #0001;
 }
 
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  @apply bg-skin-bg font-sans text-sm text-skin-text;
 }
 
-%input-shared {
-  font-size: 16px;
-  padding: 6px 12px;
-  background-color: transparent;
-  color: var(--text-color);
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  box-sizing: border-box;
-  width: full;
-
-  &:focus {
-    border-color: var(--text-color);
-    outline: 0;
-  }
-}
-
-input,
-textarea,
-select,
 .tune-input {
-  @extend %input-shared;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-  border-color: var(--text-color);
-  outline: 0;
+  @apply rounded-full border border-skin-border bg-skin-bg px-3 py-2 text-sm text-skin-text focus:border-skin-text focus:outline-none focus:ring-0;
 }
 
 button {
-  background-color: transparent;
-  border: 1px solid var(--border-color);
-  color: var(--text-color);
-  font-size: 16px;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-
-  &:disabled {
-    background-color: var(--border-color);
-    cursor: not-allowed;
-  }
-
-  &:hover {
-    background-color: var(--text-color);
-  }
+  @apply cursor-pointer rounded border border-skin-border bg-transparent px-3 py-1 text-sm text-skin-text hover:border-skin-text disabled:cursor-not-allowed disabled:border-skin-border disabled:bg-skin-border;
 }
 
 a {
-  color: var(--link-color);
+  @apply text-skin-link;
 
   &:hover {
-    cursor: pointer;
+    @apply cursor-pointer;
   }
+}
+
+::placeholder {
+  opacity: 0.6 !important;
+}
+
+// V-Tippy tooltip package styling - could be moved somewhere else?
+.tippy-box[data-animation="fade"][data-state="hidden"] {
+  opacity: 0;
+}
+[data-tippy-root] {
+  max-width: calc(100vw - 10px);
+}
+.tippy-box {
+  position: relative;
+  background-color: var(--text-color);
+  color: var(--header-bg);
+  border-radius: 7px;
+  font-size: 14px;
+  line-height: 1.4;
+  outline: 0;
+  transition-property: transform, visibility, opacity;
+  padding: 2px 4px;
+  text-align: center;
+  font-weight: 500;
+}
+.tippy-box[data-placement^="top"] > .tippy-arrow {
+  bottom: 0;
+}
+.tippy-box[data-placement^="top"] > .tippy-arrow:before {
+  bottom: -7px;
+  left: 0;
+  border-width: 8px 8px 0;
+  border-top-color: var(--text-color);
+  transform-origin: center top;
+}
+.tippy-box[data-placement^="bottom"] > .tippy-arrow {
+  top: 0;
+}
+.tippy-box[data-placement^="bottom"] > .tippy-arrow:before {
+  top: -7px;
+  left: 0;
+  border-width: 0 8px 8px;
+  border-bottom-color: var(--text-color);
+  transform-origin: center bottom;
+}
+.tippy-box[data-placement^="left"] > .tippy-arrow {
+  right: 0;
+}
+.tippy-box[data-placement^="left"] > .tippy-arrow:before {
+  border-width: 8px 0 8px 8px;
+  border-left-color: var(--text-color);
+  right: -7px;
+  transform-origin: center left;
+}
+.tippy-box[data-placement^="right"] > .tippy-arrow {
+  left: 0;
+}
+.tippy-box[data-placement^="right"] > .tippy-arrow:before {
+  left: -7px;
+  border-width: 8px 8px 8px 0;
+  border-right-color: var(--text-color);
+  transform-origin: center right;
+}
+.tippy-box[data-inertia][data-state="visible"] {
+  transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
+}
+.tippy-arrow {
+  width: 16px;
+  height: 16px;
+  color: #333;
+}
+.tippy-arrow:before {
+  content: "";
+  position: absolute;
+  border-color: transparent;
+  border-style: solid;
+}
+.tippy-content {
+  position: relative;
+  padding: 5px 9px;
+  z-index: 1;
+  overflow-wrap: break-word;
 }
