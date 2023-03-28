@@ -1,7 +1,7 @@
 {
   "name": "@snapshot-labs/tune",
   "description": "Web3 governance components for Vue 3",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "main": "dist/tune.umd.js",
   "module": "dist/tune.es.js",
