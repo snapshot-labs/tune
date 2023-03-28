@@ -1,7 +1,7 @@
 {
   "name": "tune",
   "description": "Web3 governance components for Vue 3",
-  "version": "0.0.33",
+  "version": "0.1.0",
   "type": "module",
   "main": "dist/tune.umd.js",
   "module": "dist/tune.es.js",
