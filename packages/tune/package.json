@@ -6,6 +6,9 @@
   "main": "dist/tune.umd.js",
   "module": "dist/tune.es.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "build": "vue-tsc --noEmit && vite build",
     "build:watch": "nodemon -e js,ts,vue --watch src --exec \"vue-tsc --noEmit && vite build\"",
