@@ -1,5 +1,5 @@
 {
-  "name": "tune",
+  "name": "@snapshot-labs/tune",
   "description": "Web3 governance components for Vue 3",
   "version": "0.1.0",
   "type": "module",
@@ -37,5 +37,15 @@
     "vite": "^4.2.0",
     "vite-plugin-dts": "^2.1.0",
     "vue-tsc": "^1.2.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snapshot-labs/tune.git"
+  },
+  "author": "samuv.eth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/snapshot-labs/tune/issues"
+  },
+  "homepage": "https://github.com/snapshot-labs/tune#readme"
 }
