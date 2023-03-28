@@ -22,11 +22,11 @@ body {
   @apply rounded-full border border-skin-border bg-skin-bg px-3 py-2 text-sm text-skin-text focus:border-skin-text focus:outline-none focus:ring-0;
 }
 
-button {
+.tune-button {
   @apply cursor-pointer rounded-full border border-skin-border bg-transparent px-3 py-2 text-sm text-skin-text hover:border-skin-text disabled:cursor-not-allowed disabled:border-skin-border disabled:bg-skin-border;
 }
 
-a {
+.tune-a {
   @apply text-skin-link;
 
   &:hover {

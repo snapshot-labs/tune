@@ -63,7 +63,10 @@ onMounted(() => {
 
 <template>
   <div>
-    <TuneLabelInput v-if="label || element?.label" :hint="hint">
+    <TuneLabelInput
+      v-if="label || element?.label"
+      :hint="hint || element?.description"
+    >
       {{ label || element.label }}
     </TuneLabelInput>
     <div class="flex">
@@ -117,7 +120,7 @@ onMounted(() => {
     </div>
     <div
       :class="[
-        'mx-3 flex items-center rounded-b-3xl pb-2 pt-4 text-xs text-red',
+        'mx-3 flex items-center rounded-b-3xl  pt-4 text-xs text-red',
         !!error && showErrorMessage
           ? '-mt-[23px] opacity-100'
           : '-mt-[40px] h-6 opacity-0',

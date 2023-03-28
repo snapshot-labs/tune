@@ -7,11 +7,11 @@
   "module": "dist/tune.es.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "dev": "nodemon -e js,ts,vue --watch src --exec \"vue-tsc --noEmit && vite build\"",
     "build": "vue-tsc --noEmit && vite build",
     "story:dev": "histoire dev",
     "story:build": "histoire build",
-    "story:preview": "histoire preview",
-    "dev": "vue-tsc --noEmit && vite dev"
+    "story:preview": "histoire preview"
   },
   "dependencies": {
     "sass": "^1.60.0",

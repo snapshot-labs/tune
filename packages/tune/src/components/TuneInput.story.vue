@@ -1,3 +1,5 @@
 <template>
-  <Story> <TuneInput label="My input" placeholder="Enter input" /> </Story>
+  <Story>
+    <TuneInput label="My input" placeholder="Enter input" />
+  </Story>
 </template>

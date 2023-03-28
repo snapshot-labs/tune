@@ -16,8 +16,18 @@ const props = withDefaults(
 </script>
 
 <template>
-  <button :type="type" class="" :disabled="disabled || loading">
+  <button
+    :type="type"
+    :class="[
+      'tune-button',
+      {
+        '!border-skin-primary !bg-skin-primary !text-white': primary,
+      },
+    ]"
+    :disabled="disabled || loading"
+  >
     <TuneLoadingSpinner v-if="loading" />
+
     <slot v-else />
   </button>
 </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 
 import TuneForm from "./TuneForm.vue";
 import FormString from "./TuneFormString.vue";
@@ -11,8 +11,10 @@ const props = defineProps<{
   jsonSchema: {
     properties: Record<string, any>;
     default?: Record<string, any>;
+    required?: string[];
   };
   uiSchema: { elements: Record<string, any>[] };
+  errors: Record<string, any>;
 }>();
 
 const emit = defineEmits(["update:modelValue"]);
@@ -40,21 +42,24 @@ const getComponent = (type: string) => {
 const componentRefs = ref([]);
 
 function forceShowError() {
-  componentRefs?.value?.forEach((ref: any) => {
-    ref?.forceShowError();
+  componentRefs?.value?.forEach((ref: any, index: number) => {
+    if (
+      props.jsonSchema?.required?.includes(
+        Object.keys(props.jsonSchema?.properties)[index]
+      )
+    ) {
+      ref?.forceShowError();
+    }
   });
 }
 
-// const { modelValue } = toRefs(props);
-// const { getValidationMessage } = useFormValidation(
-//   props.definition,
-//   modelValue
-// );
+defineExpose({
+  forceShowError,
+});
 </script>
 
 <template>
   <div class="space-y-2">
-    <TuneButton @click="forceShowError">Show</TuneButton>
     <component
       v-for="(el, index) in (uiSchema.elements as Record<string, any>)"
       ref="componentRefs"
@@ -63,6 +68,7 @@ function forceShowError() {
       :key="index"
       :element="el"
       :property="jsonSchema.properties[el.scope.slice(13)]"
+      :error="errors[el.scope.slice(13)] || ''"
     />
   </div>
 </template>
