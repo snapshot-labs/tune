@@ -59,7 +59,7 @@ function forceShowError() {
           :errors="formErrors"
         />
         <TuneButton class="mt-3" primary @click="forceShowError">
-          Continue
+          Save
         </TuneButton>
       </div>
       <div>
