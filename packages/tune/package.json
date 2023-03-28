@@ -7,8 +7,8 @@
   "module": "dist/tune.es.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "nodemon -e js,ts,vue --watch src --exec \"vue-tsc --noEmit && vite build\"",
     "build": "vue-tsc --noEmit && vite build",
+    "build:watch": "nodemon -e js,ts,vue --watch src --exec \"vue-tsc --noEmit && vite build\"",
     "story:dev": "histoire dev",
     "story:build": "histoire build",
     "story:preview": "histoire preview"

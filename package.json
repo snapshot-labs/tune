@@ -1,5 +1,14 @@
 {
+  "name": "tune-monorepo",
   "private": true,
+  "scripts": {
+    "build": "yarn tune:build && yarn demo-app:build",
+    "tune:build": "yarn workspace @snapshot-labs/tune build",
+    "tune:build:watch:": "yarn workspace @snapshot-labs/tune build:watch",
+    "demo-app:start": "yarn workspace demo-app dev",
+    "demo-app:build": "yarn workspace demo-app build",
+    "story:dev": "yarn workspace @snapshot-labs/tune story:dev"
+  },
   "workspaces": [
     "packages/*"
   ]
