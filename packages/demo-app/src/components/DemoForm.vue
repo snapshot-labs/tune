@@ -3,7 +3,7 @@ import { ref, computed } from "vue";
 import jsonSchema from "../helpers/schemas/sx-profile.json";
 import uiSchema from "../helpers/schemas/sx-profile.ui.json";
 import { validateForm } from "../helpers/validation";
-import { TuneForm, TuneButton } from "tune";
+import { TuneForm, TuneButton } from "@snapshot-labs/tune";
 
 const jsonSchemaRef = ref(JSON.stringify(jsonSchema, null, 2));
 const uiSchemaRef = ref(JSON.stringify(uiSchema, null, 2));
