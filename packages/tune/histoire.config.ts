@@ -6,6 +6,10 @@ import { HstVue } from "@histoire/plugin-vue";
 export default defineConfig({
   plugins: [HstVue()],
   setupFile: "./src/histoire-setup.ts",
+  theme: {
+    defaultColorScheme: "light",
+    hideColorSchemeSwitch: true,
+  },
   backgroundPresets: [
     {
       label: "Light",
