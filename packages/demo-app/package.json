@@ -9,6 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ethersproject/address": "^5.7.0",
+    "@ethersproject/units": "^5.7.0",
+    "ajv": "^8.12.0",
     "tune": "link:../tune/dist",
     "vue": "^3.2.47",
     "vue-tippy": "v6"
