@@ -30,7 +30,7 @@ function forceShowError() {
 </script>
 
 <template>
-  <div class="px-6 py-3">
+  <div class="px-6 py-4">
     <div class="mb-5 flex gap-5">
       <div class="w-full">
         <span class="text-lg"> jsonSchema: </span>
