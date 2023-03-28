@@ -1,15 +1,54 @@
 {
-  "name": "tune-monorepo",
-  "private": true,
-  "scripts": {
-    "build": "yarn tune:build && yarn demo-app:build",
-    "tune:build": "yarn workspace @snapshot-labs/tune build",
-    "tune:build:watch:": "yarn workspace @snapshot-labs/tune build:watch",
-    "demo-app:start": "yarn workspace demo-app dev",
-    "demo-app:build": "yarn workspace demo-app build",
-    "story:dev": "yarn workspace @snapshot-labs/tune story:dev"
+  "name": "@snapshot-labs/tune",
+  "description": "Web3 governance components for Vue 3",
+  "version": "0.1.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snapshot-labs/tune.git"
   },
-  "workspaces": [
-    "packages/*"
-  ]
+  "author": "samuv.eth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/snapshot-labs/tune/issues"
+  },
+  "homepage": "https://github.com/snapshot-labs/tune#readme",
+  "type": "module",
+  "main": "dist/tune.umd.js",
+  "module": "dist/tune.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "vue-tsc --noEmit && vite build",
+    "build:watch": "nodemon -e js,ts,vue --watch src --exec \"vue-tsc --noEmit && vite build\"",
+    "story:dev": "histoire dev",
+    "story:build": "histoire build",
+    "story:preview": "histoire preview"
+  },
+  "dependencies": {
+    "sass": "^1.60.0",
+    "vue": "^3.2.47",
+    "vue-tippy": "^6.0.0"
+  },
+  "devDependencies": {
+    "@histoire/plugin-vue": "^0.15.8",
+    "@iconify-json/heroicons": "^1.1.10",
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@types/node": "^18.15.10",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "autoprefixer": "^10.4.14",
+    "histoire": "^0.15.9",
+    "postcss": "^8.4.21",
+    "prettier": "^2.8.7",
+    "prettier-plugin-tailwindcss": "^0.2.5",
+    "tailwindcss": "^3.2.7",
+    "typescript": "^4.9.3",
+    "unplugin-icons": "^0.15.3",
+    "unplugin-vue-components": "^0.24.1",
+    "vite": "^4.2.0",
+    "vite-plugin-dts": "^2.1.0",
+    "vue-tsc": "^1.2.0"
+  }
 }
