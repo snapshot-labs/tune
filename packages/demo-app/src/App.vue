@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { TuneButton } from "tune";
+import Testing from "./components/Testing.vue";
 </script>
 
 <template>
   <div>
-    <TuneButton>Test</TuneButton>
+    <Testing />
   </div>
 </template>

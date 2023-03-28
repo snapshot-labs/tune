@@ -2,5 +2,9 @@ import { createApp } from "vue";
 import "./style.css";
 import App from "./App.vue";
 import "tune/dist/style.css";
+import VueTippy from "vue-tippy";
 
-createApp(App).mount("#app");
+const app = createApp(App);
+
+app.use(VueTippy);
+app.mount("#app");
