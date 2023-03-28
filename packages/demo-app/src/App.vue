@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Testing from "./components/Testing.vue";
+import DemoForm from "./components/DemoForm.vue";
 </script>
 
 <template>
   <div>
-    <Testing />
+    <DemoForm />
   </div>
 </template>
