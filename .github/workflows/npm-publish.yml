@@ -8,17 +8,17 @@ on:
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/tune
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - name: Install and publish
-        working-directory: packages/tune
-      - run: |
-          yarn install --frozen-lockfile
-          yarn vite build
-          npm publish
+      - run: yarn install --frozen-lockfile
+      - run: yarn vite build
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
