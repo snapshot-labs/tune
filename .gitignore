@@ -11,15 +11,9 @@ node_modules
 dist
 components.d.ts
 
-# ignore demo-app node_modules directory
-packages/demo-app/node_modules/
-
-# ignore tune node_modules directory
-packages/tune/node_modules/
-
 
 # Editor directories and files
-.vscode/*
+.vscode
 !.vscode/extensions.json
 .idea
 .DS_Store
