@@ -24,22 +24,26 @@ function forceShowError() {
 }
 
 function updateForm() {
+  jsonError.value = "";
   try {
     jsonSchemaRef.value = JSON.parse(jsonSchemaInput.value);
     // generate input from schema
     input.value = {};
-    Object.entries(jsonSchemaRef.value.properties).forEach((prop) => {
-      if (prop[1].type === "object") {
-        input.value[prop[0]] = {};
+    Object.entries(jsonSchemaRef.value.properties).forEach((prop1) => {
+      if (prop1[1].type === "object") {
+        input.value[prop1[0]] = {};
+        Object.entries(prop1[1].properties).forEach((prop2: any) => {
+          input.value[prop1[0]][prop2[0]] = "";
+        });
       }
-      if (prop[1].type === "array") {
-        input.value[prop[0]] = [];
+      if (prop1[1].type === "array") {
+        input.value[prop1[0]] = [];
       }
-      if (prop[1].type === "string") {
-        input.value[prop[0]] = "";
+      if (prop1[1].type === "string") {
+        input.value[prop1[0]] = "";
       }
-      if (prop[1].type === "number") {
-        input.value[prop[0]] = undefined;
+      if (prop1[1].type === "number") {
+        input.value[prop1[0]] = undefined;
       }
     });
   } catch (e: any) {
@@ -70,6 +74,7 @@ onMounted(() => {
     >
       {{ jsonError }}
     </div>
+
     <TuneButton class="mb-5 mt-3 w-full" primary @click="updateForm">
       Update form
     </TuneButton>
