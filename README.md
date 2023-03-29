@@ -20,8 +20,6 @@ import { TuneInput } from "@snapshot-labs/tune";
 
 ## Development
 
-### Build Demo App
-
 Demo app: https://tune-demo-app-tisa.vercel.app/
 
 ### Histoire Component Stories
