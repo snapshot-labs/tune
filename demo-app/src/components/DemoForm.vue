@@ -88,7 +88,7 @@ function updateForm() {
           :errors="formErrors"
         />
         <TuneButton class="mt-3" primary @click="forceShowError">
-          Save
+          Show errors
         </TuneButton>
       </div>
       <div class="w-full">
