@@ -1,20 +1,34 @@
 {
   "type": "object",
   "additionalProperties": false,
-  "required": ["name", "walletAddress"],
+  "required": ["walletAddress"],
   "properties": {
-    "name": {
-      "type": "string",
-      "minLength": 1,
-      "ui": {
-        "label": "Name",
-        "hint": "The name of your project",
-        "placeholder": "My Project"
+    "info": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "ui": {
+            "label": "Name",
+            "hint": "The name of your project",
+            "placeholder": "My Project"
+          }
+        },
+        "sex": {
+          "type": "string",
+          "ui": {
+            "label": "Name",
+            "hint": "The name of your project",
+            "placeholder": "My Project"
+          }
+        }
       }
     },
     "description": {
       "type": "string",
-      "format": "long"
+      "format": "address"
     },
     "externalUrl": {
       "type": "string"
