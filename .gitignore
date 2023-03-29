@@ -10,6 +10,8 @@ lerna-debug.log*
 node_modules
 dist
 components.d.ts
+auto-imports.d.ts
+.eslintrc-auto-import.json
 
 
 # Editor directories and files

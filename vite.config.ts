@@ -6,6 +6,7 @@ import dts from "vite-plugin-dts";
 import Components from "unplugin-vue-components/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import { FileSystemIconLoader } from "unplugin-icons/loaders";
+import AutoImport from "unplugin-auto-import/vite";
 import Icons from "unplugin-icons/vite";
 
 export default defineConfig({
@@ -13,6 +14,7 @@ export default defineConfig({
     vue(),
     dts(),
     Components({
+      dts: true,
       resolvers: [
         IconsResolver({
           customCollections: ["tune"],
@@ -21,6 +23,13 @@ export default defineConfig({
           },
         }),
       ],
+    }),
+    AutoImport({
+      dts: true,
+      imports: ["vue"],
+      eslintrc: {
+        enabled: true,
+      },
     }),
     Icons({
       compiler: "vue3",
