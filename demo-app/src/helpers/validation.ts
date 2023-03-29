@@ -7,7 +7,7 @@ export function validateForm(
   schema: Record<string, any>,
   form: Record<string, any>
 ): Record<string, any> {
-  const ajv = new Ajv({ allErrors: true });
+  const ajv = new Ajv({ allErrors: true, strict: false });
 
   ajv.addFormat("address", {
     validate: (value: string) => {

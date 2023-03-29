@@ -5,7 +5,12 @@
   "properties": {
     "name": {
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "ui": {
+        "label": "Name",
+        "hint": "The name of your project",
+        "placeholder": "My Project"
+      }
     },
     "description": {
       "type": "string",

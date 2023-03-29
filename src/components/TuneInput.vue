@@ -21,7 +21,7 @@ const props = withDefaults(
     maxLength?: number;
     readonly?: boolean;
     disable?: boolean;
-    element?: any;
+    definition?: any;
   }>(),
   {
     label: "",
@@ -36,7 +36,7 @@ const props = withDefaults(
     maxLength: undefined,
     readonly: false,
     disable: false,
-    element: {},
+    definition: {},
   }
 );
 
@@ -64,10 +64,10 @@ onMounted(() => {
 <template>
   <div>
     <TuneLabelInput
-      v-if="label || element?.label"
-      :hint="hint || element?.description"
+      v-if="label || definition?.ui?.label"
+      :hint="hint || definition?.ui?.hint"
     >
-      {{ label || element.label }}
+      {{ label || definition.ui.label }}
     </TuneLabelInput>
     <div class="flex">
       <div :class="['group relative z-10 flex', { 'w-full': block }]">
@@ -88,7 +88,7 @@ onMounted(() => {
             { 'cursor-not-allowed placeholder:!opacity-30': disable },
             { 'w-full': block },
           ]"
-          :placeholder="placeholder || element?.placeholder || ''"
+          :placeholder="placeholder || definition?.ui?.placeholder || ''"
           :readonly="readonly"
           :disabled="disable"
           @blur="error ? (showErrorMessage = true) : null"
@@ -102,7 +102,7 @@ onMounted(() => {
         />
         <div
           v-if="loading || (error && showErrorMessage)"
-          class="absolute inset-y-0 right-0 top-[1px] mr-1 flex h-[40px] items-center overflow-hidden rounded-r-full bg-skin-bg pr-2 pl-2"
+          class="absolute inset-y-0 right-0 top-[1px] mr-1 flex h-[40px] items-center overflow-hidden rounded-r-full bg-skin-bg pl-2 pr-2"
         >
           <i-hero-exclamation-circle-20-solid
             v-if="error && showErrorMessage"

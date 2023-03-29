@@ -1,15 +1,12 @@
 <script setup lang="ts">
-import { ref, computed, watch } from "vue";
+import { ref, watch } from "vue";
 import jsonSchema from "../helpers/schemas/sx-profile.json";
-import uiSchema from "../helpers/schemas/sx-profile.ui.json";
 import { validateForm } from "../helpers/validation";
 import { TuneForm, TuneButton } from "@snapshot-labs/tune";
 
 const jsonSchemaRef = ref(jsonSchema);
-const uiSchemaRef = ref(uiSchema);
 
 const jsonSchemaInput = ref(JSON.stringify(jsonSchema, null, 2));
-const uiSchemaInput = ref(JSON.stringify(uiSchema, null, 2));
 
 const input = ref({
   name: "",
@@ -42,7 +39,6 @@ function forceShowError() {
 function updateForm() {
   try {
     jsonSchemaRef.value = JSON.parse(jsonSchemaInput.value);
-    uiSchemaRef.value = JSON.parse(uiSchemaInput.value);
   } catch (e: any) {
     jsonError.value = e;
     console.log(e);
@@ -57,13 +53,6 @@ function updateForm() {
         <span class="text-lg"> jsonSchema: </span>
         <textarea
           v-model="jsonSchemaInput"
-          class="tune-input min-h-[300px] w-full !rounded-md font-mono"
-        />
-      </div>
-      <div class="w-full">
-        <span class="text-lg"> uiSchema: </span>
-        <textarea
-          v-model="uiSchemaInput"
           class="tune-input min-h-[300px] w-full !rounded-md font-mono"
         />
       </div>
@@ -83,9 +72,8 @@ function updateForm() {
         <TuneForm
           ref="formRef"
           v-model="input"
-          :json-schema="jsonSchemaRef"
-          :ui-schema="uiSchemaRef"
-          :errors="formErrors"
+          :definition="jsonSchemaRef"
+          :error="formErrors"
         />
         <TuneButton class="mt-3" primary @click="forceShowError">
           Show errors

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  hint: string;
+  hint?: string;
 }>();
 </script>
 
