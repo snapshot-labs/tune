@@ -2,9 +2,7 @@
 
 Tune is a Vue 3 component library and form generator.
 
-## Installation
-
-To install the Tune component library in your project:
+## Installation & Usage
 
 ```bash
 yarn add @snapshot-labs/tune
@@ -16,7 +14,7 @@ import "@snapshot-labs/tune/dist/style.css";
 ```
 
 ```js
-// Using component in your project
+// Use component in your project
 import { TuneInput } from "@snapshot-labs/tune";
 ```
 
