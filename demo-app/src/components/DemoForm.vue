@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { onMounted, ref, watch } from "vue";
 import jsonSchema from "../helpers/schemas/sx-profile.json";
 import { validateForm } from "../helpers/validation";
 import { TuneForm, TuneButton } from "@snapshot-labs/tune";
@@ -8,15 +8,7 @@ const jsonSchemaRef = ref(jsonSchema);
 
 const jsonSchemaInput = ref(JSON.stringify(jsonSchema, null, 2));
 
-const input = ref({
-  name: "",
-  description: "",
-  externalUrl: "",
-  github: "",
-  twitter: "",
-  discord: "",
-  walletAddress: "",
-});
+const input = ref<Record<string, any>>({});
 
 const formRef = ref();
 
@@ -39,11 +31,31 @@ function forceShowError() {
 function updateForm() {
   try {
     jsonSchemaRef.value = JSON.parse(jsonSchemaInput.value);
+    // generate input from schema
+    input.value = {};
+    Object.entries(jsonSchemaRef.value.properties).forEach((prop) => {
+      if (prop[1].type === "object") {
+        input.value[prop[0]] = {};
+      }
+      if (prop[1].type === "array") {
+        input.value[prop[0]] = [];
+      }
+      if (prop[1].type === "string") {
+        input.value[prop[0]] = "";
+      }
+      if (prop[1].type === "number") {
+        input.value[prop[0]] = undefined;
+      }
+    });
   } catch (e: any) {
     jsonError.value = e;
     console.log(e);
   }
 }
+
+onMounted(() => {
+  updateForm();
+});
 </script>
 
 <template>
@@ -69,6 +81,7 @@ function updateForm() {
     <div class="flex gap-5">
       <div class="w-full">
         <div class="text-lg">Form:</div>
+        {{ input }}
         <TuneForm
           ref="formRef"
           v-model="input"
