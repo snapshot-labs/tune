@@ -22,7 +22,7 @@ import { TuneInput } from "@snapshot-labs/tune";
 
 ### Build Demo App
 
-Form generation demo: https://tune-demo-app-tisa-mpfcq4dx7-samuveth.vercel.app/
+Form generation demo: https://tune-demo-app-tisa.vercel.app/
 
 To run the demo app, execute the following:
 
