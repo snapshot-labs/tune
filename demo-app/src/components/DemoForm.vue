@@ -5,15 +5,10 @@ import { validateForm } from "../helpers/validation";
 import { TuneForm, TuneButton } from "@snapshot-labs/tune";
 
 const jsonSchemaRef = ref(jsonSchema);
-
 const jsonSchemaInput = ref(JSON.stringify(jsonSchema, null, 2));
-
 const input = ref<Record<string, any>>({});
-
 const formRef = ref();
-
 const jsonError = ref("");
-
 const formErrors = ref({});
 
 watch(
