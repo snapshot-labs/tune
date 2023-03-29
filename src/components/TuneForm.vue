@@ -38,13 +38,7 @@ const componentRefs = ref([]);
 
 function forceShowError() {
   componentRefs?.value?.forEach((ref: any, index: number) => {
-    if (
-      props?.definition?.required?.includes(
-        Object.keys(props?.definition.properties)[index]
-      )
-    ) {
-      ref?.forceShowError();
-    }
+    ref?.forceShowError();
   });
 }
 
