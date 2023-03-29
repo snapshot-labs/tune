@@ -25,9 +25,15 @@ const formRef = ref();
 
 const jsonError = ref("");
 
-const formErrors = computed(() => {
-  return validateForm(jsonSchema, input.value);
-});
+const formErrors = ref({});
+
+watch(
+  [input, jsonSchemaRef],
+  () => {
+    formErrors.value = validateForm(jsonSchemaRef.value, input.value);
+  },
+  { deep: true, immediate: true }
+);
 
 function forceShowError() {
   formRef?.value?.forceShowError();
