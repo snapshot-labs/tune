@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.12",
+    "lodash": "^4.17.21",
     "sass": "^1.60.0",
     "vue": "^3.2.47",
     "vue-tippy": "^6.0.0"
