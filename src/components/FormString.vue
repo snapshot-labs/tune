@@ -25,9 +25,15 @@ defineExpose({
 </script>
 
 <template>
-  <TuneInput
-    ref="textInputRef"
-    @update:model-value="emit('update:modelValue', $event)"
+  <TuneTextarea
+    v-if="definition?.format === 'long'"
     v-bind="props"
+    @update:model-value="emit('update:modelValue', $event)"
+  />
+  <TuneInput
+    v-else
+    ref="textInputRef"
+    v-bind="props"
+    @update:model-value="emit('update:modelValue', $event)"
   />
 </template>
