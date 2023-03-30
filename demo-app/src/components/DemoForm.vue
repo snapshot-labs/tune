@@ -45,6 +45,9 @@ function updateForm() {
       if (prop1[1].type === "number") {
         input.value[prop1[0]] = undefined;
       }
+      if (prop1[1].type === "boolean") {
+        input.value[prop1[0]] = false;
+      }
     });
   } catch (e: any) {
     jsonError.value = e;
@@ -59,29 +62,9 @@ onMounted(() => {
 
 <template>
   <div class="px-6 py-3">
-    <div class="flex gap-5">
-      <div class="w-full">
-        <span class="text-lg"> jsonSchema: </span>
-        <textarea
-          v-model="jsonSchemaInput"
-          class="tune-input min-h-[300px] w-full !rounded-md font-mono"
-        />
-      </div>
-    </div>
-    <div
-      v-if="jsonError"
-      class="text-red-500 p-3 border border-red-500 rounded-md mt-3"
-    >
-      {{ jsonError }}
-    </div>
-
-    <TuneButton class="mb-5 mt-3 w-full" primary @click="updateForm">
-      Update form
-    </TuneButton>
-    <div class="flex gap-5">
+    <div class="flex gap-10">
       <div class="w-full">
         <div class="text-lg">Form:</div>
-        {{ input }}
         <TuneForm
           ref="formRef"
           v-model="input"
@@ -93,9 +76,30 @@ onMounted(() => {
         </TuneButton>
       </div>
       <div class="w-full">
+        <div class="w-full">
+          <span class="text-lg"> jsonSchema: </span>
+          <textarea
+            v-model="jsonSchemaInput"
+            class="tune-input min-h-[300px] w-full !rounded-md font-mono"
+          />
+          <div
+            v-if="jsonError"
+            class="text-red-500 p-3 border border-red-500 rounded-md mt-3"
+          >
+            {{ jsonError }}
+          </div>
+
+          <TuneButton class="mb-5 mt-3 w-full" primary @click="updateForm">
+            Update form
+          </TuneButton>
+        </div>
         <div class="text-lg">Form errors:</div>
         <span class="font-mono">
           {{ formErrors }}
+        </span>
+        <div class="text-lg mt-3">Form data:</div>
+        <span class="font-mono">
+          {{ input }}
         </span>
       </div>
     </div>
