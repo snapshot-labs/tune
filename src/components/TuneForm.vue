@@ -5,6 +5,7 @@ import TuneForm from "./TuneForm.vue";
 import FormString from "./FormString.vue";
 import FormNumber from "./FormNumber.vue";
 import FormBoolean from "./FormBoolean.vue";
+import FormArray from "./FormArray.vue";
 
 const props = defineProps<{
   modelValue: Record<string, any>;
@@ -29,6 +30,8 @@ const getComponent = (type: string) => {
       return FormNumber;
     case "boolean":
       return FormBoolean;
+    case "array":
+      return FormArray;
     default:
       return null;
   }

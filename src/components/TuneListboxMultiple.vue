@@ -64,7 +64,7 @@ function isItemDisabled(item: string) {
         :class="{ 'cursor-not-allowed !border-skin-border': disable }"
       >
         <span v-if="selectedItems.length < 1" class="text-skin-text opacity-60">
-          {{ placeholder }}
+          {{ placeholder || definition?.placeholder }}
         </span>
 
         <slot
@@ -79,7 +79,7 @@ function isItemDisabled(item: string) {
         <span
           class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-[12px]"
         >
-          <i-ho-chevron-down class="text-[14px] text-skin-text" />
+          <i-hero-chevron-down class="text-[14px] text-skin-text" />
         </span>
       </ListboxButton>
       <transition
@@ -125,7 +125,7 @@ function isItemDisabled(item: string) {
                   v-if="selected"
                   :class="['absolute inset-y-0 right-0 flex items-center pr-3']"
                 >
-                  <i-ho-check class="text-skin-text" />
+                  <i-hero-check class="text-skin-text" />
                 </span>
               </li>
             </ListboxOption>

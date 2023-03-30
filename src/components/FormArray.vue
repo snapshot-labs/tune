@@ -57,11 +57,11 @@ const getComponent = (type: string) => {
         :error="error"
       />
     </div>
-    <BaseButton
+    <TuneButton
       class="w-full"
       @click="input.push(definition?.items?.default || '')"
     >
       Add
-    </BaseButton>
+    </TuneButton>
   </div>
 </template>
