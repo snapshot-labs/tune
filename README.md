@@ -2,6 +2,12 @@
 
 Tune is a Vue 3 component library and form generator.
 
+## Previews
+
+Histoire: https://tune-kohl.vercel.app/
+
+Demo app: https://tune-demo-app-tisa.vercel.app/
+
 ## Installation & Usage
 
 ```bash
@@ -19,8 +25,6 @@ import { TuneInput } from "@snapshot-labs/tune";
 ```
 
 ## Development
-
-Demo app: https://tune-demo-app-tisa.vercel.app/
 
 ### Histoire Component Stories
 
