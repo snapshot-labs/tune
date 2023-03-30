@@ -1,5 +1,6 @@
 import Ajv from "ajv";
 import type { ErrorObject } from "ajv";
+import addFormats from "ajv-formats";
 import { isAddress } from "@ethersproject/address";
 import { parseUnits } from "@ethersproject/units";
 
@@ -7,7 +8,9 @@ export function validateForm(
   schema: Record<string, any>,
   form: Record<string, any>
 ): Record<string, any> {
-  const ajv = new Ajv({ allErrors: true, strict: false });
+  const ajv = new Ajv({ allErrors: true });
+
+  addFormats(ajv);
 
   ajv.addFormat("address", {
     validate: (value: string) => {
@@ -33,6 +36,20 @@ export function validateForm(
       } catch {
         return false;
       }
+    },
+  });
+
+  ajv.addFormat("customUrl", {
+    type: "string",
+    validate: (str: any) => {
+      if (!str.length) return true;
+      return (
+        str.startsWith("http://") ||
+        str.startsWith("https://") ||
+        str.startsWith("ipfs://") ||
+        str.startsWith("ipns://") ||
+        str.startsWith("snapshot://")
+      );
     },
   });
 

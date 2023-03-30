@@ -30,7 +30,7 @@ defineExpose({
 <template>
   <TuneInput
     ref="numberInputRef"
-    @update:model-value="emit('update:modelValue', $event)"
+    @update:model-value="emit('update:modelValue', Number($event))"
     v-bind="props"
   />
 </template>

@@ -19,7 +19,7 @@ body {
 }
 
 .tune-input {
-  @apply rounded-full border border-skin-border bg-skin-bg px-3 py-2 text-sm text-skin-text focus:border-skin-text focus:outline-none focus:ring-0;
+  @apply form-input rounded-full border border-skin-border bg-skin-bg px-3 py-2 text-sm text-skin-link focus:border-skin-text focus:outline-none focus:ring-0;
 }
 
 .tune-button {
@@ -35,7 +35,7 @@ body {
 }
 
 .tune-error {
-  @apply mx-3 mt-[2px] text-xs text-red;
+  @apply mx-3 mt-[2px] text-sm text-red;
 }
 
 ::placeholder {
