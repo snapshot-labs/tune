@@ -21,7 +21,7 @@ const props = withDefaults(
     :class="[
       'tune-button',
       {
-        '!border-skin-primary !bg-skin-primary !text-white': primary,
+        primary: primary,
       },
     ]"
     :disabled="disabled || loading"

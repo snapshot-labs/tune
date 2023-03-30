@@ -8,7 +8,7 @@ defineProps<{
   <span
     v-if="!!hint"
     v-tippy="{ content: hint }"
-    class="text-xs hover:text-skin-link"
+    class="tune-icon-hint text-xs"
   >
     <i-hero-question-mark-circle />
   </span>

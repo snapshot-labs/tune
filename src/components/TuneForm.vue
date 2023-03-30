@@ -40,8 +40,8 @@ const getComponent = (type: string) => {
 const componentRefs = ref([]);
 
 function forceShowError() {
-  componentRefs?.value?.forEach((ref: any, index: number) => {
-    ref?.forceShowError();
+  componentRefs?.value?.forEach((ref: any) => {
+    if (ref?.forceShowError) ref?.forceShowError();
   });
 }
 

@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <span class="ml-3 mb-[2px] flex items-center gap-1 text-skin-text">
+  <span class="tune-label mb-[2px] flex items-center gap-1">
     <slot />
     <TuneIconHint :hint="hint" />
   </span>

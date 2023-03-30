@@ -17,8 +17,9 @@ const emit = defineEmits(["update:modelValue"]);
     <Switch
       :model-value="modelValue"
       :class="[
-        modelValue ? 'bg-green' : 'bg-skin-border',
-        { '!cursor-not-allowed': disable },
+        'tune-input-switch',
+        modelValue ? 'switched-on-bg' : 'switched-off-bg',
+        { '!cursor-not-allowed ': disable },
       ]"
       :disabled="disable"
       class="relative inline-flex h-[22px] w-[38px] flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent outline-offset-2 transition-colors duration-200 ease-in-out"
@@ -30,7 +31,7 @@ const emit = defineEmits(["update:modelValue"]);
       <span
         :class="[
           modelValue ? 'translate-x-[16px]' : 'translate-x-0',
-          'shadow pointer-events-none inline-block h-[18px] w-[18px] transform rounded-full bg-skin-bg transition duration-200 ease-in-out',
+          'shadow tune-input-switch-button pointer-events-none inline-block h-[18px] w-[18px] transform rounded-full transition duration-200 ease-in-out',
         ]"
       >
         <span
@@ -38,7 +39,7 @@ const emit = defineEmits(["update:modelValue"]);
             modelValue
               ? 'opacity-0 duration-100 ease-out'
               : 'opacity-100 duration-200 ease-in',
-            'absolute inset-0 flex h-full w-full items-center justify-center text-skin-text transition-opacity',
+            'tune-input-switch switched-off-text absolute inset-0 flex h-full w-full items-center justify-center transition-opacity',
           ]"
           aria-hidden="true"
         >
@@ -57,7 +58,7 @@ const emit = defineEmits(["update:modelValue"]);
             modelValue
               ? 'opacity-100 duration-200 ease-in'
               : 'opacity-0 duration-100 ease-out',
-            'absolute inset-0 flex h-full w-full items-center justify-center text-green transition-opacity',
+            'tune-input-switch switched-on-text absolute inset-0 flex h-full w-full items-center justify-center transition-opacity',
           ]"
           aria-hidden="true"
         >

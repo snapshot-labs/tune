@@ -46,9 +46,9 @@ defineExpose({
       ref="textareaRef"
       v-model="input"
       :class="[
-        'tune-input w-full !rounded-md',
+        'tune-input w-full',
         {
-          '!border-red': !!error && showErrorMessage,
+          'tune-error-border': !!error && showErrorMessage,
         },
       ]"
       :placeholder="placeholder || definition?.examples?.[0]"
@@ -57,7 +57,7 @@ defineExpose({
     />
     <div
       :class="[
-        'tune-error !-mt-1',
+        'tune-error-text !-mt-1',
         !!error && showErrorMessage ? 'block' : 'hidden',
       ]"
     >

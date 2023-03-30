@@ -15,27 +15,85 @@
 }
 
 body {
-  @apply bg-skin-bg text-sm text-skin-text;
+  @apply text-sm;
 }
 
 .tune-input {
-  @apply form-input rounded-full border border-skin-border bg-skin-bg px-3 py-2 text-sm text-skin-link focus:border-skin-text focus:outline-none focus:ring-0;
+  @apply form-input rounded-md border-skin-border px-3 py-2 text-sm focus:border-skin-text focus:outline-none focus:ring-0;
 }
 
-.tune-button {
-  @apply cursor-pointer rounded-full border border-skin-border bg-transparent px-3 py-2 text-sm text-skin-text hover:border-skin-text disabled:cursor-not-allowed disabled:border-skin-border disabled:bg-skin-border;
-}
+.tune-input-switch {
+  &.switched-on-bg {
+    @apply bg-green;
+  }
+  &.switched-off-bg {
+    @apply bg-skin-border;
+  }
 
-.tune-a {
-  @apply text-skin-link;
-
-  &:hover {
-    @apply cursor-pointer;
+  &.switched-on-text {
+    @apply text-green;
+  }
+  &.switched-off-text {
+    @apply text-skin-text;
   }
 }
 
-.tune-error {
-  @apply mx-3 mt-[2px] text-sm text-red;
+.tune-input-switch-button {
+  @apply bg-skin-bg;
+}
+
+.tune-input-loading {
+  @apply rounded-r-full bg-skin-bg;
+}
+
+.tune-button {
+  @apply cursor-pointer rounded-md border-skin-border px-3 py-2 text-sm disabled:cursor-not-allowed;
+
+  &.primary {
+    @apply border-skin-primary bg-skin-primary text-white;
+  }
+}
+
+.tune-listbox-button {
+  @apply rounded-md border-skin-border text-skin-link hover:border-skin-text;
+
+  &.disabled {
+    @apply text-skin-border hover:border-skin-border;
+  }
+}
+
+.tune-listbox-options {
+  @apply rounded-md border-skin-border bg-skin-bg shadow-lg;
+}
+
+.tune-listbox-item {
+  @apply text-sm;
+
+  &.selected {
+    @apply text-skin-link;
+  }
+  &.disabled {
+    @apply text-skin-border;
+  }
+  &.active {
+    @apply bg-skin-border;
+  }
+}
+
+.tune-label {
+  @apply text-sm text-skin-text;
+}
+
+.tune-icon-hint {
+  @apply hover:text-skin-link;
+}
+
+.tune-error-text {
+  @apply text-red;
+}
+
+.tune-error-border {
+  @apply border-red;
 }
 
 ::placeholder {

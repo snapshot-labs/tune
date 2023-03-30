@@ -60,11 +60,11 @@ function isItemDisabled(item: string) {
             .map((item) => item?.name || item.value)
             .join(', '),
         }"
-        class="relative h-[42px] w-full truncate rounded-full border border-skin-border pl-3 pr-[40px] text-left text-skin-link hover:border-skin-text"
-        :class="{ 'cursor-not-allowed !border-skin-border': disable }"
+        class="tune-listbox-button relative h-[42px] w-full truncate border pl-3 pr-[40px] text-left"
+        :class="{ 'disabled cursor-not-allowed': disable }"
       >
         <span v-if="selectedItems.length < 1" class="text-skin-text opacity-60">
-          {{ placeholder || definition?.placeholder }}
+          {{ placeholder || definition?.examples?.[0] }}
         </span>
 
         <slot
@@ -79,7 +79,7 @@ function isItemDisabled(item: string) {
         <span
           class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-[12px]"
         >
-          <i-hero-chevron-down class="text-[14px] text-skin-text" />
+          <i-hero-chevron-down class="text-[14px]" />
         </span>
       </ListboxButton>
       <transition
@@ -91,7 +91,7 @@ function isItemDisabled(item: string) {
         leave-to-class="transform scale-95 opacity-0"
       >
         <ListboxOptions
-          class="absolute z-40 mt-1 w-full overflow-hidden rounded-md border border-skin-border bg-skin-bg text-base shadow-lg focus:outline-none sm:text-sm"
+          class="tune-listbox-options absolute z-40 mt-1 w-full overflow-hidden border text-base focus:outline-none"
         >
           <div class="max-h-[180px] overflow-y-scroll">
             <ListboxOption
@@ -104,15 +104,15 @@ function isItemDisabled(item: string) {
             >
               <li
                 :class="[
-                  { 'bg-skin-border': active },
-                  'relative cursor-default select-none py-2 pl-3 pr-[50px]',
+                  { active: active },
+                  'tune-listbox-item relative cursor-default select-none py-2 pl-3 pr-[50px]',
                 ]"
               >
                 <span
                   :class="[
-                    selected ? 'font-semibold text-skin-link' : 'font-normal',
-                    { 'text-skin-border': disabled },
-                    'block truncate',
+                    selected ? 'selected' : 'font-normal',
+                    { disabled: disabled },
+                    'tune-listbox-item block truncate',
                   ]"
                 >
                   <slot v-if="$slots.item" name="item" :item="item" />
@@ -125,7 +125,7 @@ function isItemDisabled(item: string) {
                   v-if="selected"
                   :class="['absolute inset-y-0 right-0 flex items-center pr-3']"
                 >
-                  <i-hero-check class="text-skin-text" />
+                  <i-hero-check />
                 </span>
               </li>
             </ListboxOption>

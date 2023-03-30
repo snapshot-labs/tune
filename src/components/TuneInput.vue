@@ -84,7 +84,7 @@ onMounted(() => {
           :value="modelValue"
           :class="[
             'tune-input',
-            { '!border-red': error && showErrorMessage },
+            { 'tune-error-border': error && showErrorMessage },
             { 'cursor-not-allowed placeholder:!opacity-30': disable },
             { 'w-full': block },
           ]"
@@ -102,11 +102,11 @@ onMounted(() => {
         />
         <div
           v-if="loading || (error && showErrorMessage)"
-          class="absolute inset-y-0 right-0 top-[1px] mr-1 flex h-[40px] items-center overflow-hidden rounded-r-full bg-skin-bg pl-2 pr-2"
+          class="tune-input-loading absolute inset-y-0 right-0 top-[1px] mr-1 flex h-[40px] items-center overflow-hidden pl-2 pr-2"
         >
           <i-hero-exclamation-circle-20-solid
             v-if="error && showErrorMessage"
-            class="text-red"
+            class="tune-error-text"
           />
           <TuneLoadingSpinner v-else-if="loading" />
         </div>
@@ -119,7 +119,10 @@ onMounted(() => {
       </div>
     </div>
     <div
-      :class="['tune-error', !!error && showErrorMessage ? 'block' : 'hidden']"
+      :class="[
+        'tune-error-text mt-[2px] text-sm',
+        !!error && showErrorMessage ? 'block' : 'hidden',
+      ]"
     >
       {{ error }}
     </div>

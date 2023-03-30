@@ -22,7 +22,6 @@
       "type": "array",
       "title": "Website",
       "examples": ["Website URL"],
-      "placeholder": "Select a website",
       "items": {
         "type": "string",
         "anyOf": [
