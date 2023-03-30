@@ -1,42 +1,72 @@
 {
   "type": "object",
-  "additionalProperties": false,
-  "required": ["walletAddress"],
+  "title": "Space",
+  "additionalProperties": true,
+  "required": ["name", "description"],
   "properties": {
-    "info": {
-      "type": "object",
-      "required": ["name"],
-      "properties": {
-        "name": {
-          "type": "string",
-          "minLength": 1,
-          "ui": {
-            "label": "Name",
-            "hint": "The name of your project",
-            "placeholder": "My Project"
-          }
-        },
-        "sex": {
-          "type": "string",
-          "ui": {
-            "label": "Name",
-            "hint": "The name of your project",
-            "placeholder": "My Project"
-          }
-        }
-      }
+    "name": {
+      "type": "string",
+      "title": "Name",
+      "minLength": 1,
+      "examples": ["Space name"]
     },
     "description": {
       "type": "string",
-      "format": "address"
+      "format": "long",
+      "title": "About",
+      "description": "A short description of your space.",
+      "examples": ["Space description"],
+      "minLength": 1
     },
     "externalUrl": {
-      "type": "string"
+      "type": "array",
+      "title": "Website",
+      "examples": ["Website URL"],
+      "placeholder": "Select a website",
+      "items": {
+        "type": "string",
+        "anyOf": [
+          {
+            "const": "AND",
+            "title": "Require all stamps"
+          },
+          {
+            "const": "OR",
+            "title": "Require at least one stamp"
+          }
+        ]
+      }
     },
-    "walletAddress": {
+    "github": {
+      "type": "number",
+      "title": "GitHubID",
+      "examples": ["GitHub handle"]
+    },
+    "twitter": {
       "type": "string",
-      "format": "address",
-      "minLength": 1
+      "title": "Twitter",
+      "examples": ["Twitter handle"]
+    },
+    "private": {
+      "type": "boolean",
+      "title": "private",
+      "description": "Set profile to private.",
+      "examples": ["Discord handle"]
+    },
+    "operator": {
+      "type": "string",
+      "title": "Approval operator",
+      "description": "Control how many or which stamps are required to vote.",
+      "anyOf": [
+        {
+          "const": "AND",
+          "title": "Require all stamps"
+        },
+        {
+          "const": "OR",
+          "title": "Require at least one stamp"
+        }
+      ]
     }
   }
 }
