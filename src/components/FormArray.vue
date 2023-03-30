@@ -9,7 +9,7 @@ import FormBoolean from "./FormBoolean.vue";
 const props = defineProps<{
   modelValue: any[];
   definition: any;
-  error: Record<string, any>;
+  error: any;
 }>();
 
 const emit = defineEmits(["update:modelValue"]);
@@ -36,13 +36,13 @@ const getComponent = (type: string) => {
 </script>
 
 <template>
-  <BaseListboxMultiple
+  <TuneListboxMultiple
     v-if="definition?.items?.anyOf"
     v-model="input"
     :items="
       definition.items.anyOf.map((item: any) => ({
         value: item.const,
-        title: item.title
+        name: item.title
       }))
     "
     :definition="definition"
@@ -57,7 +57,10 @@ const getComponent = (type: string) => {
         :error="error"
       />
     </div>
-    <BaseButton class="w-full" @click="input.push(definition?.items?.default)">
+    <BaseButton
+      class="w-full"
+      @click="input.push(definition?.items?.default || '')"
+    >
       Add
     </BaseButton>
   </div>

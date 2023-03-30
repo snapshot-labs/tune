@@ -8,7 +8,7 @@ import FormBoolean from "./FormBoolean.vue";
 
 const props = defineProps<{
   modelValue: Record<string, any>;
-  definition: any;
+  definition: Record<string, any>;
   error: Record<string, any>;
 }>();
 
