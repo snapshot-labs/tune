@@ -52,6 +52,8 @@ defineExpose({
         },
       ]"
       :placeholder="placeholder || definition?.examples?.[0]"
+      @blur="error ? (showErrorMessage = true) : null"
+      @focus="error ? null : (showErrorMessage = false)"
     />
     <div
       :class="[
