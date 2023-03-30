@@ -49,8 +49,8 @@ function isItemDisabled(item: string) {
 <template>
   <Listbox v-model="selectedItems" as="div" :disabled="disable" multiple>
     <ListboxLabel>
-      <TuneLabelInput :hint="hint || definition?.hint">
-        {{ label || definition?.label }}
+      <TuneLabelInput :hint="hint || definition?.description">
+        {{ label || definition?.title }}
       </TuneLabelInput>
     </ListboxLabel>
     <div class="relative">

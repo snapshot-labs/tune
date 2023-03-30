@@ -24,8 +24,8 @@ const emit = defineEmits(["update:modelValue"]);
       class="relative inline-flex h-[22px] w-[38px] flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent outline-offset-2 transition-colors duration-200 ease-in-out"
       @update:model-value="(value) => emit('update:modelValue', value)"
     >
-      <span v-if="label || definition?.ui?.label" class="sr-only">
-        {{ label || definition?.ui?.label }}
+      <span v-if="label || definition?.title" class="sr-only">
+        {{ label || definition.title }}
       </span>
       <span
         :class="[
@@ -73,8 +73,8 @@ const emit = defineEmits(["update:modelValue"]);
         </span>
       </span>
     </Switch>
-    <TuneLabelInput v-if="hint || definition?.ui?.hint">
-      {{ hint || definition.ui.hint }}
+    <TuneLabelInput v-if="hint || definition?.description">
+      {{ hint || definition.description }}
     </TuneLabelInput>
   </div>
 </template>

@@ -5,10 +5,12 @@ const props = withDefaults(
   defineProps<{
     modelValue: string;
     definition: any;
+    label?: string;
     placeholder?: string;
     error?: string;
   }>(),
   {
+    label: "",
     placeholder: "",
     error: "",
   }
@@ -23,10 +25,16 @@ const input = computed({
 </script>
 
 <template>
-  <textarea
-    v-if="definition?.format === 'long'"
-    v-model="input"
-    class="tune-input !rounded-md"
-    :placeholder="placeholder || definition?.ui?.placeholder"
-  />
+  <div>
+    <TuneLabelInput>
+      {{ label || definition?.title }}
+    </TuneLabelInput>
+
+    <textarea
+      v-if="definition?.format === 'long'"
+      v-model="input"
+      class="tune-input !rounded-md"
+      :placeholder="placeholder || definition?.examples?.[0]"
+    />
+  </div>
 </template>

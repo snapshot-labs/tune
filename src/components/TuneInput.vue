@@ -64,10 +64,10 @@ onMounted(() => {
 <template>
   <div>
     <TuneLabelInput
-      v-if="label || definition?.ui?.label"
-      :hint="hint || definition?.ui?.hint"
+      v-if="label || definition?.title"
+      :hint="hint || definition?.description"
     >
-      {{ label || definition.ui.label }}
+      {{ label || definition.title }}
     </TuneLabelInput>
     <div class="flex">
       <div :class="['group relative z-10 flex', { 'w-full': block }]">
@@ -88,7 +88,7 @@ onMounted(() => {
             { 'cursor-not-allowed placeholder:!opacity-30': disable },
             { 'w-full': block },
           ]"
-          :placeholder="placeholder || definition?.ui?.placeholder || ''"
+          :placeholder="placeholder || definition?.examples?.[0] || ''"
           :readonly="readonly"
           :disabled="disable"
           @blur="error ? (showErrorMessage = true) : null"

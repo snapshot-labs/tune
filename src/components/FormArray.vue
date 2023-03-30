@@ -37,7 +37,7 @@ const getComponent = (type: string) => {
 
 <template>
   <TuneListboxMultiple
-    v-if="definition?.items?.anyOf"
+    v-if="definition?.items?.anyOf && definition?.items?.type === 'string'"
     v-model="input"
     :items="
       definition.items.anyOf.map((item: any) => ({
