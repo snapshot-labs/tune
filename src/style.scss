@@ -47,7 +47,7 @@ body {
 }
 
 .tune-button {
-  @apply cursor-pointer rounded-md border-skin-border px-3 py-2 text-sm disabled:cursor-not-allowed;
+  @apply cursor-pointer rounded-md border border-skin-border px-3 py-2 text-sm hover:border-skin-text disabled:cursor-not-allowed;
 
   &.primary {
     @apply border-skin-primary bg-skin-primary text-white;

@@ -42,7 +42,6 @@ defineExpose({
     </TuneLabelInput>
 
     <textarea
-      v-if="definition?.format === 'long'"
       ref="textareaRef"
       v-model="input"
       :class="[
