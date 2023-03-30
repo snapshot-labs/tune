@@ -5,6 +5,8 @@ module.exports = {
     extend: {
       colors: {
         snapshot: "#f3b04e",
+        green: "#21b66f",
+        red: "#ff3856",
         "skin-primary": "var(--primary-color)",
         "skin-border": "var(--border-color)",
         "skin-text": "var(--text-color)",
@@ -13,8 +15,6 @@ module.exports = {
         "skin-block-bg": "var(--block-bg)",
         "skin-header-bg": "var(--header-bg)",
         "skin-heading": "var(--heading-color)",
-        green: "#21b66f",
-        red: "#ff3856",
       },
       keyframes: {
         fadeIn: {
@@ -35,21 +35,10 @@ module.exports = {
       4: "24px",
       5: "32px",
       6: "40px",
-    },
-    screens: {
-      xs: "420px",
-      sm: "544px",
-      md: "768px",
-      lg: "1012px",
-      xl: "1280px",
-      "2xl": "1536px",
-    },
-    fontFamily: {
-      sans: [
-        "Calibre, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji",
-      ],
-      mono: ["monospace"],
-      space: ["SpaceMono"],
+      7: "48px",
+      8: "64px",
+      9: "80px",
+      10: "96px",
     },
     fontSize: {
       "2xl": ["36px", "50px"],
