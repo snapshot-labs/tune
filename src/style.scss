@@ -34,6 +34,10 @@ body {
   }
 }
 
+.tune-error {
+  @apply mx-3 mt-[2px] text-xs text-red;
+}
+
 ::placeholder {
   opacity: 0.6 !important;
 }

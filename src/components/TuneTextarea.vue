@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 
 const props = withDefaults(
   defineProps<{
@@ -22,6 +22,17 @@ const input = computed({
   get: () => props.modelValue || props.definition?.default || "",
   set: (value) => emit("update:modelValue", value),
 });
+
+const textareaRef = ref();
+const showErrorMessage = ref(false);
+
+function forceShowError() {
+  showErrorMessage.value = true;
+}
+
+defineExpose({
+  forceShowError,
+});
 </script>
 
 <template>
@@ -32,9 +43,23 @@ const input = computed({
 
     <textarea
       v-if="definition?.format === 'long'"
+      ref="textareaRef"
       v-model="input"
-      class="tune-input w-full !rounded-md"
+      :class="[
+        'tune-input w-full !rounded-md',
+        {
+          '!border-red': !!error && showErrorMessage,
+        },
+      ]"
       :placeholder="placeholder || definition?.examples?.[0]"
     />
+    <div
+      :class="[
+        'tune-error !-mt-1',
+        !!error && showErrorMessage ? 'block' : 'hidden',
+      ]"
+    >
+      {{ error }}
+    </div>
   </div>
 </template>

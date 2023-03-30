@@ -47,6 +47,7 @@ const itemsListbox = computed(() => {
   />
   <TuneTextarea
     v-else-if="definition?.format === 'long'"
+    ref="textInputRef"
     v-bind="props"
     @update:model-value="emit('update:modelValue', $event)"
   />
