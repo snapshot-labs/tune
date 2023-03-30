@@ -28,7 +28,7 @@ const props = withDefaults(
     hint: "",
     loading: false,
     error: "",
-    block: false,
+    block: true,
     type: "text",
     modelValue: "",
     autofocus: false,

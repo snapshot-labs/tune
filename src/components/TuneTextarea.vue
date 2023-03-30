@@ -25,7 +25,7 @@ const input = computed({
 </script>
 
 <template>
-  <div>
+  <div class="w-full">
     <TuneLabelInput>
       {{ label || definition?.title }}
     </TuneLabelInput>
@@ -33,7 +33,7 @@ const input = computed({
     <textarea
       v-if="definition?.format === 'long'"
       v-model="input"
-      class="tune-input !rounded-md"
+      class="tune-input w-full !rounded-md"
       :placeholder="placeholder || definition?.examples?.[0]"
     />
   </div>
