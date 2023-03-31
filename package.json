@@ -29,6 +29,10 @@
     "demo:build": "cd demo-app && yarn build",
     "demo:link": "yarn link && cd demo-app && yarn link @snapshot-labs/tune"
   },
+  "eslintConfig": {
+    "extends": "@snapshot-labs/vue"
+  },
+  "prettier": "@snapshot-labs/prettier-config",
   "dependencies": {
     "@headlessui/vue": "^1.7.12",
     "lodash": "^4.17.21",
@@ -39,6 +43,8 @@
   "devDependencies": {
     "@histoire/plugin-vue": "^0.15.8",
     "@iconify-json/heroicons": "^1.1.10",
+    "@snapshot-labs/eslint-config-vue": "^0.1.0-beta.7",
+    "@snapshot-labs/prettier-config": "^0.1.0-beta.7",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@types/node": "^18.15.10",
