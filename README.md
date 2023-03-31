@@ -4,7 +4,7 @@ Tune is a Vue 3 component library and form generator.
 
 ## Previews
 
-Histoire: https://tune-kohl.vercel.app/
+Histoire: https://tune-histoire.vercel.app/
 
 Demo app: https://tune-demo.vercel.app/
 
