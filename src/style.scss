@@ -19,7 +19,7 @@ body {
 }
 
 .tune-input {
-  @apply form-input rounded-md border-skin-border focus:border-skin-text focus:outline-none focus:ring-0;
+  @apply form-input rounded-md border-skin-border bg-skin-bg focus:border-skin-text focus:outline-none focus:ring-0;
 }
 
 .tune-textarea {
