@@ -19,7 +19,7 @@ body {
 }
 
 .tune-input {
-  @apply form-input rounded-md border-skin-border text-sm focus:border-skin-text focus:outline-none focus:ring-0;
+  @apply form-input rounded-md border-skin-border focus:border-skin-text focus:outline-none focus:ring-0;
 }
 
 .tune-input-switch {
@@ -49,7 +49,7 @@ body {
 }
 
 .tune-button {
-  @apply cursor-pointer rounded-md border border-skin-border px-3 py-2 text-sm hover:border-skin-text disabled:cursor-not-allowed;
+  @apply cursor-pointer rounded-md border border-skin-border px-3 py-2  hover:border-skin-text disabled:cursor-not-allowed;
 
   &.primary {
     @apply border-skin-primary bg-skin-primary text-white;
