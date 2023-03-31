@@ -26,8 +26,8 @@
     "story:build": "histoire build",
     "story:preview": "histoire preview",
     "demo:dev": "cd demo-app && yarn dev",
-    "build:demo": "cd demo-app && yarn build",
-    "link:demo": "yarn link && cd demo-app && yarn link @snapshot-labs/tune"
+    "demo:build": "cd demo-app && yarn build",
+    "demo:link": "yarn link && cd demo-app && yarn link @snapshot-labs/tune"
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.12",
