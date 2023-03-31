@@ -207,15 +207,6 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.7.tgz#ccab5c8f7dc557a52ca3288c10075c9ccd37fff7"
   integrity sha512-Cr4OjIkipTtcXKjAsm8agyleBuDHvxzeBoa1v543lbv1YaIwQjESsVcmjiWiPEbC1FIeHOG/Op9kdCmAmiS3Kw==
 
-"@snapshot-labs/tune@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@snapshot-labs/tune/-/tune-0.1.1.tgz#c014119334a4a236f34787be345e51af133583be"
-  integrity sha512-nEvvRnRY3yQ13ebjEqNwkwjHSrn1ep+42zy4BWo4rP63zhdOyHI5DPecmxmP14jiJFAE1qW0Azaf3d0DrZ7PAQ==
-  dependencies:
-    sass "^1.60.0"
-    vue "^3.2.47"
-    vue-tippy "^6.0.0"
-
 "@vitejs/plugin-vue@^4.1.0":
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@vitejs/plugin-vue/-/plugin-vue-4.1.0.tgz#b6a9d83cd91575f7ee15593f6444397f68751073"
@@ -1026,7 +1017,7 @@ vue-template-compiler@^2.7.14:
     de-indent "^1.0.2"
     he "^1.2.0"
 
-vue-tippy@^6.0.0, vue-tippy@v6:
+vue-tippy@v6:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/vue-tippy/-/vue-tippy-6.0.0.tgz#9501b21caf564b0bba1954c6ece25c5f8ddf58fa"
   integrity sha512-a37/ETYbE1QdAM7PUzc++kUyyoPMpCRSaLC7F2WgMUxjhl4oWNvp9w1ybcIix+oeg3wS57wboatWXEjX9mnYEw==

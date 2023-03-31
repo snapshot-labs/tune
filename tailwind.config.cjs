@@ -3,28 +3,15 @@ module.exports = {
   content: ["./src/components/*.vue"],
   theme: {
     extend: {
-      colors: {
-        snapshot: "#f3b04e",
-        green: "#21b66f",
-        red: "#ff3856",
-        "skin-primary": "var(--primary-color)",
-        "skin-border": "var(--border-color)",
-        "skin-text": "var(--text-color)",
-        "skin-link": "var(--link-color)",
-        "skin-bg": "var(--bg-color)",
-        "skin-block-bg": "var(--block-bg)",
-        "skin-header-bg": "var(--header-bg)",
-        "skin-heading": "var(--heading-color)",
+      animation: {
+        "fade-in": "fadeIn 1s",
+        "pulse-fast": "pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
       keyframes: {
         fadeIn: {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
-      },
-      animation: {
-        "fade-in": "fadeIn 1s",
-        "pulse-fast": "pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
     },
     spacing: {
@@ -51,6 +38,21 @@ module.exports = {
     },
     boxShadow: {
       lg: "2px 4px 9px var(--shadow-color)",
+    },
+    colors: {
+      transparent: "transparent",
+      snapshot: "#f3b04e",
+      green: "#21b66f",
+      red: "#ff3856",
+      white: "#ffffff",
+      "skin-primary": "var(--primary-color)",
+      "skin-border": "var(--border-color)",
+      "skin-text": "var(--text-color)",
+      "skin-link": "var(--link-color)",
+      "skin-bg": "var(--bg-color)",
+      "skin-block-bg": "var(--block-bg)",
+      "skin-header-bg": "var(--header-bg)",
+      "skin-heading": "var(--heading-color)",
     },
   },
   plugins: [

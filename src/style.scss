@@ -19,10 +19,12 @@ body {
 }
 
 .tune-input {
-  @apply form-input rounded-md border-skin-border px-3 py-2 text-sm focus:border-skin-text focus:outline-none focus:ring-0;
+  @apply form-input rounded-md border-skin-border text-sm focus:border-skin-text focus:outline-none focus:ring-0;
 }
 
 .tune-input-switch {
+  @apply border-transparent;
+
   &.switched-on-bg {
     @apply bg-green;
   }

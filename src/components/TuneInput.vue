@@ -83,7 +83,7 @@ onMounted(() => {
           :type="type"
           :value="modelValue"
           :class="[
-            'tune-input',
+            'tune-input px-3 py-2',
             { 'tune-error-border': error && showErrorMessage },
             { 'cursor-not-allowed placeholder:!opacity-30': disable },
             { 'w-full': block },

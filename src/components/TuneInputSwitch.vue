@@ -17,12 +17,11 @@ const emit = defineEmits(["update:modelValue"]);
     <Switch
       :model-value="modelValue"
       :class="[
-        'tune-input-switch',
+        'tune-input-switch relative inline-flex h-[22px] w-[38px] flex-shrink-0 cursor-pointer rounded-full border-2 transition-colors duration-200 ease-in-out',
         modelValue ? 'switched-on-bg' : 'switched-off-bg',
         { '!cursor-not-allowed ': disable },
       ]"
       :disabled="disable"
-      class="relative inline-flex h-[22px] w-[38px] flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent outline-offset-2 transition-colors duration-200 ease-in-out"
       @update:model-value="(value) => emit('update:modelValue', value)"
     >
       <span v-if="label || definition?.title" class="sr-only">
