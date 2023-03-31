@@ -5,7 +5,7 @@ const schema = {
   type: "object",
   title: "Space",
   additionalProperties: true,
-  required: ["name", "about"],
+  required: ["name", "about", "categories"],
   properties: {
     name: {
       type: "string",
@@ -25,6 +25,7 @@ const schema = {
       type: "array",
       title: "Categories",
       examples: ["Select categories"],
+      minLength: 1,
       items: {
         type: "string",
         anyOf: [
@@ -91,6 +92,7 @@ function forceShowError() {
       :error="{
         name: 'Invalid field',
         about: 'Invalid field',
+        categories: 'Invalid field',
       }"
     />
     <TuneButton primary class="mt-3" @click="forceShowError">

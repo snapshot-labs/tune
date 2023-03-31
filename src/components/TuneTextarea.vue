@@ -54,13 +54,6 @@ defineExpose({
       @blur="error ? (showErrorMessage = true) : null"
       @focus="error ? null : (showErrorMessage = false)"
     />
-    <div
-      :class="[
-        'tune-error-text !-mt-1',
-        !!error && showErrorMessage ? 'block' : 'hidden',
-      ]"
-    >
-      {{ error }}
-    </div>
+    <TuneError v-if="error && showErrorMessage" :error="error" />
   </div>
 </template>

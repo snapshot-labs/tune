@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 
 import TuneForm from "./TuneForm.vue";
 import FormString from "./FormString.vue";
@@ -33,11 +33,27 @@ const getComponent = (type: string) => {
       return null;
   }
 };
+
+const componentRefs = ref();
+
+function forceShowError() {
+  if (componentRefs?.value?.forceShowError)
+    componentRefs?.value?.forceShowError();
+  else
+    componentRefs?.value?.forEach((ref: any) => {
+      if (ref?.forceShowError) ref?.forceShowError();
+    });
+}
+
+defineExpose({
+  forceShowError,
+});
 </script>
 
 <template>
   <TuneListboxMultiple
     v-if="definition?.items?.anyOf && definition?.items?.type === 'string'"
+    ref="componentRefs"
     v-model="input"
     :items="
       definition.items.anyOf.map((item: any) => ({
@@ -46,11 +62,13 @@ const getComponent = (type: string) => {
       }))
     "
     :definition="definition"
+    :error="error"
   />
 
   <div v-else class="space-y-2">
     <div v-for="(_, i) in input" :key="i">
       <component
+        ref="componentRefs"
         :is="getComponent(definition?.items?.type || 'string')"
         v-model="input[i]"
         :definition="definition.items"

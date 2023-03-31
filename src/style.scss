@@ -62,6 +62,10 @@ body {
   &.disabled {
     @apply text-skin-border hover:border-skin-border;
   }
+
+  &.error {
+    @apply border-red;
+  }
 }
 
 .tune-listbox-options {

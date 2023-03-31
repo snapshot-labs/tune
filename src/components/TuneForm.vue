@@ -37,7 +37,7 @@ const getComponent = (type: string) => {
   }
 };
 
-const componentRefs = ref([]);
+const componentRefs = ref();
 
 function forceShowError() {
   componentRefs?.value?.forEach((ref: any) => {

@@ -118,13 +118,6 @@ onMounted(() => {
         </div>
       </div>
     </div>
-    <div
-      :class="[
-        'tune-error-text mt-[2px]',
-        !!error && showErrorMessage ? 'block' : 'hidden',
-      ]"
-    >
-      {{ error }}
-    </div>
+    <TuneError v-if="error && showErrorMessage" :error="error" />
   </div>
 </template>
