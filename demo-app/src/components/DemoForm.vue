@@ -29,26 +29,29 @@ function updateForm() {
     jsonSchemaRef.value = JSON.parse(jsonSchemaInput.value);
     // generate input from schema
     input.value = {};
-    Object.entries(jsonSchemaRef.value.properties).forEach((prop1) => {
-      if (prop1[1].type === "object") {
-        input.value[prop1[0]] = {};
-        Object.entries(prop1[1].properties).forEach((prop2: any) => {
-          input.value[prop1[0]][prop2[0]] = "";
-        });
+    Object.entries(jsonSchemaRef.value.properties).forEach(
+      (prop1: { 0: string; 1: any }) => {
+        if (prop1[1].type === "object") {
+          input.value[prop1[0]] = {};
+          if (prop1[1]?.properties)
+            Object.entries(prop1[1].properties).forEach((prop2: any) => {
+              input.value[prop1[0]][prop2[0]] = "";
+            });
+        }
+        if (prop1[1].type === "array") {
+          input.value[prop1[0]] = [];
+        }
+        if (prop1[1].type === "string") {
+          input.value[prop1[0]] = "";
+        }
+        if (prop1[1].type === "number") {
+          input.value[prop1[0]] = undefined;
+        }
+        if (prop1[1].type === "boolean") {
+          input.value[prop1[0]] = false;
+        }
       }
-      if (prop1[1].type === "array") {
-        input.value[prop1[0]] = [];
-      }
-      if (prop1[1].type === "string") {
-        input.value[prop1[0]] = "";
-      }
-      if (prop1[1].type === "number") {
-        input.value[prop1[0]] = undefined;
-      }
-      if (prop1[1].type === "boolean") {
-        input.value[prop1[0]] = false;
-      }
-    });
+    );
   } catch (e: any) {
     jsonError.value = e;
     console.log(e);
