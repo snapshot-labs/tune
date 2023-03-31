@@ -1,8 +1,8 @@
-import Ajv from "ajv";
-import type { ErrorObject } from "ajv";
-import addFormats from "ajv-formats";
-import { isAddress } from "@ethersproject/address";
-import { parseUnits } from "@ethersproject/units";
+import Ajv from 'ajv';
+import type { ErrorObject } from 'ajv';
+import addFormats from 'ajv-formats';
+import { isAddress } from '@ethersproject/address';
+import { parseUnits } from '@ethersproject/units';
 
 export function validateForm(
   schema: Record<string, any>,
@@ -12,21 +12,21 @@ export function validateForm(
 
   addFormats(ajv);
 
-  ajv.addFormat("address", {
+  ajv.addFormat('address', {
     validate: (value: string) => {
       try {
         return isAddress(value);
       } catch (err) {
         return false;
       }
-    },
+    }
   });
 
-  ajv.addFormat("long", {
-    validate: () => true,
+  ajv.addFormat('long', {
+    validate: () => true
   });
 
-  ajv.addFormat("ethValue", {
+  ajv.addFormat('ethValue', {
     validate: (value: string) => {
       if (!value.match(/^([0-9]|[1-9][0-9]+)(\.[0-9]+)?$/)) return false;
 
@@ -36,21 +36,21 @@ export function validateForm(
       } catch {
         return false;
       }
-    },
+    }
   });
 
-  ajv.addFormat("customUrl", {
-    type: "string",
+  ajv.addFormat('customUrl', {
+    type: 'string',
     validate: (str: any) => {
       if (!str.length) return true;
       return (
-        str.startsWith("http://") ||
-        str.startsWith("https://") ||
-        str.startsWith("ipfs://") ||
-        str.startsWith("ipns://") ||
-        str.startsWith("snapshot://")
+        str.startsWith('http://') ||
+        str.startsWith('https://') ||
+        str.startsWith('ipfs://') ||
+        str.startsWith('ipns://') ||
+        str.startsWith('snapshot://')
       );
-    },
+    }
   });
 
   ajv.validate(schema, form);
@@ -66,31 +66,25 @@ function transformAjvErrors(ajv: Ajv): ValidationErrorOutput {
     return {};
   }
 
-  return ajv.errors.reduce(
-    (output: ValidationErrorOutput, error: ErrorObject) => {
-      const path: string[] = extractPathFromError(error);
+  return ajv.errors.reduce((output: ValidationErrorOutput, error: ErrorObject) => {
+    const path: string[] = extractPathFromError(error);
 
-      // Skip the current error if the path is empty
-      if (path.length === 0) {
-        return output;
-      }
-
-      const targetObject: ValidationErrorOutput = findOrCreateNestedObject(
-        output,
-        path
-      );
-      targetObject[path[path.length - 1]] = "Invalid field";
+    // Skip the current error if the path is empty
+    if (path.length === 0) {
       return output;
-    },
-    {}
-  );
+    }
+
+    const targetObject: ValidationErrorOutput = findOrCreateNestedObject(output, path);
+    targetObject[path[path.length - 1]] = 'Invalid field';
+    return output;
+  }, {});
 }
 
 function extractPathFromError(error: ErrorObject): string[] {
   if (!error.instancePath) {
     return [];
   }
-  return error.instancePath.split("/").slice(1);
+  return error.instancePath.split('/').slice(1);
 }
 
 function findOrCreateNestedObject(

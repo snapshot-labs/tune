@@ -1,11 +1,11 @@
 <script lang="ts">
 export default {
-  inheritAttrs: false,
+  inheritAttrs: false
 };
 </script>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted } from 'vue';
 
 const props = withDefaults(
   defineProps<{
@@ -14,7 +14,7 @@ const props = withDefaults(
     loading?: boolean;
     error?: string;
     block?: boolean;
-    type?: "text" | "number";
+    type?: 'text' | 'number';
     modelValue?: string | number;
     autofocus?: boolean;
     placeholder?: string;
@@ -24,23 +24,23 @@ const props = withDefaults(
     definition?: any;
   }>(),
   {
-    label: "",
-    hint: "",
+    label: '',
+    hint: '',
     loading: false,
-    error: "",
+    error: '',
     block: true,
-    type: "text",
-    modelValue: "",
+    type: 'text',
+    modelValue: '',
     autofocus: false,
-    placeholder: "",
+    placeholder: '',
     maxLength: undefined,
     readonly: false,
     disable: false,
-    definition: {},
+    definition: {}
   }
 );
 
-defineEmits(["update:modelValue"]);
+defineEmits(['update:modelValue']);
 
 const inputRef = ref();
 
@@ -51,7 +51,7 @@ function forceShowError() {
 }
 
 defineExpose({
-  forceShowError,
+  forceShowError
 });
 
 onMounted(() => {
@@ -63,10 +63,7 @@ onMounted(() => {
 
 <template>
   <div>
-    <TuneLabelInput
-      v-if="label || definition?.title"
-      :hint="hint || definition?.description"
-    >
+    <TuneLabelInput v-if="label || definition?.title" :hint="hint || definition?.description">
       {{ label || definition.title }}
     </TuneLabelInput>
     <div class="flex">
@@ -86,19 +83,14 @@ onMounted(() => {
             'tune-input px-3 py-2',
             { 'tune-error-border': error && showErrorMessage },
             { 'cursor-not-allowed placeholder:!opacity-30': disable },
-            { 'w-full': block },
+            { 'w-full': block }
           ]"
           :placeholder="placeholder || definition?.examples?.[0] || ''"
           :readonly="readonly"
           :disabled="disable"
           @blur="error ? (showErrorMessage = true) : null"
           @focus="error ? null : (showErrorMessage = false)"
-          @input="
-            $emit(
-              'update:modelValue',
-              ($event.target as HTMLInputElement).value
-            )
-          "
+          @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
         />
         <div
           v-if="loading || (error && showErrorMessage)"
@@ -110,10 +102,7 @@ onMounted(() => {
           />
           <TuneLoadingSpinner v-else-if="loading" />
         </div>
-        <div
-          v-else-if="$slots.after"
-          class="absolute inset-y-0 right-0 flex items-center pr-4"
-        >
+        <div v-else-if="$slots.after" class="absolute inset-y-0 right-0 flex items-center pr-4">
           <slot name="after" />
         </div>
       </div>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed } from 'vue';
 
 const props = withDefaults(
   defineProps<{
@@ -8,10 +8,10 @@ const props = withDefaults(
     error?: string;
   }>(),
   {
-    error: "",
+    error: ''
   }
 );
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(['update:modelValue']);
 
 const textInputRef = ref();
 
@@ -20,18 +20,18 @@ function forceShowError() {
 }
 
 defineExpose({
-  forceShowError,
+  forceShowError
 });
 
 const itemsListbox = computed(() => {
   if (props.definition?.enum) {
     return props.definition.enum.map((item: any) => ({
-      value: item,
+      value: item
     }));
   } else if (props.definition?.anyOf) {
     return props.definition.anyOf.map((item: any) => ({
       value: item.const,
-      name: item.title,
+      name: item.title
     }));
   }
 });

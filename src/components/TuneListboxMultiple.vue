@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref } from 'vue';
 import {
   Listbox,
   ListboxButton,
   ListboxOptions,
   ListboxOption,
-  ListboxLabel,
-} from "@headlessui/vue";
+  ListboxLabel
+} from '@headlessui/vue';
 
 type ListboxItem = {
   value: any;
@@ -26,24 +26,21 @@ const props = defineProps<{
   error?: string;
 }>();
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(['update:modelValue']);
 
 const selectedItems = computed({
-  get: () =>
-    props.items.filter((item) => props.modelValue?.includes(item.value)) || [],
-  set: (newVal) =>
+  get: () => props.items.filter(item => props.modelValue?.includes(item.value)) || [],
+  set: newVal =>
     emit(
-      "update:modelValue",
-      newVal.map((item) => item.value)
-    ),
+      'update:modelValue',
+      newVal.map(item => item.value)
+    )
 });
 
 function isItemDisabled(item: string) {
   if (!props.limit) return false;
   if (selectedItems.value.length < props.limit) return false;
-  return !selectedItems.value.some(
-    (selectedItem) => selectedItem.value === item
-  );
+  return !selectedItems.value.some(selectedItem => selectedItem.value === item);
 }
 
 const showErrorMessage = ref(false);
@@ -53,7 +50,7 @@ function forceShowError() {
 }
 
 defineExpose({
-  forceShowError,
+  forceShowError
 });
 </script>
 
@@ -68,39 +65,26 @@ defineExpose({
       <div class="relative">
         <ListboxButton
           v-tippy="{
-            content: selectedItems
-              .map((item) => item?.name || item.value)
-              .join(', '),
+            content: selectedItems.map(item => item?.name || item.value).join(', ')
           }"
           :class="[
             'tune-listbox-button relative h-[42px] w-full truncate border pl-3 pr-[40px] text-left',
             { 'disabled cursor-not-allowed': disable },
             {
-              error: showErrorMessage && error,
-            },
+              error: showErrorMessage && error
+            }
           ]"
         >
-          <span
-            v-if="selectedItems.length < 1"
-            class="tune-listbox-multiple-placeholder"
-          >
+          <span v-if="selectedItems.length < 1" class="tune-listbox-multiple-placeholder">
             {{ placeholder || definition?.examples?.[0] }}
           </span>
 
-          <slot
-            v-else-if="$slots.selected"
-            name="selected"
-            :selectedItems="selectedItems"
-          />
+          <slot v-else-if="$slots.selected" name="selected" :selected-items="selectedItems" />
 
           <span v-else>
-            {{
-              selectedItems.map((item) => item?.name || item.value).join(", ")
-            }}
+            {{ selectedItems.map(item => item?.name || item.value).join(', ') }}
           </span>
-          <span
-            class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-[12px]"
-          >
+          <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-[12px]">
             <i-hero-chevron-down class="text-sm" />
           </span>
         </ListboxButton>
@@ -127,14 +111,14 @@ defineExpose({
                 <li
                   :class="[
                     { active: active },
-                    'tune-listbox-item relative cursor-default select-none py-2 pl-3 pr-[50px]',
+                    'tune-listbox-item relative cursor-default select-none py-2 pl-3 pr-[50px]'
                   ]"
                 >
                   <span
                     :class="[
                       selected ? 'selected' : 'font-normal',
                       { disabled: disabled },
-                      'tune-listbox-item block truncate',
+                      'tune-listbox-item block truncate'
                     ]"
                   >
                     <slot v-if="$slots.item" name="item" :item="item" />
@@ -145,9 +129,7 @@ defineExpose({
 
                   <span
                     v-if="selected"
-                    :class="[
-                      'absolute inset-y-0 right-0 flex items-center pr-3',
-                    ]"
+                    :class="['absolute inset-y-0 right-0 flex items-center pr-3']"
                   >
                     <i-hero-check />
                   </span>

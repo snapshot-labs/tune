@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from 'vue';
 
 const items = [
-  { name: "One", value: 1 },
-  { name: "Two", value: 2 },
-  { name: "Three", value: 3 },
+  { name: 'One', value: 1 },
+  { name: 'Two', value: 2 },
+  { name: 'Three', value: 3 }
 ];
 
 const input = ref([1]);

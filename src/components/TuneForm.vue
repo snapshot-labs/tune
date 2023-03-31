@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref } from 'vue';
 
-import TuneForm from "./TuneForm.vue";
-import FormString from "./FormString.vue";
-import FormNumber from "./FormNumber.vue";
-import FormBoolean from "./FormBoolean.vue";
-import FormArray from "./FormArray.vue";
+import TuneForm from './TuneForm.vue';
+import FormString from './FormString.vue';
+import FormNumber from './FormNumber.vue';
+import FormBoolean from './FormBoolean.vue';
+import FormArray from './FormArray.vue';
 
 const props = defineProps<{
   modelValue: Record<string, any>;
@@ -13,24 +13,24 @@ const props = defineProps<{
   error: Record<string, any>;
 }>();
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(['update:modelValue']);
 
 const input = computed({
   get: () => props.modelValue || props.definition?.default || {},
-  set: (value) => emit("update:modelValue", value),
+  set: value => emit('update:modelValue', value)
 });
 
 const getComponent = (type: string) => {
   switch (type) {
-    case "object":
+    case 'object':
       return TuneForm;
-    case "string":
+    case 'string':
       return FormString;
-    case "number":
+    case 'number':
       return FormNumber;
-    case "boolean":
+    case 'boolean':
       return FormBoolean;
-    case "array":
+    case 'array':
       return FormArray;
     default:
       return null;
@@ -46,18 +46,18 @@ function forceShowError() {
 }
 
 defineExpose({
-  forceShowError,
+  forceShowError
 });
 </script>
 
 <template>
   <div class="space-y-2">
     <component
+      :is="getComponent(property.type)"
       v-for="(property, key) in (definition.properties as Record<string, any>)"
       ref="componentRefs"
-      v-model="input[key]"
-      :is="getComponent(property.type)"
       :key="key"
+      v-model="input[key]"
       :definition="property"
       :error="error[key] || ''"
     />

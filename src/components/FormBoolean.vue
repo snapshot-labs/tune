@@ -4,12 +4,9 @@ const props = defineProps<{
   definition?: any;
 }>();
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
-  <TuneInputSwitch
-    v-bind="props"
-    @update:model-value="emit('update:modelValue', $event)"
-  />
+  <TuneInputSwitch v-bind="props" @update:model-value="emit('update:modelValue', $event)" />
 </template>

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref } from 'vue';
 
-import TuneForm from "./TuneForm.vue";
-import FormString from "./FormString.vue";
-import FormNumber from "./FormNumber.vue";
-import FormBoolean from "./FormBoolean.vue";
+import TuneForm from './TuneForm.vue';
+import FormString from './FormString.vue';
+import FormNumber from './FormNumber.vue';
+import FormBoolean from './FormBoolean.vue';
 
 const props = defineProps<{
   modelValue: any[];
@@ -12,22 +12,22 @@ const props = defineProps<{
   error: any;
 }>();
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(['update:modelValue']);
 
 const input = computed({
   get: () => props.modelValue || props.definition?.default || [],
-  set: (value) => emit("update:modelValue", value),
+  set: value => emit('update:modelValue', value)
 });
 
 const getComponent = (type: string) => {
   switch (type) {
-    case "object":
+    case 'object':
       return TuneForm;
-    case "string":
+    case 'string':
       return FormString;
-    case "number":
+    case 'number':
       return FormNumber;
-    case "boolean":
+    case 'boolean':
       return FormBoolean;
     default:
       return null;
@@ -37,8 +37,7 @@ const getComponent = (type: string) => {
 const componentRefs = ref();
 
 function forceShowError() {
-  if (componentRefs?.value?.forceShowError)
-    componentRefs?.value?.forceShowError();
+  if (componentRefs?.value?.forceShowError) componentRefs?.value?.forceShowError();
   else
     componentRefs?.value?.forEach((ref: any) => {
       if (ref?.forceShowError) ref?.forceShowError();
@@ -46,7 +45,7 @@ function forceShowError() {
 }
 
 defineExpose({
-  forceShowError,
+  forceShowError
 });
 </script>
 
@@ -68,17 +67,14 @@ defineExpose({
   <div v-else class="space-y-2">
     <div v-for="(_, i) in input" :key="i">
       <component
-        ref="componentRefs"
         :is="getComponent(definition?.items?.type || 'string')"
+        ref="componentRefs"
         v-model="input[i]"
         :definition="definition.items"
         :error="error"
       />
     </div>
-    <TuneButton
-      class="w-full"
-      @click="input.push(definition?.items?.default || '')"
-    >
+    <TuneButton class="w-full" @click="input.push(definition?.items?.default || '')">
       Add
     </TuneButton>
   </div>

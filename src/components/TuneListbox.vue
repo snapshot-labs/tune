@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed } from 'vue';
 import {
   Listbox,
   ListboxButton,
   ListboxOptions,
   ListboxOption,
-  ListboxLabel,
-} from "@headlessui/vue";
-import isEqual from "lodash/isEqual";
+  ListboxLabel
+} from '@headlessui/vue';
+import isEqual from 'lodash/isEqual';
 
 type ListboxItem = {
   value: any;
@@ -24,13 +24,11 @@ const props = defineProps<{
   hint?: string;
 }>();
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(['update:modelValue']);
 
 const selectedItem = computed({
-  get: () =>
-    props.items.find((item) => isEqual(item.value, props.modelValue)) ||
-    props.items[0],
-  set: (newVal) => emit("update:modelValue", newVal.value),
+  get: () => props.items.find(item => isEqual(item.value, props.modelValue)) || props.items[0],
+  set: newVal => emit('update:modelValue', newVal.value)
 });
 </script>
 
@@ -46,18 +44,12 @@ const selectedItem = computed({
         class="tune-listbox-button relative h-[42px] w-full truncate border pl-3 pr-[40px] text-left"
         :class="{ 'disabled cursor-not-allowed': disable }"
       >
-        <slot
-          v-if="$slots.selected"
-          name="selected"
-          :selectedItem="selectedItem"
-        />
+        <slot v-if="$slots.selected" name="selected" :selected-item="selectedItem" />
 
         <span v-else-if="selectedItem">
           {{ selectedItem?.name || selectedItem.value }}
         </span>
-        <span
-          class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-[12px]"
-        >
+        <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-[12px]">
           <i-hero-chevron-down class="text-sm" />
         </span>
       </ListboxButton>
@@ -83,14 +75,14 @@ const selectedItem = computed({
               <li
                 :class="[
                   { active: active && !disabled },
-                  'tune-listbox-item relative cursor-default select-none py-2 pl-3 pr-[50px]',
+                  'tune-listbox-item relative cursor-default select-none py-2 pl-3 pr-[50px]'
                 ]"
               >
                 <span
                   :class="[
                     selected ? 'selected' : 'font-normal',
                     { disabled: disabled },
-                    'tune-listbox-item block truncate',
+                    'tune-listbox-item block truncate'
                   ]"
                 >
                   <slot v-if="$slots.item" name="item" :item="item" />

@@ -1,16 +1,16 @@
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    type?: "button" | "submit" | "reset";
+    type?: 'button' | 'submit' | 'reset';
     primary?: boolean;
     loading?: boolean;
     disabled?: boolean;
   }>(),
   {
-    type: "button",
+    type: 'button',
     primary: false,
     loading: false,
-    disabled: false,
+    disabled: false
   }
 );
 </script>
@@ -21,8 +21,8 @@ const props = withDefaults(
     :class="[
       'tune-button',
       {
-        primary: primary,
-      },
+        primary: primary
+      }
     ]"
     :disabled="disabled || loading"
   >

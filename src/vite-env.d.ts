@@ -1,2 +1,2 @@
 /// <reference types="vite/client" />
-declare module "lodash/isEqual";
+declare module 'lodash/isEqual';
