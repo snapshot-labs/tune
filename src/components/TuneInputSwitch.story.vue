@@ -1,5 +1,11 @@
+<script setup>
+import { ref } from "vue";
+
+const input = ref(false);
+</script>
+
 <template>
   <Story>
-    <TuneInputSwitch label="Switch me" hint="I'm a switch" />
+    <TuneInputSwitch v-model="input" label="Switch me" hint="I'm a switch" />
   </Story>
 </template>
