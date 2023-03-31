@@ -1,26 +1,26 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref } from 'vue';
 
 const props = withDefaults(
   defineProps<{
     modelValue: string;
-    definition: any;
+    definition?: any;
     label?: string;
     placeholder?: string;
     error?: string;
   }>(),
   {
-    label: "",
-    placeholder: "",
-    error: "",
+    label: '',
+    placeholder: '',
+    error: ''
   }
 );
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(['update:modelValue']);
 
 const input = computed({
-  get: () => props.modelValue || props.definition?.default || "",
-  set: (value) => emit("update:modelValue", value),
+  get: () => props.modelValue || props.definition?.default || '',
+  set: value => emit('update:modelValue', value)
 });
 
 const textareaRef = ref();
@@ -31,7 +31,7 @@ function forceShowError() {
 }
 
 defineExpose({
-  forceShowError,
+  forceShowError
 });
 </script>
 
@@ -47,13 +47,13 @@ defineExpose({
       :class="[
         'tune-input w-full',
         {
-          'tune-error-border': !!error && showErrorMessage,
-        },
+          'tune-error-border': !!error && showErrorMessage
+        }
       ]"
       :placeholder="placeholder || definition?.examples?.[0]"
       @blur="error ? (showErrorMessage = true) : null"
       @focus="error ? null : (showErrorMessage = false)"
     />
-    <TuneError v-if="error && showErrorMessage" :error="error" />
+    <TuneError v-if="error && showErrorMessage" class="-mt-1" :error="error" />
   </div>
 </template>
