@@ -24,7 +24,10 @@
     "build:watch": "nodemon -e js,ts,vue,scss --watch src --exec \"vue-tsc --noEmit && vite build\"",
     "story:dev": "histoire dev",
     "story:build": "histoire build",
-    "story:preview": "histoire preview"
+    "story:preview": "histoire preview",
+    "demo:dev": "cd demo-app && yarn dev",
+    "build:demo": "cd demo-app && yarn build",
+    "link:demo": "yarn link && cd demo-app && yarn link @snapshot-labs/tune"
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.12",
