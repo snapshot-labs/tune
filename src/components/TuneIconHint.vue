@@ -5,11 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <span
-    v-if="!!hint"
-    v-tippy="{ content: hint }"
-    class="tune-icon-hint text-xs"
-  >
+  <span v-if="!!hint" v-tippy="{ content: hint }" class="tune-icon-hint">
     <i-hero-question-mark-circle />
   </span>
 </template>

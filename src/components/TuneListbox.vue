@@ -58,7 +58,7 @@ const selectedItem = computed({
         <span
           class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-[12px]"
         >
-          <i-hero-chevron-down class="text-[14px]" />
+          <i-hero-chevron-down class="text-sm" />
         </span>
       </ListboxButton>
       <transition
@@ -70,7 +70,7 @@ const selectedItem = computed({
         leave-to-class="transform scale-95 opacity-0"
       >
         <ListboxOptions
-          class="tune-listbox-options absolute z-40 mt-1 w-full overflow-hidden border text-base focus:outline-none"
+          class="tune-listbox-options absolute z-40 mt-1 w-full overflow-hidden border focus:outline-none"
         >
           <div class="max-h-[180px] overflow-y-scroll">
             <ListboxOption

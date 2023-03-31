@@ -63,7 +63,10 @@ function isItemDisabled(item: string) {
         class="tune-listbox-button relative h-[42px] w-full truncate border pl-3 pr-[40px] text-left"
         :class="{ 'disabled cursor-not-allowed': disable }"
       >
-        <span v-if="selectedItems.length < 1" class="text-skin-text opacity-60">
+        <span
+          v-if="selectedItems.length < 1"
+          class="tune-listbox-multiple-placeholder"
+        >
           {{ placeholder || definition?.examples?.[0] }}
         </span>
 
@@ -79,7 +82,7 @@ function isItemDisabled(item: string) {
         <span
           class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-[12px]"
         >
-          <i-hero-chevron-down class="text-[14px]" />
+          <i-hero-chevron-down class="text-sm" />
         </span>
       </ListboxButton>
       <transition
@@ -91,7 +94,7 @@ function isItemDisabled(item: string) {
         leave-to-class="transform scale-95 opacity-0"
       >
         <ListboxOptions
-          class="tune-listbox-options absolute z-40 mt-1 w-full overflow-hidden border text-base focus:outline-none"
+          class="tune-listbox-options absolute z-40 mt-1 w-full overflow-hidden border focus:outline-none"
         >
           <div class="max-h-[180px] overflow-y-scroll">
             <ListboxOption

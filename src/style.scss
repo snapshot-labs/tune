@@ -15,7 +15,7 @@
 }
 
 body {
-  @apply text-sm;
+  @apply text-base;
 }
 
 .tune-input {
@@ -69,8 +69,6 @@ body {
 }
 
 .tune-listbox-item {
-  @apply text-sm;
-
   &.selected {
     @apply text-skin-link;
   }
@@ -82,16 +80,20 @@ body {
   }
 }
 
+.tune-listbox-multiple-placeholder {
+  @apply text-skin-text opacity-60;
+}
+
 .tune-label {
-  @apply text-sm text-skin-text;
+  @apply text-skin-text;
 }
 
 .tune-icon-hint {
-  @apply hover:text-skin-link;
+  @apply text-sm hover:text-skin-link;
 }
 
 .tune-error-text {
-  @apply text-red;
+  @apply text-sm text-red;
 }
 
 .tune-error-border {

@@ -120,7 +120,7 @@ onMounted(() => {
     </div>
     <div
       :class="[
-        'tune-error-text mt-[2px] text-sm',
+        'tune-error-text mt-[2px]',
         !!error && showErrorMessage ? 'block' : 'hidden',
       ]"
     >
