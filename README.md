@@ -4,9 +4,9 @@ Tune is a Vue 3 component library and form generator.
 
 ## Previews
 
-Histoire: https://tune-kohl.vercel.app/
+Histoire: https://tune-histoire.vercel.app/
 
-Demo app: https://tune-demo-app-tisa.vercel.app/
+Demo app: https://tune-demo.vercel.app/
 
 ## Installation & Usage
 
@@ -14,14 +14,24 @@ Demo app: https://tune-demo-app-tisa.vercel.app/
 yarn add @snapshot-labs/tune
 ```
 
+Import CSS
 ```js
-// Add css file to main.js
+// main.ts
 import "@snapshot-labs/tune/dist/style.css";
 ```
 
+Import components
 ```js
-// Use component in your project
 import { TuneInput } from "@snapshot-labs/tune";
+```
+
+Or use [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components) for auto import and add
+```js
+componentName => {
+  if (componentName.startsWith('Tune'))
+    return { name: componentName, from: '@snapshot-labs/tune' };
+  }
+      
 ```
 
 ## Development
