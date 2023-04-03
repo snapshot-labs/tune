@@ -1,25 +1,25 @@
 /// <reference types="histoire" />
 
-import { defineConfig } from "histoire";
-import { HstVue } from "@histoire/plugin-vue";
+import { defineConfig } from 'histoire';
+import { HstVue } from '@histoire/plugin-vue';
 
 export default defineConfig({
   plugins: [HstVue()],
-  setupFile: "./src/histoire-setup.ts",
+  setupFile: './src/histoire-setup.ts',
   theme: {
-    defaultColorScheme: "light",
-    hideColorSchemeSwitch: true,
+    defaultColorScheme: 'light',
+    hideColorSchemeSwitch: true
   },
   backgroundPresets: [
     {
-      label: "Light",
-      color: "#fff",
-      contrastColor: "#333",
+      label: 'Light',
+      color: '#fff',
+      contrastColor: '#333'
     },
     {
-      label: "Dark",
-      color: "#211f24",
-      contrastColor: "#fff",
-    },
-  ],
+      label: 'Dark',
+      color: '#211f24',
+      contrastColor: '#fff'
+    }
+  ]
 });
