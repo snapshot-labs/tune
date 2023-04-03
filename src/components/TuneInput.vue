@@ -20,7 +20,7 @@ const props = withDefaults(
     placeholder?: string;
     maxLength?: number;
     readonly?: boolean;
-    disable?: boolean;
+    disabled?: boolean;
     definition?: any;
   }>(),
   {
@@ -35,7 +35,7 @@ const props = withDefaults(
     placeholder: '',
     maxLength: undefined,
     readonly: false,
-    disable: false,
+    disabled: false,
     definition: {}
   }
 );
@@ -82,12 +82,12 @@ onMounted(() => {
           :class="[
             'tune-input px-3 py-2',
             { 'tune-error-border': error && showErrorMessage },
-            { 'cursor-not-allowed placeholder:!opacity-30': disable },
+            { 'cursor-not-allowed placeholder:!opacity-30': disabled },
             { 'w-full': block }
           ]"
           :placeholder="placeholder || definition?.examples?.[0] || ''"
           :readonly="readonly"
-          :disabled="disable"
+          :disabled="disabled"
           @blur="error ? (showErrorMessage = true) : null"
           @focus="error ? null : (showErrorMessage = false)"
           @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"

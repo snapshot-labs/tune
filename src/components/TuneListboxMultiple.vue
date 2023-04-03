@@ -21,7 +21,7 @@ const props = defineProps<{
   label?: string;
   placeholder?: string;
   limit?: number;
-  disable?: boolean;
+  disabled?: boolean;
   hint?: string;
   error?: string;
 }>();
@@ -56,7 +56,7 @@ defineExpose({
 
 <template>
   <div>
-    <Listbox v-model="selectedItems" as="div" :disabled="disable" multiple>
+    <Listbox v-model="selectedItems" as="div" :disabled="disabled" multiple>
       <ListboxLabel>
         <TuneLabelInput :hint="hint || definition?.description">
           {{ label || definition?.title }}
@@ -69,7 +69,7 @@ defineExpose({
           }"
           :class="[
             'tune-listbox-button relative h-[42px] w-full truncate pl-3 pr-[40px] text-left',
-            { 'disabled cursor-not-allowed': disable },
+            { 'disabled cursor-not-allowed': disabled },
             {
               error: showErrorMessage && error
             }

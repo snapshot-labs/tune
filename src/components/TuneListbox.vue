@@ -19,7 +19,7 @@ const props = defineProps<{
   items: ListboxItem[];
   modelValue: any;
   label?: string;
-  disable?: boolean;
+  disabled?: boolean;
   definition?: any;
   hint?: string;
 }>();
@@ -33,7 +33,7 @@ const selectedItem = computed({
 </script>
 
 <template>
-  <Listbox v-model="selectedItem" as="div" :disabled="disable">
+  <Listbox v-model="selectedItem" as="div" :disabled="disabled">
     <ListboxLabel>
       <TuneLabelInput :hint="hint || definition?.description">
         {{ label || definition?.title }}
@@ -42,7 +42,7 @@ const selectedItem = computed({
     <div class="relative">
       <ListboxButton
         class="tune-listbox-button relative h-[42px] w-full truncate pl-3 pr-[40px] text-left"
-        :class="{ 'disabled cursor-not-allowed': disable }"
+        :class="{ 'disabled cursor-not-allowed': disabled }"
       >
         <slot v-if="$slots.selected" name="selected" :selected-item="selectedItem" />
 

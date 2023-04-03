@@ -109,6 +109,10 @@ body {
   @apply border-red;
 }
 
+.tune-tag {
+  @apply rounded-md border border-skin-border bg-skin-border px-2 py-1 text-sm text-skin-text;
+}
+
 ::placeholder {
   opacity: 0.6 !important;
 }

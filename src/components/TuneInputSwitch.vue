@@ -6,7 +6,7 @@ defineProps<{
   label?: string;
   hint?: string;
   definition?: any;
-  disable?: boolean;
+  disabled?: boolean;
 }>();
 
 const emit = defineEmits(['update:modelValue']);
@@ -19,9 +19,9 @@ const emit = defineEmits(['update:modelValue']);
       :class="[
         'tune-input-switch relative inline-flex h-[22px] w-[38px] flex-shrink-0 cursor-pointer rounded-full border-2 transition-colors duration-200 ease-in-out',
         modelValue ? 'switched-on-bg' : 'switched-off-bg',
-        { '!cursor-not-allowed ': disable }
+        { '!cursor-not-allowed ': disabled }
       ]"
-      :disabled="disable"
+      :disabled="disabled"
       @update:model-value="value => emit('update:modelValue', value)"
     >
       <span v-if="label || definition?.title" class="sr-only">
