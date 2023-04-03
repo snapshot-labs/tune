@@ -12,6 +12,7 @@ import TuneLoadingSpinner from './components/TuneLoadingSpinner.vue';
 import TuneTextarea from './components/TuneTextarea.vue';
 import TuneTextareaJson from './components/TuneTextareaJson.vue';
 import TuneTag from './components/TuneTag.vue';
+import TuneMenu from './components/TuneMenu.vue';
 import './style.scss';
 
 export {
@@ -28,5 +29,6 @@ export {
   TuneLoadingSpinner,
   TuneTextarea,
   TuneTextareaJson,
-  TuneTag
+  TuneTag,
+  TuneMenu
 };
