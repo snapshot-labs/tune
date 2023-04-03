@@ -77,7 +77,7 @@ const filteredItems = computed(() => {
     </ComboboxLabel>
     <div class="relative">
       <ComboboxButton class="tune-listbox-button w-full">
-        <div class="flex items-center overflow-x-auto">
+        <div class="no-scrollbar flex items-center overflow-x-auto">
           <div v-if="selectedItems.length" class="whitespace-nowrap py-2 pl-2">
             <span v-for="item in selectedItems" :key="item.id" class="mr-1 inline-block">
               <TuneTag :label="item.name" />

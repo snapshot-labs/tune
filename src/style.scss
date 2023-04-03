@@ -117,6 +117,15 @@ body {
   opacity: 0.6 !important;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 // V-Tippy tooltip package styling - could be moved somewhere else?
 .tippy-box[data-animation='fade'][data-state='hidden'] {
   opacity: 0;
