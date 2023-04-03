@@ -2,7 +2,7 @@
   "type": "object",
   "title": "Space",
   "additionalProperties": true,
-  "required": ["name", "description"],
+  "required": ["name", "about", "categories"],
   "properties": {
     "name": {
       "type": "string",
@@ -10,7 +10,7 @@
       "minLength": 1,
       "examples": ["Space name"]
     },
-    "description": {
+    "about": {
       "type": "string",
       "format": "long",
       "title": "About",
@@ -18,28 +18,24 @@
       "examples": ["Space description"],
       "minLength": 1
     },
-    "externalUrl": {
+    "categories": {
       "type": "array",
-      "title": "Website",
-      "examples": ["Website URL"],
+      "title": "Categories",
+      "examples": ["Select categories"],
+      "minLength": 1,
       "items": {
         "type": "string",
         "anyOf": [
           {
-            "const": "AND",
-            "title": "Require all stamps"
+            "const": "social",
+            "title": "Social"
           },
           {
-            "const": "OR",
-            "title": "Require at least one stamp"
+            "const": "service",
+            "title": "Service"
           }
         ]
       }
-    },
-    "github": {
-      "type": "number",
-      "title": "GitHubID",
-      "examples": ["GitHub handle"]
     },
     "twitter": {
       "type": "string",
@@ -49,21 +45,20 @@
     "private": {
       "type": "boolean",
       "title": "private",
-      "description": "Set profile to private.",
-      "examples": ["Discord handle"]
+      "description": "Set space to private."
     },
-    "operator": {
+    "votingType": {
       "type": "string",
-      "title": "Approval operator",
-      "description": "Control how many or which stamps are required to vote.",
+      "title": "Voting type",
+      "description": "Enforce voting type for your space.",
       "anyOf": [
         {
-          "const": "AND",
-          "title": "Require all stamps"
+          "const": "single-choice",
+          "title": "Single choice"
         },
         {
-          "const": "OR",
-          "title": "Require at least one stamp"
+          "const": "approval",
+          "title": "Approval"
         }
       ]
     }

@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from "vue";
-import jsonSchema from "../helpers/schemas/sx-profile.json";
-import { validateForm } from "../helpers/validation";
-import { TuneForm, TuneButton } from "@snapshot-labs/tune";
+import { onMounted, ref, watch } from 'vue';
+import jsonSchema from '../helpers/schemas/sx-profile.json';
+import { validateForm } from '../helpers/validation';
+import { TuneForm, TuneButton } from '@snapshot-labs/tune';
 
 const jsonSchemaRef = ref(jsonSchema);
 const jsonSchemaInput = ref(JSON.stringify(jsonSchema, null, 2));
 const input = ref<Record<string, any>>({});
 const formRef = ref();
-const jsonError = ref("");
+const jsonError = ref('');
 const formErrors = ref({});
 
 watch(
@@ -24,34 +24,32 @@ function forceShowError() {
 }
 
 function updateForm() {
-  jsonError.value = "";
+  jsonError.value = '';
   try {
     jsonSchemaRef.value = JSON.parse(jsonSchemaInput.value);
     // generate input from schema
     input.value = {};
-    Object.entries(jsonSchemaRef.value.properties).forEach(
-      (prop1: { 0: string; 1: any }) => {
-        if (prop1[1].type === "object") {
-          input.value[prop1[0]] = {};
-          if (prop1[1]?.properties)
-            Object.entries(prop1[1].properties).forEach((prop2: any) => {
-              input.value[prop1[0]][prop2[0]] = "";
-            });
-        }
-        if (prop1[1].type === "array") {
-          input.value[prop1[0]] = [];
-        }
-        if (prop1[1].type === "string") {
-          input.value[prop1[0]] = "";
-        }
-        if (prop1[1].type === "number") {
-          input.value[prop1[0]] = undefined;
-        }
-        if (prop1[1].type === "boolean") {
-          input.value[prop1[0]] = false;
-        }
+    Object.entries(jsonSchemaRef.value.properties).forEach((prop1: { 0: string; 1: any }) => {
+      if (prop1[1].type === 'object') {
+        input.value[prop1[0]] = {};
+        if (prop1[1]?.properties)
+          Object.entries(prop1[1].properties).forEach((prop2: any) => {
+            input.value[prop1[0]][prop2[0]] = '';
+          });
       }
-    );
+      if (prop1[1].type === 'array') {
+        input.value[prop1[0]] = [];
+      }
+      if (prop1[1].type === 'string') {
+        input.value[prop1[0]] = '';
+      }
+      if (prop1[1].type === 'number') {
+        input.value[prop1[0]] = undefined;
+      }
+      if (prop1[1].type === 'boolean') {
+        input.value[prop1[0]] = false;
+      }
+    });
   } catch (e: any) {
     jsonError.value = e;
     console.log(e);
@@ -68,15 +66,8 @@ onMounted(() => {
     <div class="flex gap-10">
       <div class="w-full">
         <div class="text-lg">Form:</div>
-        <TuneForm
-          ref="formRef"
-          v-model="input"
-          :definition="jsonSchemaRef"
-          :error="formErrors"
-        />
-        <TuneButton class="mt-3" primary @click="forceShowError">
-          Show errors
-        </TuneButton>
+        <TuneForm ref="formRef" v-model="input" :definition="jsonSchemaRef" :error="formErrors" />
+        <TuneButton class="mt-3" primary @click="forceShowError"> Show errors </TuneButton>
       </div>
       <div class="w-full">
         <div class="w-full">
@@ -85,10 +76,7 @@ onMounted(() => {
             v-model="jsonSchemaInput"
             class="tune-input min-h-[300px] w-full !rounded-md font-mono"
           />
-          <div
-            v-if="jsonError"
-            class="text-red-500 p-3 border border-red-500 rounded-md mt-3"
-          >
+          <div v-if="jsonError" class="text-red-500 p-3 border border-red-500 rounded-md mt-3">
             {{ jsonError }}
           </div>
 
@@ -100,7 +88,7 @@ onMounted(() => {
         <span class="font-mono">
           {{ formErrors }}
         </span>
-        <div class="text-lg mt-3">Form data:</div>
+        <div class="mt-3 text-lg">Form data:</div>
         <span class="font-mono">
           {{ input }}
         </span>

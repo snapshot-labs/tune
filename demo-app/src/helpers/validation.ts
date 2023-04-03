@@ -66,6 +66,17 @@ function transformAjvErrors(ajv: Ajv): ValidationErrorOutput {
     return {};
   }
 
+  ajv.errors = ajv.errors.map(error => {
+    if (error.instancePath) return error;
+    const propertyName = error.params.missingProperty;
+    if (!propertyName) return error;
+    const path = `/${propertyName}`;
+    return {
+      ...error,
+      instancePath: path
+    };
+  });
+
   return ajv.errors.reduce((output: ValidationErrorOutput, error: ErrorObject) => {
     const path: string[] = extractPathFromError(error);
 
