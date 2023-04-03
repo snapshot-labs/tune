@@ -54,7 +54,7 @@ body {
 }
 
 .tune-button {
-  @apply cursor-pointer rounded-md border border-skin-border px-3 py-2  hover:border-skin-text disabled:cursor-not-allowed;
+  @apply cursor-pointer rounded-md border border-skin-border px-3 py-2 hover:border-skin-text disabled:cursor-not-allowed;
 
   &.primary {
     @apply border-skin-primary bg-skin-primary text-white;
@@ -111,6 +111,18 @@ body {
 
 .tune-tag {
   @apply rounded-md border border-skin-border bg-skin-border px-2 py-1 text-sm text-skin-text;
+}
+
+.tune-menu-list {
+  @apply rounded-2xl border border-skin-border bg-skin-header-bg shadow-lg;
+}
+
+.tune-menu-list-item {
+  @apply bg-skin-header-bg text-skin-text;
+
+  &.active {
+    @apply bg-skin-border text-skin-link;
+  }
 }
 
 ::placeholder {

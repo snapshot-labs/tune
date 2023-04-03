@@ -1,12 +1,12 @@
 /// <reference types="histoire" />
-import { resolve } from "path";
-import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
-import dts from "vite-plugin-dts";
-import Components from "unplugin-vue-components/vite";
-import IconsResolver from "unplugin-icons/resolver";
-import { FileSystemIconLoader } from "unplugin-icons/loaders";
-import Icons from "unplugin-icons/vite";
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import dts from 'vite-plugin-dts';
+import Components from 'unplugin-vue-components/vite';
+import IconsResolver from 'unplugin-icons/resolver';
+import { FileSystemIconLoader } from 'unplugin-icons/loaders';
+import Icons from 'unplugin-icons/vite';
 
 export default defineConfig({
   plugins: [
@@ -16,35 +16,35 @@ export default defineConfig({
       dts: true,
       resolvers: [
         IconsResolver({
-          customCollections: ["tune"],
+          customCollections: ['tune'],
           alias: {
-            hero: "heroicons",
-          },
-        }),
-      ],
+            hero: 'heroicons'
+          }
+        })
+      ]
     }),
     Icons({
-      compiler: "vue3",
+      compiler: 'vue3',
       customCollections: {
-        tune: FileSystemIconLoader("./src/assets/icons", (svg) =>
+        tune: FileSystemIconLoader('./src/assets/icons', svg =>
           svg.replace(/^<svg /, '<svg fill="currentColor" ')
-        ),
-      },
-    }),
+        )
+      }
+    })
   ],
   build: {
     lib: {
-      name: "tune",
-      entry: resolve(__dirname, "src/index.ts"),
-      fileName: (format) => `tune.${format}.js`,
+      name: 'tune',
+      entry: resolve(__dirname, 'src/index.ts'),
+      fileName: format => `tune.${format}.js`
     },
     rollupOptions: {
-      external: ["vue"],
+      external: ['vue'],
       output: {
         globals: {
-          vue: "Vue",
-        },
-      },
-    },
-  },
+          vue: 'Vue'
+        }
+      }
+    }
+  }
 });

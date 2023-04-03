@@ -96,11 +96,7 @@ onMounted(() => {
           v-if="loading || (error && showErrorMessage)"
           class="tune-input-loading absolute inset-y-0 right-0 top-[1px] mr-1 flex h-[40px] items-center overflow-hidden pl-2 pr-2"
         >
-          <i-hero-exclamation-circle-20-solid
-            v-if="error && showErrorMessage"
-            class="tune-error-text"
-          />
-          <TuneLoadingSpinner v-else-if="loading" />
+          <TuneLoadingSpinner v-if="loading" />
         </div>
         <div v-else-if="$slots.after" class="absolute inset-y-0 right-0 flex items-center pr-4">
           <slot name="after" />
