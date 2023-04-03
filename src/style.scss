@@ -62,7 +62,7 @@ body {
 }
 
 .tune-listbox-button {
-  @apply rounded-md border-skin-border text-skin-link hover:border-skin-text;
+  @apply rounded-md border border-skin-border text-skin-link hover:border-skin-text;
 
   &.disabled {
     @apply text-skin-border hover:border-skin-border;
@@ -74,7 +74,7 @@ body {
 }
 
 .tune-listbox-options {
-  @apply rounded-md border-skin-border bg-skin-bg shadow-lg;
+  @apply rounded-md border border-skin-border bg-skin-bg shadow-lg;
 }
 
 .tune-listbox-item {

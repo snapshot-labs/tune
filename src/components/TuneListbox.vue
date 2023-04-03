@@ -41,7 +41,7 @@ const selectedItem = computed({
     </ListboxLabel>
     <div class="relative">
       <ListboxButton
-        class="tune-listbox-button relative h-[42px] w-full truncate border pl-3 pr-[40px] text-left"
+        class="tune-listbox-button relative h-[42px] w-full truncate pl-3 pr-[40px] text-left"
         :class="{ 'disabled cursor-not-allowed': disable }"
       >
         <slot v-if="$slots.selected" name="selected" :selected-item="selectedItem" />
@@ -62,7 +62,7 @@ const selectedItem = computed({
         leave-to-class="transform scale-95 opacity-0"
       >
         <ListboxOptions
-          class="tune-listbox-options absolute z-40 mt-1 w-full overflow-hidden border focus:outline-none"
+          class="tune-listbox-options absolute z-40 mt-1 w-full overflow-hidden focus:outline-none"
         >
           <div class="max-h-[180px] overflow-y-scroll">
             <ListboxOption
