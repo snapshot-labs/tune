@@ -129,6 +129,18 @@ body {
   @apply rounded-md border bg-skin-header-bg shadow-lg;
 }
 
+.tune-modal-panel {
+  @apply w-[440px] rounded-md border border-skin-border bg-skin-bg p-4;
+}
+
+.tune-modal-backdrop {
+  @apply bg-skin-border opacity-70;
+}
+
+.tune-modal-title {
+  @apply text-center text-lg font-medium text-skin-text;
+}
+
 ::placeholder {
   opacity: 0.6 !important;
 }

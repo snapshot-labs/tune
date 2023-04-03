@@ -14,6 +14,7 @@ import TuneTextareaJson from './components/TuneTextareaJson.vue';
 import TuneTag from './components/TuneTag.vue';
 import TuneMenu from './components/TuneMenu.vue';
 import TunePopover from './components/TunePopover.vue';
+import TuneModal from './components/TuneModal.vue';
 import './style.scss';
 
 export {
@@ -32,5 +33,6 @@ export {
   TuneTextareaJson,
   TuneTag,
   TuneMenu,
-  TunePopover
+  TunePopover,
+  TuneModal
 };
