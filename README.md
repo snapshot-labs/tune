@@ -6,8 +6,6 @@ Tune is a Vue 3 component library and form generator.
 
 Histoire: https://tune-histoire.vercel.app/
 
-Demo app: https://tune-demo.vercel.app/
-
 ## Installation & Usage
 
 ```bash
