@@ -79,5 +79,5 @@ onMounted(() => adjustHeight());
     @blur="error ? (showErrorMessage = true) : null"
     @focus="error ? null : (showErrorMessage = false)"
   />
-  <TuneError v-if="error && showErrorMessage" class="-mt-1" :error="error" />
+  <TuneInputError v-if="error && showErrorMessage" class="-mt-1" :error="error" />
 </template>

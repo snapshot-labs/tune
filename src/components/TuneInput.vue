@@ -107,6 +107,6 @@ onMounted(() => {
         </div>
       </div>
     </div>
-    <TuneError v-if="error && showErrorMessage" :error="error" />
+    <TuneInputError v-if="error && showErrorMessage" :error="error" />
   </div>
 </template>
