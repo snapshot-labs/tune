@@ -140,6 +140,6 @@ defineExpose({
         </transition>
       </div>
     </Listbox>
-    <TuneInputError v-if="error && showErrorMessage" :error="error" />
+    <TuneErrorInput v-if="error && showErrorMessage" :error="error" />
   </div>
 </template>
