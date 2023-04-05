@@ -141,6 +141,10 @@ body {
   @apply text-center text-lg font-medium text-skin-text;
 }
 
+.tune-input-checkbox {
+  @apply rounded-full border-skin-text bg-skin-bg text-skin-primary ring-0;
+}
+
 ::placeholder {
   opacity: 0.6 !important;
 }
