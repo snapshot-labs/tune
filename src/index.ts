@@ -16,6 +16,7 @@ import TuneMenu from './components/TuneMenu.vue';
 import TunePopover from './components/TunePopover.vue';
 import TuneModal from './components/TuneModal.vue';
 import TuneInputCheckbox from './components/TuneInputCheckbox.vue';
+import TuneInputRadio from './components/TuneInputRadio.vue';
 import './style.scss';
 
 export {
@@ -36,5 +37,6 @@ export {
   TuneMenu,
   TunePopover,
   TuneModal,
-  TuneInputCheckbox
+  TuneInputCheckbox,
+  TuneInputRadio
 };
