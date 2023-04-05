@@ -13,7 +13,7 @@ const emit = defineEmits(['update:modelValue']);
   <div class="flex items-center gap-[10px]">
     <input
       :checked="modelValue"
-      :name="label"
+      :name="label || definition?.title"
       type="checkbox"
       class="tune-input-checkbox form-checkbox h-[19px] w-[19px]"
       @input="emit('update:modelValue', ($event.target as HTMLInputElement).checked)"
