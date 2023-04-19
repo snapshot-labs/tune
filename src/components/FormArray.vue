@@ -50,7 +50,12 @@ defineExpose({
 </script>
 
 <template>
-  <TuneTextareaJson v-if="definition?.title === 'Strategies'" v-model="input" label="Strategies" />
+  <TuneTextareaJson
+    v-if="definition?.title === 'Strategies'"
+    v-model="input"
+    label="Strategies"
+    :error="error"
+  />
 
   <TuneListboxMultiple
     v-else-if="definition?.items?.anyOf && definition?.items?.type === 'string'"
