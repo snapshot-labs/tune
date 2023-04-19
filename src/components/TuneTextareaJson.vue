@@ -2,7 +2,7 @@
 import { watch, ref } from 'vue';
 
 const props = defineProps<{
-  modelValue: Record<string, unknown>;
+  modelValue: Record<string, unknown> | any[];
   definition?: any;
   label?: string;
   placeholder?: string;
