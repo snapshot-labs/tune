@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import TuneInputRadio from './TuneInputRadio.vue';
 
 const input = ref('1');
 </script>

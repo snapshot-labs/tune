@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import TuneTextareaJson from './TuneTextareaJson.vue';
 
 const input = ref({ test: 1 });
 </script>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import TuneLabelInput from './TuneLabelInput.vue';
+
 const props = defineProps<{
   modelValue: string;
   value: string;

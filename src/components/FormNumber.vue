@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import TuneInput from './TuneInput.vue';
 
 const props = withDefaults(
   defineProps<{

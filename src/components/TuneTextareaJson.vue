@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { watch, ref } from 'vue';
+import TuneTextarea from './TuneTextarea.vue';
 
 const props = defineProps<{
   modelValue: Record<string, unknown> | any[];

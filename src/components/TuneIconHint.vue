@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import IconQuestionMarkCircle from '~icons/heroicons/question-mark-circle';
+
 defineProps<{
   hint?: string;
 }>();
@@ -6,6 +8,6 @@ defineProps<{
 
 <template>
   <span v-if="!!hint" v-tippy="{ content: hint }" class="tune-icon-hint">
-    <i-hero-question-mark-circle />
+    <IconQuestionMarkCircle />
   </span>
 </template>

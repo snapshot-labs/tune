@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import TuneInputCheckbox from './TuneInputCheckbox.vue';
 
 const input = ref(false);
 </script>

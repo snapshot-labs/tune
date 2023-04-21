@@ -8,6 +8,9 @@ import {
   ListboxLabel
 } from '@headlessui/vue';
 import isEqual from 'lodash/isEqual';
+import TuneLabelInput from './TuneLabelInput.vue';
+import IconChevronDown from '~icons/heroicons/chevron-down';
+import IconCheck from '~icons/heroicons/check';
 
 type ListboxItem = {
   value: any;
@@ -50,7 +53,7 @@ const selectedItem = computed({
           {{ selectedItem?.name || selectedItem.value }}
         </span>
         <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-[12px]">
-          <i-hero-chevron-down class="text-sm" />
+          <IconChevronDown class="text-sm" />
         </span>
       </ListboxButton>
       <transition
@@ -68,20 +71,20 @@ const selectedItem = computed({
             <ListboxOption
               v-for="item in items"
               :key="item.value"
-              v-slot="{ active, selected, disabled }"
+              v-slot="{ active, selected, disabled: itemDisabled }"
               as="template"
               :value="item"
             >
               <li
                 :class="[
-                  { active: active && !disabled },
+                  { active: active && !itemDisabled },
                   'tune-listbox-item relative cursor-default select-none py-2 pl-3 pr-[50px]'
                 ]"
               >
                 <span
                   :class="[
                     selected ? 'selected' : 'font-normal',
-                    { disabled: disabled },
+                    { disabled: itemDisabled },
                     'tune-listbox-item block truncate'
                   ]"
                 >
@@ -95,7 +98,7 @@ const selectedItem = computed({
                   v-if="selected"
                   :class="['absolute inset-y-0 right-0 flex items-center pr-3']"
                 >
-                  <i-hero-check class="text-sm" />
+                  <IconCheck class="text-sm" />
                 </span>
               </li>
             </ListboxOption>

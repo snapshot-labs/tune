@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import TuneListboxMultiple from './TuneListboxMultiple.vue';
 
 const items = [
   { name: 'One', value: 1 },
@@ -7,7 +8,7 @@ const items = [
   { name: 'Three', value: 3 }
 ];
 
-const input = ref([1]);
+const input = ref(['1']);
 </script>
 
 <template>

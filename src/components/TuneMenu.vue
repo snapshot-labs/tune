@@ -2,6 +2,8 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue';
 import { Float } from '@headlessui-float/vue';
 import type { Placement } from '@floating-ui/dom';
+import TuneButton from './TuneButton.vue';
+import IconChevronDown from '~icons/heroicons/chevron-down';
 
 type Item = {
   text: string;
@@ -44,7 +46,7 @@ const emit = defineEmits(['select']);
 
         <TuneButton v-else class="flex items-center">
           {{ selected }}
-          <i-hero-chevron-down class="-mr-1 ml-1 text-sm" aria-hidden="true" />
+          <IconChevronDown class="-mr-1 ml-1 text-sm" aria-hidden="true" />
         </TuneButton>
       </MenuButton>
 

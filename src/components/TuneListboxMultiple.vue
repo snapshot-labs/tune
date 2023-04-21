@@ -7,6 +7,10 @@ import {
   ListboxOption,
   ListboxLabel
 } from '@headlessui/vue';
+import TuneLabelInput from './TuneLabelInput.vue';
+import TuneErrorInput from './TuneErrorInput.vue';
+import IconChevronDown from '~icons/heroicons/chevron-down';
+import IconCheck from '~icons/heroicons/check';
 
 type ListboxItem = {
   value: any;
@@ -85,7 +89,7 @@ defineExpose({
             {{ selectedItems.map(item => item?.name || item.value).join(', ') }}
           </span>
           <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-[12px]">
-            <i-hero-chevron-down class="text-sm" />
+            <IconChevronDown class="text-sm" />
           </span>
         </ListboxButton>
         <transition
@@ -103,7 +107,7 @@ defineExpose({
               <ListboxOption
                 v-for="(item, i) in items"
                 :key="i"
-                v-slot="{ active, selected, disabled }"
+                v-slot="{ active, selected, disabled: itemDisabled }"
                 as="template"
                 :value="item"
                 :disabled="isItemDisabled(item.value)"
@@ -117,7 +121,7 @@ defineExpose({
                   <span
                     :class="[
                       selected ? 'selected' : 'font-normal',
-                      { disabled: disabled },
+                      { disabled: itemDisabled },
                       'tune-listbox-item block truncate'
                     ]"
                   >
@@ -131,7 +135,7 @@ defineExpose({
                     v-if="selected"
                     :class="['absolute inset-y-0 right-0 flex items-center pr-3']"
                   >
-                    <i-hero-check />
+                    <IconCheck class="text-sm" />
                   </span>
                 </li>
               </ListboxOption>

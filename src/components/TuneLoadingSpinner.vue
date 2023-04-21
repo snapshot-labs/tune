@@ -1,7 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import IconTuneSpinner from '~icons/tune/spinner';
+</script>
 
 <template>
   <div class="flex items-center">
-    <i-tune-spinner class="h-[22px] animate-spin" />
+    <IconTuneSpinner class="h-[22px] animate-spin" />
   </div>
 </template>

@@ -9,6 +9,9 @@ import {
   ComboboxButton
 } from '@headlessui/vue';
 import MiniSearch from 'minisearch';
+import TuneLabelInput from './TuneLabelInput.vue';
+import IconChevronDown from '~icons/heroicons/chevron-down';
+import IconCheck from '~icons/heroicons/check';
 
 type ComboboxItem = {
   id: string;
@@ -86,7 +89,7 @@ const filteredItems = computed(() => {
         class="absolute inset-y-0 right-1 flex items-center px-2 focus:outline-none"
         :class="{ 'cursor-not-allowed': disabled }"
       >
-        <i-hero-chevron-down class="text-sm" />
+        <IconChevronDown class="text-sm" />
       </ComboboxButton>
       <ComboboxOptions
         v-if="filteredItems.length > 0"
@@ -95,7 +98,7 @@ const filteredItems = computed(() => {
         <div class="max-h-[180px] overflow-y-auto">
           <ComboboxOption
             v-for="item in filteredItems"
-            v-slot="{ active, selected, disabled }"
+            v-slot="{ active, selected, disabled: itemDisabled }"
             :key="item.id"
             as="template"
             :value="item"
@@ -109,7 +112,7 @@ const filteredItems = computed(() => {
               <span
                 :class="[
                   selected ? 'selected' : 'font-normal',
-                  { disabled: disabled },
+                  { disabled: itemDisabled },
                   'tune-listbox-item block truncate'
                 ]"
               >
@@ -120,7 +123,7 @@ const filteredItems = computed(() => {
               </span>
 
               <span v-if="selected" :class="['absolute inset-y-0 right-0 flex items-center pr-3']">
-                <i-hero-check class="text-sm" />
+                <IconCheck class="text-sm" />
               </span>
             </li>
           </ComboboxOption>

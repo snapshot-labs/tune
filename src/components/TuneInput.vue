@@ -6,6 +6,9 @@ export default {
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import TuneLabelInput from './TuneLabelInput.vue';
+import TuneLoadingSpinner from './TuneLoadingSpinner.vue';
+import TuneErrorInput from './TuneErrorInput.vue';
 
 const props = withDefaults(
   defineProps<{

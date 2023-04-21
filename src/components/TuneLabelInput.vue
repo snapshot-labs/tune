@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import TuneIconHint from './TuneIconHint.vue';
+
 defineProps<{
   hint?: string;
 }>();

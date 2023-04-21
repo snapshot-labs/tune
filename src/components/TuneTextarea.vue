@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, nextTick, watch, onMounted } from 'vue';
+import TuneLabelInput from './TuneLabelInput.vue';
+import TuneErrorInput from './TuneErrorInput.vue';
 
 const props = withDefaults(
   defineProps<{
@@ -9,12 +11,16 @@ const props = withDefaults(
     placeholder?: string;
     error?: string;
     autosize?: boolean;
+    disabled?: boolean;
+    maxLength?: number;
   }>(),
   {
     label: '',
     placeholder: '',
     error: '',
-    autosize: true
+    autosize: true,
+    disabled: false,
+    maxLength: undefined
   }
 );
 
@@ -60,24 +66,27 @@ onMounted(() => adjustHeight());
 </script>
 
 <template>
-  <TuneLabelInput>
-    {{ label || definition?.title }}
-  </TuneLabelInput>
-
-  <textarea
-    v-bind="$attrs"
-    ref="textareaRef"
-    v-model="input"
-    :class="[
-      'tune-textarea w-full',
-      {
-        'tune-error-border': !!error && showErrorMessage
-      }
-    ]"
-    :style="autoResizeStyles"
-    :placeholder="placeholder || definition?.examples?.[0]"
-    @blur="error ? (showErrorMessage = true) : null"
-    @focus="error ? null : (showErrorMessage = false)"
-  />
-  <TuneErrorInput v-if="error && showErrorMessage" class="!-mt-1" :error="error" />
+  <div>
+    <TuneLabelInput>
+      {{ label || definition?.title }}
+    </TuneLabelInput>
+    <textarea
+      v-bind="$attrs"
+      ref="textareaRef"
+      v-model="input"
+      :class="[
+        'tune-textarea w-full',
+        {
+          'tune-error-border': !!error && showErrorMessage
+        }
+      ]"
+      :style="autoResizeStyles"
+      :placeholder="placeholder || definition?.examples?.[0]"
+      :disabled="disabled"
+      :maxlength="maxLength"
+      @blur="error ? (showErrorMessage = true) : null"
+      @focus="error ? null : (showErrorMessage = false)"
+    />
+    <TuneErrorInput v-if="error && showErrorMessage" class="!-mt-1" :error="error" />
+  </div>
 </template>

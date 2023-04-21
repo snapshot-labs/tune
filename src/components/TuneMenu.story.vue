@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import TuneMenu from './TuneMenu.vue';
+
 const items = [
   {
     text: 'View profile',

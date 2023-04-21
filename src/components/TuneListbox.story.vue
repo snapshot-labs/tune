@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import TuneListbox from './TuneListbox.vue';
 
 const items = [
   { name: 'One', value: 1 },

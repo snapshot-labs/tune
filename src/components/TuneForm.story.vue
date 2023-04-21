@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import TuneForm from './TuneForm.vue';
+import TuneButton from './TuneButton.vue';
 
 const schema = {
   type: 'object',

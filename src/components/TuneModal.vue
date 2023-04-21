@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue';
+import IconXMark from '~icons/heroicons/x-mark';
 
 defineEmits(['close']);
 
@@ -38,7 +39,7 @@ defineProps<{ open: boolean; title: string }>();
               <div class="absolute right-4 top-4">
                 <button @click="$emit('close')">
                   <span class="sr-only">Close</span>
-                  <i-hero-x-mark class="text-md" aria-hidden="true" />
+                  <IconXMark class="text-md" aria-hidden="true" />
                 </button>
               </div>
               <DialogTitle as="h3" class="tune-modal-title">

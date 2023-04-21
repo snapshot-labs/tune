@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Switch } from '@headlessui/vue';
+import TuneLabelInput from './TuneLabelInput.vue';
 
 defineProps<{
   modelValue: boolean;

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import TuneLabelInput from './TuneLabelInput.vue';
+
 defineProps<{
   modelValue: boolean;
   label?: string;

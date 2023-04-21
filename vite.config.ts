@@ -3,8 +3,6 @@ import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import dts from 'vite-plugin-dts';
-import Components from 'unplugin-vue-components/vite';
-import IconsResolver from 'unplugin-icons/resolver';
 import { FileSystemIconLoader } from 'unplugin-icons/loaders';
 import Icons from 'unplugin-icons/vite';
 
@@ -12,17 +10,6 @@ export default defineConfig({
   plugins: [
     vue(),
     dts(),
-    Components({
-      dts: true,
-      resolvers: [
-        IconsResolver({
-          customCollections: ['tune'],
-          alias: {
-            hero: 'heroicons'
-          }
-        })
-      ]
-    }),
     Icons({
       compiler: 'vue3',
       customCollections: {

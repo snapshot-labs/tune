@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import TunePopover from './TunePopover.vue';
+</script>
+
 <template>
   <Story>
     <TunePopover label="Button">

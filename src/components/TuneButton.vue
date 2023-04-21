@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import TuneLoadingSpinner from './TuneLoadingSpinner.vue';
+
 const props = withDefaults(
   defineProps<{
     type?: 'button' | 'submit' | 'reset';

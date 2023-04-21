@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import TuneCombobox from './TuneCombobox.vue';
 
 const items = [
   { name: 'One', id: '1' },

@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
+import TuneInput from './TuneInput.vue';
+import TuneTextarea from './TuneTextarea.vue';
+import TuneListbox from './TuneListbox.vue';
 
 const props = withDefaults(
   defineProps<{
@@ -34,6 +37,7 @@ const itemsListbox = computed(() => {
       name: item.title
     }));
   }
+  return [];
 });
 </script>
 

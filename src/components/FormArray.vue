@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
+import TuneTextareaJson from './TuneTextareaJson.vue';
+import TuneListboxMultiple from './TuneListboxMultiple.vue';
+import TuneButton from './TuneButton.vue';
 
 import TuneForm from './TuneForm.vue';
 import FormString from './FormString.vue';
