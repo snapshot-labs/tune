@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import TuneInput from './TuneInput.vue';
 import IconGlobeAlt from '~icons/heroicons/globe-alt-solid';
 
@@ -13,10 +14,21 @@ defineProps<{
 }>();
 
 const emit = defineEmits(['update:modelValue']);
+
+const inputRef = ref();
+
+function forceShowError() {
+  inputRef?.value?.forceShowError();
+}
+
+defineExpose({
+  forceShowError
+});
 </script>
 
 <template>
   <TuneInput
+    ref="inputRef"
     :label="label"
     :model-value="modelValue"
     :error="error"
