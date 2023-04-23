@@ -25,6 +25,10 @@ body {
 .tune-textarea {
   @extend .tune-input;
   @apply rounded-md;
+
+  &.disabled {
+    @apply cursor-not-allowed;
+  }
 }
 
 .tune-input-switch {
@@ -58,6 +62,22 @@ body {
 
   &.primary {
     @apply border-skin-primary bg-skin-primary text-white;
+  }
+}
+
+.tune-button-select {
+  @apply relative w-full truncate pl-3 pr-5 text-left;
+
+  &.disabled {
+    @apply cursor-not-allowed border-skin-border;
+  }
+}
+
+.tune-select {
+  @apply text-left;
+
+  &.disabled {
+    @apply cursor-not-allowed;
   }
 }
 

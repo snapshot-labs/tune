@@ -19,6 +19,8 @@ import TuneInputCheckbox from './components/TuneInputCheckbox.vue';
 import TuneInputRadio from './components/TuneInputRadio.vue';
 import TuneInputUrl from './components/TuneInputUrl.vue';
 import TuneInputSocial from './components/TuneInputSocial.vue';
+import TuneButtonSelect from './components/TuneButtonSelect.vue';
+import TuneSelect from './components/TuneSelect.vue';
 import './style.scss';
 
 export {
@@ -42,5 +44,7 @@ export {
   TuneInputCheckbox,
   TuneInputRadio,
   TuneInputUrl,
-  TuneInputSocial
+  TuneInputSocial,
+  TuneButtonSelect,
+  TuneSelect
 };
