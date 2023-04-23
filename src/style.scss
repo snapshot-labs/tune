@@ -73,6 +73,14 @@ body {
   }
 }
 
+.tune-input-duration {
+  @apply rounded-lg border border-skin-border px-3 focus-within:border-skin-text;
+}
+
+.tune-input-duration-label {
+  @apply text-skin-text;
+}
+
 .tune-select {
   @apply text-left;
 
