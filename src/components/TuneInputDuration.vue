@@ -16,26 +16,24 @@ interface DurationInputProps {
 const props = defineProps<DurationInputProps>();
 const emit = defineEmits(['update:modelValue']);
 
-const { modelValue, hideDay, hideMinutes } = toRefs(props);
-
 const duration = computed<any>({
   get() {
-    if (hideDay.value) {
+    if (props.hideDay) {
       return {
-        hours: Math.floor(modelValue.value / 3600),
-        minutes: Math.floor((modelValue.value % 3600) / 60)
+        hours: Math.floor(props.modelValue / 3600),
+        minutes: Math.floor((props.modelValue % 3600) / 60)
       };
     }
-    if (hideMinutes.value) {
+    if (props.hideMinutes) {
       return {
-        days: Math.floor(modelValue.value / 86400),
-        hours: Math.floor((modelValue.value % 86400) / 3600)
+        days: Math.floor(props.modelValue / 86400),
+        hours: Math.floor((props.modelValue % 86400) / 3600)
       };
     }
     return {
-      days: Math.floor(modelValue.value / 86400),
-      hours: Math.floor((modelValue.value % 86400) / 3600),
-      minutes: Math.floor((modelValue.value % 3600) / 60)
+      days: Math.floor(props.modelValue / 86400),
+      hours: Math.floor((props.modelValue % 86400) / 3600),
+      minutes: Math.floor((props.modelValue % 3600) / 60)
     };
   },
   set(newDuration) {
@@ -52,7 +50,7 @@ const inputItems = computed(() => {
     {
       key: 'days',
       label: 'Days',
-      hidden: hideDay.value,
+      hidden: props.hideDay || false,
       max: 365
     },
     {
@@ -64,14 +62,14 @@ const inputItems = computed(() => {
     {
       key: 'minutes',
       label: 'Minutes',
-      hidden: hideMinutes.value,
+      hidden: props.hideMinutes || false,
       max: 60
     }
   ];
 });
 
 const updateDuration = (key: string, value: number) => {
-  if (!value) return;
+  if (isNaN(value) || value === undefined) return;
   duration.value = { ...duration.value, [key]: value };
 };
 
@@ -106,7 +104,7 @@ function addRef(ref: any) {
             placeholder="0"
             :disabled="disabled"
             :class="[
-              'py-2 pl-4 pr-1 outline-none',
+              'bg-transparent py-2 pl-4 pr-1 outline-none',
               { 'cursor-not-allowed bg-transparent': disabled }
             ]"
             @click.stop

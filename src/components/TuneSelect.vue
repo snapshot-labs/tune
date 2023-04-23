@@ -17,7 +17,7 @@ function handleChange(event: any) {
   <select
     :disabled="disabled"
     :value="modelValue"
-    class="form-select"
+    :class="['tune-select form-select', { disabled: disabled }]"
     @change="handleChange($event)"
   >
     <option v-for="(item, index) in items" :key="index" :value="item.value">

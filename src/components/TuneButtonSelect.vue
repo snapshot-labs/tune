@@ -5,7 +5,7 @@ import IconChevronDown from '~icons/heroicons/chevron-down';
 
 defineProps<{
   modelValue: string;
-  label: string;
+  label?: string;
   hint?: string;
   disabled?: boolean;
   tooltip?: string | null;

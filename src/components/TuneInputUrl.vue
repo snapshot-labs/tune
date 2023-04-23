@@ -34,6 +34,7 @@ defineExpose({
     :error="error"
     :hint="hint"
     :disabled="disabled"
+    :placeholder="placeholder"
     :max-length="maxLength"
     class="!pl-[40px]"
     @update:model-value="input => emit('update:modelValue', input)"

@@ -65,7 +65,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
+  <div :class="{ 'w-full': block }">
     <TuneLabelInput v-if="label || definition?.title" :hint="hint || definition?.description">
       {{ label || definition.title }}
     </TuneLabelInput>
@@ -91,6 +91,7 @@ onMounted(() => {
           :placeholder="placeholder || definition?.examples?.[0] || ''"
           :readonly="readonly"
           :disabled="disabled"
+          :maxlength="maxLength"
           @blur="error ? (showErrorMessage = true) : null"
           @focus="error ? null : (showErrorMessage = false)"
           @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"

@@ -8,6 +8,7 @@ const props = withDefaults(
     modelValue: string;
     definition?: any;
     label?: string;
+    hint?: string;
     placeholder?: string;
     error?: string;
     autosize?: boolean;
@@ -16,6 +17,7 @@ const props = withDefaults(
   }>(),
   {
     label: '',
+    hint: '',
     placeholder: '',
     error: '',
     autosize: true,
@@ -67,7 +69,7 @@ onMounted(() => adjustHeight());
 
 <template>
   <div>
-    <TuneLabelInput>
+    <TuneLabelInput :hint="hint || definition?.description">
       {{ label || definition?.title }}
     </TuneLabelInput>
     <textarea
@@ -78,7 +80,8 @@ onMounted(() => adjustHeight());
         'tune-textarea w-full',
         {
           'tune-error-border': !!error && showErrorMessage
-        }
+        },
+        { disabled: disabled }
       ]"
       :style="autoResizeStyles"
       :placeholder="placeholder || definition?.examples?.[0]"
