@@ -9,6 +9,8 @@ interface DurationInputProps {
   definition?: any;
   hideDay?: boolean;
   hideMinutes?: boolean;
+  disabled?: boolean;
+  block?: boolean;
 }
 
 const props = defineProps<DurationInputProps>();
@@ -16,7 +18,7 @@ const emit = defineEmits(['update:modelValue']);
 
 const { modelValue, hideDay, hideMinutes } = toRefs(props);
 
-const duration = computed({
+const duration = computed<any>({
   get() {
     if (hideDay.value) {
       return {
@@ -85,7 +87,14 @@ function addRef(ref: any) {
     <TuneLabelInput :hint="hint || definition?.description">
       {{ label || definition?.title }}
     </TuneLabelInput>
-    <div class="tune-input-duration inline-flex overflow-hidden" @click="inputRef?.[0].focus()">
+    <div
+      :class="[
+        'tune-input-duration inline-flex overflow-hidden',
+        { 'w-full': block },
+        { disabled: disabled }
+      ]"
+      @click="inputRef?.[0].focus()"
+    >
       <template v-for="item in inputItems" :key="item.label">
         <div v-if="!item.hidden" class="flex items-center first:-ml-3">
           <input
@@ -95,9 +104,13 @@ function addRef(ref: any) {
             min="0"
             :max="item.max"
             placeholder="0"
-            :class="['py-2 pl-4 pr-1 outline-none']"
+            :disabled="disabled"
+            :class="[
+              'py-2 pl-4 pr-1 outline-none',
+              { 'cursor-not-allowed bg-transparent': disabled }
+            ]"
             @click.stop
-            @input="updateDuration(item.key, $event.target?.valueAsNumber)"
+            @input="updateDuration(item.key, ($event.target as HTMLInputElement)?.valueAsNumber)"
           />
           <span class="tune-input-duration-label">
             {{ item.label }}

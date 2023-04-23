@@ -75,6 +75,9 @@ body {
 
 .tune-input-duration {
   @apply rounded-lg border border-skin-border px-3 focus-within:border-skin-text;
+  &.disabled {
+    @apply cursor-not-allowed;
+  }
 }
 
 .tune-input-duration-label {
