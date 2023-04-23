@@ -15,8 +15,8 @@ import TuneTag from './components/TuneTag.vue';
 import TuneMenu from './components/TuneMenu.vue';
 import TunePopover from './components/TunePopover.vue';
 import TuneModal from './components/TuneModal.vue';
-import TuneInputCheckbox from './components/TuneInputCheckbox.vue';
-import TuneInputRadio from './components/TuneInputRadio.vue';
+import TuneCheckbox from './components/TuneCheckbox.vue';
+import TuneRadio from './components/TuneRadio.vue';
 import TuneInputUrl from './components/TuneInputUrl.vue';
 import TuneInputSocial from './components/TuneInputSocial.vue';
 import TuneButtonSelect from './components/TuneButtonSelect.vue';
@@ -42,8 +42,8 @@ export {
   TuneMenu,
   TunePopover,
   TuneModal,
-  TuneInputCheckbox,
-  TuneInputRadio,
+  TuneCheckbox,
+  TuneRadio,
   TuneInputUrl,
   TuneInputSocial,
   TuneButtonSelect,
