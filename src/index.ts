@@ -4,7 +4,7 @@ import TuneComboboxMultiple from './components/TuneComboboxMultiple.vue';
 import TuneInput from './components/TuneInput.vue';
 import TuneForm from './components/TuneForm.vue';
 import TuneIconHint from './components/TuneIconHint.vue';
-import TuneInputSwitch from './components/TuneInputSwitch.vue';
+import TuneSwitch from './components/TuneSwitch.vue';
 import TuneLabelInput from './components/TuneLabelInput.vue';
 import TuneListbox from './components/TuneListbox.vue';
 import TuneListboxMultiple from './components/TuneListboxMultiple.vue';
@@ -31,7 +31,7 @@ export {
   TuneInput,
   TuneForm,
   TuneIconHint,
-  TuneInputSwitch,
+  TuneSwitch,
   TuneLabelInput,
   TuneListbox,
   TuneListboxMultiple,
