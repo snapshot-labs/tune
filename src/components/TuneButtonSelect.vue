@@ -27,7 +27,7 @@ const emit = defineEmits(['select']);
       :disabled="disabled"
       @click="disabled ? null : emit('select')"
     >
-      <span :class="{ 'text-skin-text ': disabled }">
+      <span>
         {{ modelValue }}
       </span>
       <IconChevronDown class="absolute inset-y-[12px] right-[14px] text-xs" />

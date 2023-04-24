@@ -19,7 +19,7 @@ body {
 }
 
 .tune-input {
-  @apply form-input rounded-md border-skin-border bg-skin-bg focus:border-skin-text focus:outline-none focus:ring-0;
+  @apply form-input rounded-md border-skin-border bg-transparent focus:border-skin-text focus:outline-none focus:ring-0;
 }
 
 .tune-textarea {
@@ -31,7 +31,7 @@ body {
   }
 }
 
-.tune-input-switch {
+.tune-switch {
   @apply border-transparent;
 
   &.switched-on-bg {
@@ -49,7 +49,7 @@ body {
   }
 }
 
-.tune-input-switch-button {
+.tune-switch-button {
   @apply bg-skin-bg;
 }
 
@@ -96,7 +96,7 @@ body {
   @apply rounded-md border border-skin-border text-skin-link hover:border-skin-text;
 
   &.disabled {
-    @apply text-skin-border hover:border-skin-border;
+    @apply hover:border-skin-border;
   }
 
   &.error {
@@ -178,10 +178,6 @@ body {
 
 .tune-input-radio {
   @apply rounded-full border-skin-text bg-skin-bg text-skin-primary ring-0;
-}
-
-::placeholder {
-  opacity: 0.6 !important;
 }
 
 .no-scrollbar::-webkit-scrollbar {

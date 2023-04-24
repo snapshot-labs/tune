@@ -85,7 +85,7 @@ onMounted(() => {
           :class="[
             'tune-input px-3 py-2',
             { 'tune-error-border': error && showErrorMessage },
-            { 'cursor-not-allowed placeholder:!opacity-30': disabled },
+            { 'cursor-not-allowed': disabled },
             { 'w-full': block }
           ]"
           :placeholder="placeholder || definition?.examples?.[0] || ''"

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import TuneInputSwitch from './TuneInputSwitch.vue';
+import TuneSwitch from './TuneSwitch.vue';
 
 const props = defineProps<{
   modelValue: boolean;
@@ -15,5 +15,5 @@ onMounted(() => {
 </script>
 
 <template>
-  <TuneInputSwitch v-bind="props" @update:model-value="emit('update:modelValue', $event)" />
+  <TuneSwitch v-bind="props" @update:model-value="emit('update:modelValue', $event)" />
 </template>
