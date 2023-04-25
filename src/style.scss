@@ -19,12 +19,12 @@ body {
 }
 
 .tune-input {
-  @apply form-input rounded-md border-skin-border bg-transparent focus:border-skin-text focus:outline-none focus:ring-0;
+  @apply form-input rounded-md border-skin-border bg-transparent text-base text-skin-link focus:border-skin-text focus:outline-none focus:ring-0;
 }
 
 .tune-textarea {
   @extend .tune-input;
-  @apply rounded-md;
+  @apply no-scrollbar overflow-x-scroll whitespace-pre;
 
   &.disabled {
     @apply cursor-not-allowed;
@@ -66,7 +66,7 @@ body {
 }
 
 .tune-button-select {
-  @apply relative w-full truncate pl-3 pr-5 text-left;
+  @apply relative w-full truncate pl-3 pr-5 text-left text-base text-skin-link;
 
   &.disabled {
     @apply cursor-not-allowed border-skin-border;
@@ -74,7 +74,7 @@ body {
 }
 
 .tune-input-duration {
-  @apply rounded-lg border border-skin-border px-3 focus-within:border-skin-text;
+  @apply rounded-lg border border-skin-border px-3 text-base text-skin-link focus-within:border-skin-text;
   &.disabled {
     @apply cursor-not-allowed;
   }
@@ -93,7 +93,7 @@ body {
 }
 
 .tune-listbox-button {
-  @apply rounded-md border border-skin-border text-skin-link hover:border-skin-text;
+  @apply rounded-md border border-skin-border text-base text-skin-link hover:border-skin-text;
 
   &.disabled {
     @apply hover:border-skin-border;
