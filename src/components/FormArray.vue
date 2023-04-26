@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import TuneTextareaJson from './TuneTextareaJson.vue';
+import TuneTextareaArray from './TuneTextareaArray.vue';
 import TuneListboxMultiple from './TuneListboxMultiple.vue';
 import TuneButton from './TuneButton.vue';
 
@@ -69,10 +69,17 @@ defineExpose({
     :error="error"
   />
 
+  <TuneTextareaArray
+    v-else-if="definition?.items?.type === 'string'"
+    v-model="input"
+    :definition="definition.items"
+    :error="error"
+  />
+
   <div v-else class="space-y-2">
     <div v-for="(_, i) in input" :key="i">
       <component
-        :is="getComponent(definition?.items?.type || 'string')"
+        :is="getComponent(definition?.items?.type || 'number')"
         ref="componentRefs"
         v-model="input[i]"
         :definition="definition.items"
