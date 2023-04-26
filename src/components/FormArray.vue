@@ -72,7 +72,7 @@ defineExpose({
   <TuneTextareaArray
     v-else-if="definition?.items?.type === 'string'"
     v-model="input"
-    :definition="definition.items"
+    :definition="definition"
     :error="error"
   />
 
