@@ -38,6 +38,6 @@ if (props.modelValue) input.value = JSON.stringify(props.modelValue, null, 2);
     :label="label"
     :placeholder="placeholder"
     :error="errorJson || error"
-    class="font-mono"
+    class="tune-textarea-json font-mono"
   />
 </template>

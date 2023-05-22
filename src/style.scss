@@ -24,6 +24,14 @@ body {
 
 .tune-textarea {
   @extend .tune-input;
+  @apply no-scrollbar;
+
+  &.disabled {
+    @apply cursor-not-allowed;
+  }
+}
+
+.tune-textarea-json {
   @apply no-scrollbar overflow-x-scroll whitespace-pre;
 
   &.disabled {
