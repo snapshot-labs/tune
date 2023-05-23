@@ -2,7 +2,7 @@
 import { defineProps } from 'vue';
 
 defineProps<{
-  label: string;
+  label: string | number;
 }>();
 </script>
 

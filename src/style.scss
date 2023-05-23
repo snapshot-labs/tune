@@ -188,6 +188,10 @@ body {
   @apply rounded-full border-skin-text bg-skin-bg text-skin-primary ring-0;
 }
 
+.tune-form-array-objects {
+  @apply rounded-xl border p-3;
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
+import { cloneDeep } from 'lodash';
 import TuneTextareaArray from './TuneTextareaArray.vue';
 import TuneListboxMultiple from './TuneListboxMultiple.vue';
 import TuneButton from './TuneButton.vue';
+import TuneTag from './TuneTag.vue';
+import TuneLabelInput from './TuneLabelInput.vue';
 
 import TuneForm from './TuneForm.vue';
 import FormString from './FormString.vue';
@@ -18,7 +21,7 @@ const props = defineProps<{
 const emit = defineEmits(['update:modelValue']);
 
 const input = computed({
-  get: () => props.modelValue || props.definition?.default || [],
+  get: () => props.modelValue,
   set: value => emit('update:modelValue', value)
 });
 
@@ -37,6 +40,12 @@ const getComponent = (type: string) => {
   }
 };
 
+function addItem() {
+  const array = cloneDeep(input.value);
+  array.push(cloneDeep(props.definition?.items?.default) || '');
+  input.value = array;
+}
+
 const componentRefs = ref();
 
 function forceShowError() {
@@ -49,6 +58,10 @@ function forceShowError() {
 
 defineExpose({
   forceShowError
+});
+
+onMounted(() => {
+  if (!props.modelValue) input.value = cloneDeep([props.definition?.items?.default] || []);
 });
 </script>
 
@@ -70,24 +83,34 @@ defineExpose({
   />
 
   <TuneTextareaArray
-    v-else-if="definition?.items?.type === 'string'"
+    v-else-if="definition?.items.type === 'string'"
     v-model="input"
     :definition="definition"
     :error="error"
   />
 
-  <div v-else class="space-y-2">
-    <div v-for="(_, i) in input" :key="i">
+  <div v-else-if="definition?.items" class="space-y-2">
+    <TuneLabelInput v-if="definition?.title" :hint="definition?.description">
+      {{ definition?.title }}
+    </TuneLabelInput>
+    <div
+      v-for="(_, i) in input"
+      :key="i"
+      :class="{
+        'tune-form-array-objects': definition?.items?.type === 'object'
+      }"
+    >
+      <div class="mb-2">
+        <TuneTag :label="i + 1" />
+      </div>
       <component
-        :is="getComponent(definition?.items?.type || 'number')"
+        :is="getComponent(definition.items.type)"
         ref="componentRefs"
         v-model="input[i]"
         :definition="definition.items"
         :error="error"
       />
     </div>
-    <TuneButton class="w-full" @click="input.push(definition?.items?.default || '')">
-      Add
-    </TuneButton>
+    <TuneButton class="w-full" @click="addItem"> Add </TuneButton>
   </div>
 </template>
