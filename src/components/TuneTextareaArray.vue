@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import TuneTextarea from './TuneTextarea.vue';
 
 defineProps<{
@@ -22,10 +23,21 @@ function handleInput(input: string) {
     .filter((item, index, array) => array.indexOf(item) === index);
   emit('update:modelValue', inputString);
 }
+
+const textareaRef = ref();
+
+function forceShowError() {
+  textareaRef?.value?.forceShowError();
+}
+
+defineExpose({
+  forceShowError
+});
 </script>
 
 <template>
   <TuneTextarea
+    ref="textareaRef"
     :model-value="modelValue?.join('\n')"
     :definition="definition"
     :label="label"

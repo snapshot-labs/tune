@@ -29,10 +29,21 @@ function handleInput() {
 watch(input, () => handleInput());
 
 if (props.modelValue) input.value = JSON.stringify(props.modelValue, null, 2);
+
+const textareaRef = ref();
+
+function forceShowError() {
+  textareaRef?.value?.forceShowError();
+}
+
+defineExpose({
+  forceShowError
+});
 </script>
 
 <template>
   <TuneTextarea
+    ref="textareaRef"
     v-model="input"
     :definition="definition"
     :label="label"
