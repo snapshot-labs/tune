@@ -25,10 +25,10 @@ const onChange = (event: Event) => {
       :name="label || definition?.title"
       :checked="modelValue === value"
       :value="value"
-      class="tune-input-radio form-radio h-[19px] w-[19px]"
+      class="tune-input-radio"
       @input="onChange"
     />
-    <TuneLabelInput v-if="hint || definition?.description">
+    <TuneLabelInput v-if="hint || definition?.description" class="!mb-0">
       {{ hint || definition.description }}
     </TuneLabelInput>
   </div>

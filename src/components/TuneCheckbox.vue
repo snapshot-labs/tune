@@ -17,10 +17,10 @@ const emit = defineEmits(['update:modelValue']);
       :checked="modelValue"
       :name="label || definition?.title"
       type="checkbox"
-      class="tune-input-checkbox form-checkbox h-[19px] w-[19px]"
+      class="tune-input-checkbox"
       @input="emit('update:modelValue', ($event.target as HTMLInputElement).checked)"
     />
-    <TuneLabelInput v-if="hint || definition?.description">
+    <TuneLabelInput v-if="hint || definition?.description" class="!mb-0">
       {{ hint || definition.description }}
     </TuneLabelInput>
   </div>

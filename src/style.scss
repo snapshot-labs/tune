@@ -181,11 +181,11 @@ body {
 }
 
 .tune-input-checkbox {
-  @apply rounded-full border-skin-text bg-skin-bg text-skin-primary ring-0;
+  @apply form-checkbox h-[20px] w-[20px] rounded-lg border-skin-text bg-skin-bg text-skin-primary focus:ring-0 focus:ring-offset-0 focus-visible:ring-offset-1 focus-visible:ring-offset-skin-text;
 }
 
 .tune-input-radio {
-  @apply rounded-full border-skin-text bg-skin-bg text-skin-primary ring-0;
+  @apply form-radio h-[20px] w-[20px] rounded-full border-skin-text bg-skin-bg text-skin-primary focus:ring-0 focus:ring-offset-0 focus-visible:ring-offset-1 focus-visible:ring-offset-skin-text;
 }
 
 .tune-form-array-objects {
