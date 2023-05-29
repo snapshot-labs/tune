@@ -3,6 +3,7 @@ import TuneIconHint from './TuneIconHint.vue';
 
 defineProps<{
   hint?: string;
+  sublabel?: string;
 }>();
 </script>
 
@@ -12,8 +13,8 @@ defineProps<{
       <slot />
       <TuneIconHint :hint="hint" />
     </div>
-    <div v-if="$slots.sublabel" class="tune-sublabel text-sm text-skin-text opacity-60">
-      <slot name="sublabel" />
+    <div v-if="sublabel" class="tune-sublabel text-sm text-skin-text opacity-60">
+      {{ sublabel }}
     </div>
   </div>
 </template>
