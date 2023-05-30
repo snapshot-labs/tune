@@ -13,7 +13,7 @@ defineProps<{
       <slot />
       <TuneIconHint :hint="hint" />
     </div>
-    <div v-if="sublabel" class="tune-sublabel text-sm text-skin-text opacity-60">
+    <div v-if="sublabel" class="tune-sublabel">
       {{ sublabel }}
     </div>
   </div>
