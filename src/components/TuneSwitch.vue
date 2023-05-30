@@ -2,11 +2,18 @@
 import { Switch } from '@headlessui/vue';
 import TuneLabelInput from './TuneLabelInput.vue';
 
+type Definition = {
+  title: string;
+  description: string;
+  sublabel: string;
+};
+
 defineProps<{
   modelValue: boolean;
   label?: string;
+  sublabel?: string;
   hint?: string;
-  definition?: any;
+  definition?: Partial<Definition>;
   disabled?: boolean;
 }>();
 
@@ -14,7 +21,10 @@ const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
-  <div class="flex items-center space-x-2 pr-2 pt-1">
+  <div
+    class="flex space-x-2 pr-2 pt-1"
+    :class="sublabel || definition?.sublabel ? 'items-start' : 'items-center'"
+  >
     <Switch
       :model-value="modelValue"
       :class="[
@@ -26,7 +36,7 @@ const emit = defineEmits(['update:modelValue']);
       @update:model-value="value => emit('update:modelValue', value)"
     >
       <span v-if="label || definition?.title" class="sr-only">
-        {{ label || definition.title }}
+        {{ label || definition?.title }}
       </span>
       <span
         :class="[
@@ -66,7 +76,11 @@ const emit = defineEmits(['update:modelValue']);
         </span>
       </span>
     </Switch>
-    <TuneLabelInput v-if="label || definition?.title" :hint="hint || definition?.description">
+    <TuneLabelInput
+      v-if="label || definition?.title"
+      :hint="hint || definition?.description"
+      :sublabel="sublabel || definition?.sublabel"
+    >
       {{ label || definition?.title }}
     </TuneLabelInput>
   </div>

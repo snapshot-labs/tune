@@ -136,6 +136,10 @@ body {
   @apply font-sans text-skin-text;
 }
 
+.tune-sublabel {
+  @apply font-sans text-sm text-skin-text opacity-60;
+}
+
 .tune-icon-hint {
   @apply text-sm hover:text-skin-link;
 }

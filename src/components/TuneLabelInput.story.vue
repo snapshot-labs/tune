@@ -4,6 +4,11 @@ import TuneLabelInput from './TuneLabelInput.vue';
 
 <template>
   <Story>
-    <TuneLabelInput hint="I'm a hint"> Label </TuneLabelInput>
+    <TuneLabelInput
+      hint="I'm a hint"
+      sublabel="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod."
+    >
+      Label
+    </TuneLabelInput>
   </Story>
 </template>
