@@ -23,6 +23,7 @@ import TuneButtonSelect from './components/TuneButtonSelect.vue';
 import TuneSelect from './components/TuneSelect.vue';
 import TuneInputDuration from './components/TuneInputDuration.vue';
 import TuneTextareaArray from './components/TuneTextareaArray.vue';
+import TuneErrorInput from './components/TuneErrorInput.vue';
 import './style.scss';
 
 export {
@@ -50,5 +51,6 @@ export {
   TuneButtonSelect,
   TuneSelect,
   TuneInputDuration,
-  TuneTextareaArray
+  TuneTextareaArray,
+  TuneErrorInput
 };
