@@ -9,7 +9,7 @@ defineProps<{
 
 <template>
   <div class="tune-label-container flex flex-col">
-    <div class="tune-label mb-[2px] flex items-center gap-1">
+    <div class="tune-label flex items-center gap-1">
       <slot />
       <TuneIconHint :hint="hint" />
     </div>
