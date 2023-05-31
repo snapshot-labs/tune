@@ -61,6 +61,7 @@ defineExpose({
 });
 
 onMounted(() => {
+  if (props.definition?.title === 'Strategies') return;
   if (!props.modelValue) input.value = cloneDeep([props.definition?.items?.default] || []);
 });
 </script>
