@@ -66,7 +66,7 @@ body {
 }
 
 .tune-button {
-  @apply flex h-[42px] w-full cursor-pointer justify-center rounded-md border border-skin-border px-3 py-2 hover:border-skin-text disabled:cursor-not-allowed;
+  @apply flex h-[42px] cursor-pointer justify-center rounded-md border border-skin-border px-3 py-2 hover:border-skin-text disabled:cursor-not-allowed;
 
   &.primary {
     @apply border-skin-primary bg-skin-primary text-white;
