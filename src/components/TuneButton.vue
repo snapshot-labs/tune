@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import TuneLoadingSpinner from './TuneLoadingSpinner.vue';
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     type?: 'button' | 'submit' | 'reset';
     primary?: boolean;
@@ -23,7 +23,8 @@ const props = withDefaults(
     :class="[
       'tune-button',
       {
-        primary: primary
+        primary: primary,
+        disabled: disabled
       }
     ]"
     :disabled="disabled || loading"
