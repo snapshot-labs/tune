@@ -78,7 +78,7 @@ body {
 }
 
 .tune-button-select {
-  @apply relative w-full truncate pl-3 pr-5 text-left text-base text-skin-link;
+  @apply relative flex w-full justify-start truncate pl-3 pr-5 text-left text-base text-skin-link;
 
   &.disabled {
     @apply cursor-not-allowed border-skin-border;
