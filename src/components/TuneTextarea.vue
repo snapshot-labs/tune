@@ -86,7 +86,7 @@ onMounted(() => adjustHeight());
       :style="autoResizeStyles"
       :placeholder="placeholder || definition?.examples?.[0]"
       :disabled="disabled"
-      :maxlength="maxLength"
+      :maxlength="maxLength || definition?.maxLength"
       @blur="error ? (showErrorMessage = true) : null"
       @focus="error ? null : (showErrorMessage = false)"
     />

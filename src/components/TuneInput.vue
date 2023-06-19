@@ -91,7 +91,7 @@ onMounted(() => {
           :placeholder="placeholder || definition?.examples?.[0] || ''"
           :readonly="readonly"
           :disabled="disabled"
-          :maxlength="maxLength"
+          :maxlength="maxLength || definition?.maxLength"
           @blur="error ? (showErrorMessage = true) : null"
           @focus="error ? null : (showErrorMessage = false)"
           @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
