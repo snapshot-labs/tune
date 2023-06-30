@@ -103,7 +103,7 @@ defineExpose({
           <ListboxOptions
             class="tune-listbox-options absolute z-40 mt-1 w-full overflow-hidden focus:outline-none"
           >
-            <div class="max-h-[180px] overflow-y-scroll">
+            <div class="max-h-[180px] overflow-y-auto">
               <ListboxOption
                 v-for="(item, i) in items"
                 :key="i"
