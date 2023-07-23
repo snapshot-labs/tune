@@ -3,7 +3,7 @@ import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
 import { Float } from '@headlessui-float/vue';
 import type { Placement } from '@floating-ui/dom';
 import TuneButton from './TuneButton.vue';
-import IconChevronDown from '~icons/heroicons/chevron-down';
+import IconChevronDown from '~icons/heroicons-outline/chevron-down';
 
 withDefaults(
   defineProps<{

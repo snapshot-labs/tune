@@ -10,8 +10,8 @@ import {
 } from '@headlessui/vue';
 import MiniSearch from 'minisearch';
 import TuneLabelInput from './TuneLabelInput.vue';
-import IconChevronDown from '~icons/heroicons/chevron-down';
-import IconCheck from '~icons/heroicons/check';
+import IconChevronDown from '~icons/heroicons-outline/chevron-down';
+import IconCheck from '~icons/heroicons-outline/check';
 
 type ComboboxItem = {
   id: string;

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue';
-import IconXMark from '~icons/heroicons/x-mark';
+import IconXMark from '~icons/heroicons-outline/x-mark';
 
 defineEmits(['close']);
 

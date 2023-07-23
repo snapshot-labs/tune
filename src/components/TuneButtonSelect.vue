@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import TuneButton from './TuneButton.vue';
 import TuneLabelInput from './TuneLabelInput.vue';
-import IconChevronDown from '~icons/heroicons/chevron-down';
+import IconChevronDown from '~icons/heroicons-outline/chevron-down';
 
 defineProps<{
   modelValue: string;

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import IconQuestionMarkCircle from '~icons/heroicons/question-mark-circle';
+import IconQuestionMarkCircle from '~icons/heroicons-outline/question-mark-circle';
 
 defineProps<{
   hint?: string;

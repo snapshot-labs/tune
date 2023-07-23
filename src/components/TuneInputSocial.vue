@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import TuneInput from './TuneInput.vue';
-import IconGlobeAlt from '~icons/heroicons/globe-alt';
+import IconGlobeAlt from '~icons/heroicons-outline/globe-alt';
 import IconTuneTwitter from '~icons/tune/twitter';
 import IconTuneGithub from '~icons/tune/github';
 import IconTuneCoingecko from '~icons/tune/coingecko';

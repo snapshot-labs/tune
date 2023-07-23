@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import TuneInput from './TuneInput.vue';
-import IconGlobeAlt from '~icons/heroicons/globe-alt-solid';
+import IconGlobeAlt from '~icons/heroicons-outline/globe-alt';
 
 defineProps<{
   modelValue?: string;

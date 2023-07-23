@@ -9,8 +9,8 @@ import {
 } from '@headlessui/vue';
 import TuneLabelInput from './TuneLabelInput.vue';
 import TuneErrorInput from './TuneErrorInput.vue';
-import IconChevronDown from '~icons/heroicons/chevron-down';
-import IconCheck from '~icons/heroicons/check';
+import IconChevronDown from '~icons/heroicons-outline/chevron-down';
+import IconCheck from '~icons/heroicons-outline/check';
 
 type ListboxItem = {
   value: any;
