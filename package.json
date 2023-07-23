@@ -45,7 +45,6 @@
   },
   "devDependencies": {
     "@histoire/plugin-vue": "^0.15.8",
-    "@iconify-json/heroicons": "^1.1.10",
     "@iconify-json/heroicons-outline": "^1.1.6",
     "@snapshot-labs/eslint-config-vue": "^0.1.0-beta.7",
     "@snapshot-labs/prettier-config": "^0.1.0-beta.7",
