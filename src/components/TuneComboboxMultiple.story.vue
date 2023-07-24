@@ -18,6 +18,8 @@ const input = ref(['1']);
 <template>
   <Story>
     <TuneAlert variant="negative" class="mb-3"> Still under development </TuneAlert>
-    <TuneComboboxMultiple v-model="input" :items="items" label="Combobox multiple" />
+    <div class="w-[320px]">
+      <TuneComboboxMultiple v-model="input" :items="items" label="Combobox multiple" />
+    </div>
   </Story>
 </template>
