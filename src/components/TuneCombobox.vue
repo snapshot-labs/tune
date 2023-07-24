@@ -22,10 +22,9 @@ type ComboboxItem = {
 const props = defineProps<{
   modelValue: string;
   items: ComboboxItem[];
-  label?: string;
+  label: string;
   hint?: string;
   disabled?: boolean;
-  definition?: any;
 }>();
 
 const emit = defineEmits(['update:modelValue']);
@@ -69,27 +68,32 @@ const filteredItems = computed(() => {
 </script>
 <template>
   <Combobox v-model="selectedItem" :disabled="disabled" as="div" class="w-full">
-    <ComboboxLabel v-if="label || definition?.title" class="block">
-      <TuneLabelInput :hint="hint || definition?.examples[0]">
-        {{ label || definition.title }}
-      </TuneLabelInput>
-    </ComboboxLabel>
     <div class="relative">
-      <ComboboxButton class="w-full">
+      <ComboboxButton class="tune-input-wrapper w-full" :class="{ '!border-opacity-40': disabled }">
+        <ComboboxLabel
+          v-if="label"
+          class="block"
+          :class="{ 'cursor-not-allowed opacity-40': disabled }"
+        >
+          <TuneLabelInput :hint="hint">
+            {{ label }}
+          </TuneLabelInput>
+        </ComboboxLabel>
         <ComboboxInput
-          class="tune-input w-full py-2 !pr-[30px] pl-3 focus:outline-none"
+          class="tune-input w-full"
           spellcheck="false"
           :display-value="(item: any) => item.name "
-          :class="{ 'cursor-not-allowed': disabled }"
+          :class="{ 'cursor-not-allowed opacity-40': disabled }"
           :disabled="disabled"
           @change="searchInput = $event.target.value"
         />
       </ComboboxButton>
       <ComboboxButton
-        class="absolute inset-y-0 right-1 flex items-center px-2 focus:outline-none"
-        :class="{ 'cursor-not-allowed': disabled }"
+        v-slot="{ open }"
+        class="absolute inset-y-3 right-2 flex items-end px-2 focus:outline-none"
+        :class="{ 'cursor-not-allowed opacity-40': disabled }"
       >
-        <IconChevronDown class="text-sm" />
+        <IconChevronDown :class="['text-sm', { 'rotate-180': open }]" />
       </ComboboxButton>
       <ComboboxOptions
         v-if="filteredItems.length > 0"

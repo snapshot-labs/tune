@@ -56,7 +56,19 @@ body {
 }
 
 .tune-input {
-  @apply form-input rounded-md border-gray-350 bg-transparent text-base text-gray-900 focus:border-gray-900 focus:outline-none focus:ring-0;
+  @apply form-input border-transparent bg-transparent px-0 pb-0 text-base text-gray-900 placeholder:text-gray-500/40 focus:border-transparent focus:outline-none focus:ring-0;
+}
+
+.tune-input-wrapper {
+  @apply rounded-lg border border-gray-350 bg-gray-100  p-[12px] focus-within:bg-gray-300 [&:not(:focus-within)]:hover:bg-gray-200;
+
+  &.error {
+    @apply border-red;
+  }
+
+  &.disabled {
+    @apply pointer-events-none cursor-not-allowed border-opacity-40 bg-opacity-40;
+  }
 }
 
 .tune-textarea {
@@ -103,7 +115,7 @@ body {
 }
 
 .tune-button {
-  @apply flex h-[46px] cursor-pointer items-center justify-center gap-1 rounded-full border border-gray-350 px-[20px] hover:border-gray-900 disabled:cursor-not-allowed;
+  @apply flex h-[46px] cursor-pointer items-center justify-center gap-1 rounded-full border border-gray-350 px-[20px];
 
   &.circle {
     @apply h-[46px] w-[46px] rounded-full px-0;
@@ -186,7 +198,7 @@ body {
 }
 
 .tune-label {
-  @apply font-sans text-gray-900;
+  @apply font-sans text-sm text-gray-500;
 }
 
 .tune-sublabel {

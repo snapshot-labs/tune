@@ -24,7 +24,6 @@ const props = withDefaults(
     maxLength?: number;
     readonly?: boolean;
     disabled?: boolean;
-    definition?: any;
   }>(),
   {
     label: '',
@@ -38,8 +37,7 @@ const props = withDefaults(
     placeholder: '',
     maxLength: undefined,
     readonly: false,
-    disabled: false,
-    definition: {}
+    disabled: false
   }
 );
 
@@ -65,9 +63,16 @@ onMounted(() => {
 </script>
 
 <template>
-  <div :class="{ 'w-full': block }">
-    <TuneLabelInput v-if="label || definition?.title" :hint="hint || definition?.description">
-      {{ label || definition.title }}
+  <div
+    :class="[
+      'tune-input-wrapper',
+      { 'w-full': block },
+      { error: error && showErrorMessage },
+      { disabled: disabled }
+    ]"
+  >
+    <TuneLabelInput v-if="label" :hint="hint" :class="{ 'opacity-40': disabled }">
+      {{ label }}
     </TuneLabelInput>
     <div class="flex">
       <div :class="['group relative z-10 flex', { 'w-full': block }]">
@@ -82,25 +87,20 @@ onMounted(() => {
           ref="inputRef"
           :type="type"
           :value="modelValue"
-          :class="[
-            'tune-input px-3 py-2',
-            { 'tune-error-border': error && showErrorMessage },
-            { 'cursor-not-allowed': disabled },
-            { 'w-full': block }
-          ]"
-          :placeholder="placeholder || definition?.examples?.[0] || ''"
+          :class="['tune-input', , { 'w-full': block }]"
+          :placeholder="placeholder"
           :readonly="readonly"
           :disabled="disabled"
-          :maxlength="maxLength || definition?.maxLength"
+          :maxlength="maxLength"
           @blur="error ? (showErrorMessage = true) : null"
           @focus="error ? null : (showErrorMessage = false)"
           @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
         />
         <div
-          v-if="loading || (error && showErrorMessage)"
+          v-if="loading"
           class="tune-input-loading absolute inset-y-0 right-0 top-[1px] mr-1 flex h-[40px] items-center overflow-hidden pl-2 pr-2"
         >
-          <TuneLoadingSpinner v-if="loading" />
+          <TuneLoadingSpinner />
         </div>
         <div v-else-if="$slots.after" class="absolute inset-y-0 right-0 flex items-center pr-4">
           <slot name="after" />

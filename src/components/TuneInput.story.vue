@@ -4,6 +4,6 @@ import TuneInput from './TuneInput.vue';
 
 <template>
   <Story>
-    <TuneInput label="My input" placeholder="Enter input" />
+    <TuneInput label="Label" placeholder="Type something" />
   </Story>
 </template>

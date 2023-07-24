@@ -16,6 +16,8 @@ const input = ref('1');
 
 <template>
   <Story>
-    <TuneCombobox v-model="input" :items="items" />
+    <div class="w-[320px]">
+      <TuneCombobox v-model="input" :items="items" label="Combobox" />
+    </div>
   </Story>
 </template>
