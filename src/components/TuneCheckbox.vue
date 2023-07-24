@@ -1,30 +1,28 @@
 <script setup lang="ts">
-import TuneLabelInput from './TuneLabelInput.vue';
-
 defineProps<{
   modelValue: boolean;
   label?: string;
   hint?: string;
-  definition?: any;
 }>();
 
 const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
-  <label :for="label || definition?.title">
+  <label :for="label">
     <div class="flex items-center gap-[10px]">
       <input
-        :id="label || definition?.title"
+        :id="label"
         :checked="modelValue"
-        :name="label || definition?.title"
+        :name="label"
         type="checkbox"
         class="tune-input-checkbox"
         @input="emit('update:modelValue', ($event.target as HTMLInputElement).checked)"
       />
-      <TuneLabelInput v-if="hint || definition?.description" class="!mb-0">
-        {{ hint || definition.description }}
-      </TuneLabelInput>
+
+      <div v-if="hint" class="!mb-0">
+        {{ hint }}
+      </div>
     </div>
   </label>
 </template>
