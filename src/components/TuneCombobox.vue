@@ -102,24 +102,17 @@ const filteredItems = computed(() => {
         <div class="max-h-[180px] overflow-y-auto">
           <ComboboxOption
             v-for="item in filteredItems"
-            v-slot="{ active, selected, disabled: itemDisabled }"
+            v-slot="{ selected, disabled: itemDisabled }"
             :key="item.id"
             as="template"
             :value="item"
           >
             <li
               :class="[
-                { active: active },
-                'tune-listbox-item relative cursor-default select-none truncate py-2 pl-3 pr-[50px]'
+                'tune-listbox-item relative cursor-default select-none truncate py-[13px] pl-[16px] pr-[50px]'
               ]"
             >
-              <span
-                :class="[
-                  selected ? 'selected' : 'font-normal',
-                  { disabled: itemDisabled },
-                  'tune-listbox-item block truncate'
-                ]"
-              >
+              <span :class="[{ disabled: itemDisabled }, 'tune-listbox-item block truncate']">
                 <slot v-if="$slots.item" name="item" :item="item" />
                 <span v-else>
                   {{ item.name }}
@@ -127,7 +120,7 @@ const filteredItems = computed(() => {
               </span>
 
               <span v-if="selected" :class="['absolute inset-y-0 right-0 flex items-center pr-3']">
-                <IconCheck class="text-sm" />
+                <IconCheck class="text-base text-green" />
               </span>
             </li>
           </ComboboxOption>
