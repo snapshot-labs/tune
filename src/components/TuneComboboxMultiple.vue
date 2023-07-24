@@ -26,7 +26,6 @@ const props = defineProps<{
   label?: string;
   hint?: string;
   disabled?: boolean;
-  definition?: any;
 }>();
 
 const emit = defineEmits(['update:modelValue']);
@@ -74,22 +73,22 @@ const filteredItems = computed(() => {
 </script>
 <template>
   <Combobox v-model="selectedItems" multiple :disabled="disabled" as="div" class="w-full">
-    <ComboboxLabel v-if="label || definition?.title" class="block">
-      <TuneLabelInput :hint="hint || definition?.examples[0]">
-        {{ label || definition.title }}
-      </TuneLabelInput>
-    </ComboboxLabel>
     <div class="relative">
-      <ComboboxButton class="tune-listbox-button w-full">
-        <div class="no-scrollbar flex items-center overflow-x-auto">
-          <div v-if="selectedItems.length" class="whitespace-nowrap py-2 pl-2">
+      <ComboboxButton class="tune-input-wrapper w-full" :class="{ '!border-opacity-40': disabled }">
+        <ComboboxLabel v-if="label" class="block">
+          <TuneLabelInput :hint="hint">
+            {{ label }}
+          </TuneLabelInput>
+        </ComboboxLabel>
+        <div class="no-scrollbar mt-2 flex items-center overflow-x-auto">
+          <div v-if="selectedItems.length" class="whitespace-nowrap">
             <span v-for="item in selectedItems" :key="item.id" class="mr-1 inline-block">
               <TuneTag :label="item.name" />
             </span>
           </div>
 
           <ComboboxInput
-            class="mr-1 w-full min-w-[200px] py-2 !pr-[30px] pl-2 focus:outline-none"
+            class="tune-input w-full !py-1 !pr-[30px]"
             spellcheck="false"
             :class="{ 'cursor-not-allowed': disabled }"
             :disabled="disabled"
@@ -122,13 +121,7 @@ const filteredItems = computed(() => {
                 'tune-listbox-item relative cursor-default select-none truncate py-2 pl-3 pr-[50px]'
               ]"
             >
-              <span
-                :class="[
-                  selected ? 'selected' : 'font-normal',
-                  { disabled: itemDisabled },
-                  'tune-listbox-item block truncate'
-                ]"
-              >
+              <span :class="[{ disabled: itemDisabled }, 'tune-listbox-item block truncate']">
                 <slot v-if="$slots.item" name="item" :item="item" />
                 <span v-else>
                   {{ item.name }}
@@ -136,7 +129,7 @@ const filteredItems = computed(() => {
               </span>
 
               <span v-if="selected" :class="['absolute inset-y-0 right-0 flex items-center pr-3']">
-                <IconCheck class="text-sm" />
+                <IconCheck class="text-base text-green" />
               </span>
             </li>
           </ComboboxOption>

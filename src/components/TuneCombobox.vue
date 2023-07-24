@@ -80,7 +80,7 @@ const filteredItems = computed(() => {
           </TuneLabelInput>
         </ComboboxLabel>
         <ComboboxInput
-          class="tune-input w-full"
+          class="tune-input w-full !pr-[30px]"
           spellcheck="false"
           :display-value="(item: any) => item.name "
           :class="{ 'cursor-not-allowed opacity-40': disabled }"
