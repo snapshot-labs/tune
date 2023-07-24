@@ -182,11 +182,7 @@ body {
 }
 
 .tune-listbox-item {
-  @apply hover:bg-gray-200 active:bg-gray-300;
-
-  &.disabled {
-    @apply opacity-40;
-  }
+  @apply py-[13px] pl-[16px] hover:bg-gray-200 active:bg-gray-300;
 }
 
 .tune-listbox-multiple-placeholder {

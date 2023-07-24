@@ -118,10 +118,10 @@ const filteredItems = computed(() => {
             <li
               :class="[
                 { active: active },
-                'tune-listbox-item relative cursor-default select-none truncate py-2 pl-3 pr-[50px]'
+                'tune-listbox-item relative cursor-default select-none truncate pr-[50px]'
               ]"
             >
-              <span :class="[{ disabled: itemDisabled }, 'tune-listbox-item block truncate']">
+              <span :class="[{ 'opacity-40': itemDisabled }, 'block truncate']">
                 <slot v-if="$slots.item" name="item" :item="item" />
                 <span v-else>
                   {{ item.name }}
