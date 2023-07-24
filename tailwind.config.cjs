@@ -28,31 +28,43 @@ module.exports = {
       10: '96px'
     },
     fontSize: {
-      '2xl': ['36px', '50px'],
-      xl: ['28px', '44px'],
-      lg: ['24px', '32px'],
-      md: ['20px', '28px'],
-      base: ['18px', '24px'],
-      sm: ['16px'],
-      xs: ['14px']
+      '2xl': ['34px', '36px'],
+      xl: ['28px', '32px'],
+      lg: ['22px', '24px'],
+      md: ['20px', '20px'],
+      base: ['18px', '18px'],
+      sm: ['16px', '16px'],
+      xs: ['14px', '14px']
+    },
+    fontFamily: {
+      sans: [
+        'Calibre, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji'
+      ],
+      mono: ['monospace'],
+      space: ['SpaceMono']
     },
     boxShadow: {
-      lg: '2px 4px 9px var(--shadow-color)'
+      lg: '2px 4px 9px rgba(0, 0, 0, 0.067)'
     },
     colors: {
       transparent: 'transparent',
-      snapshot: '#f3b04e',
-      green: '#21b66f',
-      red: '#ff3856',
-      white: '#ffffff',
-      'skin-primary': 'var(--primary-color)',
-      'skin-border': 'var(--border-color)',
-      'skin-text': 'var(--text-color)',
-      'skin-link': 'var(--link-color)',
-      'skin-bg': 'var(--bg-color)',
-      'skin-block-bg': 'var(--block-bg)',
-      'skin-header-bg': 'var(--header-bg)',
-      'skin-heading': 'var(--heading-color)'
+      blue: '#384AFF',
+      red: '#EB4C5B',
+      green: '#57B375',
+      orange: '#F2994A',
+      violet: '#BB6BD9',
+      'gray-900': '#111111',
+      'gray-850': '#1C1B20',
+      'gray-800': '#232227',
+      'gray-700': '#29282E',
+      'gray-600': '#333237',
+      'gray-500': '#57606A',
+      'gray-400': '#A09FA4',
+      'gray-350': '#E5E5E6',
+      'gray-300': '#EDEDED',
+      'gray-200': '#F7F7F7',
+      'gray-100': '#FBFBFB',
+      white: '#FFFFFF'
     }
   },
   plugins: [
