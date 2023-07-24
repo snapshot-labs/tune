@@ -5,10 +5,10 @@ import IconSparkles from '~icons/heroicons-outline/sparkles';
 
 withDefaults(
   defineProps<{
-    type?: 'default' | 'negative' | 'positive';
+    variant?: 'default' | 'negative' | 'positive';
   }>(),
   {
-    type: 'default'
+    variant: 'default'
   }
 );
 </script>
@@ -16,18 +16,21 @@ withDefaults(
 <template>
   <div
     class="tune-alert flex"
-    :class="[{ 'alert-negative': type === 'negative' }, { 'alert-positive': type === 'positive' }]"
+    :class="[
+      { 'alert-negative': variant === 'negative' },
+      { 'alert-positive': variant === 'positive' }
+    ]"
   >
     <div
       class="tune-alert-icon flex items-center"
       :class="[
-        { 'alert-negative': type === 'negative' },
-        { 'alert-positive': type === 'positive' }
+        { 'alert-negative': variant === 'negative' },
+        { 'alert-positive': variant === 'positive' }
       ]"
     >
-      <IconExclamationCircle v-if="type === 'default'" />
-      <IconExclamation v-if="type === 'negative'" />
-      <IconSparkles v-if="type === 'positive'" />
+      <IconExclamationCircle v-if="variant === 'default'" />
+      <IconExclamation v-if="variant === 'negative'" />
+      <IconSparkles v-if="variant === 'positive'" />
     </div>
     <div class="tune-alert-text">
       <slot />

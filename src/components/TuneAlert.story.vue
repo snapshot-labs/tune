@@ -6,10 +6,10 @@ import TuneAlert from './TuneAlert.vue';
   <Story>
     <div class="space-y-[22px]">
       <TuneAlert> The contracts have not yet undergone an audit. Use at own risk. </TuneAlert>
-      <TuneAlert type="negative">
+      <TuneAlert variant="negative">
         The contracts have not yet undergone an audit. Use at own risk.
       </TuneAlert>
-      <TuneAlert type="positive">
+      <TuneAlert variant="positive">
         The contracts have not yet undergone an audit. Use at own risk.
       </TuneAlert>
     </div>
