@@ -27,6 +27,34 @@ body {
   @apply text-base font-medium text-gray-900;
 }
 
+.tune-alert {
+  @apply rounded-lg border border-gray-350 bg-white;
+
+  &.alert-negative {
+    @apply border-red border-opacity-40;
+  }
+
+  &.alert-positive {
+    @apply border-green border-opacity-40;
+  }
+}
+
+.tune-alert-icon {
+  @apply rounded-l-lg bg-gray-300 px-[18px] text-base;
+
+  &.alert-negative {
+    @apply bg-red bg-opacity-10 text-red;
+  }
+
+  &.alert-positive {
+    @apply bg-green bg-opacity-10 text-green;
+  }
+}
+
+.tune-alert-text {
+  @apply px-[24px] py-[23px];
+}
+
 .tune-input {
   @apply form-input rounded-md border-gray-350 bg-transparent text-base text-gray-900 focus:border-gray-900 focus:outline-none focus:ring-0;
 }

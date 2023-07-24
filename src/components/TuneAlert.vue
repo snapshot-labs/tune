@@ -15,26 +15,21 @@ withDefaults(
 
 <template>
   <div
-    class="flex rounded-lg border border-gray-350"
-    :class="[
-      { 'border-red border-opacity-40': type === 'negative' },
-      { 'border-green border-opacity-40': type === 'positive' }
-    ]"
+    class="tune-alert flex"
+    :class="[{ 'alert-negative': type === 'negative' }, { 'alert-positive': type === 'positive' }]"
   >
     <div
-      class="flex items-center bg-gray-300 px-[18px] text-base"
+      class="tune-alert-icon flex items-center"
       :class="[
-        { 'bg-red bg-opacity-10': type === 'negative' },
-        { 'text-red': type === 'negative' },
-        { 'bg-green bg-opacity-10': type === 'positive' },
-        { 'text-green': type === 'positive' }
+        { 'alert-negative': type === 'negative' },
+        { 'alert-positive': type === 'positive' }
       ]"
     >
       <IconExclamationCircle v-if="type === 'default'" />
       <IconExclamation v-if="type === 'negative'" />
       <IconSparkles v-if="type === 'positive'" />
     </div>
-    <div class="px-[24px] py-[23px]">
+    <div class="tune-alert-text">
       <slot />
     </div>
   </div>
