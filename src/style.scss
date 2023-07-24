@@ -131,10 +131,10 @@ body {
 }
 
 .tune-button-select {
-  @apply relative flex w-full justify-start truncate pl-3 pr-5 text-left text-base text-gray-900;
+  @apply relative flex justify-between px-[20px] text-left text-base text-gray-900;
 
   &.disabled {
-    @apply cursor-not-allowed border-gray-350;
+    @apply pointer-events-none cursor-not-allowed border-gray-350;
   }
 }
 
