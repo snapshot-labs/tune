@@ -7,12 +7,14 @@ withDefaults(
     variant?: 'primary' | 'outlined' | 'danger' | 'positive';
     loading?: boolean;
     disabled?: boolean;
+    circle?: boolean;
   }>(),
   {
     type: 'button',
     variant: 'primary',
     loading: false,
-    disabled: false
+    disabled: false,
+    circle: false
   }
 );
 </script>
@@ -24,6 +26,7 @@ withDefaults(
       'tune-button',
       {
         disabled: disabled,
+        circle: circle,
         primary: variant === 'primary',
         outlined: variant === 'outlined',
         danger: variant === 'danger',
@@ -32,14 +35,14 @@ withDefaults(
     ]"
     :disabled="disabled || loading"
   >
-    <div v-if="$slots.icon" class="-ml-1">
+    <div v-if="$slots.icon" :class="{ '-ml-1': $slots.default }">
       <slot name="icon" />
     </div>
 
     <TuneLoadingSpinner v-if="loading" />
     <slot v-else />
 
-    <div v-if="$slots.iconRight" class="-mr-1">
+    <div v-if="$slots.iconRight" :class="{ '-mr-1': $slots.default }">
       <slot name="iconRight" />
     </div>
   </button>

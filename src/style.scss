@@ -105,6 +105,10 @@ body {
 .tune-button {
   @apply flex h-[46px] cursor-pointer items-center justify-center gap-1 rounded-full border border-gray-350 px-[20px] hover:border-gray-900 disabled:cursor-not-allowed;
 
+  &.circle {
+    @apply h-[46px] w-[46px] rounded-full px-0;
+  }
+
   &.primary {
     @apply border-blue bg-blue text-white hover:bg-opacity-90 active:bg-opacity-80;
   }
