@@ -132,10 +132,6 @@ body {
 
 .tune-button-select {
   @apply relative flex justify-between px-[20px] text-left text-base text-gray-900;
-
-  &.disabled {
-    @apply pointer-events-none cursor-not-allowed border-gray-350;
-  }
 }
 
 .tune-input-duration {

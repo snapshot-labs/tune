@@ -29,7 +29,11 @@ const emit = defineEmits(['select']);
     <TuneButton
       v-tippy="{ content: tooltip }"
       variant="outlined"
-      :class="[$attrs.class, { disabled: disabled }, { 'w-full': block }]"
+      :class="[
+        $attrs.class,
+        { 'disabled pointer-events-none cursor-not-allowed': disabled },
+        { 'w-full': block }
+      ]"
       class="tune-button-select"
       :disabled="disabled"
       @click="emit('select')"
