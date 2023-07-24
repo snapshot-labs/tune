@@ -31,11 +31,11 @@ body {
   @apply rounded-lg border border-gray-350 bg-white;
 
   &.alert-negative {
-    @apply border-red border-opacity-40;
+    @apply border-red/40;
   }
 
   &.alert-positive {
-    @apply border-green border-opacity-40;
+    @apply border-green/40;
   }
 }
 
@@ -43,11 +43,11 @@ body {
   @apply rounded-l-lg bg-gray-300 px-[18px] text-base;
 
   &.alert-negative {
-    @apply bg-red bg-opacity-10 text-red;
+    @apply bg-red/10 text-red;
   }
 
   &.alert-positive {
-    @apply bg-green bg-opacity-10 text-green;
+    @apply bg-green/10 text-green;
   }
 }
 
@@ -103,14 +103,26 @@ body {
 }
 
 .tune-button {
-  @apply flex h-[42px] cursor-pointer items-center justify-center rounded-md border border-gray-350 px-3 hover:border-gray-900 disabled:cursor-not-allowed;
+  @apply flex h-[46px] cursor-pointer items-center justify-center gap-1 rounded-full border border-gray-350 px-[20px] hover:border-gray-900 disabled:cursor-not-allowed;
 
   &.primary {
-    @apply border-blue bg-blue text-white;
+    @apply border-blue bg-blue text-white hover:bg-opacity-90 active:bg-opacity-80;
+  }
+
+  &.outlined {
+    @apply border-gray-350 bg-white text-gray-900 hover:bg-gray-200 active:bg-gray-300;
+  }
+
+  &.danger {
+    @apply border-red/40 bg-white text-red hover:bg-red/5 active:bg-red/10;
+  }
+
+  &.positive {
+    @apply border-green/40 bg-white text-green hover:bg-green/5 active:bg-green/10;
   }
 
   &.disabled {
-    @apply border-gray-350 bg-white text-gray-350;
+    @apply pointer-events-none cursor-not-allowed opacity-40;
   }
 }
 

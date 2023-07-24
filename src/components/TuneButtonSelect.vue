@@ -22,6 +22,7 @@ const emit = defineEmits(['select']);
     </TuneLabelInput>
     <TuneButton
       v-tippy="{ content: tooltip }"
+      variant="outlined"
       :class="[$attrs.class, { disabled: disabled }]"
       class="tune-button-select"
       :disabled="disabled"

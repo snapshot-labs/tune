@@ -35,7 +35,7 @@ withDefaults(
     >
       <PopoverButton class="outline-none">
         <slot v-if="$slots.button" name="button" />
-        <TuneButton v-else class="flex items-center gap-1">
+        <TuneButton v-else variant="outlined" class="flex items-center gap-1">
           <span>{{ label }}</span>
           <IconChevronDown class="text-sm" aria-hidden="true" />
         </TuneButton>

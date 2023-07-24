@@ -44,7 +44,7 @@ const emit = defineEmits(['select']);
       <MenuButton class="h-full">
         <slot v-if="$slots.button" name="button" />
 
-        <TuneButton v-else class="flex items-center">
+        <TuneButton v-else variant="outlined" class="flex items-center">
           {{ selected }}
           <IconChevronDown class="-mr-1 ml-1 text-sm" aria-hidden="true" />
         </TuneButton>

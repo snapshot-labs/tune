@@ -112,6 +112,6 @@ onMounted(() => {
         :error="error"
       />
     </div>
-    <TuneButton class="w-full" @click="addItem"> Add </TuneButton>
+    <TuneButton class="w-full" variant="outlined" @click="addItem"> Add </TuneButton>
   </div>
 </template>

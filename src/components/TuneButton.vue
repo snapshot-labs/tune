@@ -4,13 +4,13 @@ import TuneLoadingSpinner from './TuneLoadingSpinner.vue';
 withDefaults(
   defineProps<{
     type?: 'button' | 'submit' | 'reset';
-    primary?: boolean;
+    variant?: 'primary' | 'outlined' | 'danger' | 'positive';
     loading?: boolean;
     disabled?: boolean;
   }>(),
   {
     type: 'button',
-    primary: false,
+    variant: 'primary',
     loading: false,
     disabled: false
   }
@@ -23,14 +23,24 @@ withDefaults(
     :class="[
       'tune-button',
       {
-        primary: primary,
-        disabled: disabled
+        disabled: disabled,
+        primary: variant === 'primary',
+        outlined: variant === 'outlined',
+        danger: variant === 'danger',
+        positive: variant === 'positive'
       }
     ]"
     :disabled="disabled || loading"
   >
-    <TuneLoadingSpinner v-if="loading" />
+    <div v-if="$slots.icon" class="-ml-1">
+      <slot name="icon" />
+    </div>
 
+    <TuneLoadingSpinner v-if="loading" />
     <slot v-else />
+
+    <div v-if="$slots.iconRight" class="-mr-1">
+      <slot name="iconRight" />
+    </div>
   </button>
 </template>

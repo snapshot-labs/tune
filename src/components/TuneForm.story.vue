@@ -97,6 +97,6 @@ function forceShowError() {
         categories: 'Invalid field'
       }"
     />
-    <TuneButton primary class="mt-3" @click="forceShowError"> Show errors </TuneButton>
+    <TuneButton class="mt-3" variant="outlined" @click="forceShowError"> Show errors </TuneButton>
   </Story>
 </template>
