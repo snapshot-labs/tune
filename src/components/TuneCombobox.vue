@@ -93,7 +93,7 @@ const filteredItems = computed(() => {
         class="absolute inset-y-3 right-2 flex items-end px-2 focus:outline-none"
         :class="{ 'cursor-not-allowed opacity-40': disabled }"
       >
-        <IconChevronDown :class="['text-sm', { 'rotate-180': open }]" />
+        <IconChevronDown :class="['text-base', { 'rotate-180': open }]" />
       </ComboboxButton>
       <ComboboxOptions
         v-if="filteredItems.length > 0"

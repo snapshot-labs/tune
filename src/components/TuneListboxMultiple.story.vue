@@ -13,6 +13,8 @@ const input = ref(['1']);
 
 <template>
   <Story>
-    <TuneListboxMultiple v-model="input" :items="items" />
+    <div class="w-[320px]">
+      <TuneListboxMultiple v-model="input" :items="items" label="Listbox multiple" />
+    </div>
   </Story>
 </template>

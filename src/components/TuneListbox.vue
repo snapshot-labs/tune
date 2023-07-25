@@ -21,9 +21,8 @@ type ListboxItem = {
 const props = defineProps<{
   items: ListboxItem[];
   modelValue: any;
-  label?: string;
+  label: string;
   disabled?: boolean;
-  definition?: any;
   hint?: string;
 }>();
 
@@ -37,23 +36,26 @@ const selectedItem = computed({
 
 <template>
   <Listbox v-model="selectedItem" as="div" :disabled="disabled">
-    <ListboxLabel>
-      <TuneLabelInput :hint="hint || definition?.description">
-        {{ label || definition?.title }}
-      </TuneLabelInput>
-    </ListboxLabel>
     <div class="relative">
       <ListboxButton
-        class="tune-listbox-button relative h-[42px] w-full truncate pl-3 pr-[40px] text-left"
+        class="tune-input-wrapper relative w-full truncate !pr-[40px] text-left"
         :class="{ 'disabled cursor-not-allowed': disabled }"
       >
-        <slot v-if="$slots.selected" name="selected" :selected-item="selectedItem" />
+        <ListboxLabel>
+          <TuneLabelInput :hint="hint">
+            {{ label }}
+          </TuneLabelInput>
+        </ListboxLabel>
 
-        <span v-else-if="selectedItem">
-          {{ selectedItem?.name || selectedItem.value }}
-        </span>
-        <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-[12px]">
-          <IconChevronDown class="text-sm" />
+        <div class="pb-1 pt-2">
+          <slot v-if="$slots.selected" name="selected" :selected-item="selectedItem" />
+          <span v-else-if="selectedItem">
+            {{ selectedItem?.name || selectedItem.value }}
+          </span>
+        </div>
+
+        <span class="pointer-events-none absolute inset-y-3 right-2 flex items-end px-2">
+          <IconChevronDown class="text-base" />
         </span>
       </ListboxButton>
       <transition
@@ -78,16 +80,10 @@ const selectedItem = computed({
               <li
                 :class="[
                   { active: active && !itemDisabled },
-                  'tune-listbox-item relative cursor-default select-none py-2 pl-3 pr-[50px]'
+                  'tune-listbox-item relative cursor-default select-none pr-[50px]'
                 ]"
               >
-                <span
-                  :class="[
-                    selected ? 'selected' : 'font-normal',
-                    { disabled: itemDisabled },
-                    'tune-listbox-item block truncate'
-                  ]"
-                >
+                <span :class="[{ 'opacity-40': itemDisabled }, 'block truncate']">
                   <slot v-if="$slots.item" name="item" :item="item" />
                   <span v-else>
                     {{ item?.name || item.value }}
@@ -98,7 +94,7 @@ const selectedItem = computed({
                   v-if="selected"
                   :class="['absolute inset-y-0 right-0 flex items-center pr-3']"
                 >
-                  <IconCheck class="text-sm" />
+                  <IconCheck class="text-base text-green" />
                 </span>
               </li>
             </ListboxOption>

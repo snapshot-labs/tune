@@ -23,7 +23,7 @@ type ComboboxItem = {
 const props = defineProps<{
   modelValue: string[];
   items: ComboboxItem[];
-  label?: string;
+  label: string;
   hint?: string;
   disabled?: boolean;
 }>();
@@ -101,7 +101,7 @@ const filteredItems = computed(() => {
         class="absolute inset-y-0 right-1 flex items-center px-2 focus:outline-none"
         :class="{ 'cursor-not-allowed': disabled }"
       >
-        <IconChevronDown class="text-sm" />
+        <IconChevronDown class="text-base" />
       </ComboboxButton>
       <ComboboxOptions
         v-if="filteredItems.length > 0"

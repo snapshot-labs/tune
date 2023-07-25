@@ -21,8 +21,7 @@ type ListboxItem = {
 const props = defineProps<{
   modelValue?: string[];
   items: ListboxItem[];
-  definition?: any;
-  label?: string;
+  label: string;
   placeholder?: string;
   limit?: number;
   disabled?: boolean;
@@ -61,35 +60,35 @@ defineExpose({
 <template>
   <div>
     <Listbox v-model="selectedItems" as="div" :disabled="disabled" multiple>
-      <ListboxLabel>
-        <TuneLabelInput :hint="hint || definition?.description">
-          {{ label || definition?.title }}
-        </TuneLabelInput>
-      </ListboxLabel>
       <div class="relative">
         <ListboxButton
-          v-tippy="{
-            content: selectedItems.map(item => item?.name || item.value).join(', ')
-          }"
           :class="[
-            'tune-listbox-button relative h-[42px] w-full truncate pl-3 pr-[40px] text-left',
+            'tune-input-wrapper relative w-full truncate pl-3 pr-[40px] text-left',
             { 'disabled cursor-not-allowed': disabled },
             {
               error: showErrorMessage && error
             }
           ]"
         >
-          <span v-if="selectedItems.length < 1" class="tune-listbox-multiple-placeholder">
-            {{ placeholder || definition?.examples?.[0] }}
-          </span>
+          <ListboxLabel>
+            <TuneLabelInput :hint="hint">
+              {{ label }}
+            </TuneLabelInput>
+          </ListboxLabel>
 
-          <slot v-else-if="$slots.selected" name="selected" :selected-items="selectedItems" />
+          <div class="pb-1 pt-2">
+            <span v-if="selectedItems.length < 1" class="tune-listbox-multiple-placeholder">
+              {{ placeholder || 'Select' }}
+            </span>
+            <slot v-else-if="$slots.selected" name="selected" :selected-items="selectedItems" />
 
-          <span v-else>
-            {{ selectedItems.map(item => item?.name || item.value).join(', ') }}
-          </span>
-          <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-[12px]">
-            <IconChevronDown class="text-sm" />
+            <span v-else>
+              {{ selectedItems.map(item => item?.name || item.value).join(', ') }}
+            </span>
+          </div>
+
+          <span class="pointer-events-none absolute inset-y-3 right-2 flex items-end px-2">
+            <IconChevronDown class="text-base" />
           </span>
         </ListboxButton>
         <transition
@@ -118,13 +117,7 @@ defineExpose({
                     'tune-listbox-item relative cursor-default select-none py-2 pl-3 pr-[50px]'
                   ]"
                 >
-                  <span
-                    :class="[
-                      selected ? 'selected' : 'font-normal',
-                      { disabled: itemDisabled },
-                      'tune-listbox-item block truncate'
-                    ]"
-                  >
+                  <span :class="[{ disabled: itemDisabled }, 'block truncate']">
                     <slot v-if="$slots.item" name="item" :item="item" />
                     <span v-else>
                       {{ item?.name || item.value }}
@@ -135,7 +128,7 @@ defineExpose({
                     v-if="selected"
                     :class="['absolute inset-y-0 right-0 flex items-center pr-3']"
                   >
-                    <IconCheck class="text-sm" />
+                    <IconCheck class="text-base text-green" />
                   </span>
                 </li>
               </ListboxOption>
