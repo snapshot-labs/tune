@@ -5,7 +5,7 @@ import TuneInputSocial from './TuneInputSocial.vue';
 <template>
   <Story :layout="{ type: 'grid', width: 320 }">
     <Variant title="default">
-      <TuneInputSocial label="Social" placeholder="Enter something" variant="earth" />
+      <TuneInputSocial label="Default" placeholder="Enter something" variant="earth" />
     </Variant>
     <Variant title="twitter">
       <TuneInputSocial label="Twitter" placeholder="Enter something" variant="twitter" />
