@@ -4,7 +4,7 @@ import IconCube from '~icons/heroicons-outline/cube';
 </script>
 
 <template>
-  <Story>
+  <Story :layout="{ type: 'grid', width: 200 }">
     <Variant title="default">
       <div class="space-y-3">
         <TuneButtonSelect> Select </TuneButtonSelect>
