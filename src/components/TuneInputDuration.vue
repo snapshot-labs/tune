@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, toRefs, ref } from 'vue';
+import { computed, ref } from 'vue';
 import { TuneLabelInput } from '..';
 
 interface DurationInputProps {

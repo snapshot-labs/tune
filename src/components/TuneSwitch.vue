@@ -1,19 +1,12 @@
 <script setup lang="ts">
 import { Switch } from '@headlessui/vue';
-import TuneLabelInput from './TuneLabelInput.vue';
-
-type Definition = {
-  title: string;
-  description: string;
-  sublabel: string;
-};
+import TuneLabel from './TuneLabel.vue';
 
 defineProps<{
   modelValue: boolean;
-  label?: string;
+  label: string;
   sublabel?: string;
   hint?: string;
-  definition?: Partial<Definition>;
   disabled?: boolean;
 }>();
 
@@ -21,10 +14,7 @@ const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
-  <div
-    class="flex space-x-2 pr-2 pt-1"
-    :class="sublabel || definition?.sublabel ? 'items-start' : 'items-center'"
-  >
+  <div class="flex space-x-2 pr-2 pt-1" :class="sublabel ? 'items-start' : 'items-center'">
     <Switch
       :model-value="modelValue"
       :class="[
@@ -35,8 +25,8 @@ const emit = defineEmits(['update:modelValue']);
       :disabled="disabled"
       @update:model-value="value => emit('update:modelValue', value)"
     >
-      <span v-if="label || definition?.title" class="sr-only">
-        {{ label || definition?.title }}
+      <span v-if="label" class="sr-only">
+        {{ label }}
       </span>
       <span
         :class="[
@@ -76,11 +66,6 @@ const emit = defineEmits(['update:modelValue']);
         </span>
       </span>
     </Switch>
-    <TuneLabel
-      v-if="label || definition?.title"
-      :label="label || definition?.title"
-      :hint="hint || definition?.description"
-      :sublabel="sublabel || definition?.sublabel"
-    />
+    <TuneLabel v-if="label" :label="label" :hint="hint" :sublabel="sublabel" />
   </div>
 </template>
