@@ -91,9 +91,11 @@ onMounted(() => {
   />
 
   <div v-else-if="definition?.items" class="space-y-2">
-    <TuneLabelInput v-if="definition?.title" :hint="definition?.description">
-      {{ definition?.title }}
-    </TuneLabelInput>
+    <TuneLabelInput
+      v-if="definition?.title"
+      :label="definition?.title"
+      :hint="definition?.description"
+    />
     <div
       v-for="(_, i) in input"
       :key="i"

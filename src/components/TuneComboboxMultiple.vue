@@ -76,9 +76,7 @@ const filteredItems = computed(() => {
     <div class="relative">
       <ComboboxButton class="tune-input-wrapper w-full" :class="{ '!border-opacity-40': disabled }">
         <ComboboxLabel v-if="label" class="block">
-          <TuneLabelInput :hint="hint">
-            {{ label }}
-          </TuneLabelInput>
+          <TuneLabelInput :label="label" :hint="hint" />
         </ComboboxLabel>
         <div class="no-scrollbar mt-2 flex items-center overflow-x-auto">
           <div v-if="selectedItems.length" class="whitespace-nowrap">

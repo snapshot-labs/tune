@@ -69,9 +69,7 @@ onMounted(() => adjustHeight());
 
 <template>
   <div>
-    <TuneLabelInput :hint="hint || definition?.description">
-      {{ label || definition?.title }}
-    </TuneLabelInput>
+    <TuneLabelInput :label="label || definition?.title" :hint="hint || definition?.description" />
     <textarea
       v-bind="$attrs"
       ref="textareaRef"

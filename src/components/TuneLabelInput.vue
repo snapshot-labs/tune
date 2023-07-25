@@ -2,19 +2,17 @@
 import TuneIconHint from './TuneIconHint.vue';
 
 defineProps<{
+  label: string;
   hint?: string;
-  sublabel?: string;
+  error?: boolean;
 }>();
 </script>
 
 <template>
-  <div class="tune-label-container flex flex-col">
-    <div class="tune-label flex items-center gap-1">
-      <slot />
-      <TuneIconHint :hint="hint" />
+  <div class="flex items-center gap-1">
+    <div :class="['tune-label-input', { error: error }]">
+      {{ label }}
     </div>
-    <div v-if="sublabel" class="tune-sublabel">
-      {{ sublabel }}
-    </div>
+    <TuneIconHint :hint="hint" />
   </div>
 </template>

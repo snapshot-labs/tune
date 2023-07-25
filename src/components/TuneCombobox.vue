@@ -75,9 +75,7 @@ const filteredItems = computed(() => {
           class="block"
           :class="{ 'cursor-not-allowed opacity-40': disabled }"
         >
-          <TuneLabelInput :hint="hint">
-            {{ label }}
-          </TuneLabelInput>
+          <TuneLabelInput :label="label" :hint="hint" />
         </ComboboxLabel>
         <ComboboxInput
           class="tune-input w-full !pr-[30px]"

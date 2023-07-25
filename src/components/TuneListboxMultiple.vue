@@ -72,9 +72,7 @@ defineExpose({
           ]"
         >
           <ListboxLabel>
-            <TuneLabelInput :hint="hint">
-              {{ label }}
-            </TuneLabelInput>
+            <TuneLabelInput :label="label" :hint="hint" />
           </ListboxLabel>
 
           <div class="pb-1 pt-2">

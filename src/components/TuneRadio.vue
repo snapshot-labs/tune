@@ -28,8 +28,10 @@ const onChange = (event: Event) => {
       class="tune-input-radio"
       @input="onChange"
     />
-    <TuneLabelInput v-if="hint || definition?.description" class="!mb-0">
-      {{ hint || definition.description }}
-    </TuneLabelInput>
+    <TuneLabelInput
+      v-if="hint || definition?.description"
+      :label="hint || definition.description"
+      class="!mb-0"
+    />
   </div>
 </template>

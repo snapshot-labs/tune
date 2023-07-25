@@ -82,9 +82,7 @@ function addRef(ref: any) {
 
 <template>
   <div>
-    <TuneLabelInput :hint="hint || definition?.description">
-      {{ label || definition?.title }}
-    </TuneLabelInput>
+    <TuneLabelInput :label="label || definition?.title" :hint="hint || definition?.description" />
     <div
       :class="[
         'tune-input-duration inline-flex overflow-hidden',

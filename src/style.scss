@@ -193,8 +193,16 @@ body {
   @apply font-sans text-sm text-gray-500;
 }
 
-.tune-sublabel {
+.tune-label-sublabel {
   @apply font-sans text-sm text-gray-900 opacity-60;
+}
+
+.tune-label-input {
+  @apply font-sans text-sm text-gray-500;
+
+  &.error {
+    @apply text-red;
+  }
 }
 
 .tune-icon-hint {
@@ -202,7 +210,7 @@ body {
 }
 
 .tune-error-text {
-  @apply font-sans text-sm text-red;
+  @apply mt-2 font-sans text-base text-red;
 }
 
 .tune-error-border {
