@@ -4,7 +4,7 @@ import LightningBoltIcon from '~icons/heroicons-outline/lightning-bolt';
 </script>
 
 <template>
-  <Story>
+  <Story :layout="{ type: 'grid', width: 200 }">
     <Variant title="default">
       <div class="space-y-3">
         <TuneButton> Button </TuneButton>
