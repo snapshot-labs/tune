@@ -76,7 +76,7 @@ const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''))
           <TuneLabelInput :label="label" :hint="hint" />
         </ComboboxLabel>
         <ComboboxInput
-          class="tune-input w-full !pr-[30px]"
+          class="tune-input mb-[2px] w-full !pr-[30px]"
           spellcheck="false"
           :display-value="(item: any) => item.name "
           :class="isDisabled"
