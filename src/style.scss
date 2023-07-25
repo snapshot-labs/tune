@@ -56,11 +56,11 @@ body {
 }
 
 .tune-input {
-  @apply form-input border-transparent bg-transparent px-0 pb-0 text-base text-gray-900 placeholder:text-gray-500/40 focus:border-transparent focus:outline-none focus:ring-0;
+  @apply form-input border-transparent bg-transparent px-0 pb-0 pt-[6px] text-base text-gray-900 placeholder:text-gray-500/40 focus:border-transparent focus:outline-none focus:ring-0;
 }
 
 .tune-input-wrapper {
-  @apply rounded-lg border border-gray-350 bg-gray-100  p-[12px] focus-within:bg-gray-300 [&:not(:focus-within)]:hover:bg-gray-200;
+  @apply rounded-lg border border-gray-350 bg-gray-100  p-[12px] pb-[9px] focus-within:bg-gray-300 [&:not(:focus-within)]:hover:bg-gray-200;
 
   &.error {
     @apply border-red;

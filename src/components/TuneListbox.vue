@@ -38,6 +38,7 @@ const selectedItem = computed({
   <Listbox v-model="selectedItem" as="div" :disabled="disabled">
     <div class="relative">
       <ListboxButton
+        v-slot="{ open }"
         class="tune-input-wrapper relative w-full truncate !pr-[40px] text-left"
         :class="{ 'disabled cursor-not-allowed': disabled }"
       >
@@ -54,8 +55,8 @@ const selectedItem = computed({
           </span>
         </div>
 
-        <span class="pointer-events-none absolute inset-y-3 right-2 flex items-end px-2">
-          <IconChevronDown class="text-base" />
+        <span class="pointer-events-none absolute inset-y-[12px] right-[12px] flex items-end px-2">
+          <IconChevronDown :class="['text-base', { 'rotate-180': open }]" />
         </span>
       </ListboxButton>
       <transition

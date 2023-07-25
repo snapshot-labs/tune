@@ -90,7 +90,7 @@ const filteredItems = computed(() => {
       </ComboboxButton>
       <ComboboxButton
         v-slot="{ open }"
-        class="absolute inset-y-3 right-2 flex items-end px-2 focus:outline-none"
+        class="absolute inset-y-[12px] right-[12px] flex items-end px-2 focus:outline-none"
         :class="{ 'cursor-not-allowed opacity-40': disabled }"
       >
         <IconChevronDown :class="['text-base', { 'rotate-180': open }]" />

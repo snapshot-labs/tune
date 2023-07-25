@@ -62,6 +62,7 @@ defineExpose({
     <Listbox v-model="selectedItems" as="div" :disabled="disabled" multiple>
       <div class="relative">
         <ListboxButton
+          v-slot="{ open }"
           :class="[
             'tune-input-wrapper relative w-full truncate pl-3 pr-[40px] text-left',
             { 'disabled cursor-not-allowed': disabled },
@@ -87,8 +88,10 @@ defineExpose({
             </span>
           </div>
 
-          <span class="pointer-events-none absolute inset-y-3 right-2 flex items-end px-2">
-            <IconChevronDown class="text-base" />
+          <span
+            class="pointer-events-none absolute inset-y-[12px] right-[12px] flex items-end px-2"
+          >
+            <IconChevronDown :class="['text-base', { 'rotate-180': open }]" />
           </span>
         </ListboxButton>
         <transition

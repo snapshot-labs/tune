@@ -4,6 +4,8 @@ import TuneInput from './TuneInput.vue';
 
 <template>
   <Story>
-    <TuneInput label="Label" placeholder="Type something" />
+    <div class="w-[320px]">
+      <TuneInput label="Label" placeholder="Type something" />
+    </div>
   </Story>
 </template>
