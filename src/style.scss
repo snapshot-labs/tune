@@ -233,19 +233,15 @@ body {
 }
 
 .tune-menu-list {
-  @apply rounded-md border border-gray-350 bg-white shadow-lg;
+  @apply rounded-[20px] border border-gray-350 bg-white;
 }
 
 .tune-menu-list-item {
-  @apply bg-white text-gray-900;
-
-  &.active {
-    @apply bg-gray-350 text-gray-900;
-  }
+  @apply px-[16px] py-[13px] hover:bg-gray-200 active:bg-gray-300;
 }
 
 .tune-popover {
-  @apply rounded-md border bg-white shadow-lg;
+  @apply rounded-md border bg-white;
 }
 
 .tune-modal-panel {

@@ -2,8 +2,7 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue';
 import { Float } from '@headlessui-float/vue';
 import type { Placement } from '@floating-ui/dom';
-import TuneButton from './TuneButton.vue';
-import IconChevronDown from '~icons/heroicons-outline/chevron-down';
+import TuneButtonSelect from './TuneButtonSelect.vue';
 
 type Item = {
   text: string;
@@ -14,11 +13,11 @@ type Item = {
 withDefaults(
   defineProps<{
     items: Item[];
-    selected?: string;
+    label?: string;
     placement?: Placement;
   }>(),
   {
-    selected: '',
+    label: '',
     placement: 'bottom-start'
   }
 );
@@ -44,20 +43,16 @@ const emit = defineEmits(['select']);
       <MenuButton class="h-full">
         <slot v-if="$slots.button" name="button" />
 
-        <TuneButton v-else variant="outlined" class="flex items-center">
-          {{ selected }}
-          <IconChevronDown class="-mr-1 ml-1 text-sm" aria-hidden="true" />
-        </TuneButton>
+        <TuneButtonSelect v-else>
+          {{ label }}
+        </TuneButtonSelect>
       </MenuButton>
 
       <MenuItems class="tune-menu-list overflow-hidden outline-none">
         <div class="no-scrollbar max-h-[300px] overflow-auto">
-          <MenuItem v-for="item in items" :key="item.text" v-slot="{ active }">
+          <MenuItem v-for="item in items" :key="item.text">
             <div
-              :class="[
-                { active: active },
-                'tune-menu-list-item cursor-pointer whitespace-nowrap px-3 py-2'
-              ]"
+              :class="['tune-menu-list-item cursor-pointer whitespace-nowrap px-3 py-2']"
               @click="emit('select', item.action)"
             >
               <slot :key="item" name="item" :item="item">

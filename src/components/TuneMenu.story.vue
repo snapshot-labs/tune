@@ -23,6 +23,6 @@ const items = [
 
 <template>
   <Story>
-    <TuneMenu :items="items" selected="Button" class="m-5" />
+    <TuneMenu :items="items" label="Menu" class="m-5" />
   </Story>
 </template>
