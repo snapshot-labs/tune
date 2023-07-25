@@ -71,6 +71,10 @@ body {
   }
 }
 
+.tune-disabled-input {
+  @apply pointer-events-none opacity-40;
+}
+
 .tune-textarea {
   @apply no-scrollbar form-textarea border-transparent bg-transparent px-0 pb-0 pt-[6px] text-base text-gray-900 placeholder:text-gray-500/40 focus:border-transparent focus:outline-none focus:ring-0;
 }
@@ -182,6 +186,10 @@ body {
 
 .tune-listbox-multiple-placeholder {
   @apply text-gray-500;
+
+  &.disabled {
+    @apply text-gray-900;
+  }
 }
 
 .tune-label {

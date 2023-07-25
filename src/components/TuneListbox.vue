@@ -32,6 +32,8 @@ const selectedItem = computed({
   get: () => props.items.find(item => isEqual(item.value, props.modelValue)) || props.items[0],
   set: newVal => emit('update:modelValue', newVal.value)
 });
+
+const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''));
 </script>
 
 <template>
@@ -40,20 +42,20 @@ const selectedItem = computed({
       <ListboxButton
         v-slot="{ open }"
         class="tune-input-wrapper relative w-full truncate !pr-[40px] text-left"
-        :class="{ 'disabled cursor-not-allowed': disabled }"
+        :class="{ 'cursor-not-allowed': disabled }"
       >
-        <ListboxLabel>
+        <ListboxLabel class="pointer-events-none" :class="isDisabled">
           <TuneLabelInput :label="label" :hint="hint" />
         </ListboxLabel>
 
-        <div class="pb-1 pt-2">
+        <div :class="['pb-1 pt-2', isDisabled]">
           <slot v-if="$slots.selected" name="selected" :selected-item="selectedItem" />
           <span v-else-if="selectedItem">
             {{ selectedItem?.name || selectedItem.value }}
           </span>
         </div>
 
-        <span class="pointer-events-none absolute inset-y-[12px] right-[12px] flex items-end px-2">
+        <span class="absolute inset-y-[12px] right-[12px] flex items-end px-2" :class="isDisabled">
           <IconChevronDown :class="['text-base', { 'rotate-180': open }]" />
         </span>
       </ListboxButton>

@@ -55,6 +55,8 @@ function forceShowError() {
 defineExpose({
   forceShowError
 });
+
+const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''));
 </script>
 
 <template>
@@ -65,18 +67,21 @@ defineExpose({
           v-slot="{ open }"
           :class="[
             'tune-input-wrapper relative w-full truncate pl-3 pr-[40px] text-left',
-            { 'disabled cursor-not-allowed': disabled },
+            { 'cursor-not-allowed': disabled },
             {
               error: showErrorMessage && error
             }
           ]"
         >
-          <ListboxLabel>
+          <ListboxLabel class="pointer-events-none" :class="isDisabled">
             <TuneLabelInput :label="label" :hint="hint" />
           </ListboxLabel>
 
-          <div class="pb-1 pt-2">
-            <span v-if="selectedItems.length < 1" class="tune-listbox-multiple-placeholder">
+          <div class="pb-1 pt-2" :class="isDisabled">
+            <span
+              v-if="selectedItems.length < 1"
+              :class="['tune-listbox-multiple-placeholder', { disabled: disabled }]"
+            >
               {{ placeholder || 'Select' }}
             </span>
             <slot v-else-if="$slots.selected" name="selected" :selected-items="selectedItems" />
@@ -87,7 +92,8 @@ defineExpose({
           </div>
 
           <span
-            class="pointer-events-none absolute inset-y-[12px] right-[12px] flex items-end px-2"
+            class="absolute inset-y-[12px] right-[12px] flex items-end px-2"
+            :class="isDisabled"
           >
             <IconChevronDown :class="['text-base', { 'rotate-180': open }]" />
           </span>

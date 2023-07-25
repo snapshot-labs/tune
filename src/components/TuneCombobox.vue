@@ -65,23 +65,21 @@ const filteredItems = computed(() => {
 
   return filteredItems;
 });
+
+const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''));
 </script>
 <template>
   <Combobox v-model="selectedItem" :disabled="disabled" as="div" class="w-full">
     <div class="relative">
-      <ComboboxButton class="tune-input-wrapper w-full" :class="{ '!border-opacity-40': disabled }">
-        <ComboboxLabel
-          v-if="label"
-          class="block"
-          :class="{ 'cursor-not-allowed opacity-40': disabled }"
-        >
+      <ComboboxButton class="tune-input-wrapper w-full" :class="{ 'cursor-not-allowed': disabled }">
+        <ComboboxLabel class="pointer-events-none" :class="isDisabled">
           <TuneLabelInput :label="label" :hint="hint" />
         </ComboboxLabel>
         <ComboboxInput
           class="tune-input w-full !pr-[30px]"
           spellcheck="false"
           :display-value="(item: any) => item.name "
-          :class="{ 'cursor-not-allowed opacity-40': disabled }"
+          :class="isDisabled"
           :disabled="disabled"
           @change="searchInput = $event.target.value"
         />
@@ -89,7 +87,7 @@ const filteredItems = computed(() => {
       <ComboboxButton
         v-slot="{ open }"
         class="absolute inset-y-[12px] right-[12px] flex items-end px-2 focus:outline-none"
-        :class="{ 'cursor-not-allowed opacity-40': disabled }"
+        :class="isDisabled"
       >
         <IconChevronDown :class="['text-base', { 'rotate-180': open }]" />
       </ComboboxButton>
