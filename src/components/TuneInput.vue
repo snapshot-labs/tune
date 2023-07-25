@@ -80,7 +80,10 @@ onMounted(() => {
       />
       <div class="flex">
         <div :class="['group relative z-10 flex', { 'w-full': block }]">
-          <div v-if="$slots.before" class="pointer-events-none absolute inset-y-1 flex items-end">
+          <div
+            v-if="$slots.before"
+            class="tune-input-before pointer-events-none absolute inset-y-1 flex items-end"
+          >
             <slot name="before" />
           </div>
           <input
@@ -99,11 +102,14 @@ onMounted(() => {
           />
           <div
             v-if="loading"
-            class="tune-input-loading absolute inset-y-0 right-0 top-[1px] mr-1 flex h-[40px] items-center overflow-hidden pl-2 pr-2"
+            class="tune-input-loading pointer-events-none absolute inset-y-0 right-0 top-[1px] mr-1 flex h-[40px] items-center overflow-hidden pl-2 pr-2"
           >
             <TuneLoadingSpinner />
           </div>
-          <div v-else-if="$slots.after" class="absolute -inset-y-1 right-0">
+          <div
+            v-else-if="$slots.after"
+            class="tune-input-after pointer-events-none absolute -inset-y-1 right-0"
+          >
             <slot name="after" />
           </div>
         </div>

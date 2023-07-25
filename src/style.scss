@@ -71,6 +71,14 @@ body {
   }
 }
 
+.tune-input-after {
+  @apply text-gray-500;
+}
+
+.tune-input-before {
+  @apply text-gray-500;
+}
+
 .tune-disabled-input {
   @apply pointer-events-none opacity-40;
 }

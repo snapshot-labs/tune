@@ -27,8 +27,6 @@ function forceShowError() {
 defineExpose({
   forceShowError
 });
-
-const iconStyling = computed(() => 'iconStyling text-gray-500');
 </script>
 
 <template>
@@ -44,10 +42,10 @@ const iconStyling = computed(() => 'iconStyling text-gray-500');
     @update:model-value="(value: string) => emit('update:modelValue', value)"
   >
     <template #after>
-      <IconTuneTwitter v-if="variant === 'twitter'" :class="iconStyling" />
-      <IconTuneGithub v-else-if="variant === 'github'" :class="iconStyling" />
-      <IconTuneCoingecko v-else-if="variant === 'coingecko'" :class="iconStyling" />
-      <IconGlobeAlt v-else :class="iconStyling" />
+      <IconTuneTwitter v-if="variant === 'twitter'" />
+      <IconTuneGithub v-else-if="variant === 'github'" />
+      <IconTuneCoingecko v-else-if="variant === 'coingecko'" />
+      <IconGlobeAlt v-else />
     </template>
   </TuneInput>
 </template>
