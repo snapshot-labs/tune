@@ -8,7 +8,7 @@ import IconTuneCoingecko from '~icons/tune/coingecko';
 
 defineProps<{
   label: string;
-  variant: 'earth' | 'twitter' | 'github' | 'coingecko';
+  variant?: 'twitter' | 'github' | 'coingecko';
   modelValue?: string;
   error?: string;
   placeholder?: string;
