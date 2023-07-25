@@ -121,8 +121,8 @@ body {
     @apply h-[46px] w-[46px] rounded-full px-0;
   }
 
-  &.primary {
-    @apply border-blue bg-blue text-white hover:bg-opacity-90 active:bg-opacity-80;
+  &.default {
+    @apply border-gray-900 bg-gray-900 text-white hover:bg-opacity-90 active:bg-opacity-80;
   }
 
   &.outlined {

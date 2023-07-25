@@ -4,14 +4,14 @@ import TuneLoadingSpinner from './TuneLoadingSpinner.vue';
 withDefaults(
   defineProps<{
     type?: 'button' | 'submit' | 'reset';
-    variant?: 'primary' | 'outlined' | 'danger' | 'positive';
+    variant?: 'default' | 'outlined' | 'danger' | 'positive';
     loading?: boolean;
     disabled?: boolean;
     circle?: boolean;
   }>(),
   {
     type: 'button',
-    variant: 'primary',
+    variant: 'default',
     loading: false,
     disabled: false,
     circle: false
@@ -27,7 +27,7 @@ withDefaults(
       {
         disabled: disabled,
         circle: circle,
-        primary: variant === 'primary',
+        default: variant === 'default',
         outlined: variant === 'outlined',
         danger: variant === 'danger',
         positive: variant === 'positive'
