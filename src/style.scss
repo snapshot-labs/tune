@@ -245,15 +245,23 @@ body {
 }
 
 .tune-modal-panel {
-  @apply rounded-md border border-gray-350 bg-white p-4 sm:w-[440px];
+  @apply rounded-[20px] border border-gray-350 bg-white p-4 sm:w-[440px];
 }
 
 .tune-modal-backdrop {
-  @apply bg-gray-350 opacity-70;
+  @apply bg-gray-200 opacity-80;
 }
 
 .tune-modal-title {
-  @apply text-center text-lg font-medium text-gray-900;
+  @apply text-center text-lg text-gray-900;
+}
+
+.tune-modal-content {
+  @apply mt-4;
+}
+
+.tune-modal-footer {
+  @apply mt-4 flex gap-3;
 }
 
 .tune-input-checkbox {
