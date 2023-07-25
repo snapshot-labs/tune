@@ -3,7 +3,7 @@ import TuneAlert from './TuneAlert.vue';
 </script>
 
 <template>
-  <Story>
+  <Story :layout="{ type: 'grid', width: 680 }">
     <div class="space-y-[22px]">
       <Variant title="default">
         <TuneAlert> The contracts have not yet undergone an audit. Use at own risk. </TuneAlert>

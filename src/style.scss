@@ -28,7 +28,7 @@ body {
 }
 
 .tune-alert {
-  @apply overflow-hidden rounded-lg border border-gray-350 bg-white;
+  @apply overflow-hidden rounded-lg border border-gray-350 bg-white text-gray-900;
 
   &.alert-negative {
     @apply border-red/40;
