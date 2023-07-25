@@ -7,6 +7,6 @@ const input = ref('');
 
 <template>
   <Story>
-    <TuneTextarea v-model="input" label="About you" placeholder="Tell us about yourself" />
+    <TuneTextarea v-model="input" label="Label" placeholder="Type something" />
   </Story>
 </template>
