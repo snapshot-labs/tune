@@ -1,11 +1,17 @@
 <script setup lang="ts">
-defineProps<{
-  label: string | number;
-}>();
+withDefaults(
+  defineProps<{
+    label: string | number;
+    variant?: 'primary' | 'outlined';
+  }>(),
+  {
+    variant: 'primary'
+  }
+);
 </script>
 
 <template>
-  <div class="tune-tag">
+  <div :class="['tune-tag', variant]">
     {{ label }}
   </div>
 </template>
