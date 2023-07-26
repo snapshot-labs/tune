@@ -74,7 +74,7 @@ const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''))
           ]"
         >
           <ListboxLabel class="pointer-events-none" :class="isDisabled">
-            <TuneLabelInput :label="label" :hint="hint" />
+            <TuneLabelInput :label="label" :hint="hint" :error="!!error" />
           </ListboxLabel>
 
           <div class="pb-1 pt-2" :class="isDisabled">

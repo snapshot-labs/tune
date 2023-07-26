@@ -57,6 +57,7 @@ const itemsListbox = computed(() => {
     :label="definition?.title"
     :hint="definition?.description"
     :placeholder="definition?.examples?.[0]"
+    :error="error"
     @update:model-value="emit('update:modelValue', $event)"
   />
   <TuneInput
@@ -66,6 +67,7 @@ const itemsListbox = computed(() => {
     :label="definition?.title"
     :hint="definition?.description"
     :placeholder="definition?.examples?.[0]"
+    :error="error"
     @update:model-value="emit('update:modelValue', $event)"
   />
 </template>
