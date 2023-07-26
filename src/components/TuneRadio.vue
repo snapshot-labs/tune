@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import TuneLabelInput from './TuneLabelInput.vue';
-
 const props = defineProps<{
   modelValue: string;
   value: string;
-  label?: string;
+  label: string;
   hint?: string;
-  definition?: any;
 }>();
 
 const emit = defineEmits(['update:modelValue']);
@@ -19,19 +16,20 @@ const onChange = (event: Event) => {
 </script>
 
 <template>
-  <div class="flex items-center gap-[10px]">
-    <input
-      type="radio"
-      :name="label || definition?.title"
-      :checked="modelValue === value"
-      :value="value"
-      class="tune-input-radio"
-      @input="onChange"
-    />
-    <TuneLabelInput
-      v-if="hint || definition?.description"
-      :label="hint || definition.description"
-      class="!mb-0"
-    />
+  <div>
+    <label :for="value">
+      <div class="flex items-center gap-[10px]">
+        <input
+          :id="value"
+          type="radio"
+          :name="label"
+          :checked="modelValue === value"
+          :value="value"
+          class="tune-input-radio"
+          @input="onChange"
+        />
+        {{ hint }}
+      </div>
+    </label>
   </div>
 </template>

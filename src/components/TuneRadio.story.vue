@@ -7,7 +7,7 @@ const input = ref('1');
 
 <template>
   <Story>
-    <TuneRadio v-model="input" value="1" label="Switch me" hint="I'm radio 1" class="m-1" />
-    <TuneRadio v-model="input" value="2" label="Switch me" hint="I'm radio 2" class="m-1" />
+    <TuneRadio v-model="input" value="1" label="Switch me" hint="I'm radio 1" class="m-2" />
+    <TuneRadio v-model="input" value="2" label="Switch me" hint="I'm radio 2" class="m-2" />
   </Story>
 </template>

@@ -23,6 +23,20 @@
   }
 }
 
+@layer components {
+  ._tune-input-radio-checked {
+    @apply m-[2px] h-[14px] w-[14px] bg-none ring-gray-900 ring-offset-2;
+  }
+
+  ._tune-input-radio-focus {
+    @apply m-[2px]  h-[14px] w-[14px] ring-1 ring-gray-900 ring-offset-2;
+  }
+
+  ._tune-input-radio-unchecked {
+    @apply m-0 h-[18px] w-[18px] bg-gray-100 text-gray-900 ring-1 ring-gray-350 ring-offset-0 hover:bg-gray-200 active:bg-gray-300;
+  }
+}
+
 body {
   @apply text-base font-medium text-gray-900;
 }
@@ -265,11 +279,14 @@ body {
 }
 
 .tune-input-checkbox {
-  @apply form-checkbox h-[20px] w-[20px] rounded-lg border-gray-900 bg-white text-blue focus:ring-0 focus:ring-offset-0 focus-visible:ring-offset-1 focus-visible:ring-offset-gray-900;
+  @apply form-checkbox h-[14px] w-[14px] rounded-lg border-gray-900 bg-white text-gray-900 focus:ring-0 focus:ring-offset-0 focus-visible:ring-offset-1 focus-visible:ring-offset-gray-900;
 }
 
 .tune-input-radio {
-  @apply form-radio h-[20px] w-[20px] rounded-full border-gray-900 bg-white text-blue focus:ring-0 focus:ring-offset-0 focus-visible:ring-offset-1 focus-visible:ring-offset-gray-900;
+  @apply _tune-input-radio-unchecked form-radio border-0;
+  @apply focus:_tune-input-radio-focus;
+  @apply checked:_tune-input-radio-checked;
+  @apply active:_tune-input-radio-unchecked;
 }
 
 .tune-form-array-objects {
