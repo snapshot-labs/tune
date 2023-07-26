@@ -70,7 +70,7 @@ body {
 }
 
 .tune-input {
-  @apply border-transparent bg-transparent px-0 pb-0 pt-[6px] text-base text-gray-900 placeholder:text-gray-500/40 focus:border-transparent focus:outline-none focus:ring-0;
+  @apply w-full border-transparent bg-transparent px-0 pb-0 pt-[6px] text-base text-gray-900 placeholder:text-gray-500/40 focus:border-transparent focus:outline-none focus:ring-0;
 }
 
 .tune-input-wrapper {
@@ -81,7 +81,7 @@ body {
   }
 
   &.disabled {
-    @apply pointer-events-none cursor-not-allowed border-opacity-40 bg-opacity-40;
+    @apply cursor-not-allowed border-opacity-40 bg-opacity-40;
   }
 }
 
@@ -91,6 +91,14 @@ body {
 
 .tune-input-before {
   @apply text-gray-500;
+}
+
+.tune-input-column-wrapper {
+  @apply w-full;
+
+  &.disabled {
+    @apply cursor-not-allowed border-opacity-40 bg-opacity-40;
+  }
 }
 
 .tune-disabled-input {
@@ -167,16 +175,16 @@ body {
   @apply relative flex justify-between px-[20px] text-left text-base text-gray-900;
 }
 
-.tune-input-duration {
-  @apply rounded-lg border border-gray-350 px-3 text-base text-gray-900 focus-within:border-gray-900;
-  &.disabled {
-    @apply cursor-not-allowed;
-  }
-}
+// .tune-input-duration {
+//   @apply rounded-lg border border-gray-350 px-3 text-base text-gray-900 focus-within:border-gray-900;
+//   &.disabled {
+//     @apply cursor-not-allowed;
+//   }
+// }
 
-.tune-input-duration-label {
-  @apply text-gray-900;
-}
+// .tune-input-duration-label {
+//   @apply text-gray-900;
+// }
 
 .tune-select {
   @apply text-left;
@@ -227,6 +235,14 @@ body {
 
   &.error {
     @apply text-red;
+  }
+}
+
+.tune-label-input-column {
+  @apply font-sans text-sm text-gray-500;
+
+  &.disabled {
+    @apply text-opacity-40;
   }
 }
 
