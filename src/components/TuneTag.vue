@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <span class="tune-tag">
+  <div class="tune-tag">
     {{ label }}
-  </span>
+  </div>
 </template>

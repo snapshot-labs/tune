@@ -7,6 +7,6 @@ const input = ref({ test: 1 });
 
 <template>
   <Story>
-    <TuneTextareaJson v-model="input" label="About you" placeholder="Tell us about yourself" />
+    <TuneTextareaJson v-model="input" label="Label" placeholder="Enter json" />
   </Story>
 </template>
