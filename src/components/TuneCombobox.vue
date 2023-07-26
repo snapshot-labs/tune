@@ -103,9 +103,7 @@ const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''))
             as="template"
             :value="item"
           >
-            <li
-              :class="['tune-listbox-item relative cursor-default select-none truncate pr-[50px]']"
-            >
+            <li :class="['tune-list-item relative cursor-default select-none truncate pr-[50px]']">
               <span :class="[{ 'opacity-40': itemDisabled }, 'block truncate']">
                 <slot v-if="$slots.item" name="item" :item="item" />
                 <span v-else>

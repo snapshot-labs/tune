@@ -117,7 +117,7 @@ const filteredItems = computed(() => {
             <li
               :class="[
                 { active: active },
-                'tune-listbox-item relative cursor-default select-none truncate pr-[50px]'
+                'tune-list-item relative cursor-default select-none truncate pr-[50px]'
               ]"
             >
               <span :class="[{ 'opacity-40': itemDisabled }, 'block truncate']">
