@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import TuneInput from './TuneInput.vue';
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     modelValue: number;
     definition: any;
@@ -31,7 +31,10 @@ defineExpose({
 <template>
   <TuneInput
     ref="numberInputRef"
-    v-bind="props"
+    :model-value="modelValue"
+    :label="definition?.title"
+    :hint="definition?.description"
+    :placeholder="definition?.examples?.[0]"
     @update:model-value="emit('update:modelValue', Number($event))"
   />
 </template>

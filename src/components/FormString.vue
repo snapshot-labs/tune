@@ -44,21 +44,28 @@ const itemsListbox = computed(() => {
 <template>
   <TuneListbox
     v-if="definition?.enum || definition?.anyOf"
-    :items="itemsListbox"
     :model-value="modelValue"
-    :definition="definition"
+    :items="itemsListbox"
+    :label="definition?.title"
+    :hint="definition?.description"
     @update:model-value="emit('update:modelValue', $event)"
   />
   <TuneTextarea
     v-else-if="definition?.format === 'long'"
     ref="textInputRef"
-    v-bind="props"
+    :model-value="modelValue"
+    :label="definition?.title"
+    :hint="definition?.description"
+    :placeholder="definition?.examples?.[0]"
     @update:model-value="emit('update:modelValue', $event)"
   />
   <TuneInput
     v-else
     ref="textInputRef"
-    v-bind="props"
+    :model-value="modelValue"
+    :label="definition?.title"
+    :hint="definition?.description"
+    :placeholder="definition?.examples?.[0]"
     @update:model-value="emit('update:modelValue', $event)"
   />
 </template>

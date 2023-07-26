@@ -12,13 +12,13 @@ import TuneErrorInput from './TuneErrorInput.vue';
 
 const props = withDefaults(
   defineProps<{
+    modelValue: string | number;
     label: string;
     hint?: string;
     loading?: boolean;
     error?: string;
     block?: boolean;
     type?: 'text' | 'number';
-    modelValue?: string | number;
     autofocus?: boolean;
     placeholder?: string;
     maxLength?: number;

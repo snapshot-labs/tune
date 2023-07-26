@@ -15,5 +15,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <TuneSwitch v-bind="props" @update:model-value="emit('update:modelValue', $event)" />
+  <TuneSwitch
+    :model-value="modelValue"
+    :label="definition?.title"
+    :sublabel="definition?.description"
+    @update:model-value="emit('update:modelValue', $event)"
+  />
 </template>

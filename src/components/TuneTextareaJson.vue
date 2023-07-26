@@ -4,7 +4,6 @@ import TuneTextarea from './TuneTextarea.vue';
 
 const props = defineProps<{
   modelValue: Record<string, unknown> | any[];
-  definition?: any;
   label?: string;
   placeholder?: string;
   error?: string;
@@ -45,7 +44,6 @@ defineExpose({
   <TuneTextarea
     ref="textareaRef"
     v-model="input"
-    :definition="definition"
     :label="label"
     :placeholder="placeholder"
     :error="errorJson || error"

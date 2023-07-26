@@ -4,9 +4,9 @@ import TuneTextarea from './TuneTextarea.vue';
 
 defineProps<{
   modelValue: string[];
-  definition?: any;
-  label?: string;
   placeholder?: string;
+  label?: string;
+  hint?: string;
   error?: string;
 }>();
 
@@ -39,9 +39,9 @@ defineExpose({
   <TuneTextarea
     ref="textareaRef"
     :model-value="modelValue?.join('\n')"
-    :definition="definition"
     :label="label"
-    :placeholder="placeholder || definition?.examples?.join('\n') || ''"
+    :hint="hint"
+    :placeholder="placeholder"
     :error="error"
     @update:model-value="handleInput($event)"
   />

@@ -79,14 +79,18 @@ onMounted(() => {
         name: item.title
       }))
     "
-    :definition="definition"
+    :label="definition?.title"
+    :hint="definition?.description"
+    :placeholder="definition?.examples?.[0]"
     :error="error"
   />
 
   <TuneTextareaArray
     v-else-if="definition?.items.type === 'string'"
     v-model="input"
-    :definition="definition"
+    :label="definition?.title"
+    :hint="definition?.description"
+    :placeholder="definition?.examples?.join('\n')"
     :error="error"
   />
 

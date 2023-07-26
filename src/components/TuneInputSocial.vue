@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import TuneInput from './TuneInput.vue';
 import IconGlobeAlt from '~icons/heroicons-outline/globe-alt';
 import IconTuneTwitter from '~icons/tune/twitter';

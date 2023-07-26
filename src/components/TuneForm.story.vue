@@ -49,7 +49,7 @@ const schema = {
     },
     private: {
       type: 'boolean',
-      title: 'private',
+      title: 'Private',
       description: 'Set space to private.'
     },
     votingType: {
