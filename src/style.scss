@@ -110,7 +110,7 @@ body {
 }
 
 .tune-switch {
-  @apply border-transparent;
+  @apply border-transparent outline-none focus-visible:ring-1 focus-visible:ring-gray-900;
 
   &.switched-on-bg {
     @apply bg-gray-900;
@@ -279,7 +279,11 @@ body {
 }
 
 .tune-input-checkbox {
-  @apply form-checkbox h-[20px] w-[20px] rounded-lg border-gray-900 bg-white text-gray-900 focus:ring-0 focus:ring-offset-0 focus-visible:ring-offset-1 focus-visible:ring-offset-gray-900;
+  @apply form-checkbox h-[20px] w-[20px] rounded-lg border-gray-350 bg-gray-100 text-gray-900 checked:bg-none hover:bg-gray-200  focus:ring-0 focus:ring-offset-0 focus-visible:bg-gray-200 focus-visible:ring-0 focus-visible:ring-offset-gray-900 active:bg-gray-300;
+}
+
+.tune-input-checkbox-icon {
+  @apply text-white;
 }
 
 .tune-input-radio {
