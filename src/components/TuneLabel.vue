@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import TuneIconHint from './TuneIconHint.vue';
-
 defineProps<{
   label: string;
   sublabel?: string;
-  hint?: string;
 }>();
 </script>
 
@@ -14,7 +11,6 @@ defineProps<{
       <div class="tune-label">
         {{ label }}
       </div>
-      <TuneIconHint :hint="hint" />
     </div>
     <div v-if="sublabel" class="tune-label-sublabel">
       {{ sublabel }}

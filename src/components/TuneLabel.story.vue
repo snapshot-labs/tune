@@ -4,10 +4,6 @@ import TuneLabel from './TuneLabel.vue';
 
 <template>
   <Story>
-    <TuneLabel
-      label="Label"
-      hint="I'm a hint"
-      sublabel="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod."
-    />
+    <TuneLabel label="Label" sublabel="Lorem ipsum dolor sit amet, consectetur." />
   </Story>
 </template>

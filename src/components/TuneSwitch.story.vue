@@ -7,11 +7,6 @@ const input = ref(false);
 
 <template>
   <Story>
-    <TuneSwitch
-      v-model="input"
-      label="Switch me"
-      hint="I'm a switch"
-      sublabel="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod."
-    />
+    <TuneSwitch v-model="input" label="Label" sublabel="Lorem ipsum dolor sit amet, consectetur." />
   </Story>
 </template>

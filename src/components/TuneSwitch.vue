@@ -6,7 +6,6 @@ defineProps<{
   modelValue: boolean;
   label: string;
   sublabel?: string;
-  hint?: string;
   disabled?: boolean;
 }>();
 
@@ -14,7 +13,7 @@ const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
-  <div class="flex space-x-2 pr-2 pt-1" :class="sublabel ? 'items-start' : 'items-center'">
+  <div class="flex space-x-2 pr-2" :class="sublabel ? 'items-start' : 'items-center'">
     <Switch
       :model-value="modelValue"
       :class="[
@@ -66,6 +65,6 @@ const emit = defineEmits(['update:modelValue']);
         </span>
       </span>
     </Switch>
-    <TuneLabel v-if="label" :label="label" :hint="hint" :sublabel="sublabel" />
+    <TuneLabel v-if="label" :label="label" :sublabel="sublabel" class="mt-[2px]" />
   </div>
 </template>
