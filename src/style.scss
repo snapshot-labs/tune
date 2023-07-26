@@ -241,7 +241,7 @@ body {
 }
 
 .tune-popover {
-  @apply rounded-md border bg-white;
+  @apply rounded-[20px] border border-gray-350 bg-white;
 }
 
 .tune-modal-panel {

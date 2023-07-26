@@ -4,7 +4,7 @@ import TunePopover from './TunePopover.vue';
 
 <template>
   <Story>
-    <TunePopover label="Button">
+    <TunePopover label="Button" class="m-5">
       <template #content>
         <div>
           <div class="p-3">

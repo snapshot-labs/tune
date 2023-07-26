@@ -2,7 +2,7 @@
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
 import { Float } from '@headlessui-float/vue';
 import type { Placement } from '@floating-ui/dom';
-import TuneButton from './TuneButton.vue';
+import TuneButtonSelect from './TuneButtonSelect.vue';
 import IconChevronDown from '~icons/heroicons-outline/chevron-down';
 
 withDefaults(
@@ -35,10 +35,9 @@ withDefaults(
     >
       <PopoverButton class="outline-none">
         <slot v-if="$slots.button" name="button" />
-        <TuneButton v-else variant="outlined" class="flex items-center gap-1">
+        <TuneButtonSelect v-else>
           <span>{{ label }}</span>
-          <IconChevronDown class="text-sm" aria-hidden="true" />
-        </TuneButton>
+        </TuneButtonSelect>
       </PopoverButton>
 
       <PopoverPanel v-slot="{ close }" class="w-screen max-w-xs outline-none sm:max-w-sm">
