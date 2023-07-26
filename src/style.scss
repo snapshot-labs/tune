@@ -113,17 +113,17 @@ body {
   @apply border-transparent;
 
   &.switched-on-bg {
-    @apply bg-green;
+    @apply bg-gray-900;
   }
   &.switched-off-bg {
     @apply bg-gray-350;
   }
 
   &.switched-on-text {
-    @apply text-green;
+    @apply text-gray-900;
   }
   &.switched-off-text {
-    @apply text-gray-900;
+    @apply text-gray-500;
   }
 }
 
