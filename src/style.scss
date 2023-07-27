@@ -167,7 +167,7 @@ body {
   }
 
   &.disabled {
-    @apply pointer-events-none cursor-not-allowed opacity-40;
+    @apply cursor-not-allowed opacity-40;
   }
 }
 

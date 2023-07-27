@@ -4,7 +4,7 @@ import LightningBoltIcon from '~icons/heroicons-outline/lightning-bolt';
 </script>
 
 <template>
-  <Story :layout="{ type: 'grid', width: 200 }">
+  <Story :layout="{ type: 'grid', width: 220 }">
     <Variant title="default">
       <div class="space-y-3">
         <TuneButton> Button </TuneButton>
@@ -90,6 +90,52 @@ import LightningBoltIcon from '~icons/heroicons-outline/lightning-bolt';
           Button
         </TuneButton>
         <TuneButton variant="positive" circle>
+          <template #icon>
+            <LightningBoltIcon />
+          </template>
+        </TuneButton>
+      </div>
+    </Variant>
+
+    <Variant title="default disabled">
+      <div class="space-y-3">
+        <TuneButton disabled> Button </TuneButton>
+        <TuneButton disabled>
+          <template #icon>
+            <LightningBoltIcon />
+          </template>
+          Button
+        </TuneButton>
+        <TuneButton disabled>
+          <template #iconRight>
+            <LightningBoltIcon />
+          </template>
+          Button
+        </TuneButton>
+        <TuneButton circle disabled>
+          <template #icon>
+            <LightningBoltIcon />
+          </template>
+        </TuneButton>
+      </div>
+    </Variant>
+
+    <Variant title="outlined">
+      <div class="space-y-3">
+        <TuneButton variant="outlined" disabled> Button </TuneButton>
+        <TuneButton variant="outlined" disabled>
+          <template #icon>
+            <LightningBoltIcon />
+          </template>
+          Button
+        </TuneButton>
+        <TuneButton variant="outlined" disabled>
+          <template #iconRight>
+            <LightningBoltIcon />
+          </template>
+          Button
+        </TuneButton>
+        <TuneButton variant="outlined" circle disabled>
           <template #icon>
             <LightningBoltIcon />
           </template>
