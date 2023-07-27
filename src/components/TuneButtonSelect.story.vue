@@ -25,5 +25,16 @@ import IconCube from '~icons/heroicons-outline/cube';
         <TuneButtonSelect :show-chevron="false"> <IconCube /> </TuneButtonSelect>
       </div>
     </Variant>
+
+    <Variant title="default disabled">
+      <div class="space-y-3">
+        <TuneButtonSelect disabled> Select </TuneButtonSelect>
+        <TuneButtonSelect disabled>
+          <IconCube />
+          Select
+        </TuneButtonSelect>
+        <TuneButtonSelect disabled> <IconCube /> </TuneButtonSelect>
+      </div>
+    </Variant>
   </Story>
 </template>

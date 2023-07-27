@@ -120,7 +120,7 @@ import LightningBoltIcon from '~icons/heroicons-outline/lightning-bolt';
       </div>
     </Variant>
 
-    <Variant title="outlined">
+    <Variant title="outlined disabled">
       <div class="space-y-3">
         <TuneButton variant="outlined" disabled> Button </TuneButton>
         <TuneButton variant="outlined" disabled>
