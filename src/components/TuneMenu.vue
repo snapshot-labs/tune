@@ -50,9 +50,12 @@ const emit = defineEmits(['select']);
 
       <MenuItems class="tune-list overflow-hidden outline-none">
         <div class="no-scrollbar max-h-[300px] overflow-auto">
-          <MenuItem v-for="item in items" :key="item.text">
+          <MenuItem v-for="item in items" v-slot="{ active }" :key="item.text">
             <div
-              :class="['tune-list-item cursor-pointer whitespace-nowrap px-3 py-2']"
+              :class="[
+                { active: active },
+                'tune-list-item cursor-pointer select-none whitespace-nowrap'
+              ]"
               @click="emit('select', item.action)"
             >
               <slot :key="item" name="item" :item="item">

@@ -100,12 +100,17 @@ const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''))
         <div class="max-h-[180px] overflow-y-auto">
           <ComboboxOption
             v-for="item in filteredItems"
-            v-slot="{ selected, disabled: itemDisabled }"
+            v-slot="{ active, selected, disabled: itemDisabled }"
             :key="item.id"
             as="template"
             :value="item"
           >
-            <li :class="['tune-list-item relative cursor-default select-none truncate pr-[50px]']">
+            <li
+              :class="[
+                { active: active && !itemDisabled },
+                'tune-list-item relative cursor-default select-none truncate !pr-[50px]'
+              ]"
+            >
               <span :class="[{ 'opacity-40': itemDisabled }, 'block truncate']">
                 <slot v-if="$slots.item" name="item" :item="item" />
                 <span v-else>

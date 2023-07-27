@@ -83,7 +83,7 @@ const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''))
               <li
                 :class="[
                   { active: active && !itemDisabled },
-                  'tune-list-item relative cursor-default select-none pr-[50px]'
+                  'tune-list-item relative cursor-default select-none truncate !pr-[50px]'
                 ]"
               >
                 <span :class="[{ 'opacity-40': itemDisabled }, 'block truncate']">

@@ -125,8 +125,8 @@ const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''))
               >
                 <li
                   :class="[
-                    { active: active },
-                    'tune-list-item relative cursor-default select-none py-2 pl-3 pr-[50px]'
+                    { active: active && !itemDisabled },
+                    'tune-list-item relative cursor-default select-none truncate !pr-[50px]'
                   ]"
                 >
                   <span :class="[{ disabled: itemDisabled }, 'block truncate']">
