@@ -91,13 +91,16 @@ onMounted(() => {
             ref="inputRef"
             :type="type"
             :value="modelValue"
-            :class="['tune-input form-input', , { 'w-full': block }]"
+            :class="[
+              'tune-input form-input',
+              { 'w-full': block },
+              { 'cursor-not-allowed': disabled }
+            ]"
             :placeholder="placeholder"
             :readonly="readonly"
             :disabled="disabled"
             :maxlength="maxLength"
             @blur="error ? (showErrorMessage = true) : null"
-            @focus="error ? null : (showErrorMessage = false)"
             @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
           />
           <div
