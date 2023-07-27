@@ -38,9 +38,7 @@ module.exports = {
       xs: ['14px', '14px']
     },
     fontFamily: {
-      sans: [
-        'Calibre, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji'
-      ],
+      sans: ['monospace'],
       mono: ['monospace'],
       space: ['SpaceMono']
     },
