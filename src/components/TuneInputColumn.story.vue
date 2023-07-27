@@ -10,5 +10,8 @@ import TuneInputColumn from './TuneInputColumn.vue';
     <Variant title="number">
       <TuneInputColumn label="Label" placeholder="0" type="number" />
     </Variant>
+    <Variant title="disabled">
+      <TuneInputColumn label="Label" placeholder="0" type="number" disabled />
+    </Variant>
   </Story>
 </template>

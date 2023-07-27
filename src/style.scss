@@ -175,17 +175,6 @@ body {
   @apply relative flex justify-between px-[20px] text-left text-base text-gray-900;
 }
 
-// .tune-input-duration {
-//   @apply rounded-lg border border-gray-350 px-3 text-base text-gray-900 focus-within:border-gray-900;
-//   &.disabled {
-//     @apply cursor-not-allowed;
-//   }
-// }
-
-// .tune-input-duration-label {
-//   @apply text-gray-900;
-// }
-
 .tune-select {
   @apply text-left;
 

@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { TuneLabelInput } from '..';
+import TuneInputColumnMulti from './TuneInputColumnMulti.vue';
 
 interface DurationInputProps {
   modelValue: number;
-  label?: string;
+  label: string;
   hint?: string;
-  definition?: any;
   hideDay?: boolean;
   hideMinutes?: boolean;
   disabled?: boolean;
-  block?: boolean;
+  error?: string;
 }
 
 const props = defineProps<DurationInputProps>();
@@ -20,6 +19,7 @@ const duration = computed<any>({
   get() {
     if (props.hideDay) {
       return {
+        days: 0,
         hours: Math.floor(props.modelValue / 3600),
         minutes: Math.floor((props.modelValue % 3600) / 60)
       };
@@ -27,7 +27,8 @@ const duration = computed<any>({
     if (props.hideMinutes) {
       return {
         days: Math.floor(props.modelValue / 86400),
-        hours: Math.floor((props.modelValue % 86400) / 3600)
+        hours: Math.floor((props.modelValue % 86400) / 3600),
+        minutes: 0
       };
     }
     return {
@@ -37,82 +38,71 @@ const duration = computed<any>({
     };
   },
   set(newDuration) {
-    const minutes = newDuration.minutes || 0;
-    const hours = newDuration.hours || 0;
-    const days = newDuration.days || 0;
-    const totalSeconds = days * 86400 + hours * 3600 + minutes * 60;
+    const totalSeconds =
+      newDuration.days * 86400 + newDuration.hours * 3600 + newDuration.minutes * 60;
     emit('update:modelValue', totalSeconds);
   }
 });
 
+function updateDuration(newDuration: any) {
+  duration.value = {
+    minutes: newDuration.minutes || 0,
+    hours: newDuration.hours || 0,
+    days: newDuration.days || 0
+  };
+}
+
 const inputItems = computed(() => {
-  return [
-    {
+  const items = [];
+
+  if (!props.hideDay) {
+    items.push({
       key: 'days',
       label: 'Days',
-      hidden: props.hideDay || false,
-      max: 365
-    },
-    {
-      key: 'hours',
-      label: 'Hours',
-      hidden: false,
-      max: 24
-    },
-    {
+      placeholder: '0',
+      type: 'number'
+    });
+  }
+
+  items.push({
+    key: 'hours',
+    label: 'Hours',
+    placeholder: '0',
+    type: 'number'
+  });
+
+  if (!props.hideMinutes) {
+    items.push({
       key: 'minutes',
       label: 'Minutes',
-      hidden: props.hideMinutes || false,
-      max: 60
-    }
-  ];
+      placeholder: '0',
+      type: 'number'
+    });
+  }
+
+  return items;
 });
 
-const updateDuration = (key: string, value: number) => {
-  if (isNaN(value) || value === undefined) return;
-  duration.value = { ...duration.value, [key]: value };
-};
-
-const inputRef = ref<any[]>([]);
-
-function addRef(ref: any) {
-  inputRef.value.push(ref);
+const inputRef = ref();
+function forceShowError() {
+  inputRef.value?.forceShowError();
 }
+
+defineExpose({
+  forceShowError
+});
 </script>
 
 <template>
   <div>
-    <TuneLabelInput :label="label || definition?.title" :hint="hint || definition?.description" />
-    <div
-      :class="[
-        'tune-input-duration inline-flex overflow-hidden',
-        { 'w-full': block },
-        { disabled: disabled }
-      ]"
-      @click="inputRef?.[0].focus()"
-    >
-      <template v-for="item in inputItems" :key="item.label">
-        <div v-if="!item.hidden" class="flex items-center first:-ml-3">
-          <input
-            :ref="addRef"
-            :value="duration[item.key]"
-            type="number"
-            min="0"
-            :max="item.max"
-            placeholder="0"
-            :disabled="disabled"
-            :class="[
-              'bg-transparent py-2 pl-4 pr-1 outline-none',
-              { 'cursor-not-allowed bg-transparent': disabled }
-            ]"
-            @click.stop
-            @input="updateDuration(item.key, ($event.target as HTMLInputElement)?.valueAsNumber)"
-          />
-          <span class="tune-input-duration-label">
-            {{ item.label }}
-          </span>
-        </div>
-      </template>
-    </div>
+    <TuneInputColumnMulti
+      ref="inputRef"
+      :model-value="duration"
+      :items="inputItems"
+      label="Label"
+      :disabled="disabled"
+      :error="error"
+      @update:model-value="updateDuration($event)"
+    />
   </div>
 </template>

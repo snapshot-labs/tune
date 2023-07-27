@@ -1,24 +1,34 @@
+<script lang="ts">
+export default {
+  inheritAttrs: false
+};
+</script>
+
 <script setup lang="ts">
+import { ref } from 'vue';
+
 withDefaults(
   defineProps<{
     label: string;
-    modelValue?: number;
+    modelValue?: number | string;
     disabled?: boolean;
     placeholder?: string;
-    min?: number;
-    max?: number;
     type?: string;
   }>(),
   {
     disabled: false,
     placeholder: '',
-    min: undefined,
-    max: undefined,
     type: 'string'
   }
 );
 
-const emit = defineEmits(['update:modelValue']);
+defineEmits(['update:modelValue', 'blur']);
+
+const inputRef = ref();
+
+defineExpose({
+  focus: () => inputRef?.value?.focus()
+});
 </script>
 
 <template>
@@ -27,15 +37,19 @@ const emit = defineEmits(['update:modelValue']);
       {{ label }}
     </div>
     <input
+      v-bind="$attrs"
+      ref="inputRef"
       :value="modelValue"
       :type="type"
-      :min="min"
-      :max="max"
       :placeholder="placeholder"
       :disabled="disabled"
-      :class="['tune-input', { 'cursor-not-allowed': disabled }]"
+      :class="[
+        'tune-input',
+        { 'cursor-not-allowed': disabled },
+        { 'opacity-40': disabled && modelValue !== undefined }
+      ]"
       @click.stop
-      @input="emit('update:modelValue', ($event.target as HTMLInputElement)?.value)"
+      @input="$emit('update:modelValue', ($event.target as HTMLInputElement)?.value)"
     />
   </div>
 </template>
