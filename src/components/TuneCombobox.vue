@@ -76,7 +76,7 @@ const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''))
           <TuneLabelInput :label="label" :hint="hint" />
         </ComboboxLabel>
         <ComboboxInput
-          class="tune-input mb-[2px] w-full !pr-[30px]"
+          class="tune-input w-full !pr-[30px]"
           spellcheck="false"
           :display-value="(item: any) => item.name "
           :class="isDisabled"
@@ -89,11 +89,13 @@ const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''))
         class="absolute inset-y-[12px] right-[12px] flex items-end px-2 focus:outline-none"
         :class="isDisabled"
       >
-        <IconChevronDown :class="['text-base', { 'rotate-180': open }]" />
+        <IconChevronDown
+          :class="['tune-input-chevron text-base', { 'tune-input-chevron-up rotate-180': open }]"
+        />
       </ComboboxButton>
       <ComboboxOptions
         v-if="filteredItems.length > 0"
-        class="tune-listbox-options absolute z-40 mt-1 w-full overflow-hidden focus:outline-none"
+        class="tune-list absolute z-40 mt-1 w-full overflow-hidden focus:outline-none"
       >
         <div class="max-h-[180px] overflow-y-auto">
           <ComboboxOption

@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import IconTuneSwitchCheck from '~icons/tune/switch-check';
+import TuneLabel from './TuneLabel.vue';
 
 defineProps<{
   modelValue: boolean;
   label: string;
-  hint?: string;
+  hint: string;
   disabled?: boolean;
 }>();
 
@@ -30,9 +31,7 @@ const emit = defineEmits(['update:modelValue']);
           <IconTuneSwitchCheck class="tune-input-checkbox-icon text-[10px]" />
         </span>
 
-        <div v-if="hint" class="!mb-0">
-          {{ hint }}
-        </div>
+        <TuneLabel :label="hint" />
       </div>
     </label>
   </div>

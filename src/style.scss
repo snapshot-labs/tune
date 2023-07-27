@@ -37,12 +37,8 @@
   }
 }
 
-body {
-  @apply text-base font-medium text-gray-900;
-}
-
 .tune-alert {
-  @apply overflow-hidden rounded-lg border border-gray-350 bg-white text-gray-900;
+  @apply overflow-hidden rounded-lg border border-gray-350 bg-white text-md text-gray-900;
 
   &.alert-negative {
     @apply border-red/40;
@@ -70,11 +66,11 @@ body {
 }
 
 .tune-input {
-  @apply w-full border-transparent bg-transparent px-0 pb-0 pt-[6px] text-base text-gray-900 placeholder:text-gray-500/40 focus:border-transparent focus:outline-none focus:ring-0;
+  @apply w-full border-transparent bg-transparent px-0 pb-0 pt-[4px] text-base text-gray-900 placeholder:text-gray-500/40 focus:border-transparent focus:outline-none focus:ring-0;
 }
 
 .tune-input-wrapper {
-  @apply rounded-lg border border-gray-350 bg-gray-100  p-[12px] pb-[9px] focus-within:bg-gray-300 [&:not(:focus-within)]:hover:bg-gray-200;
+  @apply rounded-lg border border-gray-350 bg-gray-100  px-[12px] pb-[6px] pt-[10px] focus-within:bg-gray-300 [&:not(:focus-within)]:hover:bg-gray-200;
 
   &.error {
     @apply border-red;
@@ -83,6 +79,14 @@ body {
   &.disabled {
     @apply cursor-not-allowed border-opacity-40 bg-opacity-40;
   }
+}
+
+.tune-input-chevron {
+  @apply text-gray-500;
+}
+
+.tune-input-chevron-up {
+  @apply text-gray-900;
 }
 
 .tune-input-after {
@@ -144,7 +148,7 @@ body {
 }
 
 .tune-button {
-  @apply flex h-[46px] cursor-pointer items-center justify-center gap-1 rounded-full border border-gray-350 px-[20px];
+  @apply flex h-[46px] cursor-pointer items-center justify-center gap-1 rounded-full border border-gray-350 px-[20px] text-base;
 
   &.circle {
     @apply h-[46px] w-[46px] rounded-full px-0;
@@ -183,24 +187,16 @@ body {
   }
 }
 
-.tune-listbox-button {
-  @apply rounded-md border border-gray-350 text-base text-gray-900 hover:border-gray-900;
-
-  &.disabled {
-    @apply hover:border-gray-350;
-  }
-
-  &.error {
-    @apply border-red;
-  }
-}
-
-.tune-listbox-options {
+.tune-list {
   @apply rounded-[20px] border border-gray-350 bg-white;
 }
 
 .tune-list-item {
-  @apply py-[13px] pl-[16px] hover:bg-gray-200 active:bg-gray-300;
+  @apply py-[11px] pl-[16px] text-base hover:bg-gray-200  active:bg-gray-300;
+}
+
+.tune-listbox-selected {
+  @apply pb-[2px] pt-[6px] text-base text-gray-900;
 }
 
 .tune-listbox-multiple-placeholder {
@@ -212,7 +208,7 @@ body {
 }
 
 .tune-label {
-  @apply font-sans text-gray-900;
+  @apply font-sans text-sm text-gray-900;
 }
 
 .tune-label-sublabel {
@@ -259,14 +255,6 @@ body {
   }
 }
 
-.tune-menu-list {
-  @apply rounded-[20px] border border-gray-350 bg-white;
-}
-
-.tune-menu-list-item {
-  @apply px-[16px] py-[13px] hover:bg-gray-200 active:bg-gray-300;
-}
-
 .tune-popover {
   @apply rounded-[20px] border border-gray-350 bg-white;
 }
@@ -284,7 +272,7 @@ body {
 }
 
 .tune-modal-content {
-  @apply mt-4;
+  @apply mt-4 text-base;
 }
 
 .tune-modal-footer {
@@ -292,7 +280,8 @@ body {
 }
 
 .tune-input-checkbox {
-  @apply form-checkbox h-[20px] w-[20px] rounded-lg border-gray-350 bg-gray-100 text-gray-900 checked:bg-none hover:bg-gray-200  focus:ring-0 focus:ring-offset-0 focus-visible:bg-gray-200 focus-visible:ring-0 focus-visible:ring-offset-gray-900 active:bg-gray-300;
+  @apply form-checkbox h-[20px] w-[20px] rounded-lg border-gray-350 bg-gray-100 text-gray-900;
+  @apply checked:bg-none hover:bg-gray-200 focus:ring-0 focus:ring-offset-0 focus-visible:bg-gray-200 focus-visible:ring-0 focus-visible:ring-offset-gray-900 active:bg-gray-300;
 }
 
 .tune-input-checkbox-icon {

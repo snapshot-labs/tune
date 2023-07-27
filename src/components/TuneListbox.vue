@@ -48,7 +48,7 @@ const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''))
           <TuneLabelInput :label="label" :hint="hint" />
         </ListboxLabel>
 
-        <div :class="['pb-1 pt-2', isDisabled]">
+        <div :class="['tune-listbox-selected', isDisabled]">
           <slot v-if="$slots.selected" name="selected" :selected-item="selectedItem" />
           <span v-else-if="selectedItem">
             {{ selectedItem?.name || selectedItem.value }}
@@ -56,7 +56,9 @@ const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''))
         </div>
 
         <span class="absolute inset-y-[12px] right-[12px] flex items-end px-2" :class="isDisabled">
-          <IconChevronDown :class="['text-base', { 'rotate-180': open }]" />
+          <IconChevronDown
+            :class="['tune-input-chevron text-base', { 'tune-input-chevron-up rotate-180': open }]"
+          />
         </span>
       </ListboxButton>
       <transition
@@ -68,7 +70,7 @@ const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''))
         leave-to-class="transform scale-95 opacity-0"
       >
         <ListboxOptions
-          class="tune-listbox-options absolute z-40 mt-1 w-full overflow-hidden focus:outline-none"
+          class="tune-list absolute z-40 mt-1 w-full overflow-hidden focus:outline-none"
         >
           <div class="max-h-[180px] overflow-y-auto">
             <ListboxOption

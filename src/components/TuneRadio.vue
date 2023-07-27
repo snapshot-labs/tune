@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import TuneLabel from './TuneLabel.vue';
+
 const props = defineProps<{
   modelValue: string;
   value: string;
   label: string;
-  hint?: string;
+  hint: string;
 }>();
 
 const emit = defineEmits(['update:modelValue']);
@@ -28,7 +30,7 @@ const onChange = (event: Event) => {
           class="tune-input-radio"
           @input="onChange"
         />
-        {{ hint }}
+        <TuneLabel :label="hint" />
       </div>
     </label>
   </div>

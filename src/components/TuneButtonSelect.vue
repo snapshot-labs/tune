@@ -39,8 +39,8 @@ const emit = defineEmits(['select']);
       </span>
       <IconChevronDown
         v-if="showChevron"
-        class="-mr-1 shrink-0 text-sm"
-        :class="{ 'rotate-180': open }"
+        class="tune-input-chevron -mr-1 shrink-0 text-sm"
+        :class="{ 'tune-input-chevron-up rotate-180': open }"
       />
     </TuneButton>
   </div>

@@ -3,7 +3,6 @@ import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
 import { Float } from '@headlessui-float/vue';
 import type { Placement } from '@floating-ui/dom';
 import TuneButtonSelect from './TuneButtonSelect.vue';
-import IconChevronDown from '~icons/heroicons-outline/chevron-down';
 
 withDefaults(
   defineProps<{
@@ -42,7 +41,7 @@ withDefaults(
 
       <PopoverPanel v-slot="{ close }" class="w-screen max-w-xs outline-none sm:max-w-sm">
         <div class="tune-popover overflow-hidden">
-          <div class="no-scrollbar max-h-[85vh] overflow-y-auto overscroll-contain">
+          <div class="no-scrollbar max-h-[85vh] overflow-y-auto overscroll-contain text-base">
             <slot name="content" :close="close" />
           </div>
         </div>

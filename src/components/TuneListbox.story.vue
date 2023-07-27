@@ -3,9 +3,9 @@ import { ref } from 'vue';
 import TuneListbox from './TuneListbox.vue';
 
 const items = [
-  { name: 'One', value: 1 },
-  { name: 'Two', value: 2 },
-  { name: 'Three', value: 3 }
+  { name: 'Option A', value: 1 },
+  { name: 'Option B', value: 2 },
+  { name: 'Option C', value: 3 }
 ];
 
 const input = ref(1);
@@ -14,7 +14,7 @@ const input = ref(1);
 <template>
   <Story>
     <div class="w-[320px]">
-      <TuneListbox v-model="input" :items="items" label="Listbox" />
+      <TuneListbox v-model="input" :items="items" label="Label" />
     </div>
   </Story>
 </template>

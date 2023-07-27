@@ -42,10 +42,12 @@ defineExpose({
     @update:model-value="(value: string) => emit('update:modelValue', value)"
   >
     <template #after>
-      <IconTuneTwitter v-if="variant === 'twitter'" />
-      <IconTuneGithub v-else-if="variant === 'github'" />
-      <IconTuneCoingecko v-else-if="variant === 'coingecko'" />
-      <IconGlobeAlt v-else />
+      <div class="text-sm">
+        <IconTuneTwitter v-if="variant === 'twitter'" />
+        <IconTuneGithub v-else-if="variant === 'github'" />
+        <IconTuneCoingecko v-else-if="variant === 'coingecko'" />
+        <IconGlobeAlt v-else />
+      </div>
     </template>
   </TuneInput>
 </template>

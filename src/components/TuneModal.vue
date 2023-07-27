@@ -50,7 +50,7 @@ withDefaults(
                 <span tabindex="0"></span>
                 <button @click="$emit('close')">
                   <span class="sr-only">Close</span>
-                  <IconXMark class="text-md" aria-hidden="true" />
+                  <IconXMark class="text-sm" aria-hidden="true" />
                 </button>
               </div>
               <DialogTitle as="h3" class="tune-modal-title">
