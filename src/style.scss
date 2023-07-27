@@ -66,7 +66,7 @@ body {
 }
 
 .tune-alert-text {
-  @apply px-[24px] py-[23px] font-sans;
+  @apply px-[24px] py-[23px];
 }
 
 .tune-input {
@@ -212,15 +212,15 @@ body {
 }
 
 .tune-label {
-  @apply font-sans text-sm text-gray-900;
+  @apply text-sm text-gray-900;
 }
 
 .tune-label-sublabel {
-  @apply font-sans text-sm text-gray-900 opacity-60;
+  @apply text-sm text-gray-900 opacity-60;
 }
 
 .tune-label-input {
-  @apply font-sans text-sm text-gray-500;
+  @apply text-sm text-gray-500;
 
   &.error {
     @apply text-red;
@@ -228,7 +228,7 @@ body {
 }
 
 .tune-label-input-column {
-  @apply font-sans text-sm text-gray-500;
+  @apply text-sm text-gray-500;
 
   &.disabled {
     @apply text-opacity-40;
@@ -240,7 +240,7 @@ body {
 }
 
 .tune-error-text {
-  @apply mt-2 font-sans text-base text-red;
+  @apply mt-2  text-base text-red;
 }
 
 .tune-error-border {
@@ -318,7 +318,7 @@ body {
 @import 'tippy.js/dist/svg-arrow.css';
 
 .tippy-box[data-theme~='tune'] {
-  @apply rounded-lg border border-solid border-gray-350 bg-gray-100 px-[12px] py-[8px] font-sans text-sm text-gray-900;
+  @apply rounded-lg border border-solid border-gray-350 bg-gray-100 px-[12px] py-[8px]  text-sm text-gray-900;
 }
 
 /* The border */
