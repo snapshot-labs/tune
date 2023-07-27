@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply font-sans;
+}
+
 @layer base {
   @font-face {
     font-family: 'Calibre';
