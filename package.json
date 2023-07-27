@@ -20,14 +20,11 @@
     "dist/**/*"
   ],
   "scripts": {
-    "build": "vue-tsc --noEmit && vite build",
-    "build:watch": "nodemon -e js,ts,vue,scss --watch src --exec \"vue-tsc --noEmit && vite build\"",
     "story:dev": "histoire dev",
     "story:build": "histoire build",
     "story:preview": "histoire preview",
-    "demo:dev": "cd demo-app && yarn dev",
-    "demo:build": "cd demo-app && yarn build",
-    "demo:link": "yarn link && cd demo-app && yarn link @snapshot-labs/tune"
+    "build": "vue-tsc --noEmit && vite build",
+    "build:watch": "nodemon -e js,ts,vue,scss --watch src --exec \"vue-tsc --noEmit && vite build\""
   },
   "eslintConfig": {
     "extends": "@snapshot-labs/vue"

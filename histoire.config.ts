@@ -2,13 +2,19 @@
 
 import { defineConfig } from 'histoire';
 import { HstVue } from '@histoire/plugin-vue';
+import { defaultColors } from 'histoire';
 
 export default defineConfig({
   plugins: [HstVue()],
   setupFile: './src/histoire-setup.ts',
   theme: {
     defaultColorScheme: 'light',
-    hideColorSchemeSwitch: true
+    favicon: './public/favicon.png',
+    title: 'Tune UI',
+    colors: {
+      gray: defaultColors.neutral,
+      primary: defaultColors.yellow
+    }
   },
   backgroundPresets: [
     {
