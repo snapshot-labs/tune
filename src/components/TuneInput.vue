@@ -82,7 +82,8 @@ onMounted(() => {
         <div :class="['group relative z-10 flex', { 'w-full': block }]">
           <div
             v-if="$slots.before"
-            class="tune-input-before pointer-events-none absolute inset-y-1 flex items-end"
+            class="tune-input-before pointer-events-none absolute inset-y-0 flex items-end"
+            :class="[{ 'opacity-40': disabled }]"
           >
             <slot name="before" />
           </div>
@@ -94,7 +95,9 @@ onMounted(() => {
             :class="[
               'tune-input form-input',
               { 'w-full': block },
-              { 'cursor-not-allowed': disabled }
+              { 'cursor-not-allowed': disabled },
+              { '!pl-4': $slots.before },
+              { '!pr-4': $slots.after }
             ]"
             :placeholder="placeholder"
             :readonly="readonly"
@@ -103,15 +106,16 @@ onMounted(() => {
             @blur="error ? (showErrorMessage = true) : null"
             @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
           />
-          <div
+          <!-- <div
             v-if="loading"
             class="tune-input-loading pointer-events-none absolute inset-y-0 right-0 top-[1px] mr-1 flex h-[40px] items-center overflow-hidden pl-2 pr-2"
           >
             <TuneLoadingSpinner />
-          </div>
+          </div> -->
           <div
-            v-else-if="$slots.after"
-            class="tune-input-after pointer-events-none absolute -inset-y-1 right-0"
+            v-if="$slots.after"
+            class="tune-input-after pointer-events-none absolute -inset-y-[6px] right-0"
+            :class="[{ 'opacity-40': disabled }]"
           >
             <slot name="after" />
           </div>
