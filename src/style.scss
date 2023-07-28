@@ -70,7 +70,7 @@ body {
 }
 
 .tune-input {
-  @apply w-full border-transparent bg-transparent px-0 pb-0 pt-[4px] text-base text-gray-900 placeholder:text-gray-500/40 focus:border-transparent focus:outline-none focus:ring-0;
+  @apply h-[26px] w-full border-transparent bg-transparent px-0 pb-0 pt-[4px] text-base text-gray-900 placeholder:text-gray-500/40 focus:border-transparent focus:outline-none focus:ring-0;
 }
 
 .tune-input-wrapper {
