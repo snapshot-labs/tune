@@ -7,7 +7,7 @@ import TuneLabelInput from './TuneLabelInput.vue';
     <TuneLabelInput
       label="Label"
       hint="I'm a hint"
-      sublabel="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod."
+      sub-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod."
     />
   </Story>
 </template>

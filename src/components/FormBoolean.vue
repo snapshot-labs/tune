@@ -18,7 +18,7 @@ onMounted(() => {
   <TuneSwitch
     :model-value="modelValue"
     :label="definition?.title"
-    :sublabel="definition?.description"
+    :sub-label="definition?.description"
     @update:model-value="emit('update:modelValue', $event)"
   />
 </template>

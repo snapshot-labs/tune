@@ -10,7 +10,7 @@ const input = ref(false);
     <TuneSwitch
       v-model="input"
       label="Label"
-      sublabel="Lorem ipsum dolor sit amet, consectetur."
+      sub-label="Lorem ipsum dolor sit amet, consectetur."
       class="m-1"
     />
   </Story>

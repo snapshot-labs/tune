@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   label: string;
-  sublabel?: string;
+  subLabel?: string;
 }>();
 </script>
 
@@ -12,8 +12,8 @@ defineProps<{
         {{ label }}
       </div>
     </div>
-    <div v-if="sublabel" class="tune-label-sublabel">
-      {{ sublabel }}
+    <div v-if="subLabel" class="tune-label-sublabel">
+      {{ subLabel }}
     </div>
   </div>
 </template>
