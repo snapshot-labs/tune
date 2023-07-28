@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watchEffect } from 'vue';
 import TuneCombobox from './TuneCombobox.vue';
 
 const items = [
@@ -9,12 +9,37 @@ const items = [
 ];
 
 const input = ref('1');
+
+const errorInputRef = ref();
+
+watchEffect(() => {
+  if (errorInputRef.value) errorInputRef.value?.forceShowError();
+});
 </script>
 
 <template>
-  <Story>
-    <div class="w-[320px]">
-      <TuneCombobox v-model="input" :items="items" label="Label" />
-    </div>
+  <Story :layout="{ type: 'grid', width: 320 }">
+    <Variant title="default">
+      <TuneCombobox
+        v-model="input"
+        :items="items"
+        label="Label"
+        hint="Hint text"
+        class="mb-[200px]"
+      />
+    </Variant>
+    <Variant title="disabled">
+      <TuneCombobox v-model="input" :items="items" label="Label" class="mb-[200px]" disabled />
+    </Variant>
+    <Variant title="default">
+      <TuneCombobox
+        ref="errorInputRef"
+        v-model="input"
+        :items="items"
+        label="Label"
+        class="mb-[200px]"
+        error="Select something"
+      />
+    </Variant>
   </Story>
 </template>

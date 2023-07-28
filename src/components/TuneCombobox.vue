@@ -10,6 +10,7 @@ import {
 } from '@headlessui/vue';
 import MiniSearch from 'minisearch';
 import TuneLabelInput from './TuneLabelInput.vue';
+import TuneErrorInput from './TuneErrorInput.vue';
 import IconChevronDown from '~icons/heroicons-outline/chevron-down';
 import IconCheck from '~icons/heroicons-outline/check';
 
@@ -25,6 +26,7 @@ const props = defineProps<{
   label: string;
   hint?: string;
   disabled?: boolean;
+  error?: string;
 }>();
 
 const emit = defineEmits(['update:modelValue']);
@@ -66,65 +68,89 @@ const filteredItems = computed(() => {
   return filteredItems;
 });
 
+const showErrorMessage = ref(false);
+
+function forceShowError() {
+  showErrorMessage.value = true;
+}
+
+defineExpose({
+  forceShowError
+});
+
 const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''));
 </script>
 <template>
-  <Combobox v-model="selectedItem" :disabled="disabled" as="div" class="w-full">
-    <div class="relative">
-      <ComboboxButton class="tune-input-wrapper w-full" :class="{ 'cursor-not-allowed': disabled }">
-        <ComboboxLabel class="pointer-events-none" :class="isDisabled">
-          <TuneLabelInput :label="label" :hint="hint" />
-        </ComboboxLabel>
-        <ComboboxInput
-          class="tune-input w-full !pr-[30px]"
-          spellcheck="false"
-          :display-value="(item: any) => item.name "
+  <div>
+    <Combobox v-model="selectedItem" :disabled="disabled" as="div" class="w-full">
+      <div class="relative">
+        <ComboboxButton
+          class="tune-input-wrapper w-full"
+          :class="[
+            { 'cursor-not-allowed': disabled },
+            {
+              error: showErrorMessage && error
+            }
+          ]"
+        >
+          <ComboboxLabel :class="isDisabled">
+            <TuneLabelInput :label="label" :hint="hint" :error="!!error && showErrorMessage" />
+          </ComboboxLabel>
+          <ComboboxInput
+            class="tune-input w-full !pr-[30px]"
+            spellcheck="false"
+            :display-value="(item: any) => item.name "
+            :class="isDisabled"
+            :disabled="disabled"
+            @change="searchInput = $event.target.value"
+          />
+        </ComboboxButton>
+        <ComboboxButton
+          v-slot="{ open }"
+          class="absolute inset-y-[12px] right-[12px] flex items-end px-2 focus:outline-none"
           :class="isDisabled"
-          :disabled="disabled"
-          @change="searchInput = $event.target.value"
-        />
-      </ComboboxButton>
-      <ComboboxButton
-        v-slot="{ open }"
-        class="absolute inset-y-[12px] right-[12px] flex items-end px-2 focus:outline-none"
-        :class="isDisabled"
-      >
-        <IconChevronDown
-          :class="['tune-input-chevron text-base', { 'tune-input-chevron-up rotate-180': open }]"
-        />
-      </ComboboxButton>
-      <ComboboxOptions
-        v-if="filteredItems.length > 0"
-        class="tune-list absolute z-40 mt-1 w-full overflow-hidden focus:outline-none"
-      >
-        <div class="max-h-[180px] overflow-y-auto">
-          <ComboboxOption
-            v-for="item in filteredItems"
-            v-slot="{ active, selected, disabled: itemDisabled }"
-            :key="item.id"
-            as="template"
-            :value="item"
-          >
-            <li
-              :class="[
-                { active: active && !itemDisabled },
-                'tune-list-item relative cursor-default select-none truncate !pr-[50px]'
-              ]"
+        >
+          <IconChevronDown
+            :class="['tune-input-chevron text-base', { 'tune-input-chevron-up rotate-180': open }]"
+          />
+        </ComboboxButton>
+        <ComboboxOptions
+          v-if="filteredItems.length > 0"
+          class="tune-list absolute z-40 mt-1 w-full overflow-hidden focus:outline-none"
+        >
+          <div class="max-h-[180px] overflow-y-auto">
+            <ComboboxOption
+              v-for="item in filteredItems"
+              v-slot="{ active, selected, disabled: itemDisabled }"
+              :key="item.id"
+              as="template"
+              :value="item"
             >
-              <span :class="[{ 'opacity-40': itemDisabled }, 'block truncate']">
-                <slot v-if="$slots.item" name="item" :item="item" />
-                <span v-else>
-                  {{ item.name }}
+              <li
+                :class="[
+                  { active: active && !itemDisabled },
+                  'tune-list-item relative cursor-default select-none truncate !pr-[50px]'
+                ]"
+              >
+                <span :class="[{ 'opacity-40': itemDisabled }, 'block truncate']">
+                  <slot v-if="$slots.item" name="item" :item="item" />
+                  <span v-else>
+                    {{ item.name }}
+                  </span>
                 </span>
-              </span>
 
-              <span v-if="selected" :class="['absolute inset-y-0 right-0 flex items-center pr-3']">
-                <IconCheck class="text-base text-green" />
-              </span>
-            </li>
-          </ComboboxOption>
-        </div>
-      </ComboboxOptions>
-    </div>
-  </Combobox>
+                <span
+                  v-if="selected"
+                  :class="['absolute inset-y-0 right-0 flex items-center pr-3']"
+                >
+                  <IconCheck class="text-base text-green" />
+                </span>
+              </li>
+            </ComboboxOption>
+          </div>
+        </ComboboxOptions>
+      </div>
+    </Combobox>
+    <TuneErrorInput v-if="error && showErrorMessage" :error="error" />
+  </div>
 </template>
