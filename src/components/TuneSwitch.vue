@@ -6,7 +6,7 @@ import IconTuneSwitchX from '~icons/tune/switch-x';
 
 defineProps<{
   modelValue: boolean;
-  label: string;
+  label?: string;
   subLabel?: string;
   disabled?: boolean;
 }>();
@@ -55,6 +55,11 @@ const emit = defineEmits(['update:modelValue']);
         </span>
       </span>
     </Switch>
-    <TuneLabel v-if="label" :label="label" :sub-label="subLabel" class="mt-[1px]" />
+    <TuneLabel
+      v-if="label"
+      :label="label"
+      :sub-label="subLabel"
+      @click="emit('update:modelValue', !modelValue)"
+    />
   </div>
 </template>
