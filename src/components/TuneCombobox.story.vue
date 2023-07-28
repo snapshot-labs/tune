@@ -31,7 +31,7 @@ watchEffect(() => {
     <Variant title="disabled">
       <TuneCombobox v-model="input" :items="items" label="Label" class="mb-[200px]" disabled />
     </Variant>
-    <Variant title="default">
+    <Variant title="error">
       <TuneCombobox
         ref="errorInputRef"
         v-model="input"

@@ -16,5 +16,8 @@ import TuneInputSocial from './TuneInputSocial.vue';
     <Variant title="coingecko">
       <TuneInputSocial label="Coingecko" placeholder="Enter something" variant="coingecko" />
     </Variant>
+    <Variant title="disabled">
+      <TuneInputSocial label="Default" placeholder="Enter something" disabled />
+    </Variant>
   </Story>
 </template>
