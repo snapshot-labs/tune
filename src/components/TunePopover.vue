@@ -8,10 +8,12 @@ withDefaults(
   defineProps<{
     label?: string;
     placement?: Placement;
+    disabled?: boolean;
   }>(),
   {
     label: '',
-    placement: 'bottom-end'
+    placement: 'bottom-end',
+    disabled: false
   }
 );
 </script>
@@ -32,9 +34,11 @@ withDefaults(
       :z-index="50"
       portal
     >
-      <PopoverButton class="outline-none">
-        <slot v-if="$slots.button" name="button" />
-        <TuneButtonSelect v-else>
+      <PopoverButton class="outline-none" :disabled="disabled">
+        <span v-if="$slots.button" :class="[{ 'cursor-not-allowed opacity-40': disabled }]">
+          <slot name="button" />
+        </span>
+        <TuneButtonSelect v-else :disabled="disabled">
           <span>{{ label }}</span>
         </TuneButtonSelect>
       </PopoverButton>
