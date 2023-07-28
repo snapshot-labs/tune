@@ -15,7 +15,7 @@ watchEffect(() => {
 <template>
   <Story :layout="{ type: 'grid', width: 320 }">
     <Variant title="default">
-      <TuneInput v-model="input" label="Label" placeholder="Type something" />
+      <TuneInput v-model="input" label="Label" hint="Hint text" placeholder="Type something" />
     </Variant>
     <Variant title="icon after">
       <TuneInput v-model="input" label="Label" placeholder="Type something">
