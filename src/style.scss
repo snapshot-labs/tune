@@ -300,7 +300,7 @@ body {
   @apply _tune-input-radio-unchecked form-radio border-0;
   @apply focus:_tune-input-radio-focus;
   @apply checked:_tune-input-radio-checked;
-  @apply active:_tune-input-radio-unchecked;
+  @apply [&:not(:checked)]:active:_tune-input-radio-unchecked;
 }
 
 .tune-form-array-objects {
