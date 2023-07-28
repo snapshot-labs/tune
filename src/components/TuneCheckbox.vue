@@ -4,8 +4,8 @@ import TuneLabel from './TuneLabel.vue';
 
 defineProps<{
   modelValue: boolean;
-  label: string;
-  hint: string;
+  id?: string;
+  label?: string;
   disabled?: boolean;
 }>();
 
@@ -14,12 +14,12 @@ const emit = defineEmits(['update:modelValue']);
 
 <template>
   <div>
-    <label :for="label">
+    <label :for="disabled ? undefined : id">
       <div class="flex items-center gap-[10px]">
         <input
-          :id="label"
+          :id="id"
           :checked="modelValue"
-          :name="label"
+          :name="id"
           :disabled="disabled"
           type="checkbox"
           class="tune-input-checkbox relative"
@@ -27,11 +27,11 @@ const emit = defineEmits(['update:modelValue']);
           @input="emit('update:modelValue', ($event.target as HTMLInputElement).checked)"
         />
 
-        <span v-if="modelValue" class="pointer-events-none absolute left-[10px]">
+        <span v-if="modelValue" class="pointer-events-none absolute left-[6px]">
           <IconTuneSwitchCheck class="tune-input-checkbox-icon text-[10px]" />
         </span>
 
-        <TuneLabel :label="hint" />
+        <TuneLabel v-if="label" :label="label" />
       </div>
     </label>
   </div>
