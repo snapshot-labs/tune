@@ -22,7 +22,15 @@ const items = [
 </script>
 
 <template>
-  <Story>
-    <TuneMenu :items="items" label="Menu" class="m-5" />
+  <Story :layout="{ type: 'grid', width: 220 }">
+    <Variant title="default">
+      <TuneMenu :items="items" label="Menu" class="mb-[200px] ml-3" />
+    </Variant>
+    <Variant title="placement top">
+      <TuneMenu :items="items" label="Menu" class="ml-3 mt-[200px]" placement="top-start" />
+    </Variant>
+    <Variant title="disabled">
+      <TuneMenu :items="items" label="Menu" class="mb-[200px] ml-3" disabled />
+    </Variant>
   </Story>
 </template>

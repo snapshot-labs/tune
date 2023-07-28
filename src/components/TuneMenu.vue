@@ -15,10 +15,12 @@ withDefaults(
     items: Item[];
     label?: string;
     placement?: Placement;
+    disabled?: boolean;
   }>(),
   {
     label: '',
-    placement: 'bottom-start'
+    placement: 'bottom-start',
+    disabled: false
   }
 );
 
@@ -40,10 +42,12 @@ const emit = defineEmits(['select']);
       :flip="16"
       :z-index="50"
     >
-      <MenuButton class="h-full">
-        <slot v-if="$slots.button" name="button" />
+      <MenuButton class="h-full" disabled>
+        <span v-if="$slots.button" :class="[{ 'cursor-not-allowed opacity-40': disabled }]">
+          <slot name="button" />
+        </span>
 
-        <TuneButtonSelect v-else>
+        <TuneButtonSelect v-else :disabled="disabled">
           {{ label }}
         </TuneButtonSelect>
       </MenuButton>
