@@ -47,6 +47,6 @@ defineExpose({
     :label="label"
     :placeholder="placeholder"
     :error="errorJson || error"
-    class="tune-textarea-json font-mono"
+    class="tune-textarea-json"
   />
 </template>

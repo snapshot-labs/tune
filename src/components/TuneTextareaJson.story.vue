@@ -6,7 +6,9 @@ const input = ref({ test: 1 });
 </script>
 
 <template>
-  <Story>
-    <TuneTextareaJson v-model="input" label="Label" placeholder="Enter json" />
+  <Story :layout="{ type: 'grid', width: 320 }">
+    <Variant title="default">
+      <TuneTextareaJson v-model="input" label="Label" placeholder="Enter json" />
+    </Variant>
   </Story>
 </template>

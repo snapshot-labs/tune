@@ -118,7 +118,7 @@ body {
 }
 
 .tune-textarea-json {
-  @apply no-scrollbar overflow-x-scroll whitespace-pre;
+  @apply no-scrollbar overflow-x-scroll whitespace-pre font-mono;
 
   &.disabled {
     @apply cursor-not-allowed;
@@ -224,7 +224,7 @@ body {
 }
 
 .tune-label-input {
-  @apply text-sm text-gray-500;
+  @apply font-sans text-sm text-gray-500;
 
   &.error {
     @apply text-red;
