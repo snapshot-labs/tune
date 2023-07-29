@@ -114,7 +114,7 @@ body {
 }
 
 .tune-textarea {
-  @apply no-scrollbar form-textarea border-transparent bg-transparent px-0 pb-0 pt-[6px] text-base text-gray-900 placeholder:text-gray-500/40 focus:border-transparent focus:outline-none focus:ring-0;
+  @apply no-scrollbar form-textarea h-[76px] border-transparent bg-transparent px-0 pb-0 pt-[3px] text-base text-gray-900 placeholder:text-gray-500/40 focus:border-transparent focus:outline-none focus:ring-0;
 }
 
 .tune-textarea-json {
