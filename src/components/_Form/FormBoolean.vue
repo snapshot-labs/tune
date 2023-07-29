@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import TuneSwitch from './TuneSwitch.vue';
+import TuneSwitch from '../TuneSwitch.vue';
 
 const props = defineProps<{
   modelValue: boolean;

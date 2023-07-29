@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue';
 import { cloneDeep } from 'lodash';
-import TuneTextareaArray from './TuneTextareaArray.vue';
-import TuneListboxMultiple from './TuneListboxMultiple.vue';
-import TuneButton from './TuneButton.vue';
-import TuneTag from './TuneTag.vue';
-import TuneLabelInput from './TuneLabelInput.vue';
+import TuneTextareaArray from '../TuneTextareaArray.vue';
+import TuneListboxMultiple from '../TuneListboxMultiple.vue';
+import TuneButton from '../TuneButton.vue';
+import TuneTag from '../TuneTag.vue';
+import TuneLabelInput from '../TuneLabelInput.vue';
 
-import TuneForm from './TuneForm.vue';
+import TuneForm from '../TuneForm.vue';
 import FormString from './FormString.vue';
 import FormNumber from './FormNumber.vue';
 import FormBoolean from './FormBoolean.vue';

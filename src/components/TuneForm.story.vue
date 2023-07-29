@@ -12,6 +12,7 @@ const schema = {
     name: {
       type: 'string',
       title: 'Name',
+      description: 'A name for your space.',
       minLength: 1,
       examples: ['Space name']
     },
