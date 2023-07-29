@@ -283,6 +283,7 @@ defineExpose({
         @click="disabled ? null : button.action()"
       >
         <span
+          v-tippy="{ content: disabled ? null : button.title }"
           :class="[
             'text-[20px] text-gray-900 ',
             {
