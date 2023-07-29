@@ -80,7 +80,6 @@ onMounted(() => adjustHeight());
         :disabled="disabled"
         :maxlength="maxLength"
         @blur="error ? (showErrorMessage = true) : null"
-        @focus="error ? null : (showErrorMessage = false)"
       />
     </div>
     <TuneErrorInput v-if="error && showErrorMessage" :error="error" />

@@ -115,6 +115,10 @@ body {
 
 .tune-textarea {
   @apply no-scrollbar form-textarea h-[76px] border-transparent bg-transparent px-0 pb-0 pt-[3px] text-base text-gray-900 placeholder:text-gray-500/40 focus:border-transparent focus:outline-none focus:ring-0;
+
+  &.disabled {
+    @apply cursor-not-allowed;
+  }
 }
 
 .tune-textarea-json {
@@ -122,6 +126,14 @@ body {
 
   &.disabled {
     @apply cursor-not-allowed;
+  }
+}
+
+.tune-textarea-composer-heading {
+  @apply flex justify-end gap-2 rounded-t-lg border border-gray-350 p-[12px];
+
+  &.disabled {
+    @apply cursor-not-allowed border-opacity-40;
   }
 }
 
