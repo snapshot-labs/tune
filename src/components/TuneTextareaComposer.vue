@@ -312,8 +312,8 @@ defineExpose({
     </div>
     <div
       ref="editorContainerRef"
-      class="tune-input-wrapper !rounded-t-none !border-t-0"
-      :class="[{ disabled: disabled }]"
+      class="tune-input-wrapper !rounded-t-none"
+      :class="[{ disabled: disabled, error: error }]"
     >
       <textarea
         ref="editorRef"

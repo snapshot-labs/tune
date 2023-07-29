@@ -130,7 +130,7 @@ body {
 }
 
 .tune-textarea-composer-heading {
-  @apply flex justify-end gap-2 rounded-t-lg border border-gray-350 p-[12px];
+  @apply flex justify-end gap-2 rounded-t-lg border border-b-0 border-gray-350 p-[12px];
 
   &.disabled {
     @apply cursor-not-allowed border-opacity-40;
