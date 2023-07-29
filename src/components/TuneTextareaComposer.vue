@@ -321,7 +321,7 @@ defineExpose({
         :placeholder="placeholder"
         :maxlength="maxLength"
         class="tune-textarea !min-h-[171px] w-full"
-        :class="[{ disabled: disabled }]"
+        :class="[{ 'disabled resize-none': disabled }]"
         :disabled="disabled"
         @blur="error ? (showErrorMessage = true) : null"
       />
