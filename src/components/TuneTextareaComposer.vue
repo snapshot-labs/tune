@@ -280,7 +280,7 @@ defineExpose({
       <button
         v-for="(button, i) in composerButtons"
         :key="i"
-        @click="disabled ? null : button.action"
+        @click="disabled ? null : button.action()"
       >
         <span
           :class="[
