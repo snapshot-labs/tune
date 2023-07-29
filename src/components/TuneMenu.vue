@@ -42,7 +42,7 @@ const emit = defineEmits(['select']);
       :flip="16"
       :z-index="50"
     >
-      <MenuButton class="h-full" disabled>
+      <MenuButton class="h-full" :disabled="disabled">
         <span v-if="$slots.button" :class="[{ 'cursor-not-allowed opacity-40': disabled }]">
           <slot name="button" />
         </span>
