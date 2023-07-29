@@ -276,7 +276,7 @@ defineExpose({
 
 <template>
   <div>
-    <div class="tune-textarea-composer-heading" :class="{ disabled: disabled }">
+    <div class="tune-textarea-composer-heading" :class="{ disabled: disabled, error: error }">
       <button
         v-for="(button, i) in composerButtons"
         :key="i"
@@ -312,7 +312,7 @@ defineExpose({
     </div>
     <div
       ref="editorContainerRef"
-      class="tune-input-wrapper !rounded-t-none"
+      class="tune-textarea-composer-wrapper"
       :class="[{ disabled: disabled, error: error }]"
     >
       <textarea

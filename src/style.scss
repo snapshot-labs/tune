@@ -129,11 +129,27 @@ body {
   }
 }
 
+.tune-textarea-composer-wrapper {
+  @apply rounded-lg rounded-t-none border border-gray-350 bg-gray-100  px-[12px] pb-[6px] pt-[10px] focus-within:bg-gray-300 [&:not(:focus-within)]:hover:bg-gray-200;
+
+  &.error {
+    @apply border-red border-t-gray-350;
+  }
+
+  &.disabled {
+    @apply cursor-not-allowed border-opacity-40 bg-opacity-40;
+  }
+}
+
 .tune-textarea-composer-heading {
   @apply flex justify-end gap-2 rounded-t-lg border border-b-0 border-gray-350 p-[12px];
 
   &.disabled {
     @apply cursor-not-allowed border-opacity-40;
+  }
+
+  &.error {
+    @apply border-red;
   }
 }
 
