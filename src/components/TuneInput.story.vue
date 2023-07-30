@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue';
 import TuneInput from './TuneInput.vue';
+import TuneStamp from './TuneStamp.vue';
 import IconCube from '~icons/heroicons-outline/cube';
 
 const input = ref('');
@@ -33,20 +34,20 @@ watchEffect(() => {
     </Variant>
     <Variant title="icon before and after">
       <TuneInput v-model="input" label="Label" placeholder="Type something">
-        <template #after>
-          <IconCube />
-        </template>
         <template #before>
+          <TuneStamp id="0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" type="token" :size="20" />
+        </template>
+        <template #after>
           <IconCube />
         </template>
       </TuneInput>
     </Variant>
     <Variant title="disabled">
       <TuneInput v-model="input" label="Label" placeholder="Type something" disabled>
-        <template #after>
-          <IconCube />
-        </template>
         <template #before>
+          <TuneStamp id="0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" type="token" :size="20" />
+        </template>
+        <template #after>
           <IconCube />
         </template>
       </TuneInput>

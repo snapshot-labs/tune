@@ -78,47 +78,46 @@ onMounted(() => {
         :error="!!error && showErrorMessage"
         :class="[{ 'opacity-40': disabled }]"
       />
-      <div class="flex">
-        <div :class="['group relative z-10 flex', { 'w-full': block }]">
-          <div
-            v-if="$slots.before"
-            class="tune-input-before pointer-events-none absolute inset-y-0 flex items-end"
-            :class="[{ 'opacity-40': disabled }]"
-          >
-            <slot name="before" />
-          </div>
-          <input
-            v-bind="$attrs"
-            ref="inputRef"
-            :type="type"
-            :value="modelValue"
-            :class="[
-              'tune-input form-input',
-              { 'w-full': block },
-              { 'cursor-not-allowed': disabled },
-              { '!pl-4': $slots.before },
-              { '!pr-4': $slots.after }
-            ]"
-            :placeholder="placeholder"
-            :readonly="readonly"
-            :disabled="disabled"
-            :maxlength="maxLength"
-            @blur="error ? (showErrorMessage = true) : null"
-            @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
-          />
-          <!-- <div
+
+      <div :class="['group relative z-10 flex', { 'w-full': block }]">
+        <div
+          v-if="$slots.before"
+          class="tune-input-before pointer-events-none absolute flex h-full items-center pt-[4px]"
+          :class="[{ 'opacity-40': disabled }]"
+        >
+          <slot name="before" />
+        </div>
+        <input
+          v-bind="$attrs"
+          ref="inputRef"
+          :type="type"
+          :value="modelValue"
+          :class="[
+            'tune-input form-input',
+            { 'w-full': block },
+            { 'cursor-not-allowed': disabled },
+            { '!pl-4': $slots.before },
+            { '!pr-4': $slots.after }
+          ]"
+          :placeholder="placeholder"
+          :readonly="readonly"
+          :disabled="disabled"
+          :maxlength="maxLength"
+          @blur="error ? (showErrorMessage = true) : null"
+          @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+        />
+        <!-- <div
             v-if="loading"
             class="tune-input-loading pointer-events-none absolute inset-y-0 right-0 top-[1px] mr-1 flex h-[40px] items-center overflow-hidden pl-2 pr-2"
           >
             <TuneLoadingSpinner />
           </div> -->
-          <div
-            v-if="$slots.after"
-            class="tune-input-after pointer-events-none absolute -inset-y-[6px] right-0"
-            :class="[{ 'opacity-40': disabled }]"
-          >
-            <slot name="after" />
-          </div>
+        <div
+          v-if="$slots.after"
+          class="tune-input-after pointer-events-none absolute -inset-y-[6px] right-0"
+          :class="[{ 'opacity-40': disabled }]"
+        >
+          <slot name="after" />
         </div>
       </div>
     </div>
