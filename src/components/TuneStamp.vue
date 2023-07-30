@@ -10,6 +10,7 @@ const props = withDefaults(
     size?: number | { width: number; height: number };
     cacheBreaker?: string;
     setFavicon?: boolean;
+    defaultFavicon?: string;
   }>(),
   {
     type: 'avatar',
@@ -83,6 +84,8 @@ watchEffect(() => {
       throw new Error('Size must be a number when setting favicon');
     const faviconUrl = imageUrl.value.replace(sizeParam.value, '?s=16');
     icon.value = faviconUrl;
+  } else {
+    icon.value = props.defaultFavicon || '/favicon.png';
   }
 });
 </script>
