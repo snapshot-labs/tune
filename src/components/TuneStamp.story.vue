@@ -15,7 +15,9 @@ const setFavicon2 = ref(false);
         <TuneStamp id="0xE28142c9aBaF726dd92BF41be728Fe3220b34112" :size="32" />
         <TuneStamp id="0xE28142c9aBaF726dd92BF41be728Fe3220b34112" :set-favicon="setFavicon1" />
         <TuneStamp id="0xE28142c9aBaF726dd92BF41be728Fe3220b34112" :size="18" />
-        <HstButton class="htw-p-2" @click="setFavicon1 = !setFavicon1">Toggle favicon</HstButton>
+        <HstButton class="htw-p-2 ml-5" @click="setFavicon1 = !setFavicon1"
+          >Toggle favicon</HstButton
+        >
       </div>
     </Variant>
     <Variant title="space">
@@ -25,7 +27,9 @@ const setFavicon2 = ref(false);
         <TuneStamp id="testsnap6.eth" type="space" :size="32" />
         <TuneStamp id="testsnap6.eth" type="space" :set-favicon="setFavicon2" />
         <TuneStamp id="testsnap6.eth" type="space" :size="18" />
-        <HstButton class="htw-p-2" @click="setFavicon2 = !setFavicon2">Toggle favicon</HstButton>
+        <HstButton class="htw-p-2 ml-5" @click="setFavicon2 = !setFavicon2"
+          >Toggle favicon</HstButton
+        >
       </div>
     </Variant>
     <Variant title="sx-cover">
