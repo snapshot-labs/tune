@@ -46,9 +46,9 @@ watch(editorRef, el => {
   if (!el) return;
 
   el.addEventListener('keydown', (e: KeyboardEvent) => {
-    if ((e.ctrlKey || e.metaKey) && shortcuts[e.key]) {
+    if ((e.ctrlKey || e.metaKey) && shortcuts[e.key as keyof typeof shortcuts]) {
       e.preventDefault();
-      shortcuts[e.key]();
+      shortcuts[e.key as keyof typeof shortcuts]();
     }
   });
 });
