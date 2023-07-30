@@ -68,7 +68,7 @@ onMounted(() => adjustHeight());
 
 <template>
   <div>
-    <div :class="['tune-input-wrapper', { error: error && showErrorMessage }]">
+    <div :class="['tune-input-wrapper', { error: error && showErrorMessage, filled: input }]">
       <TuneLabelInput :label="label" :hint="hint" :error="!!error && showErrorMessage" />
       <textarea
         v-bind="$attrs"

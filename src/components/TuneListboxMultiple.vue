@@ -70,7 +70,8 @@ const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''))
             { 'cursor-not-allowed': disabled },
             {
               error: showErrorMessage && error
-            }
+            },
+            { filled: selectedItems.length > 0 }
           ]"
         >
           <ListboxLabel class="pointer-events-none" :class="isDisabled">
@@ -80,9 +81,9 @@ const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''))
           <div class="tune-listbox-selected" :class="isDisabled">
             <span
               v-if="selectedItems.length < 1"
-              :class="['tune-listbox-multiple-placeholder', { disabled: disabled }]"
+              :class="['tune-placeholder', { disabled: disabled }]"
             >
-              {{ placeholder || 'Select' }}
+              {{ placeholder || 'Select option' }}
             </span>
             <slot v-else-if="$slots.selected" name="selected" :selected-items="selectedItems" />
 

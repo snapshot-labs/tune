@@ -39,6 +39,14 @@ body {
   ._tune-input-radio-unchecked {
     @apply m-0 h-[18px] w-[18px] bg-gray-100 text-gray-900 ring-1 ring-gray-350 ring-offset-0 hover:bg-gray-200 active:bg-gray-300;
   }
+
+  .tune-placeholder {
+    @apply text-gray-500;
+
+    &.disabled {
+      @apply text-gray-900;
+    }
+  }
 }
 
 .tune-alert {
@@ -75,6 +83,10 @@ body {
 
 .tune-input-wrapper {
   @apply rounded-lg border border-gray-350 bg-gray-100  px-[12px] pb-[6px] pt-[10px] focus-within:bg-gray-300 [&:not(:focus-within)]:hover:bg-gray-200;
+
+  &.filled {
+    @apply [&:not(:focus-within)]:bg-gray-200;
+  }
 
   &.error {
     @apply border-red;
@@ -131,6 +143,10 @@ body {
 
 .tune-textarea-composer-wrapper {
   @apply rounded-lg rounded-t-none border border-gray-350 bg-gray-100  px-[12px] pb-[6px] pt-[10px] focus-within:bg-gray-300 [&:not(:focus-within)]:hover:bg-gray-200;
+
+  &.filled {
+    @apply [&:not(:focus-within)]:bg-gray-200;
+  }
 
   &.error {
     @apply border-red border-t-gray-350;
@@ -233,14 +249,6 @@ body {
 
 .tune-listbox-selected {
   @apply pb-[2px] pt-[6px] text-base text-gray-900;
-}
-
-.tune-listbox-multiple-placeholder {
-  @apply text-gray-500;
-
-  &.disabled {
-    @apply text-gray-900;
-  }
 }
 
 .tune-label {

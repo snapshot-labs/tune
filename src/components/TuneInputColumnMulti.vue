@@ -55,7 +55,12 @@ defineExpose({
     <TuneLabelInput :label="label" :hint="hint" :error="!!error && showErrorMessage" />
     <div
       class="mt-2 inline-flex w-full gap-3"
-      :class="['tune-input-wrapper', { disabled: disabled }, { error: error && showErrorMessage }]"
+      :class="[
+        'tune-input-wrapper',
+        { disabled: disabled },
+        { error: error && showErrorMessage },
+        { filled: Object.values(modelValue).some(value => value) }
+      ]"
       @click="inputRef?.[0].focus()"
     >
       <template v-for="item in items" :key="item.label">

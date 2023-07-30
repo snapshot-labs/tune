@@ -25,6 +25,7 @@ const props = defineProps<{
   items: ComboboxItem[];
   label: string;
   hint?: string;
+  placeholder?: string;
   disabled?: boolean;
   error?: string;
 }>();
@@ -44,8 +45,8 @@ miniSearch.addAll(props.items);
 
 const searchInput = ref('');
 const selectedItem = computed({
-  get: () => props.items.find(item => item.id === props.modelValue) || props.items[0],
-  set: newVal => emit('update:modelValue', newVal.id)
+  get: () => props.items.find(item => item.id === props.modelValue) || null,
+  set: newVal => (newVal ? emit('update:modelValue', newVal.id) : emit('update:modelValue', ''))
 });
 
 const filteredItems = computed(() => {
@@ -82,7 +83,7 @@ const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''))
 </script>
 <template>
   <div>
-    <Combobox v-model="selectedItem" :disabled="disabled" as="div" class="w-full">
+    <Combobox v-model="selectedItem" :disabled="disabled" as="div" class="w-full" nullable>
       <div class="relative">
         <ComboboxButton
           class="tune-input-wrapper w-full"
@@ -90,18 +91,20 @@ const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''))
             { 'cursor-not-allowed': disabled },
             {
               error: showErrorMessage && error
-            }
+            },
+            { filled: selectedItem?.name }
           ]"
         >
           <ComboboxLabel :class="isDisabled">
             <TuneLabelInput :label="label" :hint="hint" :error="!!error && showErrorMessage" />
           </ComboboxLabel>
           <ComboboxInput
-            class="tune-input w-full !pr-[30px]"
+            class="tune-input placeholder:tune-placeholder w-full !pr-[30px]"
             spellcheck="false"
-            :display-value="(item: any) => item.name "
+            :display-value="(item: any) => item?.name"
             :class="isDisabled"
             :disabled="disabled"
+            :placeholder="placeholder || 'Select option'"
             @change="searchInput = $event.target.value"
           />
         </ComboboxButton>

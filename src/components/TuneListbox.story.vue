@@ -8,7 +8,7 @@ const items = [
   { name: 'Option C', value: 3 }
 ];
 
-const input = ref(1);
+const input = ref();
 
 const errorInputRef = ref();
 

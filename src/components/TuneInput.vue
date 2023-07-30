@@ -12,7 +12,7 @@ import TuneErrorInput from './TuneErrorInput.vue';
 
 const props = withDefaults(
   defineProps<{
-    modelValue: string | number;
+    modelValue?: string | number;
     label: string;
     hint?: string;
     loading?: boolean;
@@ -69,7 +69,8 @@ onMounted(() => {
         'tune-input-wrapper',
         { 'w-full': block },
         { error: error && showErrorMessage },
-        { disabled: disabled }
+        { disabled: disabled },
+        { filled: modelValue !== undefined && modelValue !== '' }
       ]"
     >
       <TuneLabelInput
@@ -96,6 +97,7 @@ onMounted(() => {
             'tune-input form-input',
             { 'w-full': block },
             { 'cursor-not-allowed': disabled },
+            { filled: modelValue !== undefined && modelValue !== '' },
             { '!pl-4': $slots.before },
             { '!pr-4': $slots.after }
           ]"

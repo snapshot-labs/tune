@@ -23,6 +23,7 @@ const props = defineProps<{
   items: ListboxItem[];
   modelValue: any;
   label: string;
+  placeholder?: string;
   disabled?: boolean;
   hint?: string;
   error?: string;
@@ -31,8 +32,8 @@ const props = defineProps<{
 const emit = defineEmits(['update:modelValue']);
 
 const selectedItem = computed({
-  get: () => props.items.find(item => isEqual(item.value, props.modelValue)) || props.items[0],
-  set: newVal => emit('update:modelValue', newVal.value)
+  get: () => props.items.find(item => isEqual(item.value, props.modelValue)) || null,
+  set: newVal => (newVal ? emit('update:modelValue', newVal.value) : emit('update:modelValue', ''))
 });
 
 const showErrorMessage = ref(false);
@@ -59,7 +60,8 @@ const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''))
             { 'cursor-not-allowed': disabled },
             {
               error: showErrorMessage && error
-            }
+            },
+            { filled: selectedItem?.name || selectedItem?.value }
           ]"
         >
           <ListboxLabel class="pointer-events-none" :class="isDisabled">
@@ -67,9 +69,12 @@ const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''))
           </ListboxLabel>
 
           <div :class="['tune-listbox-selected', isDisabled]">
+            <span v-if="!selectedItem" :class="['tune-placeholder', { disabled: disabled }]">
+              {{ placeholder || 'Select option' }}
+            </span>
             <slot v-if="$slots.selected" name="selected" :selected-item="selectedItem" />
-            <span v-else-if="selectedItem">
-              {{ selectedItem?.name || selectedItem.value }}
+            <span v-else>
+              {{ selectedItem?.name || selectedItem?.value }}
             </span>
           </div>
 
