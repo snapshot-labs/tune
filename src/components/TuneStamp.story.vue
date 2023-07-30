@@ -9,7 +9,7 @@ import TuneStamp from './TuneStamp.vue';
         <TuneStamp id="0xE28142c9aBaF726dd92BF41be728Fe3220b34112" :size="80" />
         <TuneStamp id="0xE28142c9aBaF726dd92BF41be728Fe3220b34112" :size="48" />
         <TuneStamp id="0xE28142c9aBaF726dd92BF41be728Fe3220b34112" :size="32" />
-        <TuneStamp id="0xE28142c9aBaF726dd92BF41be728Fe3220b34112" set-favicon />
+        <TuneStamp id="0xE28142c9aBaF726dd92BF41be728Fe3220b34112" />
         <TuneStamp id="0xE28142c9aBaF726dd92BF41be728Fe3220b34112" :size="18" />
       </div>
     </Variant>
@@ -18,7 +18,7 @@ import TuneStamp from './TuneStamp.vue';
         <TuneStamp id="testsnap6.eth" type="space" :size="80" />
         <TuneStamp id="testsnap6.eth" type="space" :size="48" />
         <TuneStamp id="testsnap6.eth" type="space" :size="32" />
-        <TuneStamp id="testsnap6.eth" type="space" />
+        <TuneStamp id="testsnap6.eth" type="space" set-favicon />
         <TuneStamp id="testsnap6.eth" type="space" :size="18" />
       </div>
     </Variant>
