@@ -335,6 +335,24 @@ body {
   @apply rounded-xl border p-3;
 }
 
+.tune-stamp {
+  &.avatar-style {
+    @apply rounded-full;
+  }
+
+  &.space-style {
+    @apply rounded;
+  }
+
+  &.space-style-lg {
+    @apply rounded-lg;
+  }
+
+  &.cover-style {
+    @apply rounded-none;
+  }
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
