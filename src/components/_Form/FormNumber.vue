@@ -7,11 +7,9 @@ withDefaults(
     modelValue: number;
     definition: any;
     error?: string;
-    type?: 'number';
   }>(),
   {
-    error: '',
-    type: 'number'
+    error: ''
   }
 );
 
@@ -35,6 +33,8 @@ defineExpose({
     :label="definition?.title"
     :hint="definition?.description"
     :placeholder="definition?.examples?.[0]"
+    type="number"
+    :error="error"
     @update:model-value="emit('update:modelValue', Number($event))"
   />
 </template>

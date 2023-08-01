@@ -4,7 +4,8 @@ import TuneSwitch from '../TuneSwitch.vue';
 
 const props = defineProps<{
   modelValue: boolean;
-  definition?: any;
+  definition: any;
+  error?: string;
 }>();
 
 const emit = defineEmits(['update:modelValue']);
