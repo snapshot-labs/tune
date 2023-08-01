@@ -39,7 +39,7 @@ const showAddress = computed(
     :class="[
       'flex flex-nowrap items-center space-x-[8px]',
       {
-        'space-x-[14px]': isExpanded
+        '!space-x-[16px]': isExpanded
       }
     ]"
   >
@@ -48,7 +48,7 @@ const showAddress = computed(
     <div
       :class="[
         {
-          'space-y-1': isExpanded
+          'space-y-[4px]': isExpanded
         }
       ]"
     >
