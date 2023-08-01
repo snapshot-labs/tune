@@ -16,13 +16,13 @@ import TuneUser from './TuneUser.vue';
         variant="expanded"
       />
     </Variant>
-    <Variant title="only username or address">
+    <Variant title="only avatar">
       <TuneUser
         address="0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
         hide-username-or-address-in-default
       />
     </Variant>
-    <Variant title="only avatar">
+    <Variant title="only username or address">
       <TuneUser address="0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045" hide-avatar-in-default />
     </Variant>
   </Story>
