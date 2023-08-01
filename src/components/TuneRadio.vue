@@ -24,6 +24,7 @@ const onChange = (event: Event) => {
     <label :for="id || value">
       <div class="flex items-center gap-[10px]">
         <input
+          :id="id || value"
           type="radio"
           :name="label || definition?.title"
           :checked="modelValue === value"
