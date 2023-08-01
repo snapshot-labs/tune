@@ -1,36 +1,47 @@
 <script setup lang="ts">
 import TuneButton from './TuneButton.vue';
-import TuneLabelInput from './TuneLabelInput.vue';
-import IconChevronDown from '~icons/heroicons/chevron-down';
+import IconChevronDown from '~icons/heroicons-outline/chevron-down';
 
-defineProps<{
-  modelValue: string;
-  label?: string;
-  hint?: string;
-  disabled?: boolean;
-  tooltip?: string | null;
-  definition?: any;
-}>();
+withDefaults(
+  defineProps<{
+    label?: string;
+    disabled?: boolean;
+    tooltip?: string | null;
+    block?: boolean;
+    open?: boolean;
+    showChevron?: boolean;
+  }>(),
+  {
+    label: 'Select',
+    disabled: false,
+    tooltip: null,
+    block: false,
+    open: false,
+    showChevron: true
+  }
+);
 
 const emit = defineEmits(['select']);
 </script>
 
 <template>
-  <div class="w-full">
-    <TuneLabelInput v-if="label || definition?.title" :hint="hint || definition?.description">
-      {{ label || definition.title }}
-    </TuneLabelInput>
+  <div :class="[{ 'w-full': block }]">
     <TuneButton
       v-tippy="{ content: tooltip }"
-      :class="[$attrs.class, { disabled: disabled }]"
+      variant="outlined"
+      :class="[$attrs.class, { 'disabled cursor-not-allowed': disabled }, { 'w-full': block }]"
       class="tune-button-select"
       :disabled="disabled"
-      @click="disabled ? null : emit('select')"
+      @click="emit('select')"
     >
-      <span>
-        {{ modelValue }}
+      <span class="flex items-center gap-1 truncate">
+        <slot />
       </span>
-      <IconChevronDown class="absolute inset-y-[12px] right-[14px] text-xs" />
+      <IconChevronDown
+        v-if="showChevron"
+        class="tune-input-chevron -mr-1 shrink-0 text-sm"
+        :class="{ 'tune-input-chevron-up rotate-180': open }"
+      />
     </TuneButton>
   </div>
 </template>

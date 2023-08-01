@@ -6,7 +6,6 @@ import TuneErrorInput from './TuneErrorInput.vue';
 const props = withDefaults(
   defineProps<{
     modelValue: string;
-    definition?: any;
     label?: string;
     hint?: string;
     placeholder?: string;
@@ -20,7 +19,7 @@ const props = withDefaults(
     hint: '',
     placeholder: '',
     error: '',
-    autosize: true,
+    autosize: false,
     disabled: false,
     maxLength: undefined
   }
@@ -29,7 +28,7 @@ const props = withDefaults(
 const emit = defineEmits(['update:modelValue']);
 
 const input = computed({
-  get: () => props.modelValue || props.definition?.default || '',
+  get: () => props.modelValue || '',
   set: value => emit('update:modelValue', value)
 });
 
@@ -69,27 +68,20 @@ onMounted(() => adjustHeight());
 
 <template>
   <div>
-    <TuneLabelInput :hint="hint || definition?.description">
-      {{ label || definition?.title }}
-    </TuneLabelInput>
-    <textarea
-      v-bind="$attrs"
-      ref="textareaRef"
-      v-model="input"
-      :class="[
-        'tune-textarea w-full',
-        {
-          'tune-error-border': !!error && showErrorMessage
-        },
-        { disabled: disabled }
-      ]"
-      :style="autoResizeStyles"
-      :placeholder="placeholder || definition?.examples?.[0]"
-      :disabled="disabled"
-      :maxlength="maxLength || definition?.maxLength"
-      @blur="error ? (showErrorMessage = true) : null"
-      @focus="error ? null : (showErrorMessage = false)"
-    />
-    <TuneErrorInput v-if="error && showErrorMessage" class="!-mt-1" :error="error" />
+    <div :class="['tune-input-wrapper', { error: error && showErrorMessage, filled: input }]">
+      <TuneLabelInput :label="label" :hint="hint" :error="!!error && showErrorMessage" />
+      <textarea
+        v-bind="$attrs"
+        ref="textareaRef"
+        v-model="input"
+        :class="['tune-textarea w-full', { disabled: disabled }]"
+        :style="autoResizeStyles"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        :maxlength="maxLength"
+        @blur="error ? (showErrorMessage = true) : null"
+      />
+    </div>
+    <TuneErrorInput v-if="error && showErrorMessage" :error="error" />
   </div>
 </template>

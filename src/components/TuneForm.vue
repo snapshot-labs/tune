@@ -2,10 +2,10 @@
 import { computed, ref } from 'vue';
 
 import TuneForm from './TuneForm.vue';
-import FormString from './FormString.vue';
-import FormNumber from './FormNumber.vue';
-import FormBoolean from './FormBoolean.vue';
-import FormArray from './FormArray.vue';
+import FormString from './_Form/FormString.vue';
+import FormNumber from './_Form/FormNumber.vue';
+import FormBoolean from './_Form/FormBoolean.vue';
+import FormArray from './_Form/FormArray.vue';
 
 const props = defineProps<{
   modelValue: Record<string, any>;

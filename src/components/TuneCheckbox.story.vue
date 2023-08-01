@@ -3,10 +3,20 @@ import { ref } from 'vue';
 import TuneCheckbox from './TuneCheckbox.vue';
 
 const input = ref(false);
+const input2 = ref(false);
+const input3 = ref(false);
 </script>
 
 <template>
-  <Story>
-    <TuneCheckbox v-model="input" label="Switch me" hint="I'm a checkbox" class="m-1" />
+  <Story :layout="{ type: 'grid', width: 320 }">
+    <Variant title="default">
+      <TuneCheckbox v-model="input" />
+    </Variant>
+    <Variant title="with label">
+      <TuneCheckbox v-model="input2" label="Label" sub-label="Sub label" />
+    </Variant>
+    <Variant title="disabled">
+      <TuneCheckbox v-model="input3" disabled />
+    </Variant>
   </Story>
 </template>

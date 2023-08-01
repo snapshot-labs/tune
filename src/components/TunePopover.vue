@@ -2,17 +2,18 @@
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
 import { Float } from '@headlessui-float/vue';
 import type { Placement } from '@floating-ui/dom';
-import TuneButton from './TuneButton.vue';
-import IconChevronDown from '~icons/heroicons/chevron-down';
+import TuneButtonSelect from './TuneButtonSelect.vue';
 
 withDefaults(
   defineProps<{
     label?: string;
     placement?: Placement;
+    disabled?: boolean;
   }>(),
   {
     label: '',
-    placement: 'bottom-end'
+    placement: 'bottom-end',
+    disabled: false
   }
 );
 </script>
@@ -33,17 +34,18 @@ withDefaults(
       :z-index="50"
       portal
     >
-      <PopoverButton class="outline-none">
-        <slot v-if="$slots.button" name="button" />
-        <TuneButton v-else class="flex items-center gap-1">
+      <PopoverButton class="outline-none" :disabled="disabled">
+        <span v-if="$slots.button" :class="[{ 'cursor-not-allowed opacity-40': disabled }]">
+          <slot name="button" />
+        </span>
+        <TuneButtonSelect v-else :disabled="disabled">
           <span>{{ label }}</span>
-          <IconChevronDown class="text-sm" aria-hidden="true" />
-        </TuneButton>
+        </TuneButtonSelect>
       </PopoverButton>
 
       <PopoverPanel v-slot="{ close }" class="w-screen max-w-xs outline-none sm:max-w-sm">
         <div class="tune-popover overflow-hidden">
-          <div class="no-scrollbar max-h-[85vh] overflow-y-auto overscroll-contain">
+          <div class="no-scrollbar max-h-[85vh] overflow-y-auto overscroll-contain text-base">
             <slot name="content" :close="close" />
           </div>
         </div>

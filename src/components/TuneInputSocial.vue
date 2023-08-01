@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import TuneInput from './TuneInput.vue';
-import IconGlobeAlt from '~icons/heroicons/globe-alt';
+import IconGlobeAlt from '~icons/heroicons-outline/globe-alt';
 import IconTuneTwitter from '~icons/tune/twitter';
 import IconTuneGithub from '~icons/tune/github';
 import IconTuneCoingecko from '~icons/tune/coingecko';
 
 defineProps<{
+  label: string;
+  variant?: 'twitter' | 'github' | 'coingecko';
   modelValue?: string;
   error?: string;
   placeholder?: string;
   maxLength?: number;
-  label?: string;
   disabled?: boolean;
-  icon?: 'twitter' | 'github' | 'earth' | 'coingecko';
 }>();
 
 const emit = defineEmits(['update:modelValue']);
@@ -38,14 +38,16 @@ defineExpose({
     :placeholder="placeholder"
     :max-length="maxLength"
     :disabled="disabled"
-    class="!pl-[40px]"
+    class="!pr-[30px]"
     @update:model-value="(value: string) => emit('update:modelValue', value)"
   >
-    <template #before>
-      <IconTuneTwitter v-if="icon === 'twitter'" class="text-[16px]" />
-      <IconTuneGithub v-if="icon === 'github'" class="text-[16px]" />
-      <IconGlobeAlt v-if="icon === 'earth'" class="text-[16px]" />
-      <IconTuneCoingecko v-if="icon === 'coingecko'" class="text-[16px]" />
+    <template #after>
+      <div class="text-sm">
+        <IconTuneTwitter v-if="variant === 'twitter'" />
+        <IconTuneGithub v-else-if="variant === 'github'" />
+        <IconTuneCoingecko v-else-if="variant === 'coingecko'" />
+        <IconGlobeAlt v-else />
+      </div>
     </template>
   </TuneInput>
 </template>

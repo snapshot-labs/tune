@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <div :class="['tune-error-text mt-[2px]']">
+  <div :class="['tune-error-text']">
     {{ error }}
   </div>
 </template>

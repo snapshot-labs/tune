@@ -1,13 +1,17 @@
 <script setup lang="ts">
-import { defineProps } from 'vue';
-
-defineProps<{
-  label: string | number;
-}>();
+withDefaults(
+  defineProps<{
+    label: string | number;
+    variant?: 'primary' | 'outlined';
+  }>(),
+  {
+    variant: 'primary'
+  }
+);
 </script>
 
 <template>
-  <span class="tune-tag">
+  <div :class="['tune-tag', variant]">
     {{ label }}
-  </span>
+  </div>
 </template>

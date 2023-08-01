@@ -1,19 +1,27 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import TuneButton from './TuneButton.vue';
 import TuneModal from './TuneModal.vue';
-
-const isOpen = ref(false);
 </script>
 
 <template>
   <Story>
-    <TuneButton @click="isOpen = true">Open modal</TuneButton>
-    <TuneModal :open="isOpen" title="My modal" @close="isOpen = false">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio illo expedita libero,
-      eaque iste aliquam praesentium necessitatibus ipsum impedit hic temporibus officia omnis
-      deleniti, at sint, doloremque atque sit id?
-    </TuneModal>
+    <Variant title="default">
+      <TuneModal :open="true" title="Modal title">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio illo expedita libero,
+        eaque iste aliquam praesentium.
+      </TuneModal>
+    </Variant>
+    <Variant title="confirm">
+      <TuneModal :open="true" title="Modal title" footer-buttons="confirm">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio illo expedita libero,
+        eaque iste aliquam praesentium.
+      </TuneModal>
+    </Variant>
+    <Variant title="confirmAndCancel">
+      <TuneModal :open="true" title="Modal title" footer-buttons="confirmAndCancel">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio illo expedita libero,
+        eaque iste aliquam praesentium.
+      </TuneModal>
+    </Variant>
   </Story>
 </template>
 

@@ -4,8 +4,8 @@ import TuneIconHint from './TuneIconHint.vue';
 
 <template>
   <Story>
-    <div class="flex">
-      <TuneIconHint hint="Lorem ipsum dolor sit amet consectetur adipisicing elit." />
+    <div class="ml-[80px] mt-[80px] flex">
+      <TuneIconHint hint="Some tooltip" />
     </div>
   </Story>
 </template>

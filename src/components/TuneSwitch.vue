@@ -1,19 +1,13 @@
 <script setup lang="ts">
 import { Switch } from '@headlessui/vue';
-import TuneLabelInput from './TuneLabelInput.vue';
-
-type Definition = {
-  title: string;
-  description: string;
-  sublabel: string;
-};
+import TuneLabel from './TuneLabel.vue';
+import IconTuneSwitchCheck from '~icons/tune/switch-check';
+import IconTuneSwitchX from '~icons/tune/switch-x';
 
 defineProps<{
   modelValue: boolean;
   label?: string;
-  sublabel?: string;
-  hint?: string;
-  definition?: Partial<Definition>;
+  subLabel?: string;
   disabled?: boolean;
 }>();
 
@@ -21,26 +15,23 @@ const emit = defineEmits(['update:modelValue']);
 </script>
 
 <template>
-  <div
-    class="flex space-x-2 pr-2 pt-1"
-    :class="sublabel || definition?.sublabel ? 'items-start' : 'items-center'"
-  >
+  <div class="flex space-x-2 pr-2" :class="subLabel ? 'items-start' : 'items-center'">
     <Switch
       :model-value="modelValue"
       :class="[
-        'tune-switch relative inline-flex h-[22px] w-[38px] flex-shrink-0 cursor-pointer rounded-full border-2 transition-colors duration-200 ease-in-out',
+        'tune-switch relative inline-flex h-[20px] w-[31px] flex-shrink-0 cursor-pointer rounded-full border-[1px] transition-colors duration-200 ease-in-out',
         modelValue ? 'switched-on-bg' : 'switched-off-bg',
-        { '!cursor-not-allowed ': disabled }
+        { '!cursor-not-allowed opacity-40': disabled }
       ]"
       :disabled="disabled"
       @update:model-value="value => emit('update:modelValue', value)"
     >
-      <span v-if="label || definition?.title" class="sr-only">
-        {{ label || definition?.title }}
+      <span v-if="label" class="sr-only">
+        {{ label }}
       </span>
       <span
         :class="[
-          modelValue ? 'translate-x-[16px]' : 'translate-x-0',
+          modelValue ? 'translate-x-[11px]' : 'translate-x-0',
           'shadow tune-switch-button pointer-events-none inline-block h-[18px] w-[18px] transform rounded-full transition duration-200 ease-in-out'
         ]"
       >
@@ -51,15 +42,7 @@ const emit = defineEmits(['update:modelValue']);
           ]"
           aria-hidden="true"
         >
-          <svg class="h-[10px] w-[10px]" fill="none" viewBox="0 0 12 12">
-            <path
-              d="M4 8l2-2m0 0l2-2M6 6L4 4m2 2l2 2"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
+          <IconTuneSwitchX />
         </span>
         <span
           :class="[
@@ -68,20 +51,15 @@ const emit = defineEmits(['update:modelValue']);
           ]"
           aria-hidden="true"
         >
-          <svg class="h-[10px] w-[10px]" fill="currentColor" viewBox="0 0 12 12">
-            <path
-              d="M3.707 5.293a1 1 0 00-1.414 1.414l1.414-1.414zM5 8l-.707.707a1 1 0 001.414 0L5 8zm4.707-3.293a1 1 0 00-1.414-1.414l1.414 1.414zm-7.414 2l2 2 1.414-1.414-2-2-1.414 1.414zm3.414 2l4-4-1.414-1.414-4 4 1.414 1.414z"
-            />
-          </svg>
+          <IconTuneSwitchCheck />
         </span>
       </span>
     </Switch>
-    <TuneLabelInput
-      v-if="label || definition?.title"
-      :hint="hint || definition?.description"
-      :sublabel="sublabel || definition?.sublabel"
-    >
-      {{ label || definition?.title }}
-    </TuneLabelInput>
+    <TuneLabel
+      v-if="label"
+      :label="label"
+      :sub-label="subLabel"
+      @click="emit('update:modelValue', !modelValue)"
+    />
   </div>
 </template>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import TuneComboboxMultiple from './TuneComboboxMultiple.vue';
+import TuneAlert from './TuneAlert.vue';
 
 const items = [
   { name: 'One', id: '1' },
@@ -16,6 +17,9 @@ const input = ref(['1']);
 
 <template>
   <Story>
-    <TuneComboboxMultiple v-model="input" :items="items" />
+    <TuneAlert variant="negative" class="mb-3"> Still under development </TuneAlert>
+    <div class="w-[320px]">
+      <TuneComboboxMultiple v-model="input" :items="items" label="Combobox multiple" />
+    </div>
   </Story>
 </template>

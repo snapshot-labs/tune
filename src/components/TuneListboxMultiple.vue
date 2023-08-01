@@ -9,8 +9,8 @@ import {
 } from '@headlessui/vue';
 import TuneLabelInput from './TuneLabelInput.vue';
 import TuneErrorInput from './TuneErrorInput.vue';
-import IconChevronDown from '~icons/heroicons/chevron-down';
-import IconCheck from '~icons/heroicons/check';
+import IconChevronDown from '~icons/heroicons-outline/chevron-down';
+import IconCheck from '~icons/heroicons-outline/check';
 
 type ListboxItem = {
   value: any;
@@ -21,8 +21,7 @@ type ListboxItem = {
 const props = defineProps<{
   modelValue?: string[];
   items: ListboxItem[];
-  definition?: any;
-  label?: string;
+  label: string;
   placeholder?: string;
   limit?: number;
   disabled?: boolean;
@@ -56,40 +55,53 @@ function forceShowError() {
 defineExpose({
   forceShowError
 });
+
+const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''));
 </script>
 
 <template>
   <div>
     <Listbox v-model="selectedItems" as="div" :disabled="disabled" multiple>
-      <ListboxLabel>
-        <TuneLabelInput :hint="hint || definition?.description">
-          {{ label || definition?.title }}
-        </TuneLabelInput>
-      </ListboxLabel>
       <div class="relative">
         <ListboxButton
-          v-tippy="{
-            content: selectedItems.map(item => item?.name || item.value).join(', ')
-          }"
+          v-slot="{ open }"
           :class="[
-            'tune-listbox-button relative h-[42px] w-full truncate pl-3 pr-[40px] text-left',
-            { 'disabled cursor-not-allowed': disabled },
+            'tune-input-wrapper relative w-full truncate pl-3 pr-[40px] text-left',
+            { 'cursor-not-allowed': disabled },
             {
               error: showErrorMessage && error
-            }
+            },
+            { filled: selectedItems.length > 0 }
           ]"
         >
-          <span v-if="selectedItems.length < 1" class="tune-listbox-multiple-placeholder">
-            {{ placeholder || definition?.examples?.[0] }}
-          </span>
+          <ListboxLabel class="pointer-events-none" :class="isDisabled">
+            <TuneLabelInput :label="label" :hint="hint" :error="!!error && showErrorMessage" />
+          </ListboxLabel>
 
-          <slot v-else-if="$slots.selected" name="selected" :selected-items="selectedItems" />
+          <div class="tune-listbox-selected" :class="isDisabled">
+            <span
+              v-if="selectedItems.length < 1"
+              :class="['tune-placeholder', { disabled: disabled }]"
+            >
+              {{ placeholder || 'Select option' }}
+            </span>
+            <slot v-else-if="$slots.selected" name="selected" :selected-items="selectedItems" />
 
-          <span v-else>
-            {{ selectedItems.map(item => item?.name || item.value).join(', ') }}
-          </span>
-          <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-[12px]">
-            <IconChevronDown class="text-sm" />
+            <span v-else>
+              {{ selectedItems.map(item => item?.name || item.value).join(', ') }}
+            </span>
+          </div>
+
+          <span
+            class="absolute inset-y-[12px] right-[12px] flex items-end px-2"
+            :class="isDisabled"
+          >
+            <IconChevronDown
+              :class="[
+                'tune-input-chevron text-base',
+                { 'tune-input-chevron-up rotate-180': open }
+              ]"
+            />
           </span>
         </ListboxButton>
         <transition
@@ -101,7 +113,7 @@ defineExpose({
           leave-to-class="transform scale-95 opacity-0"
         >
           <ListboxOptions
-            class="tune-listbox-options absolute z-40 mt-1 w-full overflow-hidden focus:outline-none"
+            class="tune-list absolute z-40 mt-1 w-full overflow-hidden focus:outline-none"
           >
             <div class="max-h-[180px] overflow-y-auto">
               <ListboxOption
@@ -114,17 +126,11 @@ defineExpose({
               >
                 <li
                   :class="[
-                    { active: active },
-                    'tune-listbox-item relative cursor-default select-none py-2 pl-3 pr-[50px]'
+                    { active: active && !itemDisabled },
+                    'tune-list-item relative cursor-default select-none truncate !pr-[50px]'
                   ]"
                 >
-                  <span
-                    :class="[
-                      selected ? 'selected' : 'font-normal',
-                      { disabled: itemDisabled },
-                      'tune-listbox-item block truncate'
-                    ]"
-                  >
+                  <span :class="[{ disabled: itemDisabled }, 'block truncate']">
                     <slot v-if="$slots.item" name="item" :item="item" />
                     <span v-else>
                       {{ item?.name || item.value }}
@@ -135,7 +141,7 @@ defineExpose({
                     v-if="selected"
                     :class="['absolute inset-y-0 right-0 flex items-center pr-3']"
                   >
-                    <IconCheck class="text-sm" />
+                    <IconCheck class="text-base text-green" />
                   </span>
                 </li>
               </ListboxOption>

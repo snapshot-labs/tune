@@ -12,19 +12,18 @@ import TuneErrorInput from './TuneErrorInput.vue';
 
 const props = withDefaults(
   defineProps<{
-    label?: string;
+    modelValue?: string | number;
+    label: string;
     hint?: string;
     loading?: boolean;
     error?: string;
     block?: boolean;
     type?: 'text' | 'number';
-    modelValue?: string | number;
     autofocus?: boolean;
     placeholder?: string;
     maxLength?: number;
     readonly?: boolean;
     disabled?: boolean;
-    definition?: any;
   }>(),
   {
     label: '',
@@ -38,8 +37,7 @@ const props = withDefaults(
     placeholder: '',
     maxLength: undefined,
     readonly: false,
-    disabled: false,
-    definition: {}
+    disabled: false
   }
 );
 
@@ -65,15 +63,28 @@ onMounted(() => {
 </script>
 
 <template>
-  <div :class="{ 'w-full': block }">
-    <TuneLabelInput v-if="label || definition?.title" :hint="hint || definition?.description">
-      {{ label || definition.title }}
-    </TuneLabelInput>
-    <div class="flex">
+  <div>
+    <div
+      :class="[
+        'tune-input-wrapper',
+        { 'w-full': block },
+        { error: error && showErrorMessage },
+        { disabled: disabled },
+        { filled: modelValue !== undefined && modelValue !== '' }
+      ]"
+    >
+      <TuneLabelInput
+        :label="label"
+        :hint="hint"
+        :error="!!error && showErrorMessage"
+        :class="[{ 'opacity-40': disabled }]"
+      />
+
       <div :class="['group relative z-10 flex', { 'w-full': block }]">
         <div
           v-if="$slots.before"
-          class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
+          class="tune-input-before pointer-events-none absolute flex h-full items-center pt-[4px]"
+          :class="[{ 'opacity-40': disabled }]"
         >
           <slot name="before" />
         </div>
@@ -83,30 +94,36 @@ onMounted(() => {
           :type="type"
           :value="modelValue"
           :class="[
-            'tune-input px-3 py-2',
-            { 'tune-error-border': error && showErrorMessage },
+            'tune-input form-input',
+            { 'w-full': block },
             { 'cursor-not-allowed': disabled },
-            { 'w-full': block }
+            { filled: modelValue !== undefined && modelValue !== '' },
+            { '!pl-4': $slots.before },
+            { '!pr-4': $slots.after }
           ]"
-          :placeholder="placeholder || definition?.examples?.[0] || ''"
+          :placeholder="placeholder"
           :readonly="readonly"
           :disabled="disabled"
-          :maxlength="maxLength || definition?.maxLength"
+          :maxlength="maxLength"
           @blur="error ? (showErrorMessage = true) : null"
-          @focus="error ? null : (showErrorMessage = false)"
           @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
         />
+        <!-- <div
+            v-if="loading"
+            class="tune-input-loading pointer-events-none absolute inset-y-0 right-0 top-[1px] mr-1 flex h-[40px] items-center overflow-hidden pl-2 pr-2"
+          >
+            <TuneLoadingSpinner />
+          </div> -->
         <div
-          v-if="loading || (error && showErrorMessage)"
-          class="tune-input-loading absolute inset-y-0 right-0 top-[1px] mr-1 flex h-[40px] items-center overflow-hidden pl-2 pr-2"
+          v-if="$slots.after"
+          class="tune-input-after pointer-events-none absolute -inset-y-[6px] right-0"
+          :class="[{ 'opacity-40': disabled }]"
         >
-          <TuneLoadingSpinner v-if="loading" />
-        </div>
-        <div v-else-if="$slots.after" class="absolute inset-y-0 right-0 flex items-center pr-4">
           <slot name="after" />
         </div>
       </div>
     </div>
+
     <TuneErrorInput v-if="error && showErrorMessage" :error="error" />
   </div>
 </template>

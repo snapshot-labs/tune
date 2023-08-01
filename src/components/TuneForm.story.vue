@@ -12,6 +12,7 @@ const schema = {
     name: {
       type: 'string',
       title: 'Name',
+      description: 'A name for your space.',
       minLength: 1,
       examples: ['Space name']
     },
@@ -49,7 +50,7 @@ const schema = {
     },
     private: {
       type: 'boolean',
-      title: 'private',
+      title: 'Private',
       description: 'Set space to private.'
     },
     votingType: {
@@ -97,6 +98,6 @@ function forceShowError() {
         categories: 'Invalid field'
       }"
     />
-    <TuneButton primary class="mt-3" @click="forceShowError"> Show errors </TuneButton>
+    <TuneButton class="mt-3" variant="outlined" @click="forceShowError"> Show errors </TuneButton>
   </Story>
 </template>
