@@ -58,17 +58,18 @@ const imgAlt = computed(() => {
   }
 });
 
+const spaceImgRadius = computed(() => {
+  return typeof props.size === 'number' && props.size >= 48 ? 'space-style-lg' : 'space-style';
+});
+
 const imgClasses = computed(() => {
   return [
     {
       'avatar-style': props.type === 'avatar',
-      'cover-style': props.type === 'space-cover-sx'
+      'cover-style': props.type === 'space-cover-sx',
+      'rounded-full': props.type === 'token'
     },
-    props.type === 'space' || props.type === 'space-sx'
-      ? typeof props.size === 'number' && props.size >= 48
-        ? 'space-style-lg'
-        : 'space-style'
-      : null
+    props.type === 'space' || props.type === 'space-sx' ? spaceImgRadius.value : null
   ];
 });
 
