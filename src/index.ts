@@ -19,7 +19,6 @@ import TuneCheckbox from './components/TuneCheckbox.vue';
 import TuneRadio from './components/TuneRadio.vue';
 import TuneInputSocial from './components/TuneInputSocial.vue';
 import TuneButtonSelect from './components/TuneButtonSelect.vue';
-import TuneSelect from './components/TuneSelect.vue';
 import TuneInputDuration from './components/TuneInputDuration.vue';
 import TuneTextareaArray from './components/TuneTextareaArray.vue';
 import TuneErrorInput from './components/TuneErrorInput.vue';
@@ -47,7 +46,6 @@ export {
   TuneRadio,
   TuneInputSocial,
   TuneButtonSelect,
-  TuneSelect,
   TuneInputDuration,
   TuneTextareaArray,
   TuneErrorInput
