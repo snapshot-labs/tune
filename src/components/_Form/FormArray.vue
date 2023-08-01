@@ -52,7 +52,7 @@ function forceShowError() {
   if (componentRefs?.value?.forceShowError) componentRefs?.value?.forceShowError();
   else
     componentRefs?.value?.forEach((ref: any) => {
-      if (ref?.forceShowError) ref?.forceShowError();
+      if (ref?.forceShowError) ref.forceShowError();
     });
 }
 

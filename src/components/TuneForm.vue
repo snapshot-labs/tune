@@ -41,7 +41,7 @@ const componentRefs = ref();
 
 function forceShowError() {
   componentRefs?.value?.forEach((ref: any) => {
-    if (ref?.forceShowError) ref?.forceShowError();
+    if (ref?.forceShowError) ref.forceShowError();
   });
 }
 
