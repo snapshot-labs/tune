@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import TuneUser from './TuneUser.vue';
 </script>
 
