@@ -365,7 +365,7 @@ body {
   @apply cursor-pointer rounded-lg border border-gray-350 px-4 py-[25px] font-semibold hover:bg-gray-200 focus:bg-gray-200 focus:outline-none;
 
   &.active {
-    @apply border-gray-900;
+    @apply border-gray-900 bg-white hover:bg-gray-200;
   }
 }
 
