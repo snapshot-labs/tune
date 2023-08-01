@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - samuv/tune-v1
 
 jobs:
   publish-npm:
