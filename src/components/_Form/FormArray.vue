@@ -15,7 +15,7 @@ import FormBoolean from './FormBoolean.vue';
 const props = defineProps<{
   modelValue: any[];
   definition: any;
-  error: any;
+  error?: any;
 }>();
 
 const emit = defineEmits(['update:modelValue']);
@@ -111,7 +111,7 @@ onMounted(() => {
         <TuneTag :label="i + 1" />
       </div>
       <component
-        :is="getComponent(definition.items.type)"
+        :is="getComponent(definition.items.type) as any"
         ref="componentRefs"
         v-model="input[i]"
         :definition="definition.items"
