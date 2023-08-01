@@ -53,7 +53,7 @@ defineExpose({
 <template>
   <div class="space-y-2">
     <component
-      :is="getComponent(property.type) as any"
+      :is="(getComponent(property.type) as any)"
       v-for="(property, key) in (definition.properties as Record<string, any>)"
       ref="componentRefs"
       :key="key"

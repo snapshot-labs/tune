@@ -111,7 +111,7 @@ onMounted(() => {
         <TuneTag :label="i + 1" />
       </div>
       <component
-        :is="getComponent(definition.items.type) as any"
+        :is="(getComponent(definition.items.type) as any)"
         ref="componentRefs"
         v-model="input[i]"
         :definition="definition.items"
