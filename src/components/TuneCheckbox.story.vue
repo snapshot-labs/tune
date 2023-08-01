@@ -7,6 +7,6 @@ const input = ref(false);
 
 <template>
   <Story>
-    <TuneCheckbox v-model="input" label="Switch me" hint="I'm a checkbox" class="m-1" />
+    <TuneCheckbox id="1" v-model="input" label="Switch me" hint="I'm a checkbox" class="m-1" />
   </Story>
 </template>
