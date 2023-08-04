@@ -46,7 +46,7 @@ defineExpose({
   forceShowError
 });
 
-const isDisabled = computed(() => (props.disabled ? 'tune-disabled-input' : ''));
+const isDisabled = computed(() => ({ 'pointer-events-none opacity-40': props.disabled }));
 </script>
 
 <template>
