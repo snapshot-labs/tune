@@ -13,12 +13,12 @@ export default defineConfig({
     colors: {
       gray: {
         50: '#FBFBFB',
-        100: '#FFFFFF',
-        200: '#FFFFFF',
-        300: '#FFFFFF',
+        100: '#FBFBFB',
+        200: '#FBFBFB',
+        300: '#EDEDED',
         400: '#EDEDED',
-        500: '#29282E',
-        600: '#EDEDED',
+        500: '#A09FA4',
+        600: '#A09FA4',
         700: '#111111',
         750: '#29282E',
         800: '#29282E',
@@ -27,8 +27,8 @@ export default defineConfig({
         950: '#29282E'
       },
       primary: {
-        50: '#f3b04e',
-        100: '#f3b04e',
+        50: '#EDEDED',
+        100: '#EDEDED',
         200: '#EDEDED',
         300: '#f3b04e',
         400: '#f3b04e',
