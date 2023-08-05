@@ -9,11 +9,13 @@ withDefaults(
     label?: string;
     placement?: Placement;
     disabled?: boolean;
+    portal?: boolean;
   }>(),
   {
     label: '',
     placement: 'bottom-end',
-    disabled: false
+    disabled: false,
+    portal: false
   }
 );
 </script>
@@ -32,6 +34,7 @@ withDefaults(
       :shift="16"
       :flip="16"
       :z-index="50"
+      :portal="portal"
     >
       <PopoverButton class="outline-none" :disabled="disabled">
         <span v-if="$slots.button" :class="[{ 'cursor-not-allowed opacity-40': disabled }]">
