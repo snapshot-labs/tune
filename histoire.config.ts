@@ -36,7 +36,7 @@ export default defineConfig({
         600: '#f3b04e',
         700: '#f3b04e',
         800: '#f3b04e',
-        900: '#f3b04e'
+        900: '#29282E'
       }
     }
   },
