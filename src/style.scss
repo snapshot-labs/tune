@@ -328,7 +328,7 @@ body {
 }
 
 .tune-icon-hint {
-  @apply text-xs hover:text-text-color;
+  @apply text-xs text-text-color hover:text-link-color;
 }
 
 .tune-tag {

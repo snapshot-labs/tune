@@ -20,13 +20,7 @@ watchEffect(() => {
 <template>
   <Story :layout="{ type: 'grid', width: 360 }">
     <Variant title="default">
-      <TuneCombobox
-        v-model="input"
-        :items="items"
-        label="Label"
-        hint="Hint text"
-        class="mb-[200px]"
-      />
+      <TuneCombobox v-model="input" :items="items" label="Label" class="mb-[200px]" />
     </Variant>
     <Variant title="disabled">
       <TuneCombobox v-model="input" :items="items" label="Label" class="mb-[200px]" disabled />
