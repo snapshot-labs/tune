@@ -3,7 +3,9 @@ import TuneLoadingSpinner from './TuneLoadingSpinner.vue';
 </script>
 
 <template>
-  <Story>
-    <TuneLoadingSpinner />
+  <Story :layout="{ type: 'grid', width: 360 }">
+    <div class="h-[100px]">
+      <TuneLoadingSpinner />
+    </div>
   </Story>
 </template>

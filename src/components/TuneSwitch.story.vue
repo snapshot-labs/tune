@@ -2,13 +2,13 @@
 import { ref } from 'vue';
 import TuneSwitch from './TuneSwitch.vue';
 
-const input = ref(false);
+const input = ref(true);
 const input2 = ref(false);
 const input3 = ref(false);
 </script>
 
 <template>
-  <Story :layout="{ type: 'grid', width: 320 }">
+  <Story :layout="{ type: 'grid', width: 360 }">
     <Variant title="default">
       <TuneSwitch v-model="input" />
     </Variant>

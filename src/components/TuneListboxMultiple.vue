@@ -70,8 +70,7 @@ const isDisabled = computed(() => ({ 'pointer-events-none opacity-40': props.dis
             { 'cursor-not-allowed': disabled },
             {
               error: showErrorMessage && error
-            },
-            { filled: selectedItems.length > 0 }
+            }
           ]"
         >
           <ListboxLabel class="pointer-events-none" :class="isDisabled">
@@ -79,10 +78,7 @@ const isDisabled = computed(() => ({ 'pointer-events-none opacity-40': props.dis
           </ListboxLabel>
 
           <div class="tune-listbox-selected" :class="isDisabled">
-            <span
-              v-if="selectedItems.length < 1"
-              :class="['tune-placeholder', { disabled: disabled }]"
-            >
+            <span v-if="selectedItems.length < 1" :class="['tune-placeholder']">
               {{ placeholder || 'Select option' }}
             </span>
             <slot v-else-if="$slots.selected" name="selected" :selected-items="selectedItems" />
@@ -141,7 +137,7 @@ const isDisabled = computed(() => ({ 'pointer-events-none opacity-40': props.dis
                     v-if="selected"
                     :class="['absolute inset-y-0 right-0 flex items-center pr-3']"
                   >
-                    <IconCheck class="text-base text-green" />
+                    <IconCheck class="tune-list-check text-base" />
                   </span>
                 </li>
               </ListboxOption>

@@ -285,7 +285,7 @@ defineExpose({
         <span
           v-tippy="{ content: disabled ? null : button.title }"
           :class="[
-            'text-[20px] text-gray-900 ',
+            'text-[20px] text-heading-color',
             {
               'font-bold': button.icon === 'B',
               italic: button.icon === 'I'
@@ -314,7 +314,7 @@ defineExpose({
     <div
       ref="editorContainerRef"
       class="tune-textarea-composer-wrapper"
-      :class="[{ disabled: disabled, error: error, filled: editorInput }]"
+      :class="[{ disabled: disabled, error: error }]"
     >
       <textarea
         ref="editorRef"

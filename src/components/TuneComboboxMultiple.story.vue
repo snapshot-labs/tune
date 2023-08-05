@@ -16,9 +16,9 @@ const input = ref(['1']);
 </script>
 
 <template>
-  <Story>
+  <Story :layout="{ type: 'grid', width: 360 }">
     <TuneAlert variant="negative" class="mb-3"> Still under development </TuneAlert>
-    <div class="w-[320px]">
+    <div class="mb-[200px]">
       <TuneComboboxMultiple v-model="input" :items="items" label="Combobox multiple" />
     </div>
   </Story>

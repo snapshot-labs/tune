@@ -24,7 +24,7 @@ export default defineConfig({
     },
     {
       label: 'Dark',
-      color: '#211f24',
+      color: '#1C1B20',
       contrastColor: '#fff'
     }
   ]

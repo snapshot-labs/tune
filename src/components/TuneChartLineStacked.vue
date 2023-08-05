@@ -14,8 +14,8 @@ defineProps<{
         width: `${item.toFixed(3)}%`
       }"
       :class="[
-        { 'bg-green': index === 0 },
-        { 'bg-red': index === 1 },
+        { 'bg-positive-color': index === 0 },
+        { 'bg-danger-color': index === 1 },
         { 'bg-gray-500': index === 2 }
       ]"
     />

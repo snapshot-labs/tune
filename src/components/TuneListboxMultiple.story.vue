@@ -18,7 +18,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <Story :layout="{ type: 'grid', width: 320 }">
+  <Story :layout="{ type: 'grid', width: 360 }">
     <Variant title="default">
       <TuneListboxMultiple v-model="input" :items="items" label="Label" class="mb-[200px]" />
     </Variant>

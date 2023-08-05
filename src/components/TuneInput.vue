@@ -7,7 +7,6 @@ export default {
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import TuneLabelInput from './TuneLabelInput.vue';
-import TuneLoadingSpinner from './TuneLoadingSpinner.vue';
 import TuneErrorInput from './TuneErrorInput.vue';
 
 const props = withDefaults(
@@ -69,8 +68,7 @@ onMounted(() => {
         'tune-input-wrapper',
         { 'w-full': block },
         { error: error && showErrorMessage },
-        { disabled: disabled },
-        { filled: modelValue !== undefined && modelValue !== '' }
+        { disabled: disabled }
       ]"
     >
       <TuneLabelInput
@@ -97,7 +95,6 @@ onMounted(() => {
             'tune-input form-input',
             { 'w-full': block },
             { 'cursor-not-allowed': disabled },
-            { filled: modelValue !== undefined && modelValue !== '' },
             { '!pl-4': $slots.before },
             { '!pr-4': $slots.after }
           ]"
@@ -108,12 +105,6 @@ onMounted(() => {
           @blur="error ? (showErrorMessage = true) : null"
           @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
         />
-        <!-- <div
-            v-if="loading"
-            class="tune-input-loading pointer-events-none absolute inset-y-0 right-0 top-[1px] mr-1 flex h-[40px] items-center overflow-hidden pl-2 pr-2"
-          >
-            <TuneLoadingSpinner />
-          </div> -->
         <div
           v-if="$slots.after"
           class="tune-input-after pointer-events-none absolute -inset-y-[6px] right-0"

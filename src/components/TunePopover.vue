@@ -19,7 +19,7 @@ withDefaults(
 </script>
 
 <template>
-  <Popover>
+  <Popover as="div">
     <Float
       enter="transition ease-out duration-100"
       enter-from="transform opacity-0 scale-95"
@@ -32,7 +32,6 @@ withDefaults(
       :shift="16"
       :flip="16"
       :z-index="50"
-      portal
     >
       <PopoverButton class="outline-none" :disabled="disabled">
         <span v-if="$slots.button" :class="[{ 'cursor-not-allowed opacity-40': disabled }]">

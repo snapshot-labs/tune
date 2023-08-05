@@ -81,7 +81,7 @@ const filteredItems = computed(() => {
         <div class="no-scrollbar mt-2 flex items-center overflow-x-auto">
           <div v-if="selectedItems.length" class="whitespace-nowrap">
             <span v-for="item in selectedItems" :key="item.id" class="mr-1 inline-block">
-              <TuneTag :label="item.name" />
+              <TuneTag :label="item.name" variant="outlined" />
             </span>
           </div>
 
@@ -130,7 +130,7 @@ const filteredItems = computed(() => {
               </span>
 
               <span v-if="selected" :class="['absolute inset-y-0 right-0 flex items-center pr-3']">
-                <IconCheck class="text-base text-green" />
+                <IconCheck class="tune-list-check text-base" />
               </span>
             </li>
           </ComboboxOption>

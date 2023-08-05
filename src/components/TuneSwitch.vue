@@ -59,6 +59,7 @@ const emit = defineEmits(['update:modelValue']);
       v-if="label"
       :label="label"
       :sub-label="subLabel"
+      class="cursor-pointer"
       @click="emit('update:modelValue', !modelValue)"
     />
   </div>

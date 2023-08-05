@@ -8,7 +8,8 @@ export const setupVue3 = defineSetupVue3(({ app, story, variant }) => {
   app.use(VueTippy, {
     defaultProps: {
       theme: 'tune',
-      arrow: roundArrow + roundArrow
+      arrow: roundArrow + roundArrow,
+      appendTo: 'parent'
     }
   });
 });

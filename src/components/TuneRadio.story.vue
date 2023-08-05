@@ -8,7 +8,7 @@ const input3 = ref('5');
 </script>
 
 <template>
-  <Story :layout="{ type: 'grid', width: 320 }">
+  <Story :layout="{ type: 'grid', width: 360 }">
     <Variant title="default">
       <TuneRadio v-model="input" value="1" class="m-2" />
       <TuneRadio v-model="input" value="2" class="m-2" />

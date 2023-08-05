@@ -12,7 +12,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <Story :layout="{ type: 'grid', width: 320 }">
+  <Story :layout="{ type: 'grid', width: 360 }">
     <Variant title="default">
       <TuneTextarea v-model="input" label="Label" placeholder="Type something" hint="Hint text" />
     </Variant>

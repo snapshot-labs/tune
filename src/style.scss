@@ -2,6 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: light;
+
+  // backgrounds
+  --bg: 255, 255, 255;
+  --block-bg: 255, 255, 255;
+  --input-bg: 251, 251, 251;
+  --hover-bg: 247, 247, 247;
+  --active-bg: 237, 237, 237;
+  --border: 229, 229, 230;
+
+  // main
+  --heading: 17, 17, 17;
+  --link: 17, 17, 17;
+  --text: 87, 96, 106;
+
+  --content: rgba(17, 17, 17, 0.8);
+
+  // accents
+  --primary: 17, 17, 17;
+  --accent-foreground: 251, 251, 251;
+  --danger: 235, 76, 91;
+  --positive: 87, 179, 117;
+
+  --accent-hover: rgba(250, 249, 252, 0.12);
+  --accent-active: rgba(250, 249, 252, 0.32);
+  --danger-border: rgba(235, 76, 91, 0.4);
+  --danger-hover: rgba(235, 76, 91, 0.04);
+  --danger-active: rgba(235, 76, 91, 0.12);
+  --positive-border: rgba(87, 179, 117, 0.4);
+  --positive-hover: rgba(87, 179, 117, 0.04);
+  --positive-active: rgba(87, 179, 117, 0.12);
+}
+
+.dark {
+  color-scheme: dark;
+
+  // backgrounds
+  --bg: 28, 27, 32;
+  --block-bg: 28, 27, 32;
+  --input-bg: 35, 34, 39;
+  --hover-bg: 247, 247, 247, 1;
+  --active-bg: 41, 40, 46;
+  --border: 51, 50, 55;
+
+  // main
+  --heading: 251, 251, 251;
+  --link: 251, 251, 251;
+  --text: 160, 159, 164;
+
+  --content: rgba(17, 17, 17, 0.8);
+
+  // accents
+  --primary: 251, 251, 251;
+  --accent-foreground: 17, 17, 17;
+  --danger: 235, 76, 91;
+  --positive: 87, 179, 117;
+
+  --accent-hover: rgba(250, 249, 252, 0.12);
+  --accent-active: rgba(250, 249, 252, 0.32);
+  --danger-border: rgba(235, 76, 91, 0.4);
+  --danger-hover: rgba(235, 76, 91, 0.04);
+  --danger-active: rgba(235, 76, 91, 0.12);
+  --positive-border: rgba(87, 179, 117, 0.4);
+  --positive-hover: rgba(87, 179, 117, 0.04);
+  --positive-active: rgba(87, 179, 117, 0.12);
+}
+
 body {
   @apply font-sans text-base antialiased;
 }
@@ -29,47 +97,31 @@ body {
 
 @layer components {
   ._tune-input-radio-checked {
-    @apply m-[2px] h-[14px] w-[14px] bg-none ring-gray-900 ring-offset-2;
+    @apply m-[2px] h-[14px] w-[14px] bg-none ring-primary-color ring-offset-2  ring-offset-bg-color;
   }
 
   ._tune-input-radio-focus {
-    @apply m-[2px]  h-[14px] w-[14px] ring-1 ring-gray-900 ring-offset-2;
+    @apply m-[2px]  h-[14px] w-[14px] ring-1 ring-primary-color ring-offset-2;
   }
 
   ._tune-input-radio-unchecked {
-    @apply m-0 h-[18px] w-[18px] bg-gray-100 text-gray-900 ring-1 ring-gray-350 ring-offset-0 hover:bg-gray-200 active:bg-gray-300;
+    @apply m-0 h-[18px] w-[18px] bg-input-bg-color text-primary-color ring-1 ring-border-color ring-offset-0 hover:bg-hover-bg-color active:bg-active-bg-color;
   }
 
   .tune-placeholder {
-    @apply text-gray-500;
-
-    &.disabled {
-      @apply text-gray-900;
-    }
-  }
-
-  .tune-error-border {
-    @apply border-red;
-  }
-
-  .tune-error-text {
-    @apply text-red;
+    @apply text-text-color;
   }
 }
 
 .tune-input {
-  @apply h-[26px] w-full border-transparent bg-transparent px-0 pb-0 pt-[4px] text-base text-gray-900 placeholder:text-gray-500/40 focus:border-transparent focus:outline-none focus:ring-0;
+  @apply placeholder:tune-placeholder h-[26px] w-full border-transparent bg-transparent px-0 pb-0 pt-[4px] text-base text-heading-color placeholder:text-opacity-40 focus:border-transparent focus:outline-none focus:ring-0;
 }
 
 .tune-input-wrapper {
-  @apply rounded-lg border border-gray-350 bg-gray-100  px-[12px] pb-[6px] pt-[10px] focus-within:bg-gray-300 [&:not(:focus-within)]:hover:bg-gray-200;
-
-  &.filled {
-    @apply [&:not(:focus-within)]:bg-gray-200;
-  }
+  @apply rounded-lg border border-border-color bg-input-bg-color px-[12px] pb-[6px] pt-[10px] focus-within:bg-active-bg-color [&:not(:focus-within)]:hover:bg-hover-bg-color;
 
   &.error {
-    @apply tune-error-border;
+    @apply border-danger-color;
   }
 
   &.disabled {
@@ -98,12 +150,12 @@ body {
 }
 
 .tune-input-checkbox {
-  @apply form-checkbox h-[20px] w-[20px] rounded-lg border-gray-350 bg-gray-100 text-gray-900;
-  @apply checked:bg-none hover:bg-gray-200 focus:ring-0 focus:ring-offset-0 focus-visible:bg-gray-200 focus-visible:ring-0 focus-visible:ring-offset-gray-900 active:bg-gray-300;
+  @apply form-checkbox h-[20px] w-[20px] rounded-lg border-border-color bg-input-bg-color text-primary-color;
+  @apply checked:bg-none hover:bg-hover-bg-color focus:ring-0 focus:ring-offset-0 focus-visible:bg-hover-bg-color focus-visible:ring-0 focus-visible:ring-offset-primary-color active:bg-active-bg-color;
 }
 
 .tune-input-checkbox-icon {
-  @apply text-white;
+  @apply text-bg-color;
 }
 
 .tune-input-radio {
@@ -114,10 +166,10 @@ body {
 }
 
 .tune-textarea {
-  @apply no-scrollbar form-textarea h-[76px] border-transparent bg-transparent px-0 pb-0 pt-[3px] text-base text-gray-900 placeholder:text-gray-500/40 focus:border-transparent focus:outline-none focus:ring-0;
+  @apply no-scrollbar form-textarea h-[76px] border-transparent bg-transparent px-0 pb-0 pt-[3px] text-base text-heading-color placeholder:text-text-color placeholder:text-opacity-40 focus:border-transparent focus:outline-none focus:ring-0;
 
   &.disabled {
-    @apply cursor-not-allowed;
+    @apply cursor-not-allowed placeholder:text-opacity-40;
   }
 }
 
@@ -130,14 +182,10 @@ body {
 }
 
 .tune-textarea-composer-wrapper {
-  @apply rounded-lg rounded-t-none border border-gray-350 bg-gray-100  px-[12px] pb-[6px] pt-[10px] focus-within:bg-gray-300 [&:not(:focus-within)]:hover:bg-gray-200;
-
-  &.filled {
-    @apply [&:not(:focus-within)]:bg-gray-200;
-  }
+  @apply rounded-lg rounded-t-none border bg-input-bg-color  px-[12px] pb-[6px] pt-[10px] focus-within:bg-active-bg-color [&:not(:focus-within)]:hover:bg-hover-bg-color;
 
   &.error {
-    @apply tune-error-border border-t-gray-350;
+    @apply border-danger-color border-t-border-color;
   }
 
   &.disabled {
@@ -146,58 +194,54 @@ body {
 }
 
 .tune-textarea-composer-heading {
-  @apply flex justify-end gap-2 rounded-t-lg border border-b-0 border-gray-350 p-[12px];
+  @apply flex justify-end gap-2 rounded-t-lg border border-b-0 p-[12px];
 
   &.disabled {
     @apply cursor-not-allowed border-opacity-40;
   }
 
   &.error {
-    @apply tune-error-border;
+    @apply border-danger-color;
   }
 }
 
 .tune-input-chevron {
-  @apply text-gray-500;
+  @apply text-text-color;
 }
 
 .tune-input-chevron-up {
-  @apply text-gray-900;
+  @apply text-heading-color;
 }
 
 .tune-input-after {
-  @apply text-gray-500;
+  @apply text-text-color;
 }
 
 .tune-input-before {
-  @apply text-gray-500;
-}
-
-.tune-input-loading {
-  @apply rounded-r-full bg-white;
+  @apply text-text-color;
 }
 
 .tune-button {
-  @apply flex h-[46px] cursor-pointer items-center justify-center gap-1 rounded-full border border-gray-350 px-[20px] text-base;
+  @apply flex h-[46px] cursor-pointer items-center justify-center gap-1 rounded-full border border-border-color px-[20px] text-base;
 
   &.circle {
     @apply h-[46px] w-[46px] rounded-full px-0;
   }
 
   &.default {
-    @apply border-gray-900 bg-gray-900 text-white hover:bg-opacity-90 active:bg-opacity-80;
+    @apply border-none bg-primary-color text-accent-foreground-color hover:bg-opacity-90 active:bg-opacity-80;
   }
 
   &.outlined {
-    @apply border-gray-350 bg-white text-gray-900 hover:bg-gray-200 active:bg-gray-300;
+    @apply text-link-color hover:bg-hover-bg-color active:bg-active-bg-color;
   }
 
   &.danger {
-    @apply tune-error-text border-red/40 bg-white  hover:bg-red/5 active:bg-red/10;
+    @apply border-danger-border-color text-danger-color hover:bg-danger-hover-color active:bg-danger-active-color;
   }
 
   &.positive {
-    @apply border-green/40 bg-white text-green hover:bg-green/5 active:bg-green/10;
+    @apply border-positive-border-color text-positive-color hover:bg-positive-hover-color active:bg-positive-active-color;
   }
 
   &.disabled {
@@ -206,7 +250,7 @@ body {
 }
 
 .tune-button-select {
-  @apply relative flex justify-between px-[20px] text-left text-base text-gray-900;
+  @apply relative flex justify-between px-[20px] text-left text-base;
 }
 
 .tune-select {
@@ -218,45 +262,45 @@ body {
 }
 
 .tune-switch {
-  @apply border-transparent outline-none focus-visible:ring-1 focus-visible:ring-gray-900;
+  @apply border-transparent outline-none focus-visible:ring-1 focus-visible:ring-primary-color;
 
   &.switched-on-bg {
-    @apply bg-gray-900;
+    @apply bg-primary-color;
   }
   &.switched-off-bg {
-    @apply bg-gray-350;
+    @apply bg-border-color;
   }
 
   &.switched-on-text {
-    @apply text-gray-900;
+    @apply text-primary-color;
   }
   &.switched-off-text {
-    @apply text-gray-500;
+    @apply text-text-color;
   }
 }
 
 .tune-switch-button {
-  @apply bg-white;
+  @apply bg-bg-color;
 }
 
 .tune-label {
-  @apply text-base text-gray-900;
+  @apply text-base tracking-[0.32px] text-heading-color;
 }
 
 .tune-label-sublabel {
-  @apply text-sm text-gray-900 opacity-60;
+  @apply text-sm text-text-color;
 }
 
 .tune-label-input {
-  @apply font-sans text-sm text-gray-500;
+  @apply font-sans text-sm tracking-[0.32px] text-text-color;
 
   &.error {
-    @apply tune-error-text;
+    @apply text-danger-color;
   }
 }
 
 .tune-label-input-column {
-  @apply text-sm text-gray-500;
+  @apply text-sm text-text-color;
 
   &.disabled {
     @apply text-opacity-40;
@@ -264,51 +308,55 @@ body {
 }
 
 .tune-listbox-selected {
-  @apply pb-[2px] pt-[6px] text-base text-gray-900;
+  @apply pb-[2px] pt-[6px] text-base text-heading-color;
 }
 
 .tune-list {
-  @apply rounded-[20px] border border-gray-350 bg-white;
+  @apply rounded-[20px] border border-border-color bg-block-bg-color;
 }
 
 .tune-list-item {
-  @apply px-[16px] py-[11px] text-base hover:bg-gray-200 active:bg-gray-300;
+  @apply px-[16px] py-[11px] text-base hover:bg-hover-bg-color active:bg-active-bg-color;
 
   &.active {
-    @apply bg-gray-200;
+    @apply bg-active-bg-color;
   }
 }
 
+.tune-list-check {
+  @apply text-positive-color;
+}
+
 .tune-icon-hint {
-  @apply text-xs hover:text-gray-900;
+  @apply text-xs hover:text-text-color;
 }
 
 .tune-tag {
   @apply inline-block rounded-full border px-[10px] py-[6px] text-sm;
 
   &.primary {
-    @apply border-gray-900 bg-gray-900 text-white hover:bg-opacity-90 active:bg-opacity-80;
+    @apply border-primary-color bg-primary-color text-accent-foreground-color hover:bg-opacity-90 active:bg-opacity-80;
   }
 
   &.outlined {
-    @apply border-gray-350 bg-white text-gray-500 hover:bg-gray-200 active:bg-gray-300;
+    @apply text-text-color hover:bg-hover-bg-color active:bg-active-bg-color;
   }
 }
 
 .tune-popover {
-  @apply rounded-[20px] border border-gray-350 bg-white;
+  @apply rounded-[20px] border border-border-color;
 }
 
 .tune-modal-panel {
-  @apply rounded-[20px] border border-gray-350 bg-white p-4 sm:w-[440px];
+  @apply rounded-[20px] border border-border-color bg-bg-color p-4 sm:w-[440px];
 }
 
 .tune-modal-backdrop {
-  @apply bg-gray-200 opacity-80;
+  @apply bg-hover-bg-color opacity-80;
 }
 
 .tune-modal-title {
-  @apply text-center text-lg text-gray-900;
+  @apply text-center text-lg text-link-color;
 }
 
 .tune-modal-content {
@@ -342,38 +390,38 @@ body {
 }
 
 .tune-selector {
-  @apply cursor-pointer rounded-lg border border-gray-350 px-4 py-[25px] font-semibold hover:bg-gray-200 focus:bg-gray-200 focus:outline-none;
+  @apply cursor-pointer rounded-lg border border-border-color px-4 py-[25px] font-semibold hover:bg-hover-bg-color focus:bg-hover-bg-color focus:outline-none;
 
   &.active {
-    @apply border-gray-900 bg-white hover:bg-gray-200;
+    @apply border-primary-color bg-bg-color hover:bg-hover-bg-color;
   }
 }
 
 .tune-error-input {
-  @apply tune-error-text mt-2 text-base;
+  @apply mt-2 text-base text-danger-color;
 }
 
 .tune-alert {
-  @apply overflow-hidden rounded-lg border border-gray-350 bg-white text-md text-gray-900;
+  @apply overflow-hidden rounded-lg border border-border-color text-md text-heading-color;
 
   &.alert-negative {
-    @apply border-red/40;
+    @apply border-danger-border-color;
   }
 
   &.alert-positive {
-    @apply border-green/40;
+    @apply border-positive-border-color;
   }
 }
 
 .tune-alert-icon {
-  @apply bg-gray-300 px-[18px] text-base;
+  @apply bg-active-bg-color px-[18px] text-base;
 
   &.alert-negative {
-    @apply bg-red/10 text-red;
+    @apply bg-danger-active-color text-danger-color;
   }
 
   &.alert-positive {
-    @apply bg-green/10 text-green;
+    @apply bg-positive-active-color text-positive-color;
   }
 }
 
@@ -396,15 +444,15 @@ body {
 @import 'tippy.js/dist/svg-arrow.css';
 
 .tippy-box[data-theme~='tune'] {
-  @apply rounded-lg border border-solid border-gray-350 bg-gray-100 px-[12px] py-[8px]  text-sm text-gray-900;
+  @apply rounded-lg border border-solid border-border-color bg-input-bg-color px-[12px] py-[8px] text-sm text-heading-color;
 }
 
 /* The border */
 .tippy-box[data-theme~='tune'] > .tippy-svg-arrow > svg:first-child {
-  @apply fill-gray-350;
+  @apply fill-border-color;
 }
 
 /* The fill */
 .tippy-box[data-theme~='tune'] > .tippy-svg-arrow > svg:last-child {
-  @apply fill-gray-100;
+  @apply fill-input-bg-color;
 }

@@ -87,17 +87,21 @@ function forceShowError() {
 </script>
 
 <template>
-  <Story>
-    <TuneForm
-      ref="formRef"
-      v-model="input"
-      :definition="schema"
-      :error="{
-        name: 'Invalid field',
-        about: 'Invalid field',
-        categories: 'Invalid field'
-      }"
-    />
-    <TuneButton class="mt-3" variant="outlined" @click="forceShowError"> Show errors </TuneButton>
+  <Story :layout="{ type: 'grid', width: 360 }">
+    <Variant title="default">
+      <TuneForm
+        ref="formRef"
+        v-model="input"
+        :definition="schema"
+        :error="{
+          name: 'Invalid field',
+          about: 'Invalid field',
+          categories: 'Invalid field'
+        }"
+      />
+      <TuneButton class="mb-[100px] mt-3" variant="outlined" @click="forceShowError">
+        Show errors
+      </TuneButton>
+    </Variant>
   </Story>
 </template>

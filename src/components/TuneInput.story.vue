@@ -14,7 +14,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <Story :layout="{ type: 'grid', width: 320 }">
+  <Story :layout="{ type: 'grid', width: 360 }">
     <Variant title="default">
       <TuneInput v-model="input" label="Label" hint="Hint text" placeholder="Type something" />
     </Variant>

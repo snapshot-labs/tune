@@ -6,7 +6,7 @@ const input = ref('');
 </script>
 
 <template>
-  <Story :layout="{ type: 'grid', width: 320 }">
+  <Story :layout="{ type: 'grid', width: 360 }">
     <Variant title="default">
       <TuneInputSearch v-model="input" />
     </Variant>

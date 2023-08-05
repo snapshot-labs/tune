@@ -32,7 +32,7 @@ const emit = defineEmits(['update:modelValue']);
           <IconTuneSwitchCheck class="tune-input-checkbox-icon text-[10px]" />
         </span>
 
-        <TuneLabel v-if="label" :label="label" :sub-label="subLabel" />
+        <TuneLabel v-if="label" :label="label" :sub-label="subLabel" class="cursor-pointer" />
       </div>
     </label>
   </div>
