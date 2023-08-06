@@ -52,7 +52,7 @@
   --link: 251, 251, 251;
   --text: 160, 159, 164;
 
-  --content: rgba(17, 17, 17, 0.8);
+  --content: rgba(250, 249, 252, 0.8);
 
   // accents
   --primary: 251, 251, 251;
@@ -60,8 +60,8 @@
   --danger: 235, 76, 91;
   --positive: 87, 179, 117;
 
-  --accent-hover: rgba(250, 249, 252, 0.12);
-  --accent-active: rgba(250, 249, 252, 0.32);
+  --accent-hover: rgba(28, 27, 32, 0.12);
+  --accent-active: rgba(28, 27, 32, 0.32);
   --danger-border: rgba(235, 76, 91, 0.4);
   --danger-hover: rgba(235, 76, 91, 0.04);
   --danger-active: rgba(235, 76, 91, 0.12);
@@ -93,6 +93,10 @@ body {
     font-family: 'SpaceMono';
     src: url('./assets/fonts/space-mono-v11-latin-700.woff2') format('woff2');
   }
+
+  .tune-border-lg {
+    @apply rounded-lg border border-border-color;
+  }
 }
 
 @layer components {
@@ -118,7 +122,7 @@ body {
 }
 
 .tune-input-wrapper {
-  @apply rounded-lg border border-border-color bg-input-bg-color px-[12px] pb-[6px] pt-[10px] focus-within:bg-active-bg-color [&:not(:focus-within)]:hover:bg-hover-bg-color;
+  @apply tune-border-lg bg-input-bg-color px-[12px] pb-[6px] pt-[10px] focus-within:bg-active-bg-color [&:not(:focus-within)]:hover:bg-hover-bg-color;
 
   &.error {
     @apply border-danger-color;
@@ -134,7 +138,6 @@ body {
 
   @apply h-[18px] w-full pr-4 pt-0;
 }
-
 .tune-input-search-wrapper {
   @extend .tune-input-wrapper;
 
@@ -153,7 +156,6 @@ body {
   @apply form-checkbox h-[20px] w-[20px] rounded-lg border-border-color bg-input-bg-color text-primary-color;
   @apply checked:bg-none hover:bg-hover-bg-color focus:ring-0 focus:ring-offset-0 focus-visible:bg-hover-bg-color focus-visible:ring-0 focus-visible:ring-offset-primary-color active:bg-active-bg-color;
 }
-
 .tune-input-checkbox-icon {
   @apply text-bg-color;
 }
@@ -172,7 +174,6 @@ body {
     @apply cursor-not-allowed placeholder:text-opacity-40;
   }
 }
-
 .tune-textarea-json {
   @apply no-scrollbar overflow-x-scroll whitespace-pre font-mono;
 
@@ -180,7 +181,6 @@ body {
     @apply cursor-not-allowed;
   }
 }
-
 .tune-textarea-composer-wrapper {
   @apply rounded-lg rounded-t-none border border-border-color bg-input-bg-color  px-[12px] pb-[6px] pt-[10px] focus-within:bg-active-bg-color [&:not(:focus-within)]:hover:bg-hover-bg-color;
 
@@ -192,7 +192,6 @@ body {
     @apply cursor-not-allowed border-opacity-40 bg-opacity-40;
   }
 }
-
 .tune-textarea-composer-heading {
   @apply flex justify-end gap-2 rounded-t-lg border border-b-0 border-border-color p-[12px];
 
@@ -208,15 +207,12 @@ body {
 .tune-input-chevron {
   @apply text-text-color;
 }
-
 .tune-input-chevron-up {
   @apply text-heading-color;
 }
-
 .tune-input-after {
   @apply text-text-color;
 }
-
 .tune-input-before {
   @apply text-text-color;
 }
@@ -278,7 +274,6 @@ body {
     @apply text-text-color;
   }
 }
-
 .tune-switch-button {
   @apply bg-bg-color;
 }
@@ -286,11 +281,9 @@ body {
 .tune-label {
   @apply text-base tracking-[0.32px] text-heading-color;
 }
-
 .tune-label-sublabel {
   @apply text-sm text-text-color;
 }
-
 .tune-label-input {
   @apply font-sans text-sm tracking-[0.32px] text-text-color;
 
@@ -298,7 +291,6 @@ body {
     @apply text-danger-color;
   }
 }
-
 .tune-label-input-column {
   @apply text-sm text-text-color;
 
@@ -314,7 +306,6 @@ body {
 .tune-list {
   @apply rounded-[20px] border border-border-color bg-block-bg-color;
 }
-
 .tune-list-item {
   @apply px-[16px] py-[11px] text-base hover:bg-hover-bg-color active:bg-active-bg-color;
 
@@ -350,19 +341,15 @@ body {
 .tune-modal-panel {
   @apply rounded-[20px] border border-border-color bg-bg-color p-4 sm:w-[440px];
 }
-
 .tune-modal-backdrop {
   @apply bg-hover-bg-color opacity-80;
 }
-
 .tune-modal-title {
   @apply text-center text-lg text-link-color;
 }
-
 .tune-modal-content {
   @apply mt-4 text-base;
 }
-
 .tune-modal-footer {
   @apply mt-4 flex gap-3;
 }
@@ -390,7 +377,7 @@ body {
 }
 
 .tune-selector {
-  @apply cursor-pointer rounded-lg border border-border-color px-4 py-[25px] font-semibold hover:bg-hover-bg-color focus:bg-hover-bg-color focus:outline-none;
+  @apply tune-border-lg cursor-pointer px-4 py-[25px] font-semibold hover:bg-hover-bg-color focus:bg-hover-bg-color focus:outline-none;
 
   &.active {
     @apply border-primary-color bg-bg-color hover:bg-hover-bg-color focus-visible:bg-hover-bg-color;
@@ -402,7 +389,7 @@ body {
 }
 
 .tune-alert {
-  @apply overflow-hidden rounded-lg border border-border-color text-md text-heading-color;
+  @apply tune-border-lg overflow-hidden text-md text-heading-color;
 
   &.alert-negative {
     @apply border-danger-border-color;
@@ -412,7 +399,6 @@ body {
     @apply border-positive-border-color;
   }
 }
-
 .tune-alert-icon {
   @apply bg-active-bg-color px-[18px] text-base;
 
@@ -424,9 +410,25 @@ body {
     @apply bg-positive-active-color text-positive-color;
   }
 }
-
 .tune-alert-text {
   @apply px-[24px] py-[23px];
+}
+
+.tune-loading-bg {
+  @apply animate-pulse-fast bg-border-color;
+}
+
+.tune-link-preview-wrapper {
+  @apply tune-border-lg flex w-full items-center hover:bg-hover-bg-color active:bg-active-bg-color;
+}
+.tune-link-preview-heading {
+  @apply text-heading-color;
+}
+.tune-link-preview-description {
+  @apply text-text-color;
+}
+.tune-link-preview-icon {
+  @apply text-heading-color;
 }
 
 .no-scrollbar::-webkit-scrollbar {
