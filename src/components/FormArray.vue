@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue';
-import { cloneDeep } from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 import TuneTextareaArray from './TuneTextareaArray.vue';
 import TuneListboxMultiple from './TuneListboxMultiple.vue';
 import TuneButton from './TuneButton.vue';
