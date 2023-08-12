@@ -1,3 +1,9 @@
+<script lang="ts">
+export default {
+  inheritAttrs: false
+};
+</script>
+
 <script setup lang="ts">
 import { computed, ref, nextTick, watch, onMounted } from 'vue';
 import TuneLabelInput from './TuneLabelInput.vue';
