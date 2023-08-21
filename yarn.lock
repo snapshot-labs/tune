@@ -286,7 +286,7 @@
     flexsearch "0.7.21"
     shiki-es "^0.2.0"
 
-"@histoire/controls@^0.16.1", "@histoire/controls@^0.16.4":
+"@histoire/controls@^0.16.4":
   version "0.16.4"
   resolved "https://registry.yarnpkg.com/@histoire/controls/-/controls-0.16.4.tgz#fc186ba8588a7d3d78adab382402313088090055"
   integrity sha512-oAVd5DbU3zSWE3WiLmpoYVSe46u17cAmEJUSVPQtnfZQ1XC2tonVaSUJKOUyqtzVtCfGq7yqJNwEL66Czgf0cA==
@@ -302,19 +302,19 @@
     "@histoire/vendors" "^0.16.0"
 
 "@histoire/plugin-vue@^0.16.1":
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/@histoire/plugin-vue/-/plugin-vue-0.16.1.tgz#f29be803dc86736ed832b22687ab873fd909fb03"
-  integrity sha512-K7ZZl5tA8PWHjQsWFmFX3xa4HlRs+S8+nxym1Smh4dudQ6XSVwdF+gsPQ+RE4zwf6YQ8HDPsvOobI31dz6F4Tg==
+  version "0.16.4"
+  resolved "https://registry.yarnpkg.com/@histoire/plugin-vue/-/plugin-vue-0.16.4.tgz#a412dbb4b032a0b1e95b3cff134c6d37741c8681"
+  integrity sha512-1b8Q3fIDYZWpaxtJcD6w4qX8J4+siUotZBaCRKKFGn+6biYFX8CC5dZsLcnDDwjAZHaxAewi6KxlEbuBxxGmow==
   dependencies:
-    "@histoire/controls" "^0.16.1"
-    "@histoire/shared" "^0.16.1"
+    "@histoire/controls" "^0.16.4"
+    "@histoire/shared" "^0.16.4"
     "@histoire/vendors" "^0.16.0"
     change-case "^4.1.2"
     globby "^13.1.1"
     launch-editor "^2.6.0"
     pathe "^0.2.0"
 
-"@histoire/shared@^0.16.1", "@histoire/shared@^0.16.4":
+"@histoire/shared@^0.16.4":
   version "0.16.4"
   resolved "https://registry.yarnpkg.com/@histoire/shared/-/shared-0.16.4.tgz#acaaffc34e4b4ed3b5596a22cddd2d32983a300d"
   integrity sha512-HRRKa6mxfs+mJ2AMs3Gq8h8CCtsUvW6Xp6sN6z82PgIXtTCaJUlmMFkXeEDJzA9/zh3KcrPwS5rIExahK2lQ0w==
