@@ -84,7 +84,7 @@ onMounted(() => {
   />
 
   <TuneTextareaArray
-    v-else-if="definition?.items.type === 'string'"
+    v-else-if="definition?.items?.type === 'string'"
     v-model="input"
     :definition="definition"
     :error="error"
