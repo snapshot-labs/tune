@@ -7,7 +7,7 @@ import TuneButton from '../TuneButton.vue';
 import TuneTag from '../TuneTag.vue';
 import TuneLabelInput from '../TuneLabelInput.vue';
 
-import TuneForm from '../TuneForm.vue';
+import FormObject from './FormObject.vue';
 import FormString from './FormString.vue';
 import FormNumber from './FormNumber.vue';
 import FormBoolean from './FormBoolean.vue';
@@ -28,7 +28,7 @@ const input = computed({
 const getComponent = (type: string) => {
   switch (type) {
     case 'object':
-      return TuneForm;
+      return FormObject;
     case 'string':
       return FormString;
     case 'number':
