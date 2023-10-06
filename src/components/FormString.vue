@@ -44,9 +44,11 @@ const itemsListbox = computed(() => {
 <template>
   <TuneListbox
     v-if="definition?.enum || definition?.anyOf"
+    ref="textInputRef"
     :items="itemsListbox"
     :model-value="modelValue"
     :definition="definition"
+    :error="error"
     @update:model-value="emit('update:modelValue', $event)"
   />
   <TuneTextarea

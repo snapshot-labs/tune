@@ -79,7 +79,7 @@ defineExpose({
             }
           ]"
         >
-          <span v-if="selectedItems.length < 1" class="tune-listbox-multiple-placeholder">
+          <span v-if="selectedItems.length < 1" class="tune-listbox-placeholder">
             {{ placeholder || definition?.examples?.[0] }}
           </span>
 
