@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import FormObject from './_form/FormObject.vue';
+import FormObject from './_Form/FormObject.vue';
 
 const props = defineProps<{
   modelValue: Record<string, any>;
