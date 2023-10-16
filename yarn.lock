@@ -312,7 +312,22 @@
     flexsearch "0.7.21"
     shiki-es "^0.2.0"
 
-"@histoire/controls@^0.16.1", "@histoire/controls@^0.16.5":
+"@histoire/controls@^0.16.4":
+  version "0.16.4"
+  resolved "https://registry.yarnpkg.com/@histoire/controls/-/controls-0.16.4.tgz#fc186ba8588a7d3d78adab382402313088090055"
+  integrity sha512-oAVd5DbU3zSWE3WiLmpoYVSe46u17cAmEJUSVPQtnfZQ1XC2tonVaSUJKOUyqtzVtCfGq7yqJNwEL66Czgf0cA==
+  dependencies:
+    "@codemirror/commands" "^6.1.1"
+    "@codemirror/lang-json" "^6.0.0"
+    "@codemirror/language" "^6.2.1"
+    "@codemirror/lint" "^6.0.0"
+    "@codemirror/state" "^6.1.2"
+    "@codemirror/theme-one-dark" "^6.1.0"
+    "@codemirror/view" "^6.3.0"
+    "@histoire/shared" "^0.16.4"
+    "@histoire/vendors" "^0.16.0"
+
+"@histoire/controls@^0.16.5":
   version "0.16.5"
   resolved "https://registry.yarnpkg.com/@histoire/controls/-/controls-0.16.5.tgz#057577c7dac1297a47d15355c92956253addd3f4"
   integrity sha512-2Yng6fPbBOz9EMPb4arZfvnK4/SDoxA0jYaqjtuby/WDFXk/Lvp3je8xs8PbPAzXralDDSqCu02cfBQy4bUQqg==
@@ -328,19 +343,31 @@
     "@histoire/vendors" "^0.16.5"
 
 "@histoire/plugin-vue@^0.16.1":
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/@histoire/plugin-vue/-/plugin-vue-0.16.1.tgz#f29be803dc86736ed832b22687ab873fd909fb03"
-  integrity sha512-K7ZZl5tA8PWHjQsWFmFX3xa4HlRs+S8+nxym1Smh4dudQ6XSVwdF+gsPQ+RE4zwf6YQ8HDPsvOobI31dz6F4Tg==
+  version "0.16.4"
+  resolved "https://registry.yarnpkg.com/@histoire/plugin-vue/-/plugin-vue-0.16.4.tgz#a412dbb4b032a0b1e95b3cff134c6d37741c8681"
+  integrity sha512-1b8Q3fIDYZWpaxtJcD6w4qX8J4+siUotZBaCRKKFGn+6biYFX8CC5dZsLcnDDwjAZHaxAewi6KxlEbuBxxGmow==
   dependencies:
-    "@histoire/controls" "^0.16.1"
-    "@histoire/shared" "^0.16.1"
+    "@histoire/controls" "^0.16.4"
+    "@histoire/shared" "^0.16.4"
     "@histoire/vendors" "^0.16.0"
     change-case "^4.1.2"
     globby "^13.1.1"
     launch-editor "^2.6.0"
     pathe "^0.2.0"
 
-"@histoire/shared@^0.16.1", "@histoire/shared@^0.16.5":
+"@histoire/shared@^0.16.4":
+  version "0.16.4"
+  resolved "https://registry.yarnpkg.com/@histoire/shared/-/shared-0.16.4.tgz#acaaffc34e4b4ed3b5596a22cddd2d32983a300d"
+  integrity sha512-HRRKa6mxfs+mJ2AMs3Gq8h8CCtsUvW6Xp6sN6z82PgIXtTCaJUlmMFkXeEDJzA9/zh3KcrPwS5rIExahK2lQ0w==
+  dependencies:
+    "@histoire/vendors" "^0.16.0"
+    "@types/fs-extra" "^9.0.13"
+    "@types/markdown-it" "^12.2.3"
+    chokidar "^3.5.3"
+    pathe "^0.2.0"
+    picocolors "^1.0.0"
+
+"@histoire/shared@^0.16.5":
   version "0.16.5"
   resolved "https://registry.yarnpkg.com/@histoire/shared/-/shared-0.16.5.tgz#5b60909c67de02f429a7fe2a3cda3b0b3a641e3f"
   integrity sha512-iLz/y5SiKERZGK4Ux2xXaYi89w2+ecyYTPHi62YitzfHMp7YXYi8Bk48T2NfU1HbZIi1NzbHoY8c4F6fiUG2Ag==
