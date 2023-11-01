@@ -75,7 +75,7 @@ const filteredItems = computed(() => {
 <template>
   <Combobox v-model="selectedItems" multiple :disabled="disabled" as="div" class="w-full">
     <ComboboxLabel v-if="label || definition?.title" class="block">
-      <TuneLabelInput :hint="hint || definition?.examples[0]">
+      <TuneLabelInput :hint="hint || definition?.description">
         {{ label || definition.title }}
       </TuneLabelInput>
     </ComboboxLabel>

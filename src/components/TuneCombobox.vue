@@ -24,6 +24,7 @@ const props = defineProps<{
   items: ComboboxItem[];
   label?: string;
   hint?: string;
+  placeholder?: string;
   disabled?: boolean;
   definition?: any;
 }>();
@@ -43,8 +44,8 @@ miniSearch.addAll(props.items);
 
 const searchInput = ref('');
 const selectedItem = computed({
-  get: () => props.items.find(item => item.id === props.modelValue) || props.items[0],
-  set: newVal => emit('update:modelValue', newVal.id)
+  get: () => props.items.find(item => item.id === props.modelValue) || null,
+  set: newVal => (newVal ? emit('update:modelValue', newVal.id) : emit('update:modelValue', ''))
 });
 
 const filteredItems = computed(() => {
@@ -68,9 +69,9 @@ const filteredItems = computed(() => {
 });
 </script>
 <template>
-  <Combobox v-model="selectedItem" :disabled="disabled" as="div" class="w-full">
+  <Combobox v-model="selectedItem" :disabled="disabled" as="div" class="w-full" nullable>
     <ComboboxLabel v-if="label || definition?.title" class="block">
-      <TuneLabelInput :hint="hint || definition?.examples[0]">
+      <TuneLabelInput :hint="hint || definition?.description">
         {{ label || definition.title }}
       </TuneLabelInput>
     </ComboboxLabel>
@@ -79,8 +80,9 @@ const filteredItems = computed(() => {
         <ComboboxInput
           class="tune-input w-full py-2 !pr-[30px] pl-3 focus:outline-none"
           spellcheck="false"
-          :display-value="(item: any) => item.name "
+          :display-value="(item: any) => item?.name "
           :class="{ 'cursor-not-allowed': disabled }"
+          :placeholder="placeholder || definition?.examples[0] || 'Select option'"
           :disabled="disabled"
           @change="searchInput = $event.target.value"
         />
